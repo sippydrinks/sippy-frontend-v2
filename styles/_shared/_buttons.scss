@@ -1,0 +1,53 @@
+%btn {
+	transition: all 0.2s ease-out;
+	border: 0.2rem;
+	border-style: solid;
+	outline: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: $font-900;
+	background-color: transparent;
+	box-shadow: 0.4rem 0.4rem $col-grey-darker;
+	&:hover {
+		transform: scale(1.01);
+		transition: $all-transition;
+	}
+	&:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+	&:enabled:active {
+		transition: $all-transition;
+		transform: translate(0.4rem, 0.4rem);
+		box-shadow: none;
+	}
+	@include screenMax("mobile") {
+		padding: 0;
+	}
+}
+
+%btn-primary {
+	@extend %btn;
+	border-radius: 10rem;
+	width: 29.8rem;
+	height: 7.2rem;
+	background-color: $col-background-shade;
+	color: $col-primary;
+}
+%btn-transparent {
+	@extend %btn;
+	width: 16rem;
+	height: 7.2rem;
+	border-radius: 10rem;
+	background-color: $col-background-shade;
+}
+%btn-secondary {
+	@extend %btn;
+	width: 21.7rem;
+	height: 7.2rem;
+	border-radius: 10rem;
+	background: $col-primary-default;
+	color: $col-white;
+}

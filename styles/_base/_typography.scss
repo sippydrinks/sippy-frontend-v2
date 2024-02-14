@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@font-face {
+	font-family: "Satoshi";
+	src: url("/fonts/Satoshi-Regular.woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Satoshi-500";
+	src: url("/fonts/Satoshi-Medium.woff2");
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Satoshi-700";
+	src: url("/fonts/Satoshi-Bold.woff2");
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Satoshi-900";
+	src: url("/fonts/Satoshi-Black.woff2");
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Moderat-600";
+	src: url("/fonts/moderat/Moderat-Bold.woff2");
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Moderat-700";
+	src: url("/fonts/moderat/Moderat-Black.woff2");
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}
+
+section,
+article,
+blockquote,
+div,
+span,
+nav,
+p,
+ul,
+li,
+a {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
