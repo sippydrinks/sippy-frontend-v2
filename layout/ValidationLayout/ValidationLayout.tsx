@@ -1,4 +1,5 @@
 'use client';
+import styles from './ValidationLayout.module.scss'
 
 const ValidationLayout = () => {
   return (
