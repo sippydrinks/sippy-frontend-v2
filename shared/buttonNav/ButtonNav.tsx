@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Button from '../button/Button';
 import styles from './ButtonNav.module.scss';
-import { useGlobalContext } from '@/app/contexts/AppContext';
+import { useGlobalContext } from '@/contexts/AppContext';
 
 const ButtonNav = () => {
 	const { drinkType, theme }: any = useGlobalContext();

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './Product.module.scss';
 import { Button } from '..';
 import Image from 'next/image';
-import { useGlobalContext } from '@/app/contexts/AppContext';
+import { useGlobalContext } from '@/contexts/AppContext';
 
 const Product = () => {
 	const { theme, drinkType }: any = useGlobalContext();

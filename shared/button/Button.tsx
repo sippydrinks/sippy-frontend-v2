@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 import Image from 'next/legacy/image';
-import { ContextProps, useGlobalContext } from '@/app/contexts/AppContext';
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
 	buttonType?: 'primary' | 'transparent';

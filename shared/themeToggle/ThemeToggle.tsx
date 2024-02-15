@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styles from './ThemeToggle.module.scss';
 import Image from 'next/image';
-import { useGlobalContext } from '@/app/contexts/AppContext';
+import { useGlobalContext } from '@/contexts/AppContext';
 
 const ThemeToggle = () => {
 	const { theme, setTheme }: any = useGlobalContext();

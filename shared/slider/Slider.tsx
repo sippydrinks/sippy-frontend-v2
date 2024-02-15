@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './Slider.module.scss';
 import { Button } from '..';
 import Image from 'next/image';
-import { useGlobalContext } from '@/app/contexts/AppContext';
+import { useGlobalContext } from '@/contexts/AppContext';
 
 interface Props {
 	slides: any[];
