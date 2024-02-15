@@ -1,0 +1,28 @@
+@import "@/styles/imports";
+
+.container {
+	@include grid(repeat(2, 1fr), 0.8rem);
+	border: 0.2rem solid $light-border-divider;
+	border-radius: 10rem;
+	width: 7.2rem;
+	margin-left: 3.2rem;
+	background-color: $col-yellow-500;
+	padding: 0.4rem;
+	transition: $all-transition;
+	.image {
+		position: relative;
+		cursor: pointer;
+		width: 3.2rem;
+		height: 3.2rem;
+		transition: $all-transition;
+	}
+	&[data-type="dark"] {
+		border-color: $dark-border-divider;
+		background-color: $col-primary-default;
+		transition: $all-transition;
+		.image {
+			transition: $all-transition;
+			transform: translate(2.8rem);
+		}
+	}
+}

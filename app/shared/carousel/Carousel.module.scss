@@ -1,0 +1,68 @@
+@import "@/styles/imports";
+
+.container {
+	border-top: 0.2rem solid $col-black;
+	border-bottom: 0.2rem solid $col-black;
+	padding: 3.2rem 0;
+	width: calc(100% + 8rem);
+	margin-left: -4rem;
+	margin-right: -4rem;
+	overflow-x: hidden;
+	.row {
+		@include flex(flex-start, center);
+		flex-wrap: nowrap;
+		animation: scroll 15s linear infinite;
+		.text {
+			h1 {
+				@extend %title-72;
+				font-family: $font-900;
+				text-transform: uppercase;
+				color: $col-black;
+			}
+		}
+		.icon {
+			position: relative;
+			width: 7.2rem;
+			height: 7.2rem;
+			margin: 0 2.4rem;
+			flex-shrink: 0;
+		}
+	}
+	&[data-type="dark"] {
+		border-color: $col-white;
+		.row {
+			.text {
+				h1 {
+					color: $col-white;
+				}
+			}
+		}
+	}
+	@include screenMax("mobile") {
+		width: calc(100% + 4.8rem);
+		margin-left: -2.4rem;
+		margin-right: -2.4rem;
+		padding: 1.6rem 0;
+		.row {
+			.text {
+				h1 {
+					font-size: 3.2rem;
+					line-height: 4.4rem;
+				}
+			}
+			.icon {
+				width: 4rem;
+				height: 4rem;
+			}
+		}
+	}
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-200%);
+	}
+}
