@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './Carousel.module.scss';
 import Image from 'next/image';
-import { ContextProps, useGlobalContext } from '@/app/contexts/AppContext';
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
 
 interface Props {
 	title: string;

@@ -1,4 +1,4 @@
-import { Logo } from '@/app/shared';
+import { Logo } from '@/shared';
 import styles from './Footer.module.scss';
 
 const Footer = () => {

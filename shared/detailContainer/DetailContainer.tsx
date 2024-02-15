@@ -1,4 +1,4 @@
-import { formatLargeNum, formatNumber } from '@/app/utils';
+import { formatLargeNum, formatNumber } from '@/utils';
 import Image from 'next/legacy/image';
 import React from 'react';
 import styles from './DetailContainer.module.scss';

@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Select.module.scss';
 import Image from 'next/image';
-import { shortenTitle } from '@/app/utils';
+import { shortenTitle } from '@/utils';
 import { SmallLoader } from '../../loaders';
-import { SelectOption } from '@/app/types';
+import { SelectOption } from '@/types';
 
 export interface OptionProps {
 	label: string;

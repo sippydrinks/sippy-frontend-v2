@@ -1,6 +1,6 @@
 'use client';
-import ChartLoader from '@/app/shared/loaders/chartLoader/ChartLoader';
-import { formatLargeNum } from '@/app/utils';
+import ChartLoader from '@/shared/loaders/chartLoader/ChartLoader';
+import { formatLargeNum } from '@/utils';
 import { useEffect, Dispatch, SetStateAction } from 'react';
 import { ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area, CartesianGrid } from 'recharts';
 import styles from './Chart.module.scss';

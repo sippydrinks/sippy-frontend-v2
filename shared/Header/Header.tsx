@@ -3,11 +3,11 @@
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { Button, Logo } from '@/app/shared';
+import { Button, Logo } from '@/shared';
 import styles from './Header.module.scss';
 import ButtonNav from '../buttonNav/ButtonNav';
 import ThemeToggle from '../themeToggle/ThemeToggle';
-import { useGlobalContext } from '@/app/contexts/AppContext';
+import { useGlobalContext } from '@/contexts/AppContext';
 import Image from 'next/image';
 // import { navLinks } from "@/mock";
 
