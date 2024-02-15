@@ -21,7 +21,7 @@
 	&:enabled:active {
 		transition: $all-transition;
 		transform: translate(0.4rem, 0.4rem);
-		box-shadow: none;
+		box-shadow: 0.1rem 0.1rem $col-grey-darker;
 	}
 	@include screenMax("mobile") {
 		padding: 0;
