@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useContext, createContext, useMemo } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const AppContext = createContext<any>(null);
 

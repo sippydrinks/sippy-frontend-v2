@@ -1,12 +1,11 @@
 'use client';
 import { useRouter, usePathname } from 'next/navigation';
 import React from 'react';
-import Button from '../button/Button';
 import styles from './ButtonNav.module.scss';
-import { useGlobalContext } from '@/contexts/AppContext';
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
 
 const ButtonNav = () => {
-	const { drinkType, theme }: any = useGlobalContext();
+	const { theme }: ContextProps = useGlobalContext();
 	const router = useRouter();
 	const route = usePathname()
 
@@ -33,7 +32,6 @@ const ButtonNav = () => {
 			<div
 				className={styles.button_container}
 				onClick={() => {
-					// router.push('/');
 					handleNonAlcohol()
 				}}>
 				<div className={styles.button} data-active={checkActive('/')} data-route={checkRoute}>
@@ -43,7 +41,6 @@ const ButtonNav = () => {
 			<div
 				className={styles.button_container}
 				onClick={() => {
-					// router.push('/alcohol');
 					handleAlcohol()
 				}}>
 				<div className={styles.button} data-active={checkActive('/alcohol')} data-route={checkRoute}>

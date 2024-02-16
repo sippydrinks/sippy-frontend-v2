@@ -15,7 +15,6 @@ const useFetchAll = () => {
 			setProductListing(drinkList.data);
 		}
 	}, [drinkList, setProductListing]);
-	console.log(drinkList, drinkType);
 };
 
 export default useFetchAll;
