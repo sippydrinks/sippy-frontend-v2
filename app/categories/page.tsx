@@ -4,7 +4,7 @@ import { MainLayout } from "@/layout";
 
 export default function Categories() {
     return (
-        <MainLayout>
+        <MainLayout type="soft" isNavButton>
             <CategoriesView />
         </MainLayout>
     )

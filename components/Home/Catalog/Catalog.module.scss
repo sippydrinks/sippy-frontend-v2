@@ -1,0 +1,112 @@
+@import "@/styles/imports";
+
+.catalog_container {
+    margin: 0 auto 15.5rem;
+    width: 100%;
+    position: relative;
+    @include screenMax("mobile") {
+        margin: 0 auto 8rem;
+    }
+    .catalog_text {
+        margin: 0 4rem 8rem;
+        border-bottom: 0.4rem solid $col-grey-dark-stroke;
+        padding-bottom: 5.6rem;
+        display: flex;
+        gap: 5rem;
+        @include screenMax("mobile") {
+            flex-direction: column-reverse;
+            gap: 1.6rem;
+            padding-bottom: 2.4rem;
+            margin: 0 1.6rem 6rem;
+        }
+
+        .inline {
+            &[data-theme = "dark"] {
+                p, span {
+                    color: $col-white;
+                }
+            }
+            .first {
+                display: flex;
+                align-items: center;
+                gap: 5.6rem;
+                margin-bottom: 0.8rem;
+                @include screenMax("mobile") {
+                    flex-direction: column;
+                    align-items: unset;
+                    gap: unset;
+                }
+            }
+            p {
+                @include screenMax("mobile") {
+                    display: none;
+                }
+            }
+        }
+
+
+        .headerTitle {
+            @extend %text-24;
+            font-family: $font;
+            color: $col-grey-500;
+            min-width: fit-content;
+        }
+        .headerText {
+            @extend %title-72;
+            font-family: $font-900;
+            color: $col-black;
+            width: 100%;
+            @include screenMax("mobile") {
+                font-size: 2.4rem;
+                line-height: 3.6rem;
+            }
+            .headerText_mob {
+                display: none;
+                @include screenMax("mobile") {
+                    display: block;
+                    font-size: 2.4rem;
+                    line-height: 3.6rem;
+                }
+            }
+        }
+        .bottle {
+            width: 12rem;
+            height: 12rem;
+            align-self: flex-end;
+            position: relative;
+            @include screenMax("mobile") {
+                height: 4.5rem;
+                width: 4.5rem;
+                align-self: flex-start;
+            }
+        }
+    }
+
+    .hero_container {
+        margin: 0 auto 8rem;
+        @include grid(repeat(4, 1fr), 4rem);
+        padding:  0 4rem;
+        @include screenMax("mobile") {
+            margin: 0 auto 4rem;
+            @include grid(repeat(2, 1fr), 4rem);
+        }
+    }
+    .btn_wrapper {
+        &[data-route = "/alcohol"] {
+            .view_more {
+                background: $col-coral-500;
+            }
+        }
+        .view_more {
+            margin: 0 auto;
+            cursor: pointer;
+            width: 22rem;
+            background: $col-primary-default;
+            h3 {
+                @extend %text-16;
+                font-family: $font-900;
+                color: $col-white;
+            }
+        }
+    }
+}

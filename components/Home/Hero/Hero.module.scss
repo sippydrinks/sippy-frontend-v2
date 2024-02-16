@@ -1,0 +1,13 @@
+@import "@/styles/imports";
+
+.hero_container {
+    margin: 0 auto 8rem;
+    @include grid(repeat(4, 1fr), 4rem);
+    padding:  0 4rem;
+
+    @include screenMax("mobile") {
+        padding: 0 1.6rem;
+        @include grid(repeat(2, 1fr), 4rem);
+        margin: 4rem 0;
+    }
+}

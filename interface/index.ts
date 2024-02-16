@@ -118,3 +118,7 @@ export interface CheckboxProps {
 	disabled?: boolean;
     value?: string | number
 }
+
+export interface HeaderProps {
+    isNavButton?: boolean
+}

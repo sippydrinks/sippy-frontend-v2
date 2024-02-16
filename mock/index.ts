@@ -1,7 +1,7 @@
 import AlcoholicDrinkData from "./AlcoholicDrinkData"
 import ProductData from "./ProductData"
 import productListData from "./productListData"
-import reviewData from "./reviewData"
+
 import SoftDrinksData from "./SoftDrinksData"
 import navItems from "./navItems"
 import cartData from "./cartData"
@@ -19,7 +19,6 @@ export {
     accountData,
     ProductData,
     productListData,
-    reviewData,
     SoftDrinksData,
     navItems,
     ongoingOrdersData,

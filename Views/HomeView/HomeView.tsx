@@ -1,8 +1,40 @@
 'use client';
+import { useState, useEffect } from "react";
+import { PreLoader } from "@/shared/loaders";
+import { Hero, Catalog } from "@/components/Home";
+import { Carousel, Slider, SoftDrinkCategory, AlcoholDrinkCategory, MobileAppWidget } from "@/shared";
+import { DrinkTypeProps } from "@/interface/home";
 
-const HomeView = () => {
+const HomeView = ({type}: DrinkTypeProps) => {
+  const [loading, setLoading] = useState<boolean>(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [loading])
+  const slides = [1, 2, 3]
   return (
-    <div>HomeView</div>
+    <>
+      {
+        loading ? (
+          <PreLoader />
+        ) : (
+          <>
+            <Hero type={type} />
+            <Carousel 
+              title='categories'
+              icon1='/svgs/starGreen.svg'
+              icon2='/svgs/StarOrange.svg'
+              isBorder
+            />
+            {type === 'soft' ? <SoftDrinkCategory /> : <AlcoholDrinkCategory />}
+            <Slider slides={slides} key={''} />
+            <Catalog type={type} />
+            <MobileAppWidget />
+          </>
+        )
+    }
+    </>
   )
 }
 
