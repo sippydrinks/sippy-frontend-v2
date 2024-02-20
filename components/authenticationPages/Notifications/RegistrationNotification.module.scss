@@ -1,0 +1,91 @@
+@import "@/styles/imports";
+
+.notification_page {
+	height: 100%;
+	min-height: 100vh;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	// gap: 5rem;
+	justify-content: center;
+	align-items: center;
+	background: url("/svgs/notifications-bg.svg") no-repeat center center fixed;
+	background-color: $col-background-shade;
+	position: relative;
+
+	.logo {
+		display: none;
+		@include screenMax("mobile") {
+			display: block;
+			position: absolute;
+			top: 6rem;
+		}
+	}
+
+	.notification_container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 400px;
+
+		.notification_svg {
+			width: 294px;
+			height: 200px;
+		}
+
+		h2 {
+			margin-top: 10px;
+			@extend %text-24;
+			color: $col-grey-900;
+			font-family: $font-900;
+		}
+
+		.subTitle_icon {
+			padding: 0.5rem 1.5rem;
+			border-radius: 8px;
+			margin-top: 1rem;
+
+			&[dataType="success"] {
+				background-color: $col-blue-50;
+			}
+			&[dataType="failed"] {
+				background-color: $col-purple-50;
+			}
+
+			.icon {
+				height: 50px;
+				width: 50px;
+			}
+
+			p {
+				color: $col-grey-900;
+				@extend %text-16;
+				font-family: $font-700;
+			}
+		}
+
+		.description {
+			text-align: center;
+			margin-top: 8px;
+			color: $col-grey-500;
+			@extend %text-14;
+			// color: $col-grey;
+		}
+
+		.notification_btn {
+			width: 100%;
+			margin-top: 20px;
+			@extend %text-16;
+		}
+
+		@include screenMax("mobile") {
+			width: 100%;
+		}
+	}
+
+	@include screenMax("mobile") {
+		margin: 1rem;
+		border-radius: 1rem;
+	}
+}

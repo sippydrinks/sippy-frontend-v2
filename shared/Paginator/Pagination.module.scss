@@ -1,0 +1,49 @@
+@import "@/styles/imports";
+
+.pageBtns_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2.4rem;
+	transition: $all-transition;
+	margin: 0;
+	.pageBtn {
+		width: 5.1rem;
+		height: 5.1rem;
+		position: relative;
+		border: 0.2rem solid $light-text-main;
+		@extend %flex-center;
+		border-radius: 50%;
+		cursor: pointer;
+		h3 {
+			color: $light-text-main;
+			@extend %text-18;
+			font-family: $font-900;
+		}
+		&[data-theme="dark"] {
+			border-color: #f4f4f4;
+			h3 {
+				color: $col-white;
+				@extend %text-18;
+				font-family: $font-900;
+			}
+		}
+		&[data-active="true"] {
+			background: $col-primary-default;
+			border: 0;
+			h3 {
+				@extend %text-18;
+				color: $col-white;
+				font-family: $font-900;
+			}
+		}
+		@include screenMax("mobile") {
+			width: 3rem;
+			height: 3rem;
+			svg {
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+	}
+}

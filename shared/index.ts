@@ -16,8 +16,12 @@ import Icon from "./icon/Icon";
 import Carousel from "./carousel/Carousel";
 import Product from "./product/Product";
 import Slider from "./slider/Slider";
+import AuthComponent from './authComponent/AuthComponent';
+import AuthBanner from './authBanner/AuthBanner';
 
 export {
+	AuthBanner,
+	AuthComponent,
 	Nprogress,
 	Button,
 	Logo,

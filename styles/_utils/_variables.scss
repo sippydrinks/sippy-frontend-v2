@@ -1,0 +1,376 @@
+// colors
+
+// Purple
+
+$col-purple-50: #eee6f0;
+$col-purple-100: #cab0d0;
+$col-purple-200: #b08aba;
+$col-purple-300: #8c549a;
+$col-purple-400: #763386;
+$col-purple-500: #540068;
+$col-purple-600: #4c005f;
+$col-purple-700: #3c004a;
+$col-purple-800: #2e0039;
+$col-purple-900: #23002c;
+
+// Grey
+
+$col-grey-50: #ffffff;
+$col-grey-100: #f4f4f4;
+$col-grey-200: #e3e3e3;
+$col-grey-300: #a3a3a3;
+$col-grey-400: #7d7d7d;
+$col-grey-500: #4f4f4f;
+$col-grey-600: #353535;
+$col-grey-700: #2a2a2a;
+$col-grey-800: #1d1d1d;
+$col-grey-900: #0b0a0a;
+
+// Coral
+
+$col-coral-50: #fdf1ec;
+$col-coral-100: #f8d5c5;
+$col-coral-200: #f4c0a9;
+$col-coral-300: #efa382;
+$col-coral-400: #ec9169;
+$col-coral-500: #e77644;
+$col-coral-600: #d26b3e;
+$col-coral-700: #a45430;
+$col-coral-800: #7f4125;
+$col-coral-900: #61321d;
+
+// Yellow
+
+$col-yellow-50: #fffaf1;
+$col-yellow-100: #fcedc5;
+$col-yellow-200: #fbe5a9;
+$col-yellow-300: #f9d982;
+$col-yellow-400: #f8d169;
+$col-yellow-500: #f6c644;
+$col-yellow-600: #e0b43e;
+$col-yellow-700: #af8d30;
+$col-yellow-800: #876d25;
+$col-yellow-900: #67531d;
+
+// Blue
+
+$col-blue-50: #ebf8ff;
+$col-blue-100: #c2e9ff;
+$col-blue-200: #a4deff;
+$col-blue-300: #7acfff;
+$col-blue-400: #61c6ff;
+$col-blue-500: #39b8ff;
+$col-blue-600: #34a7e8;
+$col-blue-700: #2883b5;
+$col-blue-800: #1f658c;
+$col-blue-900: #184d6b;
+$col-blue-gradient: linear-gradient(89.94deg, #5070f0 0.9%, #3dcbf2 99.95%);
+
+// Success
+
+$col-success-50: #edfade;
+$col-success-100: #e0f1cc;
+$col-success-200: #b9d39d;
+$col-success-300: #98bf70;
+$col-success-400: #85b255;
+$col-success-500: #669f2a;
+$col-success-600: #5d9126;
+$col-success-700: #48711e;
+$col-success-800: #385717;
+$col-success-900: #2b4312;
+
+// Warning
+
+$col-warning-50: #ffedd9;
+$col-warning-100: #ffd1b0;
+$col-warning-200: #ffbb8a;
+$col-warning-300: #ff9c54;
+$col-warning-400: #ff8933;
+$col-warning-500: #ff6b00;
+$col-warning-600: #e86100;
+$col-warning-700: #b54c00;
+$col-warning-800: #8c3b00;
+$col-warning-900: #6b2d00;
+
+// Error
+
+$col-error-50: #ffeceb;
+$col-error-100: #ffc5c2;
+$col-error-200: #ff9e99;
+$col-error-300: #ff7770;
+$col-error-400: #ef342b;
+$col-error-500: #e41c11;
+$col-error-600: #be170e;
+$col-error-700: #98120b;
+$col-error-800: #85100a;
+$col-error-900: #5f0c07;
+
+// Light Background
+
+$light-background-sd-body: $col-yellow-50;
+$light-background-sd-frame: $col-purple-500;
+$light-background-ad-body: $col-grey-100;
+$light-background-ad-frame: $col-coral-500;
+$light-background-card: $col-grey-50;
+$light-background-sd-card: rgba($col-purple-50, 0.5);
+$light-background-ad-card: $col-coral-50;
+$light-background-card-dark: $col-grey-900;
+$light-background-overlay: rgba($col-grey-900, 0.7);
+$light-background-error-surface: $col-error-50;
+$light-background-error-default: $col-error-500;
+$light-background-warning-surface: $col-warning-50;
+$light-background-warning-default: $col-warning-500;
+$light-background-success-surface: $col-success-50;
+$light-background-success-default: $col-success-500;
+$light-background-primary-surface: $col-purple-50;
+$light-background-primary-default: $col-purple-500;
+$light-background-secondary-surface: $col-coral-50;
+$light-background-secondary-default: $col-coral-500;
+$light-background-grey-surface: $col-grey-200;
+$light-background-grey-info: $col-grey-100;
+
+// Dark Background
+
+$dark-background-sd-body: $col-grey-900;
+$dark-background-sd-frame: $col-purple-500;
+$dark-background-ad-body: $col-grey-800;
+$dark-background-ad-frame: $col-coral-500;
+$dark-background-card: $col-grey-900;
+$dark-background-sd-card: rgba($col-grey-800, 0.5);
+$dark-background-ad-card: rgba($col-grey-800, 0.5);
+$dark-background-card-dark: $col-grey-50;
+$dark-background-overlay: rgba($col-grey-500, 0.1);
+$dark-background-error-surface: $col-error-900;
+$dark-background-error-default: $col-error-500;
+$dark-background-warning-surface: $col-warning-900;
+$dark-background-warning-default: $col-warning-500;
+$dark-background-success-surface: $col-success-900;
+$dark-background-success-default: $col-success-500;
+$dark-background-primary-surface: $col-purple-900;
+$dark-background-primary-default: $col-purple-500;
+$dark-background-secondary-surface: $col-coral-900;
+$dark-background-secondary-default: $col-coral-500;
+$dark-background-grey-surface: $col-grey-700;
+$dark-background-grey-info: $col-grey-800;
+
+// Light Text
+
+$light-text-main: $col-grey-900;
+$light-text-reverse-main: $col-grey-50;
+$light-text-subtext: $col-grey-500;
+$light-text-disabled: $col-grey-300;
+$light-text-primary: $col-purple-800;
+$light-text-secondary: $col-coral-800;
+$light-text-error: $col-error-800;
+$light-text-success: $col-success-800;
+$light-text-warning-default: $col-warning-800;
+
+// Dark Text
+
+$dark-text-main: $col-grey-100;
+$dark-text-reverse-main: $col-grey-900;
+$dark-text-subtext: $col-grey-300;
+$dark-text-disabled: $col-grey-500;
+$dark-text-primary: $col-purple-50;
+$dark-text-secondary: $col-coral-50;
+$dark-text-error: $col-error-50;
+$dark-text-success: $col-success-100;
+$dark-text-warning-default: $col-warning-50;
+
+// Light Button
+
+$light-button-default: $col-purple-500;
+$light-button-primary-hover: $col-purple-600;
+$light-button-primary-pressed: $col-purple-700;
+$light-button-disabled: $col-grey-200;
+$light-button-secondary-default: $col-coral-500;
+$light-button-secondary-hover: $col-coral-600;
+$light-button-secondary-pressed: $col-coral-700;
+
+// Dark Button
+
+$dark-button-default: $col-purple-500;
+$dark-button-primary-hover: $col-purple-400;
+$dark-button-primary-pressed: $col-purple-300;
+$dark-button-disabled: $col-grey-600;
+$dark-button-secondary-default: $col-coral-300;
+$dark-button-secondary-hover: $col-coral-400;
+$dark-button-secondary-pressed: $col-coral-500;
+
+// Light Border
+
+$light-border-divider: $col-grey-700;
+$light-border-button: $col-grey-700;
+$light-border-button-hover: $col-grey-800;
+$light-border-button-pressed: $col-grey-900;
+$light-border-button-disabled: $col-grey-300;
+$light-border-default: $col-grey-200;
+$light-border-pressed: $col-purple-400;
+$light-border-disabled: $col-grey-200;
+
+// Dark Border
+
+$dark-border-divider: $col-grey-300;
+$dark-border-button: $col-grey-50;
+$dark-border-button-hover: $col-grey-100;
+$dark-border-button-pressed: $col-grey-200;
+$dark-border-button-disabled: $col-grey-600;
+$dark-border-default: $col-grey-700;
+$dark-border-pressed: $col-purple-500;
+$dark-border-disabled: $col-grey-500;
+
+// Light Icon
+
+$light-icon-default: $col-grey-800;
+
+// Dark Icon
+
+$dark-icon-default: $col-grey-100;
+
+$col-primary: #151515;
+$col-secondary: #1a1b20;
+$col-white-dull: #cacaca;
+$col-text-secondary: #b1b5c3;
+$col-black: #000;
+$col-white: #ffffff;
+$col-background-shade: #fffaf1;
+
+//Orange
+$col-orange-background: #8d4829;
+$col-orange-hover: #a25330;
+$col-orange-active: #e77644;
+$col-orange-default: #eb8d64;
+$col-orange-light: #f1b093;
+$col-orange-lighter: #f5c7b2;
+$col-orange-lightest: #fdf1ec;
+
+// Green
+$col-green-background: #24380f;
+$col-green-hover: #3d5f19;
+$col-green-active: #527f22;
+$col-green-default: #669f2a;
+$col-green-light: #d0e1bd;
+$col-green-lighter: #e8f1df;
+$col-green-lightest: #f0f5ea;
+
+// Purple
+$col-primary-background: #24002d;
+$col-primary-hover: #33003f;
+$col-primary-active: #3b0049;
+$col-primary-default: #540068;
+$col-primary-light: #9c6ba7;
+$col-primary-lighter: #b996c1;
+$col-primary-lightest: #eee6f0;
+
+// Yellow
+$col-yellow-background: #685318;
+$col-yellow-hover: #967929;
+$col-yellow-active: #ac8b30;
+$col-yellow-default: #f6c644;
+$col-yellow-light: #fade93;
+$col-yellow-lighter: #fbe8b2;
+$col-yellow-lightest: #fef9ec;
+
+// Grey
+$col-grey-header: #121212;
+$col-grey-darker: #151515;
+$col-grey-dark-stroke: #1e1e1e;
+$col-grey-texts: #444444;
+$col-grey-light: #7d7d7d;
+$col-grey-light-stroke: #a3a3a3;
+$col-grey-lightest: #e9e9e9;
+
+$col-error-background: #541814;
+$col-error-hover: #902922;
+$col-error-active: #c0362d;
+$col-error-default: #f04438;
+$col-error-light: #fac5c1;
+$col-error-lighter: #fde3e1;
+$col-error-lightest: #feeceb;
+
+// Warning
+$col-warning-background: #523300;
+$col-warning-hover: #865503;
+$col-warning-active: #f3a218;
+$col-warning-default: #f5b546;
+$col-warning-light: #f7d394;
+$col-warning-lighter: #fbe2b7;
+$col-warning-lightest: #fef6e7;
+
+//
+$col-success-background: #24380f;
+$col-success-hover: #3d5f19;
+$col-success-active: #527f22;
+$col-success-default: #669f2a;
+$col-success-light: #d0e1bd;
+$col-success-lighter: #e8f1df;
+$col-success-lightest: #f0f5ea;
+
+// fonts
+$font: "Satoshi";
+$font-500: "Satoshi-500";
+$font-700: "Satoshi-700";
+$font-900: "Satoshi-900";
+$font-Inter: "Inter, sans-serif";
+
+$z-indexes: ("level-four", "level-three", "level-two", "level-one");
+
+//transition
+$all-transition: all 0.3s ease-out;
+$elastic-out: linear(
+	0,
+	0.2178 2.1%,
+	1.1144 8.49%,
+	1.2959 10.7%,
+	1.3463 11.81%,
+	1.3705 12.94%,
+	1.3726,
+	1.3643 14.48%,
+	1.3151 16.2%,
+	1.0317 21.81%,
+	0.941 24.01%,
+	0.8912 25.91%,
+	0.8694 27.84%,
+	0.8698 29.21%,
+	0.8824 30.71%,
+	1.0122 38.33%,
+	1.0357,
+	1.046 42.71%,
+	1.0416 45.7%,
+	0.9961 53.26%,
+	0.9839 57.54%,
+	0.9853 60.71%,
+	1.0012 68.14%,
+	1.0056 72.24%,
+	0.9981 86.66%,
+	1
+);
+$elastic-in-out: linear(
+	0,
+	0.0009 8.51%,
+	-0.0047 19.22%,
+	0.0016 22.39%,
+	0.023 27.81%,
+	0.0237 30.08%,
+	0.0144 31.81%,
+	-0.0051 33.48%,
+	-0.1116 39.25%,
+	-0.1181 40.59%,
+	-0.1058 41.79%,
+	-0.0455,
+	0.0701 45.34%,
+	0.9702 55.19%,
+	1.0696 56.97%,
+	1.0987 57.88%,
+	1.1146 58.82%,
+	1.1181 59.83%,
+	1.1092 60.95%,
+	1.0057 66.48%,
+	0.986 68.14%,
+	0.9765 69.84%,
+	0.9769 72.16%,
+	0.9984 77.61%,
+	1.0047 80.79%,
+	0.9991 91.48%,
+	1
+);

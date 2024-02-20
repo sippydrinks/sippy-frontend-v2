@@ -1,0 +1,105 @@
+@import "@/styles/imports";
+
+.cardContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&[data-type="dark"] {
+		h3,
+		p,
+		h4 {
+			color: $col-white;
+		}
+	}
+	@include screenMax("mobile") {
+		margin-bottom: 2rem;
+	}
+	.clip_path {
+		width: 100%;
+		height: 25rem;
+		position: relative;
+		@extend %center;
+		cursor: pointer;
+		.productIconContainer {
+			position: absolute;
+			.productIcon {
+				position: relative;
+				width: 16rem;
+				height: 16rem;
+				@include screenMax("mobile") {
+					width: 8.4rem;
+					height: 8.4rem;
+				}
+			}
+		}
+		@include screenMax("mobile") {
+			height: 13rem;
+		}
+		.svg_stroke {
+			opacity: 0;
+			transition: $all-transition;
+		}
+		.svg_path {
+			opacity: 0.1;
+			transition: $all-transition;
+			&[data-type="alcohol"] {
+				opacity: 0.5;
+			}
+			&[data-theme="dark"] {
+				opacity: 0.1;
+			}
+		}
+		&[data-hover="true"] {
+			.svg_path {
+				opacity: 1;
+				transition: $all-transition;
+				stroke-width: 0.6rem;
+				stroke: #000;
+				&[data-theme="dark"] {
+					stroke-width: 0.6rem;
+					stroke: #fff;
+				}
+			}
+			.svg_stroke {
+				opacity: 1;
+				transition: $all-transition;
+			}
+		}
+	}
+
+	.productName {
+		font-family: $font-900;
+		color: $col-grey-darker;
+		@extend %title-24;
+		text-transform: capitalize;
+		@include screenMax("mobile") {
+			font-size: 1.8rem;
+			line-height: 2.7rem;
+		}
+	}
+	.productPrice {
+		color: $col-grey-500;
+		font-family: $font;
+		@extend %text-16;
+		margin-bottom: 2.4rem;
+	}
+	.btn {
+		cursor: pointer;
+		@include screenMax("mobile") {
+			width: 100%;
+			height: 5rem;
+		}
+		.buttonText {
+			@extend %text-16;
+			font-family: $font-900;
+			color: $light-text-main;
+			&[data-type="dark"] {
+				color: $col-white;
+			}
+			@include screenMax("mobile") {
+				font-size: 1.4rem;
+				line-height: 2.4rem;
+			}
+		}
+	}
+}
