@@ -1,5 +1,5 @@
 import Account from "./Account/Account"
-import Cart from "./Cart/Cart"
+import CartDetails from "./CartDetails/CartDetails"
 import Categories from "./Categories/Categories"
 import Checkout from "./Checkout/Checkout"
 import ProductDetails from "./ProductDetails/ProductDetails"
@@ -7,7 +7,7 @@ import Validation from "./Validation/Validation"
 
 export {
     Account,
-    Cart,
+    CartDetails,
     Categories,
     Checkout,
     ProductDetails,

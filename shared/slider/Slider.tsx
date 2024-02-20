@@ -46,7 +46,7 @@ const Slider = ({ slides }: Props) => {
 			</div>
 			<div className={styles.container} data-type={drinkType}>
 				<div className={styles.slider}>
-					{slides.map((slide: any) => {
+					{slides.map((slide: any, index: number) => {
 						let position = '';
 						if (slide.id === index) {
 							position = 'slide__activeSlide';
@@ -63,7 +63,7 @@ const Slider = ({ slides }: Props) => {
 						// ) {
 						// 	position = "slide__lastSlide";
 						// }
-						return <div className={`${styles.slide} ${styles[position]}`} key={slide.id}></div>;
+						return <div className={`${styles.slide} ${styles[position]}`} key={index}></div>;
 					})}
 				</div>
 				<div className={styles.grid}>

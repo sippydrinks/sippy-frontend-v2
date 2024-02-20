@@ -10,8 +10,11 @@ export interface ContextProps {
 	categoryHeight: number
 	productListing: []
 	cart: []
+	savedItems: []
+	cartDetails: {}
 	setCart: React.Dispatch<React.SetStateAction<[]>>
 	setProductListing: React.Dispatch<React.SetStateAction<[]>>
+	setSavedItems: React.Dispatch<React.SetStateAction<[]>>
 	setCategoryHeight: React.Dispatch<React.SetStateAction<number>>
 	setTheme: React.Dispatch<React.SetStateAction<'light' | 'dark'>>;
 }

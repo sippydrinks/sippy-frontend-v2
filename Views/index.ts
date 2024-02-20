@@ -3,7 +3,7 @@ import AuthenticationView from "./AuthenticationView/AuthenticationView"
 import CartView from "./CartView/CartView"
 import CategoriesView from "./CategoriesView/CategoriesView"
 import CheckoutView from "./CheckoutView/CheckoutView"
-import HomeView from "./HomeView/HomeView"
+// import HomeView from "./HomeView/HomeView"
 import OrdersView from "./OrdersView/OrdersView"
 import ProductDetailsView from "./ProductDetailsView/ProductDetailsView"
 
@@ -13,7 +13,7 @@ export {
     CartView,
     CategoriesView,
     CheckoutView,
-    HomeView,
+    // HomeView,
     OrdersView,
     ProductDetailsView,
 }

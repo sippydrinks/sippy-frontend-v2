@@ -15,6 +15,9 @@ import ButtonNav from "./buttonNav/ButtonNav";
 import Dropdown from "./Dropdown/Dropdown";
 import SoftDrinkCategory from "./drinkTypesCard/soft/SoftDrinkCategory";
 import AlcoholDrinkCategory from "./drinkTypesCard/alcohol/AlcoholDrinkCategory";
+// import ModalElement from "./modalElement/ModalElement";
+// import ItemDetailsCard from "./ItemDetailsCard/ItemDetailsCard";
+// import Counter from "./counter/Counter";
 
 export {
 	Button,
@@ -34,4 +37,7 @@ export {
 	Dropdown,
 	AlcoholDrinkCategory,
 	SoftDrinkCategory,
+	// ModalElement,
+	// ItemDetailsCard,
+	// Counter,
 };
