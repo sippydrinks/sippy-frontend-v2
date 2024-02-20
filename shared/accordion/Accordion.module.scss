@@ -1,0 +1,97 @@
+@import "@/styles/imports";
+
+.accordionContainer {
+	border: 0.4rem solid #e3e3e3;
+	border-radius: 2.4rem;
+	min-width: 31rem;
+	min-height: 6.4rem;
+	padding: 1.6rem;
+	margin-top: 1.6rem;
+	&[data-theme="dark"] {
+		border-color: $col-grey-700;
+		.accordionHeaderContainer {
+			.accordionHeader {
+				.accordionTitle {
+					color: $col-white;
+				}
+			}
+		}
+		.reviewBody {
+			color: $col-white;
+		}
+	}
+	.accordionHeaderContainer {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.accordionHeader {
+			@extend %flex-align;
+			gap: 0.8rem;
+			.image_header {
+				width: 3.2rem;
+				height: 3.2rem;
+				position: relative;
+			}
+			.accordionTitle {
+				@extend %text-16;
+				color: $light-text-main;
+				font-family: $font-900;
+				text-transform: capitalize;
+			}
+		}
+		.accordionPlusIcon,
+		.accordionChevronIcon {
+			width: 2rem;
+			height: 2rem;
+			flex-shrink: 0;
+			cursor: pointer;
+			position: relative;
+			&[data-type="chevron"] {
+				transform: rotate(90deg);
+				&[data-active="true"] {
+					transform: rotate(270deg);
+					position: relative;
+				}
+			}
+			&[data-active="true"] {
+				transform: rotate(45deg);
+				position: relative;
+			}
+		}
+	}
+	.reviewBody {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+	}
+	&[data-active="true"] {
+		.reviewBody {
+			max-height: 99rem;
+			transition: max-height 1s ease-in;
+		}
+	}
+	&[data-type="small"] {
+		border: 0.2rem solid $light-text-main;
+		.accordionHeaderContainer {
+			.accordionHeader {
+				.accordionTitle {
+					@extend %text-14;
+					color: $col-grey-500;
+					font-family: $font;
+					text-transform: none;
+				}
+			}
+		}
+	}
+}
+.addReviewBtn {
+	width: 36rem;
+	margin-top: 1.6rem;
+	h3 {
+		color: $col-white;
+		font-family: $font-900;
+		@extend %text-16;
+	}
+}

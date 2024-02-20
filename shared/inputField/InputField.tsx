@@ -1,20 +1,25 @@
+'use client';
 import React, { InputHTMLAttributes, useState } from "react";
-import { ContextProps, useGlobalContext } from "@/contexts/AppContext";
+import { useGlobalContext } from "@/contexts/AppContext";
 import styles from "./InputField.module.scss";
 
 import Image from "next/image";
+import EyeOpenIcon from "@/components/svgs/jsx/EyeOpen";
+import EyeCloseIcon from "@/components/svgs/jsx/EyeClose";
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	icon?: string;
 	name?: string;
 	label?: string;
 	password?: boolean;
 	className?: string;
-	iconClass?: string
-	inputClass?: string
-	prefixClass?: string
-	prefix?: string
+	iconClass?: string;
+	inputClass?: string;
+	errorClass?: string;
+	prefixClass?: string;
+	prefix?: string;
 	suffix?: string;
-	suffixIcon?: string
+	suffixIcon?: string;
+	register?: any;
 	// onChange?: (e: any) => void;
 	// onBlur?: (e: any) => void;
 	// onFocus?: (e: any) => void;
@@ -35,6 +40,7 @@ const InputField = ({
 	className,
 	iconClass,
 	inputClass,
+	errorClass,
 	prefix,
 	prefixClass,
 	password,
@@ -44,6 +50,7 @@ const InputField = ({
 	max,
 	suffix,
 	suffixIcon,
+	register,
 	...options
 }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
@@ -55,26 +62,41 @@ const InputField = ({
 			setInputType("password");
 		}
 	};
-	const { theme }: ContextProps = useGlobalContext()
+	const { themeColor } = useGlobalContext();
 	return (
-		<div data-theme={theme} className={`${styles.input} ${className}`}>
+		<div data-theme={themeColor} className={`${styles.input} ${className}`}>
 			{!!label && (
 				<label className={styles.input_label} htmlFor={name}>
 					{label}
 				</label>
 			)}
 
-			<div data-theme={theme} className={`${styles.input_wrapper} ${inputClass}`}>
+			<div
+				data-theme={themeColor}
+				className={`${styles.input_wrapper} ${inputClass} ${errorClass}`}
+			>
 				{!!icon && (
 					<figure className={`${styles.input_icon} ${iconClass}`}>
 						<Image src={icon} fill alt="" />
 					</figure>
 				)}
+
 				{prefix && (
-					<div data-theme={theme} className={`${styles.text} ${prefixClass}`}>
+					<div
+						data-theme={themeColor}
+						className={`${styles.text} ${prefixClass}`}
+					>
 						<p>{prefix}</p>
 					</div>
 				)}
+
+				{prefix === "+234" && (
+					<div
+						data-theme={themeColor}
+						className={`${styles.prefix_divider} `}
+					></div>
+				)}
+
 				<input
 					className={styles.input_field}
 					type={inputType}
@@ -88,39 +110,34 @@ const InputField = ({
 					required={required}
 					min={min}
 					max={max}
+					{...register}
 					{...options}
-					data-theme={theme}
+					data-theme={themeColor}
 				/>
 				{password && (
 					<div className={styles.icon} onClick={handleShowPassword}>
-						<Image
-							src={
-								inputType !== "password"
-									? "/svgs/eye-close.svg"
-									: "/svgs/eye.svg"
-							}
-							fill
-							alt=""
-						/>
+						{inputType !== "password" ? <EyeCloseIcon /> : <EyeOpenIcon />}
 					</div>
 				)}
-				<div className={styles.suffix_container}>
-					<div>
-						{suffix && (
-							<div data-theme={theme} className={styles.text}>
-								<p>{suffix}</p>
-							</div>
-						)}
-					</div>
+				{(suffix || suffixIcon) && (
+					<div className={styles.suffix_container}>
+						<div>
+							{suffix && (
+								<div data-theme={themeColor} className={styles.text}>
+									<p>{suffix}</p>
+								</div>
+							)}
+						</div>
 
-					<div>
-						{suffixIcon && (
-							<div className={styles.suffix_icon}>
-								<Image alt="" fill src={suffixIcon} />
-							</div>
-						)}
+						<div>
+							{suffixIcon && (
+								<div className={styles.suffix_icon}>
+									<Image alt="" fill src={suffixIcon} />
+								</div>
+							)}
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 		</div>
 	);

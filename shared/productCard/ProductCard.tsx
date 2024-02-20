@@ -78,9 +78,9 @@ const Product = ({data}: any) => {
 					</svg>
 					<div className={styles.icon_container}>
 						<div className={styles.icon}>
-							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol} 
-								alt='' 
-								fill 
+							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol}
+								alt=''
+								fill
 							/>
 						</div>
 					</div>

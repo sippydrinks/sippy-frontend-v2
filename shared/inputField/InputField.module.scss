@@ -2,11 +2,16 @@
 
 .input {
 	width: 100%;
-	row-gap: 0.7rem;
+	row-gap: 0rem;
 	@include flex(flex-start, flex-start, column);
+
+	.error_border {
+		border: 0.1rem solid $col-error-500;
+	}
 }
 .input_label {
 	@extend %text-14;
+	color: $col-primary;
 }
 .input_wrapper {
 	position: relative;
@@ -14,8 +19,8 @@
 	padding: 1.6rem;
 	column-gap: 1rem;
 	background-color: transparent;
-	border: 0.1rem solid $col-grey-700;
-	border-radius: 0.8rem;
+	border: 0.1rem solid $col-grey-200;
+	border-radius: 1.5rem;
 	transition: all 0.1s ease-in;
 	margin-top: 0.6rem;
 	@include flex(flex-start, center, row nowrap);
@@ -23,6 +28,9 @@
 		transition: all 0.3s linear;
 	}
 	&[data-theme = "dark"] {
+		border-color: $col-grey-light-stroke;
+	}
+	&[data-theme="dark"] {
 		border-color: $col-grey-light-stroke;
 	}
 }
@@ -48,7 +56,7 @@
 		line-height: 2.5rem;
 		// color: $col-text-secondary;
 	}
-	&[data-theme = "dark"] {
+	&[data-theme="dark"] {
 		color: $col-white;
 		&::placeholder {
 			color: $col-white;
@@ -58,11 +66,13 @@
 
 .icon {
 	position: relative;
-	width: 1.6rem;
-	height: 1.6rem;
+	// width: 1.6rem;
+	// height: 1.6rem;
 	cursor: pointer;
 	border: none !important;
 	padding: none !important;
+	display: flex;
+	align-items: center;
 }
 
 .text {
@@ -71,15 +81,21 @@
 		color: $col-grey-texts;
 		width: max-content;
 	}
-	&[data-theme = "dark"] {
+	&[data-theme="dark"] {
 		p {
 			color: $col-white;
 		}
 	}
 }
 
+.prefix_divider {
+	width: 1px;
+	height: 1.4rem;
+	background-color: $col-grey-200;
+}
+
 .suffix_container {
-	@extend %flex-align;
+	@extend %flex-align !optional;
 	gap: 2.4rem;
 	.text {
 		p {
@@ -90,7 +106,7 @@
 				width: 100%;
 			}
 		}
-		&[data-theme = "dark"] {
+		&[data-theme="dark"] {
 			p {
 				color: $col-white;
 			}
