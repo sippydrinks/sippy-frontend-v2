@@ -1,14 +1,14 @@
-import React from 'react'
-import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard'
-import AlcoholicDrinkData from '@/mock/AlcoholicDrinkData'
-import { useGlobalContext } from '@/contexts/AppContext'
-import styles from '../soft/Soft.module.scss'
+import React from 'react';
+import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard';
+// import AlcoholicDrinkData from '@/mock/AlcoholicDrinkData'
+import { useGlobalContext } from '@/contexts/AppContext';
+import styles from '../soft/Soft.module.scss';
 
 const AlcoholDrinkCategory = () => {
-    const { theme } = useGlobalContext()
-  return (
-    <div className={styles.container}>
-        {
+	const { theme } = useGlobalContext();
+	return (
+		<div className={styles.container}>
+			{/*  {
             AlcoholicDrinkData.map(({id, bglight, bgdark, icon, btnText}: any) => {
                 return (
                     <DrinkTypeCard
@@ -20,9 +20,9 @@ const AlcoholDrinkCategory = () => {
                     />
                 )
             })
-        }
-    </div>
-  )
-}
+        } */}
+		</div>
+	);
+};
 
-export default AlcoholDrinkCategory
+export default AlcoholDrinkCategory;

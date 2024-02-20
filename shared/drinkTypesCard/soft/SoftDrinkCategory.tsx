@@ -1,14 +1,14 @@
-import React, { use } from 'react'
-import SoftDrinksData from '../../../mock/SoftDrinksData'
-import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard'
-import { useGlobalContext } from '@/contexts/AppContext'
-import styles from './Soft.module.scss'
+import React, { use } from 'react';
+// import SoftDrinksData from '../../../mock/SoftDrinksData'
+import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard';
+import { useGlobalContext } from '@/contexts/AppContext';
+import styles from './Soft.module.scss';
 
 const SoftDrinkCategory = () => {
-    const { theme } = useGlobalContext()
-  return (
-    <div className={styles.container}>
-        {
+	const { theme } = useGlobalContext();
+	return (
+		<div className={styles.container}>
+			{/*  {
             SoftDrinksData.map(({id, bglight, bgdark, icon, btnText}: any) => {
                 return (
                     <DrinkTypeCard
@@ -20,9 +20,9 @@ const SoftDrinkCategory = () => {
                     />
                 )
             })
-        }
-    </div>
-  )
-}
+        } */}
+		</div>
+	);
+};
 
-export default SoftDrinkCategory
+export default SoftDrinkCategory;

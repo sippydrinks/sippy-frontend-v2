@@ -1,27 +1,18 @@
 'use client';
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useRouter } from "next/navigation";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/navigation';
 
 const useValidateLogin = () => {
-	const router = useRouter()
+	const router = useRouter();
 	const [activeTab, setActiveTab] = useState<number>(1);
 
 	const loginSchema = yup.object({
-		email:
-			activeTab === 1
-				? yup
-						.string()
-						.email("Invalid email address")
-						.required("Email is required")
-				: yup.string(),
-		password: yup.string().required("Password is required"),
-		phone_number:
-			activeTab === 2
-				? yup.string().required("Phone number is required")
-				: yup.string(),
+		email: activeTab === 1 ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
+		password: yup.string().required('Password is required'),
+		phone_number: activeTab === 2 ? yup.string().required('Phone number is required') : yup.string(),
 	});
 
 	const {
@@ -35,7 +26,7 @@ const useValidateLogin = () => {
 
 	const handleLogin = (data: any) => {
 		console.log(data);
-		router.push("/");
+		router.push('/');
 	};
 
 	const toggleTab = (tabIndex: number) => {

@@ -3,7 +3,6 @@ import React from 'react';
 import styles from './RegistrationNotification.module.scss';
 import { Button, Logo } from '@/shared';
 import Link from 'next/link';
-import { useGlobalContext } from '@/contexts/AppContext';
 
 interface Props {
 	notificationImage: React.ReactNode;

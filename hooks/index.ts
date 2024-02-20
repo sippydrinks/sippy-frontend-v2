@@ -1,5 +1,3 @@
-import useFetchAll from "./useFetchAll";
-import useCopy from "./useCopy";
-import { usePagination } from "./usePagination";
-
-export { usePagination, useFetchAll, useCopy };
+import useValidateLogin from './authentication/useValidateLogin';
+import useValidateSignup from './authentication/useValidateSignup';
+export { useValidateLogin, useValidateSignup };

@@ -1,11 +1,4 @@
-import Login from "./login/Login"
-import SignUp from "./signUp/SignUp"
-import Recoverpassword from "./recoverPassword/Recoverpassword"
-import NewPassword from "./NewPassword/NewPassword"
+import Login from './login/Login';
+import SignUp from './signUp/SignUp';
 
-export {
-    Login,
-    SignUp,
-    Recoverpassword,
-    NewPassword,
-}
+export { Login, SignUp };

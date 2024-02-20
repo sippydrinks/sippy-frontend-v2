@@ -1,7 +1,5 @@
-import { SignUpView } from "@/Views";
+import { SignUpView } from '@/Views';
 
 export default function SignUpPage() {
-    return (
-        <SignUpView />
-    )
+	return <SignUpView />;
 }

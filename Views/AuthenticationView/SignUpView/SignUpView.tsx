@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { SignUp } from '@/components/authenticationPages';
 import RegistrationNotification from '@/components/authenticationPages/Notifications/RegistrationNotification';
 import SuccessSvg from '@/components/svgs/jsx/SuccessSvg';
 import FailedSvg from '@/components/svgs/jsx/FailedSvg';
+import { SignUp } from '@/components';
 
 const SignUpView = () => {
 	const [success, setSuccess] = useState(true);
