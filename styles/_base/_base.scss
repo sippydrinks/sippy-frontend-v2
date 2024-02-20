@@ -24,10 +24,10 @@ html {
 	//   font-size: calc(100vw / 950 * 10);
 	// }
 
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		font-size: calc(100vw / 650 * 10);
 	}
-	@include screenMax("ssm-mobile") {
+	@include screenMax('ssm-mobile') {
 		font-size: calc(100vw / 485 * 10);
 	}
 }
@@ -44,4 +44,11 @@ body {
 #__next {
 	flex-grow: 1;
 	@include flex(stretch, stretch, column);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 30px $col-background-shade inset !important;
 }

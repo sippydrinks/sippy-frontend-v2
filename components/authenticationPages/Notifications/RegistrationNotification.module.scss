@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .notification_page {
 	height: 100%;
@@ -9,13 +9,13 @@
 	// gap: 5rem;
 	justify-content: center;
 	align-items: center;
-	background: url("/svgs/notifications-bg.svg") no-repeat center center fixed;
+	background: url('/svgs/notifications-bg.svg') no-repeat center center fixed;
 	background-color: $col-background-shade;
 	position: relative;
 
 	.logo {
 		display: none;
-		@include screenMax("mobile") {
+		@include screenMax('mobile') {
 			display: block;
 			position: absolute;
 			top: 6rem;
@@ -46,10 +46,10 @@
 			border-radius: 8px;
 			margin-top: 1rem;
 
-			&[dataType="success"] {
+			&[dataType='success'] {
 				background-color: $col-blue-50;
 			}
-			&[dataType="failed"] {
+			&[dataType='failed'] {
 				background-color: $col-purple-50;
 			}
 
@@ -70,21 +70,26 @@
 			margin-top: 8px;
 			color: $col-grey-500;
 			@extend %text-14;
-			// color: $col-grey;
 		}
 
 		.notification_btn {
+			background: $col-primary-default;
 			width: 100%;
 			margin-top: 20px;
 			@extend %text-16;
+			h3 {
+				color: $col-white;
+				font-family: $font-900;
+				@extend %text-16;
+			}
 		}
 
-		@include screenMax("mobile") {
+		@include screenMax('mobile') {
 			width: 100%;
 		}
 	}
 
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		margin: 1rem;
 		border-radius: 1rem;
 	}

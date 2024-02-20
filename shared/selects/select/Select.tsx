@@ -33,11 +33,11 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, i
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(defaultOptionIndex);
 
+	// a function to toggle the dropdown
 	const toggling = (event: React.MouseEvent<HTMLDivElement>) => {
-		setIsOpen(!isOpen);
+		setIsOpen((prev) => !prev);
 		event.stopPropagation();
 	};
-	console.log(isOpen);
 
 	const onOptionClicked = (selectedIndex: number) => () => {
 		setSelectedOptionIndex(selectedIndex);
@@ -48,15 +48,18 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, i
 		}
 	};
 
+	// a useEffect to close the dropdown when the user clicks outside the dropdown
 	useEffect(() => {
 		const handleClickOutside = () => {
-			setIsOpen(false);
+			if (isOpen) {
+				setIsOpen((prev) => !prev);
+			}
 		};
 		document.addEventListener('click', handleClickOutside);
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
 		};
-	}, []);
+	}, [isOpen]);
 
 	return (
 		<div>

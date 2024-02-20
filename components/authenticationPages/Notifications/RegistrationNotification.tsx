@@ -1,9 +1,9 @@
 'use client';
-import React from "react";
-import styles from "./RegistrationNotification.module.scss";
-import { Button, Logo } from "@/shared";
-import Link from "next/link";
-import { useGlobalContext } from "@/contexts/AppContext";
+import React from 'react';
+import styles from './RegistrationNotification.module.scss';
+import { Button, Logo } from '@/shared';
+import Link from 'next/link';
+import { useGlobalContext } from '@/contexts/AppContext';
 
 interface Props {
 	notificationImage: React.ReactNode;
@@ -17,22 +17,11 @@ interface Props {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const RegistrationNotification = ({
-	title,
-	description,
-	buttonText,
-	subTitle,
-	icon,
-	notificationImage,
-	notificationType,
-	url,
-	setIsRegistrationRequested,
-}: Props) => {
-	const { themeColor } = useGlobalContext();
+const RegistrationNotification = ({ title, description, buttonText, subTitle, icon, notificationImage, notificationType, url, setIsRegistrationRequested }: Props) => {
 	return (
 		<div className={styles.notification_page}>
 			<div className={styles.logo}>
-				<Logo type={themeColor} />
+				<Logo />
 			</div>
 			<div className={styles.notification_container}>
 				<div className={styles.notification_svg}>{notificationImage}</div>
@@ -42,16 +31,7 @@ const RegistrationNotification = ({
 				</div>
 				<h2>{title}</h2>
 				<p className={styles.description}>{description}</p>
-				<Button
-					type="button"
-					buttonType="secondary"
-					className={styles.notification_btn}
-					onClick={() =>
-						notificationType === "failed"
-							? setIsRegistrationRequested(false)
-							: null
-					}
-				>
+				<Button type='button' buttonType='primary' className={styles.notification_btn} onClick={() => (notificationType === 'failed' ? setIsRegistrationRequested(false) : null)}>
 					<h3>
 						<Link href={url}>{buttonText}</Link>
 					</h3>
