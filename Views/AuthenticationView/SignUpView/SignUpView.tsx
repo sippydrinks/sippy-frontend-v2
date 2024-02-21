@@ -6,7 +6,7 @@ import FailedSvg from '@/components/svgs/jsx/FailedSvg';
 import { SignUp } from '@/components';
 
 const SignUpView = () => {
-	const [success, setSuccess] = useState(true);
+	const [success, setSuccess] = useState(false);
 	const [isRegistrationRequested, setIsRegistrationRequested] = useState(false);
 
 	return (

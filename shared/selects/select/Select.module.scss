@@ -82,30 +82,33 @@
 .select_body {
 	min-width: 7rem;
 	width: 100%;
-	border-radius: 0.4rem;
-	padding: 1.55rem 1.3rem 0;
+	border-radius: 1.5rem;
+	padding: 1rem 1.3rem ;
 	position: absolute;
-	top: 4.5rem;
+	top: 6rem;
 	right: 0;
 	background-color: #fff;
 	z-index: 2;
 	max-height: 17rem;
 	overflow-y: scroll;
+	border: 1px solid $col-grey-200;
 	// @include noScrollBar;
 	@include screenMax("tablet") {
 		// left: -1rem;
-		top: 3.5rem;
+		// top: 5rem;
+		max-height: 23rem;
 	}
 }
 
 .select_listItem {
-	// border-bottom: 0.1rem solid #1a1b20;
+	border-bottom: 0.1rem solid $col-grey-200;
 	cursor: pointer;
+	color:$col-grey-900;
 }
 
 .select_row {
 	@include flex(flex-start, center);
-	padding-bottom: 2rem;
+	padding: 1rem 0;
 	p {
 		font-size: 1.4rem;
 		font-weight: 500;

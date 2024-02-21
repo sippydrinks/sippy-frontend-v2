@@ -5,6 +5,7 @@ import { AuthComponent, Select } from '@/shared';
 import { Button, InputField } from '@/shared';
 import styles from './SignUp.module.scss';
 import { useValidateSignup } from '@/hooks';
+import { SignupForm } from '@/interface/authentication';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;

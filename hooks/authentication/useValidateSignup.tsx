@@ -19,6 +19,8 @@ const hearAboutOptions = [
 
 const useValidateSignup = () => {
 	const [activeTab, setActiveTab] = useState<number>(1);
+
+	// create a schema for the signup form using yup based on the active tab
 	const signupSchema = yup.object().shape({
 		fullName: yup.string().required('Full name is required'),
 		email: activeTab === 1 ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
@@ -39,6 +41,8 @@ const useValidateSignup = () => {
 			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]+$/, 'Password must contain a small letter, a capital letter, a number, and a special character.'),
 		get_to_know: yup.string().required('This field is required'),
 	});
+
+	// import the useForm hook from react-hook-form
 	const {
 		register,
 		handleSubmit,
