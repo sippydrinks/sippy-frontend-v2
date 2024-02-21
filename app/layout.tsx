@@ -6,11 +6,6 @@ import "@/styles/index.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Sippy Life",
-  description: "Sippy Life",
-};
-
 const myFont = Localfont({
   src: [
     {
@@ -35,6 +30,11 @@ const myFont = Localfont({
     },
   ]
 })
+
+export const metadata: Metadata = {
+  title: "Sippy Life",
+  description: "Sippy Life",
+};
 
 export default function RootLayout({
   children,
