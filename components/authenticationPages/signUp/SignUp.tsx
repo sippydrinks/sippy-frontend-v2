@@ -5,7 +5,6 @@ import { AuthComponent, Select } from '@/shared';
 import { Button, InputField } from '@/shared';
 import styles from './SignUp.module.scss';
 import { useValidateSignup } from '@/hooks';
-import { SignupForm } from '@/interface/authentication';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
@@ -68,7 +67,7 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 						)}
 						{activeTab === 2 && (
 							<div>
-								<InputField label='Phone number' prefix='+234 |' register={register('phone_number')} errorClass={errors?.phone_number && styles.error_border} />
+								<InputField label='Phone number' prefix='+234 |' type='number' register={register('phone_number')} errorClass={errors?.phone_number && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
 							</div>
 						)}

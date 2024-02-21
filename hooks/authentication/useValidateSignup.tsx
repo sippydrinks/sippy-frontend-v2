@@ -19,7 +19,6 @@ const hearAboutOptions = [
 
 const useValidateSignup = () => {
 	const [activeTab, setActiveTab] = useState<number>(1);
-
 	// create a schema for the signup form using yup based on the active tab
 	const signupSchema = yup.object().shape({
 		fullName: yup.string().required('Full name is required'),

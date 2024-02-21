@@ -27,6 +27,7 @@ html {
 	@include screenMax('mobile') {
 		font-size: calc(100vw / 650 * 10);
 	}
+
 	@include screenMax('ssm-mobile') {
 		font-size: calc(100vw / 485 * 10);
 	}

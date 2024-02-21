@@ -1,21 +1,21 @@
-"use client";
-import React, { useState, useEffect, useContext, createContext, useMemo } from "react";
-import { usePathname } from "next/navigation";
+'use client';
+import React, { useState, useEffect, useContext, createContext, useMemo } from 'react';
+import { usePathname } from 'next/navigation';
 
 const AppContext = createContext<any>(null);
 
 export interface ContextProps {
 	theme: 'light' | 'dark';
 	drinkType: 'soft' | 'alcohol';
-	categoryHeight: number
-	productListing: []
-	cart: []
-	savedItems: []
-	cartDetails: {}
-	setCart: React.Dispatch<React.SetStateAction<[]>>
-	setProductListing: React.Dispatch<React.SetStateAction<[]>>
-	setSavedItems: React.Dispatch<React.SetStateAction<[]>>
-	setCategoryHeight: React.Dispatch<React.SetStateAction<number>>
+	categoryHeight: number;
+	productListing: [];
+	cart: [];
+	savedItems: [];
+	cartDetails: {};
+	setCart: React.Dispatch<React.SetStateAction<[]>>;
+	setProductListing: React.Dispatch<React.SetStateAction<[]>>;
+	setSavedItems: React.Dispatch<React.SetStateAction<[]>>;
+	setCategoryHeight: React.Dispatch<React.SetStateAction<number>>;
 	setTheme: React.Dispatch<React.SetStateAction<'light' | 'dark'>>;
 }
 
@@ -23,17 +23,17 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const path = usePathname();
 	const [cart, setCart] = useState<any[]>([]);
 	const [productListing, setProductListing] = useState<[]>([]);
-	const [savedItems, setSavedItems] = useState<any[]>([])
+	const [savedItems, setSavedItems] = useState<any[]>([]);
 	const [reRender, setReRender] = useState<boolean>(false);
-	const [categoryHeight, setCategoryHeight] = useState<number>(0)
-	const [drinkType, setDrinkType] = useState<"soft" | "alcohol">("soft");
-	const [theme, setTheme] = useState<"light" | "dark">("light");
+	const [categoryHeight, setCategoryHeight] = useState<number>(0);
+	const [drinkType, setDrinkType] = useState<'soft' | 'alcohol'>('soft');
+	const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
 	useEffect(() => {
 		if (path.includes('/alcohol')) {
-			setDrinkType("alcohol");
+			setDrinkType('alcohol');
 		} else {
-			setDrinkType("soft");
+			setDrinkType('soft');
 		}
 	}, [path]);
 
@@ -43,10 +43,7 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 		}, 0);
 
 		const cartAmount = cart.reduce((previousValue: any, currentValue: any) => {
-			return (
-				previousValue +
-				currentValue.productPrice * currentValue.cartProductQuantity
-			);
+			return previousValue + currentValue.productPrice * currentValue.cartProductQuantity;
 		}, 0);
 		return {
 			cartAmount: cartAmount || 0,
@@ -72,8 +69,7 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 				setCategoryHeight,
 				savedItems,
 				setSavedItems,
-			}}
-		>
+			}}>
 			{children}
 		</AppContext.Provider>
 	);
