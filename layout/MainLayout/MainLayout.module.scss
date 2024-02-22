@@ -1,0 +1,49 @@
+@import "@/styles/imports";
+
+.layout {
+	width: 100%;
+	position: relative;
+	background-color: $col-primary-default;
+	padding: 2.4rem;
+	&[data-type = "alcohol"] {
+		background-color: $col-coral-500;
+	}
+	@include screenMax("mobile") {
+		padding: 1rem 0.8rem;
+	}
+}
+
+.layout_background {
+	background-color: $col-background-shade;
+	background-repeat: repeat;
+	background-image: url('/svgs/background.png');
+	border-radius: 1.6rem;
+	overflow-y: auto;
+	transition: $all-transition;
+	&[data-type = "dark"] {
+		background-color: $col-black;
+		background-repeat: repeat;
+		background-image: url('/svgs/background.png');
+		transition: $all-transition;
+	}
+}
+
+.layout_breadcrumbs {
+	padding: 1rem;
+}
+
+.layout_breadcrumbsBtn {
+	opacity: 0.5;
+	column-gap: 1.6rem;
+	padding: 0;
+}
+
+.layout_breadcrumbsText {
+	font-weight: 500;
+}
+
+.layout_content {
+	width: 100%;
+	position: relative;
+	transition: $all-transition;
+}

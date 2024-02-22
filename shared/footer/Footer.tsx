@@ -1,46 +1,62 @@
-import { Logo } from '@/shared';
-import styles from './Footer.module.scss';
+import React, { useEffect, useRef } from "react";
+import { Carousel } from "..";
+import { DrinkTypeProps } from "@/interface";
+import { useGlobalContext } from "@/contexts/AppContext";
+import Image from "next/image";
+import styles from "./Footer.module.scss";
 
-const Footer = () => {
+const footerNavItems = [
+	"/svgs/fb.svg",
+	"/svgs/Youtube.svg",
+	"/svgs/Instagram.svg",
+	"/svgs/Twitter.svg",
+];
+const Footer = ({ type }: DrinkTypeProps) => {
+	const { setCategoryHeight } = useGlobalContext();
+	const footerRef = useRef<HTMLDivElement>(null);
+	useEffect(() => {
+		const heightOfComponent = footerRef.current?.offsetHeight;
+		setCategoryHeight(heightOfComponent);
+	}, [setCategoryHeight]);
 	return (
-		<footer className={styles.footer}>
+		<footer className={styles.footer} ref={footerRef}>
 			<div className={styles.footer_body}>
-				<div className={`${styles.footer_logo} ${styles.footer_logo_noMob}`}>
-					<Logo type='dark' />
-				</div>
-				<div className={styles.title}>
-					<h1>
-						Do you have a question, an idea, or a project you need help with? Contact us! <a href='#'>drop us a line</a>.
-					</h1>
+				<div className={styles.footer_nav}>
+					<div className={styles.company_support}>
+						<div className={styles.company}>
+							<h3>Company</h3>
+							<p>About Us</p>
+						</div>
+						<div className={styles.support}>
+							<h3>Support</h3>
+							<p>Contact us</p>
+						</div>
+					</div>
+					<div className={styles.socials}>
+						<h3>Social Media</h3>
+						<div className={styles.icons}>
+							{footerNavItems.map((item, index) => {
+								return (
+									<div className={styles.icon} key={index}>
+										<Image alt="icon" src={item} fill />
+									</div>
+								);
+							})}
+						</div>
+					</div>
 				</div>
 			</div>
-			<div className={styles.footer_divider}></div>
-			<div className={styles.footer_footer}>
-				<div className={styles.footer_address}>
-					<p>Info@buttonslab.com</p>
-					<p>61 Bridge Street, Kington,</p>
-					<p>United Kingdom</p>
-				</div>
-				<ul className={styles.footer_nav}>
-					<li>
-						<a href='#' target='_blank' rel='noopener noreferrer'>
-							Linkedin
-						</a>
-					</li>
-					<li>
-						<a href='#' target='_blank' rel='noopener noreferrer'>
-							Twitter
-						</a>
-					</li>
-					<li>
-						<a href='#' target='_blank' rel='noopener noreferrer'>
-							Dribbble
-						</a>
-					</li>
-				</ul>
-				<div className={styles.footer_copyWrite}>
-					<p>Buttons Lab &copy; 2023</p>
-				</div>
+			<div className={styles.carousel_container}>
+				<Carousel
+					icon1={
+						type === "soft" ? "/svgs/StarOrange.svg" : "/svgs/whiteStar.svg"
+					}
+					icon2={
+						type === "soft" ? "/svgs/StarOrange.svg" : "/svgs/whiteStar.svg"
+					}
+					title="sippy life"
+					type="big"
+				/>
 			</div>
 		</footer>
 	);

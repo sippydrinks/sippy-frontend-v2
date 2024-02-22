@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import styles from './PreLoader.module.scss';
+import React from "react";
+import Image from "next/image";
+import styles from "./PreLoader.module.scss";
 
 const PreLoader = () => {
 	return (
@@ -9,12 +9,11 @@ const PreLoader = () => {
 			<div className={styles.icon_container}>
 				<div className={styles.icon}>
 					<Image
-						src="/svgs/icon-deftify.svg"
-						layout="fill"
-						loading="eager"
+						src={"/svgs/logo-light.svg"}
 						priority={true}
+						alt="Sippy Life"
+						fill
 						quality={100}
-						alt="deftify"
 					/>
 				</div>
 			</div>

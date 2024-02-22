@@ -1,23 +1,21 @@
-import styles from "./Logo.module.scss";
 import React from "react";
+import { useGlobalContext } from "@/contexts/AppContext";
 import Image from "next/image";
+import styles from "./Logo.module.scss";
 
-interface Props {
-	type?: "light" | "dark";
-}
-
-const Logo = ({ type }: Props) => {
+const Logo = () => {
+	const { theme } = useGlobalContext()
 	return (
-		<div className={styles.logo}>
-			<Image
-				src={type === "light" ? "/svgs/logo-white.svg" : "/svgs/logo-black.svg"}
-				// loading="eager"
-				priority={true}
-				alt="Sippy Life"
-				sizes="100vw"
-				fill
-				quality={100}
-			/>
+		<div className={styles.container}>
+			<div className={styles.logo}>
+				<Image
+					src={`/svgs/logo-${theme}.svg`}
+					priority={true}
+					alt="Sippy Life"
+					fill
+					quality={100}
+				/>
+			</div>
 		</div>
 	);
 };

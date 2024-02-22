@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext, useMemo } from "react";
 
 const AppContext = createContext<any>(null);
 
@@ -13,6 +13,8 @@ export interface ContextProps {
 const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const router = useRouter();
 	const path = usePathname();
+	const [categoryHeight, setCategoryHeight] = useState<number>(0)
+	const [cart, setCart] = useState<any[]>([]);
 	const [drinkType, setDrinkType] = useState<"soft" | "alcohol">("soft");
 	const [theme, setTheme] = useState<"light" | "dark">("light");
 
@@ -24,12 +26,34 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 		}
 	}, [path]);
 
+	const cartDetails = useMemo<{ cartAmount: number; cartQuantity: number }>(() => {
+		const cartQuantity = cart.reduce((previousValue: any, currentValue: any) => {
+			return previousValue + currentValue.cartProductQuantity;
+		}, 0);
+
+		const cartAmount = cart.reduce((previousValue: any, currentValue: any) => {
+			return (
+				previousValue +
+				currentValue.productPrice * currentValue.cartProductQuantity
+			);
+		}, 0);
+		return {
+			cartAmount: cartAmount || 0,
+			cartQuantity: cartQuantity || 0,
+		};
+	}, [cart]);
+
 	return (
 		<AppContext.Provider
 			value={{
 				drinkType,
 				theme,
 				setTheme,
+				cart,
+				setCart,
+				categoryHeight, 
+				setCategoryHeight,
+				cartDetails
 			}}
 		>
 			{children}

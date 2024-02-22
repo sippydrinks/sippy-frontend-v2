@@ -1,10 +1,17 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
-.logo {
-	width: 9rem;
-	height: 4rem;
-	position: relative;
-	display: grid;
-	place-items: center;
-	transition: $all-transition;
+.container {
+  display: flex;
+  gap: 3.6rem;
+  
+  .logo {
+    width: 9rem;
+    height: 4rem;
+    position: relative;
+    transition: $all-transition;
+    @include screenMax("mobile") {
+      width: 5.4rem;
+      height: 2.4rem;
+    }
+  }
 }

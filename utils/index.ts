@@ -18,6 +18,7 @@ import { scrollTo } from "./scrollTo";
 import { formatMatches, formatCompetitons } from "./formatMatches";
 import { getPoolStage } from "./getPoolStage";
 import truncateHash from "./truncateHash";
+import { formatURL } from "./formatUrl";
 
 export {
 	toggleScroll,
@@ -42,4 +43,5 @@ export {
 	formatCompetitons,
 	getPoolStage,
 	truncateHash,
+	formatURL,
 };

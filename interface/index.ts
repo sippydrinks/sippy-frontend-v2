@@ -96,7 +96,13 @@ export interface CounterProps {
 }
 
 export interface ProductCardProps {
-    productIcon: string
+    id?: number
+    productName: string
+    productNameAlcohol: string
+    productSize?: number
+    productImage: string
+    productImageAlcohol: string
+    productPrice?: number
 }
 
 export interface TabProps {
@@ -118,4 +124,8 @@ export interface CheckboxProps {
 	onChange?: (e: any) => void;
 	disabled?: boolean;
     value?: string | number
+}
+
+export interface HeaderProps {
+    isNavButton?: boolean
 }

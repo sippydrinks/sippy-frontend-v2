@@ -1,0 +1,171 @@
+@import "@/styles/imports";
+
+.card {
+	width: 100%;
+	height: 33.8rem;
+	border-radius: 1.6rem;
+	padding: 2.4rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-end;
+	overflow: hidden;
+	position: relative;
+	@include screenMax("mobile") {
+		height: 25.1rem;
+		padding: 1.6rem;
+		margin-top: 1.6rem;
+	}
+
+    .btn_container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
+        h3 {
+            font-family: $font-900;
+            @extend %title-32;
+            color: $light-text-main;
+            text-transform: uppercase;
+        }
+        button {
+            align-self: flex-start;
+            p {
+                font-family: $font-900;
+                @extend %text-16;
+                color: $light-text-main;
+                &[data-theme = "dark"] {
+                    color: $col-white;
+                }
+            }
+        }
+    }
+
+	.btn {
+		align-self: flex-end;
+		@include screenMax("mobile") {
+			flex-shrink: 0;
+			z-index: 2;
+			height: 6rem;
+			width: 14rem;
+		}
+		h3 {
+			@extend %text-16;
+			font-family: $font-900;
+			color: $col-primary;
+			&[data-theme="dark"] {
+				color: $col-white;
+			}
+			@include screenMax("mobile") {
+				font-size: 1.2rem;
+				line-height: 1.6rem;
+			}
+		}
+	}
+	&:nth-child(1) {
+		margin-top: 4rem;
+		.image {
+			transform: rotate(-15deg);
+			position: absolute;
+			right: 4rem;
+			top: -2rem;
+			.imageCont {
+				position: relative;
+				width: 30rem;
+				height: 40rem;
+			}
+		}
+		@include screenMax("mobile") {
+			.image {
+				transform: rotate(0);
+				right: -1rem;
+				top: 4rem;
+				.imageCont {
+					width: 20rem;
+					height: 25rem;
+				}
+			}
+		}
+	}
+	&:nth-child(2) {
+		.image {
+			transform: rotate(10deg);
+			position: absolute;
+			right: -1rem;
+			top: -5rem;
+			.imageCont {
+				position: relative;
+				width: 45.5rem;
+				height: 45.5rem;
+			}
+		}
+		[data-route="/alcohol"] {
+			transform: rotate(20deg);
+			.imageCont {
+				width: 35rem;
+			}
+		}
+		@include screenMax("mobile") {
+			.image {
+				transform: rotate(0);
+				right: -1rem;
+				top: 2rem;
+				.imageCont {
+					width: 25rem;
+					height: 30rem;
+				}
+			}
+		}
+	}
+	&:nth-child(3) {
+		margin-top: 4rem;
+		.image {
+			transform: rotate(-15deg);
+			position: absolute;
+			right: 5rem;
+			top: -7rem;
+			.imageCont {
+				position: relative;
+				width: 40rem;
+				height: 50rem;
+			}
+		}
+		@include screenMax("mobile") {
+			.image {
+				transform: rotate(0);
+				right: -2rem;
+				top: 3rem;
+				.imageCont {
+					width: 28rem;
+					height: 25rem;
+				}
+			}
+		}
+	}
+	&:nth-child(4) {
+		.image {
+			position: absolute;
+			right: 0;
+			top: -5rem;
+			transform: rotate(10deg);
+			.imageCont {
+				position: relative;
+				width: 40rem;
+				height: 45.6rem;
+			}
+		}
+		[data-route="/alcohol"] {
+			transform: rotate(20deg);
+		}
+		@include screenMax("mobile") {
+			.image {
+				transform: rotate(0);
+				right: -1.5rem;
+				top: 1rem;
+				.imageCont {
+					width: 25rem;
+					height: 30rem;
+				}
+			}
+		}
+	}
+}

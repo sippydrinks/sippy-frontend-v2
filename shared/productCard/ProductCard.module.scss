@@ -22,13 +22,25 @@
 			transition: $all-transition;
 		}
 		.svg {
-			opacity: 0.2;
+			opacity: 0.1;
 			transition: $all-transition;
+			&[data-type = "alcohol"] {
+				opacity: 0.5;
+			}
+			&[data-theme = "dark"] {
+				opacity: 0.1;
+			}
 		}
 		&[data-active="true"] {
 			.svg {
 				opacity: 1;
 				transition: $all-transition;
+				stroke-width: 0.6rem;
+				stroke: #000;
+				&[data-theme="dark"] {
+					stroke-width: 0.6rem;
+					stroke: #fff;
+				}
 			}
 			.svg_stroke {
 				opacity: 1;
@@ -40,18 +52,38 @@
 		margin: 1.6rem 0 2.4rem;
 		text-align: center;
 		h3 {
-			@extend %title-32;
 			font-family: $font-900;
+			color: $col-grey-darker;
+			@extend %title-24;
+			text-transform: capitalize;
+			@include screenMax("mobile") {
+				font-size: 1.8rem;
+				line-height: 2.7rem;
+			}
 		}
 		p {
-			@extend %text-18;
+			color: $col-grey-500;
+			font-family: $font;
+			@extend %text-16;
 		}
 	}
 	.button {
 		width: 100%;
 		border: 0.2rem solid $col-grey-darker;
+		h4 {
+			@extend %text-16;
+			font-family: $font-900;
+			color: $light-text-main;
+			&[data-type="dark"] {
+				color: $col-white;
+			}
+			@include screenMax("mobile") {
+				font-size: 1.4rem;
+				line-height: 2.4rem;
+			}
+		}
 	}
-	&[data-type="dark"] {
+	&[data-theme="dark"] {
 		.text {
 			h3 {
 				color: $col-white;
@@ -62,6 +94,9 @@
 		}
 		.button {
 			border: 0.1rem solid $col-background-shade;
+			h4 {
+				color: $col-white;
+			}
 		}
 	}
 
@@ -88,6 +123,7 @@
 		}
 		.button {
 			padding: 1.6rem;
+			height: 5rem;
 		}
 	}
 }

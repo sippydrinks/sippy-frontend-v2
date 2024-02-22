@@ -1,40 +1,37 @@
 'use client';
 import React from 'react';
-import styles from './Carousel.module.scss';
-import Image from 'next/image';
+import { CarouselProps } from '@/interface';
 import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
+import Image from 'next/image';
+import styles from './Carousel.module.scss';
 
-interface Props {
-	title: string;
-	className?: string;
-	type?: 'small' | 'large';
-}
-
-const Carousel = ({ title, className, type = 'small' }: Props) => {
+const Carousel = ({ title, icon1, icon2, bgColor, isBorder = false, type = 'small' }: CarouselProps) => {
 	const { theme }: ContextProps = useGlobalContext();
 	return (
-		<div className={`${styles.container} ${className}`} data-type={theme}>
+		<div className={styles.container} data-type={type} data-isborder={isBorder} 
+			data-theme={theme} style={{background: `${bgColor}`}}
+		>
 			<div className={`${styles.row}`}>
 				<div className={styles.icon}>
-					<Image src='/svgs/star-yellow.svg' fill sizes='100vw' alt='' />
+					<Image src={icon1} fill alt='' />
 				</div>
 				<div className={styles.text}>
 					<h1>{title}</h1>
 				</div>
 				<div className={styles.icon}>
-					<Image src='/svgs/star-orange.svg' fill sizes='100vw' alt='' />
+					<Image src={icon2} fill alt='' />
 				</div>
 				<div className={styles.text}>
 					<h1>{title}</h1>
 				</div>
 				<div className={styles.icon}>
-					<Image src='/svgs/star-yellow.svg' fill sizes='100vw' alt='' />
+					<Image src={icon1} fill alt='' />
 				</div>
 				<div className={styles.text}>
 					<h1>{title}</h1>
 				</div>
 				<div className={styles.icon}>
-					<Image src='/svgs/star-orange.svg' fill sizes='100vw' alt='' />
+					<Image src={icon2} fill alt='' />
 				</div>
 				<div className={styles.text}>
 					<h1>{title}</h1>
