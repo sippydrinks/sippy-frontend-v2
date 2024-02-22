@@ -99,7 +99,6 @@ export interface ProductCardProps {
     id?: number
     productName: string
     productNameAlcohol: string
-    productSize?: number
     productImage: string
     productImageAlcohol: string
     productPrice?: number

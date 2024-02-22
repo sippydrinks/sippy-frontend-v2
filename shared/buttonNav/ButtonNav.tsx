@@ -31,18 +31,16 @@ const ButtonNav = () => {
 		<div className={styles.container} data-type={theme}>
 			<div
 				className={styles.button_container}
-				onClick={() => {
-					handleNonAlcohol()
-				}}>
+				onClick={handleNonAlcohol}
+			>
 				<div className={styles.button} data-active={checkActive('/')} data-route={checkRoute}>
 					Non-Alcoholic Drinks
 				</div>
 			</div>
 			<div
 				className={styles.button_container}
-				onClick={() => {
-					handleAlcohol()
-				}}>
+				onClick={handleAlcohol}
+			>
 				<div className={styles.button} data-active={checkActive('/alcohol')} data-route={checkRoute}>
 					Alcoholic Drinks
 				</div>

@@ -1,14 +1,13 @@
 'use client';
-import { useEffect } from 'react';
 import { ProductCard, Carousel } from "../../../shared";
 import { ProductData } from '@/mock';
 import { DrinkTypeProps } from "@/interface/home";
 import { useGlobalContext } from "@/contexts/AppContext";
 import styles from './Hero.module.scss'
 import { ChartLoader } from '@/shared/loaders';
+import { ProductCardProps } from "@/interface";
 
 const Hero = ({type}: DrinkTypeProps) => {
-    const { productListing, setDrinkType }: any = useGlobalContext();
   return (
     <>
         <Carousel 
@@ -19,7 +18,7 @@ const Hero = ({type}: DrinkTypeProps) => {
         />
         <div className={styles.hero_container}>
             {ProductData && ProductData.length > 0 ? (
-                ProductData.slice(0, 4).map((product: any, index: number) => (
+                ProductData.slice(0, 4).map((product: ProductCardProps, index: number) => (
                     <ProductCard key={index} {...product} />
                 ))
             ) : (
