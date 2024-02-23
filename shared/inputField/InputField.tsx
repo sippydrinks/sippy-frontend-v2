@@ -1,7 +1,10 @@
-"use client";
-import React, { InputHTMLAttributes, useState } from "react";
-import styles from "./InputField.module.scss";
-import Image from "next/image";
+'use client';
+import React, { InputHTMLAttributes, useState } from 'react';
+import { useGlobalContext } from '@/contexts/AppContext';
+import styles from './InputField.module.scss';
+import Image from 'next/image';
+import EyeCloseIcon from '@/components/svgs/EyeClose';
+import EyeOpenIcon from '@/components/svgs/EyeOpen';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	icon?: string;
@@ -9,7 +12,15 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	label?: string;
 	password?: boolean;
 	className?: string;
+	iconClass?: string;
+	inputClass?: string;
+	errorClass?: string;
+	prefixClass?: string;
+	prefix?: string;
 	suffix?: string;
+	suffixIcon?: string;
+	register?: any;
+	customType?: string;
 	// onChange?: (e: any) => void;
 	// onBlur?: (e: any) => void;
 	// onFocus?: (e: any) => void;
@@ -17,79 +28,64 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	// max?: number;
 }
 
-const InputField = ({
-	name,
-	type = "text",
-	icon,
-	label,
-	placeholder,
-	onChange,
-	onBlur,
-	onFocus,
-	value,
-	className,
-	password,
-	disabled,
-	required,
-	min,
-	max,
-	suffix,
-	...options
-}: Props) => {
+const InputField = ({ name, type = 'text', customType, icon, label, placeholder, onChange, onBlur, onFocus, value, className, iconClass, inputClass, errorClass, prefix, prefixClass, password, disabled, required, min, max, suffix, suffixIcon, register, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
-		if (inputType === "password") {
-			setInputType("text");
+		if (inputType === 'password') {
+			setInputType('text');
 		}
-		if (inputType === "text") {
-			setInputType("password");
+		if (inputType === 'text') {
+			setInputType('password');
 		}
 	};
+	const { themeColor } = useGlobalContext();
 	return (
-		<div className={`${styles.input} ${className}`}>
+		<div data-theme={themeColor} className={`${styles.input} ${className}`}>
 			{!!label && (
 				<label className={styles.input_label} htmlFor={name}>
 					{label}
 				</label>
 			)}
 
-			<div className={styles.input_wrapper}>
+			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} ${errorClass}`}>
 				{!!icon && (
-					<figure className={styles.input_icon}>
-						<Image src={icon} fill sizes="100vw" alt="" />
+					<figure className={`${styles.input_icon} ${iconClass}`}>
+						<Image src={icon} fill alt='' />
 					</figure>
 				)}
-				<input
-					className={styles.input_field}
-					type={inputType}
-					data-icon={!!icon}
-					placeholder={placeholder}
-					disabled={disabled}
-					onChange={onChange}
-					onBlur={onBlur}
-					onFocus={onFocus}
-					value={value}
-					required={required}
-					min={min}
-					max={max}
-					{...options}
-				/>
-				{password && (
-					<div className={styles.icon} onClick={handleShowPassword}>
-						<Image
-							src={
-								inputType !== "password"
-									? "/svgs/eye-close.svg"
-									: "/svgs/eye.svg"
-							}
-							layout="fill"
-							alt=""
-						/>
+
+				{prefix && (
+					<div data-theme={themeColor} className={`${styles.text} ${prefixClass}`}>
+						<p>{prefix}</p>
 					</div>
 				)}
-				{suffix && (
-					<div className={styles.text}>
-						<p>{suffix}</p>
+				{customType === 'phoneNumber' && <div data-theme={themeColor} className={`${styles.prefix_divider} `}></div>}
+
+				<input className={styles.input_field} type={inputType} data-icon={!!icon} placeholder={placeholder} disabled={disabled} onChange={onChange} onBlur={onBlur} onFocus={onFocus} value={value} required={required} min={min} max={max} {...register} {...options} data-theme={themeColor} />
+
+				{password && (
+					<div className={styles.icon} onClick={handleShowPassword}>
+						{inputType !== 'password' ? <EyeCloseIcon /> : <EyeOpenIcon />}
+					</div>
+				)}
+
+				{(suffix || suffixIcon) && (
+					<div className={styles.suffix_container}>
+						<div>
+							{suffix && (
+								<div data-theme={themeColor} className={styles.text}>
+									<p>{suffix}</p>
+								</div>
+							)}
+						</div>
+
+						<div>
+							{suffixIcon && (
+								<div className={styles.suffix_icon}>
+									<Image alt='' fill src={suffixIcon} />
+								</div>
+							)}
+						</div>
 					</div>
 				)}
 			</div>
