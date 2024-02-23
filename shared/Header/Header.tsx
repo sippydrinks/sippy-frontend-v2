@@ -1,10 +1,10 @@
 'use client';
-import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { Dropdown, Logo, ThemeToggle, ButtonNav } from '@/shared';
 import { HeaderProps } from '@/interface';
 import { useGlobalContext } from '@/contexts/AppContext';
+import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.scss';
 
@@ -51,7 +51,7 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 						className={styles.header_logoContainer}
 						onClick={() => setCollapsed(true)}
 					>
-						<Logo type={theme} />
+						<Logo />
 					</div>
 				</Link>
 				<div className={styles.desk_view}>

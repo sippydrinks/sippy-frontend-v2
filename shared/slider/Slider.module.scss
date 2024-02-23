@@ -7,15 +7,9 @@
 		width: 20.6rem;
 		margin: 0 auto 5.6rem;
 		position: relative;
-		@include screenMax("mobile") {
-			width: 10rem;
-			height: 10rem;
-			margin: 0 auto 1.6rem;
-		}
 	}
 	.text {
 		margin: 0 auto 4rem;
-	
 		.textHeader {
 			@extend %title-72;
 			font-family: $font-900;
@@ -24,9 +18,6 @@
 			margin-bottom: 2.4rem;
 			&[data-type = "dark"] {
 				color: $col-white;
-			}
-			@include screenMax("mobile") {
-				margin-bottom: 0.8rem
 			}
 		}
 		.textSubtext {
@@ -38,14 +29,6 @@
 			margin:  0 auto;
 			&[data-type = "dark"] {
 				color: $col-white;
-			}
-			@include screenMax("tablet") {
-				width: 60rem;
-			}
-			@include screenMax("mobile") {
-				font-size: 1.6rem;
-				line-height: 2.4rem;
-				width: 40rem;
 			}
 		}
 	}
@@ -138,7 +121,33 @@
 				}
 			}
 		}
-		@include screenMax("mobile") {
+	}
+
+	@include screenMax('tablet') {
+		.text {
+			.textSubtext {
+				width: 60rem;
+			}
+		}
+	}
+
+	@include screenMax("mobile") {
+		.deals {
+			width: 10rem;
+			height: 10rem;
+			margin: 0 auto 1.6rem;
+		}
+		.text {
+			.textHeader {
+				margin-bottom: 0.8rem
+			}
+			.textSubtext {
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+				width: 100%;
+			}
+		}
+		.container {
 			width: calc(100% - 4rem);
             height: 32.6rem;
 			margin: 0 auto 6rem;

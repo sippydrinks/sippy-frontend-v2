@@ -56,10 +56,6 @@
 			color: $col-grey-darker;
 			@extend %title-24;
 			text-transform: capitalize;
-			@include screenMax("mobile") {
-				font-size: 1.8rem;
-				line-height: 2.7rem;
-			}
 		}
 		p {
 			color: $col-grey-500;
@@ -77,12 +73,9 @@
 			&[data-type="dark"] {
 				color: $col-white;
 			}
-			@include screenMax("mobile") {
-				font-size: 1.4rem;
-				line-height: 2.4rem;
-			}
 		}
 	}
+	
 	&[data-theme="dark"] {
 		.text {
 			h3 {
@@ -124,6 +117,10 @@
 		.button {
 			padding: 1.6rem;
 			height: 5rem;
+			h4 {
+				font-size: 1.4rem;
+				line-height: 2.4rem;
+			}
 		}
 	}
 }

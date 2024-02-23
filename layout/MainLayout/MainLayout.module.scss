@@ -18,7 +18,7 @@
 	background-repeat: repeat;
 	background-image: url('/svgs/background.png');
 	border-radius: 1.6rem;
-	overflow-y: auto;
+	padding-bottom: 12rem;
 	transition: $all-transition;
 	&[data-type = "dark"] {
 		background-color: $col-black;
@@ -46,4 +46,12 @@
 	width: 100%;
 	position: relative;
 	transition: $all-transition;
+}
+
+@include screenMax("mobile") {
+	.layout {
+		.layout_background {
+			padding-bottom: 8rem;
+		}
+	}
 }

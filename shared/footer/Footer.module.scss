@@ -1,48 +1,23 @@
 @import "@/styles/imports";
 
+%h3 {
+	font-family: $font-900;
+	color: $col-white;
+	@extend %text-24;
+}
+
 .footer {
 	padding: 12rem 0 0 0;
 	margin-bottom: -5.6rem;
-	@include screenMax("tablet") {
-		padding: 0;
-	}
-	@include screenMax("mobile") {
-		padding: 0;
-	}
-
 	.footer_body {
 		@include flex(space-between, center, wrap);
-		@include screenMax("tablet") {
-			padding: 5rem 3.5rem 5.3rem;
-		}
-		@include screenMax("mobile") {
-			flex-direction: column-reverse;
-			align-items: flex-start;
-			padding: 2rem 1.5rem 1.6rem;
-		}
 		padding-left: 10rem;
-
 		.footer_nav {
 			padding-right: 33.5rem;
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			@include screenMax("mobile") {
-				flex-direction: column;
-				padding: 0;
-				align-items: unset;
-				gap: 4rem;
-			}
-			%h3 {
-				font-family: $font-900;
-				color: $col-white;
-				@extend %text-24;
-				@include screenMax("mobile") {
-					font-size: 1.8rem;
-					line-height: 2.7rem;
-				}
-			}
 
 			.company_support {
 				display: flex;
@@ -64,11 +39,6 @@
 						@extend %text-16;
 						color: $col-white;
 						cursor: pointer;
-						@include screenMax("mobile") {
-							font-family: $font;
-							font-size: 1.6rem;
-							line-height: 2.4rem;
-						}
 					}
 				}
 			}
@@ -77,9 +47,6 @@
 				display: flex;
 				flex-direction: column;
 				gap: 2.4rem;
-				@include screenMax("mobile") {
-					gap: 1.2rem;
-				}
 				h3 {
 					@extend %h3
 				}
@@ -100,6 +67,48 @@
 	}
 	.carousel_container {
 		margin: 0;
+	}
+	
+	@include screenMax("tablet") {
+		padding: 0;
+		.footer_body {
+			padding: 5rem 3.5rem 5.3rem;
+		}
+	}
+	@include screenMax("mobile") {
+		padding: 0;
+		.footer_body {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			padding: 2rem 1.5rem 1.6rem;
+			.footer_nav {
+				flex-direction: column;
+				padding: 0;
+				align-items: unset;
+				gap: 4rem;
+				.company_support {
+					.company, .support {
+						gap: 1.2rem;
+						h3 {
+							font-size: 1.8rem;
+							line-height: 2.7rem;
+						}
+						p {
+							font-family: $font;
+							font-size: 1.6rem;
+							line-height: 2.4rem;
+						}
+					}
+				}
+				.socials {
+					gap: 1.2rem;
+					h3 {
+						font-size: 1.8rem;
+						line-height: 2.7rem;
+					}
+				}
+			}
+		}
 	}
 }
 

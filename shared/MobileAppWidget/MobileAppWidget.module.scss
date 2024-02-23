@@ -12,54 +12,26 @@
     justify-content: space-between;
     position: relative;
 
-    @include screenMax("mobile") {
-        width: calc(100% - 4rem);
-        height: 65.4rem;
-        padding: 4rem 3.8rem 0;
-        flex-direction: column;
-    }
-
     .text_section {
         width: 48.5rem;
         margin-top: -8rem;
-        @include screenMax("mobile") {
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-        }
-
         h3 {
             color: $col-white;
             font-family: $font-900;
             @extend %title-40;
             margin-bottom: 1.6rem;
-            @include screenMax("mobile") {
-                font-size: 2.4rem;
-                line-height: 3.6rem;
-                margin: 0 0 0.8rem;
-            }
         }
         p {
             color: $col-white;
             font-family: $font;
             @extend %text-18;
-            @include screenMax("mobile") {
-                font-size: 1.6rem;
-                line-height: 2.4rem;
-                font-family: $font;
-            }
         }
     }
-
     .links_container {
         display: flex;
         align-items: center;
         gap: 1.6rem;
         margin-top: 2.4rem;
-
-        @include screenMax("mobile") {
-            margin: 2.4rem 0 5.6rem;
-        }
         .link_container {
             width: 13rem;
             padding: 0.8rem 1.6rem;
@@ -73,19 +45,12 @@
                 width: 2.4rem;
                 height: 2.4rem;
                 position: relative;
-                @include screenMax("mobile") {
-                    width: 1.6rem;
-                    height: 1.6rem;
-                }
             }
             .link_container_texts {
                 h3, p {
                     color: $col-white;
                     font-family: $font-700;
                     @extend %text-14;
-                    @include screenMax("mobile") {
-                        font-size: 1rem;
-                    }
                 }
                 p {
                     font-size: 0.8rem;
@@ -94,28 +59,15 @@
             }
             &:nth-child(2) {
                 width: 14.5rem;
-                @include screenMax("mobile") {
-                    width: 13rem;
-                }
-            }
-            @include screenMax("mobile") {
-                width: 15rem;
             }
         }
     }
-
     .image1 {
         width: 11.5rem;
         height: 11.5rem;
         position: absolute;
         left: -5.5rem;
         bottom: 7rem;
-        @include screenMax("mobile") {
-            width: 4rem;
-            height: 4rem;
-            bottom: -1rem;
-            left: -1rem;
-        }
     }
     .image2 {
         width: 11rem;
@@ -123,18 +75,64 @@
         position: absolute;
         top: -5.5rem;
         right: -5rem;
-        @include screenMax("mobile") {
-            width: 4rem;
-            height: 4rem;
-            top: -2rem;
-            right: 0.5rem;
-        }
     }
     .phone {
         width: 44.6rem;
         height: 37.5rem;
         position: relative;
-        @include screenMax("mobile") {
+    }
+
+    @include screenMax("mobile") {
+        width: calc(100% - 4rem);
+        height: 65.4rem;
+        padding: 4rem 3.8rem 0;
+        flex-direction: column;
+        .text_section {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            h3 {
+                font-size: 2.4rem;
+                line-height: 3.6rem;
+                margin: 0 0 0.8rem;
+            }
+            p {
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                font-family: $font;
+            }
+        }
+        .links_container {
+            margin: 2.4rem 0 5.6rem;
+            .link_container {
+                width: 15rem;
+                .icon {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                }
+                .link_container_texts {
+                    h3, p {
+                        font-size: 1rem;
+                    }
+                }
+                &:nth-child(2) {
+                    width: 13rem;
+                }
+            }
+        }
+        .image1 {
+            width: 4rem;
+            height: 4rem;
+            bottom: -1rem;
+            left: -1rem;
+        }
+        .image2 {
+            width: 4rem;
+            height: 4rem;
+            top: -2rem;
+            right: 0.5rem;
+        }
+        .phone {
             width: 31.6rem;
             height: 42.2rem;
         }

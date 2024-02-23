@@ -41,10 +41,6 @@
 	}
 	&[data-isborder = "false"] {
         border: 0;
-        @include screenMax("mobile") {
-            margin-bottom: 3rem;
-            padding: 1.6rem 0;
-        }
     }
     &[data-type = "big"] {
 	.text {
@@ -81,6 +77,10 @@
 					line-height: 9rem;
 				}
 			}
+		}
+		&[data-isborder = "false"] {
+			margin-bottom: 3rem;
+			padding: 1.6rem 0;
 		}
 	}
 }
