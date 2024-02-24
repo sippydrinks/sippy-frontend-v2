@@ -1,26 +1,20 @@
 'use client';
-import React, { InputHTMLAttributes, useState } from 'react';
+import React, { InputHTMLAttributes, useState, ReactNode } from 'react';
 import { useGlobalContext } from '@/contexts/AppContext';
 import styles from './InputField.module.scss';
-import Image from 'next/image';
-import EyeCloseIcon from '@/components/svgs/EyeClose';
-import EyeOpenIcon from '@/components/svgs/EyeOpen';
+import EyeCloseIcon from '../svgs/jsx/EyeClose';
+import EyeOpenIcon from '../svgs/jsx/EyeOpen';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	icon?: string;
 	name?: string;
 	label?: string;
-	password?: boolean;
+	isPassword?: boolean;
 	className?: string;
-	iconClass?: string;
 	inputClass?: string;
-	errorClass?: string;
-	prefixClass?: string;
-	prefix?: string;
-	suffix?: string;
-	suffixIcon?: string;
+	customPrefix?: React.JSX.Element;
+	suffix?: React.JSX.Element;
 	register?: any;
-	customType?: string;
 	// onChange?: (e: any) => void;
 	// onBlur?: (e: any) => void;
 	// onFocus?: (e: any) => void;
@@ -28,7 +22,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	// max?: number;
 }
 
-const InputField = ({ name, type = 'text', customType, icon, label, placeholder, onChange, onBlur, onFocus, value, className, iconClass, inputClass, errorClass, prefix, prefixClass, password, disabled, required, min, max, suffix, suffixIcon, register, ...options }: Props) => {
+const InputField = ({ name, type = 'text', icon, label, className, inputClass, customPrefix, isPassword, suffix, register, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
 		if (inputType === 'password') {
@@ -47,45 +41,28 @@ const InputField = ({ name, type = 'text', customType, icon, label, placeholder,
 				</label>
 			)}
 
-			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} ${errorClass}`}>
-				{!!icon && (
-					<figure className={`${styles.input_icon} ${iconClass}`}>
-						<Image src={icon} fill alt='' />
-					</figure>
-				)}
-
-				{prefix && (
-					<div data-theme={themeColor} className={`${styles.text} ${prefixClass}`}>
-						<p>{prefix}</p>
+			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} `}>
+				{customPrefix && (
+					<div data-theme={themeColor} className={`${styles.text}`}>
+						{customPrefix}
 					</div>
 				)}
-				{customType === 'phoneNumber' && <div data-theme={themeColor} className={`${styles.prefix_divider} `}></div>}
 
-				<input className={styles.input_field} type={inputType} data-icon={!!icon} placeholder={placeholder} disabled={disabled} onChange={onChange} onBlur={onBlur} onFocus={onFocus} value={value} required={required} min={min} max={max} {...register} {...options} data-theme={themeColor} />
+				<input className={styles.input_field} data-icon={!!icon} {...register} {...options} data-theme={themeColor} />
 
-				{password && (
+				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>
 						{inputType !== 'password' ? <EyeCloseIcon /> : <EyeOpenIcon />}
 					</div>
 				)}
 
-				{(suffix || suffixIcon) && (
+				{suffix && (
 					<div className={styles.suffix_container}>
-						<div>
-							{suffix && (
-								<div data-theme={themeColor} className={styles.text}>
-									<p>{suffix}</p>
-								</div>
-							)}
-						</div>
-
-						<div>
-							{suffixIcon && (
-								<div className={styles.suffix_icon}>
-									<Image alt='' fill src={suffixIcon} />
-								</div>
-							)}
-						</div>
+						{suffix && (
+							<div data-theme={themeColor}>
+								<p>{suffix}</p>
+							</div>
+						)}
 					</div>
 				)}
 			</div>

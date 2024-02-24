@@ -4,8 +4,9 @@ import styles from './Select.module.scss';
 import Image from 'next/image';
 import SmallLoader from '@/shared/loaders/smallLoader/SmallLoader';
 import { shortenTitle } from '@/utils';
-import SelectUpIcon from '@/components/svgs/SelectUpIcon';
-import SelectDownIcon from '@/components/svgs/SelectDownIcon';
+import SelectUpIcon from '@/shared/svgs/jsx/SelectUpIcon';
+import SelectDownIcon from '@/shared/svgs/jsx/SelectDownIcon';
+
 // import { SelectOption } from "@/types";
 
 export interface OptionProps {
