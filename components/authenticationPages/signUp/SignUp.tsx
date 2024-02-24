@@ -5,6 +5,7 @@ import { AuthComponent, Select } from '@/shared';
 import { Button, InputField } from '@/shared';
 import styles from './SignUp.module.scss';
 import { useValidateSignup } from '@/hooks';
+import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,15 +32,7 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 						<h3>or</h3>
 						<div className={styles.line}></div>
 					</div>
-					<div className={styles.tabHeader_container}>
-						<div data-active={type === 'email'} className={styles.tab} onClick={() => toggleTab('email')}>
-							<h3>Email</h3>
-						</div>
-						<div data-active={type === 'phone_number'} className={styles.tab} onClick={() => toggleTab('phone_number')}>
-							<h3>Phone number</h3>
-						</div>
-					</div>
-
+					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>
 						<div>
 							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} inputClass={errors?.fullName && styles.error_border} />

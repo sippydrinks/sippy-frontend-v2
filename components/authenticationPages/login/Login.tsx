@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { AuthComponent, Button, InputField } from '@/shared';
 import styles from './Login.module.scss';
 import { useValidateLogin } from '@/hooks';
+import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 
 const Login = () => {
 	const { register, handleSubmit, errors, handleLogin, toggleTab, type } = useValidateLogin();
@@ -16,14 +17,7 @@ const Login = () => {
 			</div>
 			<form onSubmit={handleSubmit(handleLogin)}>
 				<AuthComponent header='Log into your account' btnText='Login' bgColor='#EEE6F0' bannerText='Welcome Back! sippite' className={styles.auth_component}>
-					<div className={styles.tabHeader_container}>
-						<div data-active={type === 'email'} className={styles.tab} onClick={() => toggleTab('email')}>
-							<h3>Email</h3>
-						</div>
-						<div data-active={type === 'phone_number'} className={styles.tab} onClick={() => toggleTab('phone_number')}>
-							<h3>Phone number</h3>
-						</div>
-					</div>
+					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.tabcontent}>
 						{type === 'email' && (
 							<div className={styles.tab_1}>
