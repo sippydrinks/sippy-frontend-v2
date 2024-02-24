@@ -6,8 +6,7 @@ import styles from './Login.module.scss';
 import { useValidateLogin } from '@/hooks';
 
 const Login = () => {
-	const { register, handleSubmit, errors, handleLogin, activeTab, toggleTab } = useValidateLogin();
-
+	const { register, handleSubmit, errors, handleLogin, toggleTab, type } = useValidateLogin();
 	return (
 		<div className={styles.signIn_body}>
 			<div className={styles.signIn_text}>
@@ -18,15 +17,15 @@ const Login = () => {
 			<form onSubmit={handleSubmit(handleLogin)}>
 				<AuthComponent header='Log into your account' btnText='Login' bgColor='#EEE6F0' bannerText='Welcome Back! sippite' className={styles.auth_component}>
 					<div className={styles.tabHeader_container}>
-						<div className={activeTab === 1 ? styles.tab_active : styles.tab} onClick={() => toggleTab(1)}>
+						<div data-active={type === 'email'} className={styles.tab} onClick={() => toggleTab('email')}>
 							<h3>Email</h3>
 						</div>
-						<div className={activeTab === 2 ? styles.tab_active : styles.tab} onClick={() => toggleTab(2)}>
+						<div data-active={type === 'phone_number'} className={styles.tab} onClick={() => toggleTab('phone_number')}>
 							<h3>Phone number</h3>
 						</div>
 					</div>
 					<div className={styles.tabcontent}>
-						{activeTab === 1 && (
+						{type === 'email' && (
 							<div className={styles.tab_1}>
 								<Button buttonType='transparent' className={styles.btn} iconPrefix='/svgs/google-icon.svg'>
 									<h3>Continue with Google</h3>
@@ -46,7 +45,7 @@ const Login = () => {
 							</div>
 						)}
 
-						{activeTab === 2 && (
+						{type === 'phone_number' && (
 							<div className={styles.tab_1}>
 								<div className={styles.input_fields}>
 									<div>

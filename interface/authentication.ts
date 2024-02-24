@@ -12,3 +12,5 @@ export interface AuthLayoutProps {
 	children: ReactNode;
 	backgroundType: string;
 }
+
+export type TypeProp = 'email' | 'phone_number';
