@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { AuthComponent } from '@/shared';
-import { Button, InputField } from '@/shared';
+import { AuthComponent, Button, InputField } from '@/shared';
 import styles from './Login.module.scss';
 import { useValidateLogin } from '@/hooks';
 
@@ -40,7 +39,7 @@ const Login = () => {
 								</div>
 								<div className={`${styles.input_fields} `}>
 									<div>
-										<InputField label='Email address' placeholder='Enter your email address' type='email' register={register('email')} errorClass={errors?.email && styles.error_border} />
+										<InputField label='Email address' placeholder='Enter your email address' type='email' register={register('email')} inputClass={errors?.email && styles.error_border} />
 										<p className={styles.error_styles}>{errors?.email?.message}</p>
 									</div>
 								</div>
@@ -51,7 +50,17 @@ const Login = () => {
 							<div className={styles.tab_1}>
 								<div className={styles.input_fields}>
 									<div>
-										<InputField label='Phone number' placeholder='8121717629' type='tel' prefix='+234' register={register('phone_number')} errorClass={errors?.phone_number && styles.error_border} />
+										<InputField
+											label='Phone number'
+											customPrefix={
+												<p className={styles.prefix_container}>
+													+234 <span className={styles.prefix_divider}></span>
+												</p>
+											}
+											type='number'
+											register={register('phone_number')}
+											inputClass={errors?.phone_number && styles.error_border}
+										/>
 										<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
 									</div>
 								</div>
@@ -59,7 +68,7 @@ const Login = () => {
 						)}
 
 						<div>
-							<InputField label='Password' type='password' placeholder='Enter password' password register={register('password')} errorClass={errors?.password && styles.error_border} />
+							<InputField label='Password' type='password' placeholder='Enter password' isPassword={true} register={register('password')} inputClass={errors?.password && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.password?.message}</p>
 						</div>
 						<div className={styles.forgot_password}>

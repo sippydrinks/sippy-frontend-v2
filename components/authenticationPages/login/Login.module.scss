@@ -1,11 +1,7 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .signIn_body {
 	height: 100%;
-	background: $col-background-shade;
-	padding: 4rem 6.4rem;
-	min-height: 100vh;
-	padding-bottom: 10rem;
 	.signIn_text {
 		text-align: right;
 		margin-bottom: 2.4rem;
@@ -19,10 +15,6 @@
 				margin-left: 0.8rem;
 			}
 		}
-
-		@include screenMax("mobile") {
-			display: none;
-		}
 	}
 	.auth_component {
 		.tabHeader_container {
@@ -33,7 +25,7 @@
 			background: $col-white;
 			margin: 2.4rem 0;
 			justify-content: space-around;
-			@extend %flex-align !optional ;
+			@extend %flex-align !optional;
 			cursor: pointer;
 			h3 {
 				font-family: $font;
@@ -92,6 +84,20 @@
 					input {
 						width: 100%;
 					}
+
+					.prefix_container {
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
+						gap: 1rem;
+
+						.prefix_divider {
+							width: 1px;
+							height: 2rem;
+							background-color: $col-grey-300;
+							display: flex;
+						}
+					}
 				}
 			}
 		}
@@ -130,13 +136,15 @@
 			font-family: $font-900;
 			color: $col-primary-default;
 		}
-
-		@include screenMax("mobile") {
-			display: flex;
-		}
 	}
 
-	@include screenMax("mobile") {
-		padding: 4rem 2rem;
+	@include screenMax('mobile') {
+		.new_sippy {
+			display: flex;
+		}
+
+		.signIn_text {
+			display: none;
+		}
 	}
 }
