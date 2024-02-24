@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .select_label {
 	@extend %text-14;
@@ -17,7 +17,7 @@
 	// background-color: $col-grey-9;
 	min-height: 2rem;
 	position: relative;
-	&[data-type="true"] {
+	&[data-type='true'] {
 		// background-color: $col-grey-9;
 		// border: 0.1rem solid $col-grey-6;
 	}
@@ -60,7 +60,7 @@
 			// }
 		}
 	}
-	@include screenMax("tablet") {
+	@include screenMax('tablet') {
 		width: auto;
 		padding: 1.5rem 1rem;
 		// margin-right: 0.5rem;
@@ -83,7 +83,7 @@
 	min-width: 7rem;
 	width: 100%;
 	border-radius: 1.5rem;
-	padding: 1rem 1.3rem ;
+	padding: 1rem 1.3rem;
 	position: absolute;
 	top: 6rem;
 	right: 0;
@@ -92,8 +92,8 @@
 	max-height: 17rem;
 	overflow-y: scroll;
 	border: 1px solid $col-grey-200;
-	// @include noScrollBar;
-	@include screenMax("tablet") {
+	@include noScrollBar;
+	@include screenMax('tablet') {
 		// left: -1rem;
 		// top: 5rem;
 		max-height: 23rem;
@@ -103,7 +103,7 @@
 .select_listItem {
 	border-bottom: 0.1rem solid $col-grey-200;
 	cursor: pointer;
-	color:$col-grey-900;
+	color: $col-grey-900;
 }
 
 .select_row {
@@ -123,7 +123,7 @@
 	width: 2.4rem;
 	height: 2.4rem;
 	margin-right: 0.8rem;
-	@include screenMax("tablet") {
+	@include screenMax('tablet') {
 		margin-right: 0 !important;
 		width: 4rem;
 		height: 4rem;
@@ -135,7 +135,7 @@
 	width: 1.1rem;
 	height: 0.7rem;
 	// margin-right: 0.8rem;
-	@include screenMax("tablet") {
+	@include screenMax('tablet') {
 		// margin-right: 0 !important;
 		width: 2.4rem;
 		height: 2.4rem;
@@ -153,7 +153,7 @@
 	position: absolute;
 	right: 2.4rem;
 	top: 50%;
-	@include screenMax("tablet") {
+	@include screenMax('tablet') {
 		display: none;
 	}
 }

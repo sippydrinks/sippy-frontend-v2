@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .input {
 	width: 100%;
@@ -27,10 +27,10 @@
 	&:focus-within {
 		transition: all 0.3s linear;
 	}
-	&[data-theme = "dark"] {
+	&[data-theme='dark'] {
 		border-color: $col-grey-light-stroke;
 	}
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		border-color: $col-grey-light-stroke;
 	}
 }
@@ -56,7 +56,7 @@
 		line-height: 2.5rem;
 		// color: $col-text-secondary;
 	}
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		color: $col-white;
 		&::placeholder {
 			color: $col-white;
@@ -81,7 +81,7 @@
 		color: $col-grey-texts;
 		width: max-content;
 	}
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		p {
 			color: $col-white;
 		}
@@ -89,9 +89,9 @@
 }
 
 .prefix_divider {
-	width: 1px;
-	height: 1.4rem;
-	background-color: $col-grey-200;
+	width: 2px;
+	height: 2rem;
+	background-color: $col-grey-300;
 }
 
 .suffix_container {
@@ -102,11 +102,11 @@
 			@extend %text-14;
 			color: $col-grey-texts;
 			width: max-content;
-			@include screenMax("mobile") {
+			@include screenMax('mobile') {
 				width: 100%;
 			}
 		}
-		&[data-theme="dark"] {
+		&[data-theme='dark'] {
 			p {
 				color: $col-white;
 			}

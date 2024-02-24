@@ -56,27 +56,37 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 
 					<div className={styles.input_fields}>
 						<div>
-							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} errorClass={errors?.fullName && styles.error_border} />
+							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} inputClass={errors?.fullName && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.fullName?.message}</p>
 						</div>
 						{activeTab === 1 && (
 							<div>
-								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} errorClass={errors?.email && styles.error_border} />
+								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
 						{activeTab === 2 && (
 							<div>
-								<InputField label='Phone number' prefix='+234 |' type='number' register={register('phone_number')} errorClass={errors?.phone_number && styles.error_border} />
+								<InputField
+									label='Phone number'
+									customPrefix={
+										<p className={styles.prefix_container}>
+											+234 <span className={styles.prefix_divider}></span>
+										</p>
+									}
+									type='number'
+									register={register('phone_number')}
+									inputClass={errors?.phone_number && styles.error_border}
+								/>
 								<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
 							</div>
 						)}
 						<div>
-							<InputField label='Password' type='password' password placeholder='Enter password' register={register('password')} errorClass={errors?.password && styles.error_border} />
+							<InputField label='Password' type='password' isPassword placeholder='Enter password' register={register('password')} inputClass={errors?.password && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.password?.message}</p>
 						</div>
 						<div>
-							<Select options={hearAboutOptions} defaultOption='Select an option' register={register('get_to_know')} errorClass={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
+							<Select options={hearAboutOptions} defaultOption='Select an option' register={register('get_to_know')} className={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
 							<p className={styles.error_styles}>{errors?.get_to_know?.message}</p>
 						</div>
 					</div>

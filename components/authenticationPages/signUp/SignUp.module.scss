@@ -1,12 +1,7 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .signIn_body {
-	height: 100%;
-	background: $col-background-shade;
-	padding: 4rem 6.4rem;
-	padding-bottom: 10rem;
-	display: block;
-	min-height: 100vh;
+	width: 100%;
 	.signIn_text {
 		text-align: right;
 		margin-bottom: 2.4rem;
@@ -20,7 +15,7 @@
 				margin-left: 0.8rem;
 			}
 		}
-		@include screenMax("mobile") {
+		@include screenMax('mobile') {
 			display: none;
 		}
 	}
@@ -38,7 +33,7 @@
 				margin-left: 0.8rem;
 			}
 		}
-		@include screenMax("mobile") {
+		@include screenMax('mobile') {
 			text-align: center;
 			display: block;
 			margin-top: 2.4rem;
@@ -119,9 +114,23 @@
 			input {
 				width: 100%;
 			}
+
+			.prefix_container {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 0.5rem;
+
+				.prefix_divider {
+					width: 1px;
+					height: 2rem;
+					background-color: $col-grey-300;
+					display: flex;
+				}
+			}
 		}
 	}
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		padding: 4rem 2rem 0;
 		padding-bottom: 10rem;
 	}

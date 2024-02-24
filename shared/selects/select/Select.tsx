@@ -19,6 +19,7 @@ export interface SelectProps {
 	onOptionChange?: (option?: any) => void;
 	defaultOptionIndex?: number;
 	className?: string;
+	customPrefix?: React.JSX.Element;
 	iconClass?: string;
 	icon?: string;
 	title?: string;
@@ -29,7 +30,7 @@ export interface SelectProps {
 	errorClass?: string;
 }
 
-const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, iconClass, icon, title, isTransparent = false, defaultOption = 'Select an Option', register, label, errorClass }: SelectProps) => {
+const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, iconClass, icon, title, isTransparent = false, defaultOption = 'Select an Option', register, label, customPrefix }: SelectProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(defaultOptionIndex);
 
@@ -64,18 +65,14 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, i
 	return (
 		<div>
 			<label className={styles.select_label}>{label}</label>
-			<div className={`${styles.select} ${className} ${errorClass}`} data-type={isTransparent}>
+			<div className={`${styles.select} ${className}`} data-type={isTransparent}>
 				{!options ? (
 					<SmallLoader />
 				) : (
 					<div className={styles.select_header} onClick={toggling}>
 						<div className={styles.select_smallRow}>
 							<div className={styles.flex}>
-								{icon && (
-									<div className={`${styles.icon} ${iconClass}`}>
-										<Image src={icon} fill alt='' />
-									</div>
-								)}
+								{customPrefix && <div className={`${styles.icon}`}>{customPrefix}</div>}
 								<p>
 									{title ? title + ':' : ''} <span {...register}>{selectedOptionIndex === -1 ? defaultOption : shortenTitle(options[selectedOptionIndex].label, 42)}</span>
 								</p>

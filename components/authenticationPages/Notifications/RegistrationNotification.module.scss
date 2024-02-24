@@ -1,8 +1,6 @@
 @import '@/styles/imports';
 
 .notification_page {
-	@extend %background-with-icon;
-
 	.logo {
 		display: none;
 	}
@@ -14,10 +12,10 @@
 		flex-direction: column;
 		width: 400px;
 
-		.notification_svg {
+		/* .notification_svg {
 			width: 294px;
 			height: 200px;
-		}
+		} */
 
 		h2 {
 			margin-top: 10px;

@@ -23,21 +23,8 @@ const useValidateSignup = () => {
 	const signupSchema = yup.object().shape({
 		fullName: yup.string().required('Full name is required'),
 		email: activeTab === 1 ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
-		phone_number:
-			activeTab === 2
-				? yup
-						.string()
-						.required('Phone number is required')
-						.matches(
-							/^[0-9]{10}$/, // Assuming a 10-digit phone number, adjust as needed
-							'Invalid phone number. Please enter a valid 10-digit phone number.'
-						)
-				: yup.string(),
-		password: yup
-			.string()
-			.required('Password is required.')
-			.min(8, 'Password is too short - should be 8 chars minimum.')
-			.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]+$/, 'Password must contain a small letter, a capital letter, a number, and a special character.'),
+		phone_number: activeTab === 2 ? yup.string().required('Phone number is required') : yup.string(),
+		password: yup.string().required('Password is required.'),
 		get_to_know: yup.string().required('This field is required'),
 	});
 

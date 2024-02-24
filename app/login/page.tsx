@@ -1,5 +1,11 @@
 import { LoginView } from '@/Views';
+import AuthLayout from '@/layouts/AuthLayout/AuthLayout';
 
-export default function LoginPage() {
-	return <LoginView />;
-}
+const LoginPage = () => {
+	return (
+		<AuthLayout backgroundType='without-icons'>
+			<LoginView />
+		</AuthLayout>
+	);
+};
+export default LoginPage;
