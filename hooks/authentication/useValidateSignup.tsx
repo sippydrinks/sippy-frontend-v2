@@ -1,31 +1,24 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { TypeProp } from '@/interface/authentication';
+import { hearAboutOptions } from '@/utils';
 
-const hearAboutOptions = [
-	{ value: 'social media', label: 'Social Media' },
-	{ value: 'friend', label: 'Friend' },
-	{ value: 'fliers', label: 'Fliers' },
-	{ value: 'instagram', label: 'Instagram' },
-	{ value: 'twitter', label: 'Twitter' },
-	{ value: 'google search', label: 'Google Search' },
-	{ value: 'facebook/instagram ads', label: 'Facebook/Instagram Ads' },
-	{ value: 'at an event', label: 'At an Event' },
-	{ value: 'referral', label: 'Referral' },
-	{ value: 'word of mouth', label: 'Word of mouth' },
-];
+type Props = {
+	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const useValidateSignup = () => {
-	const [activeTab, setActiveTab] = useState<number>(1);
+const useValidateSignup = ({ setIsRegistrationRequested }: Props) => {
+	const [type, setType] = useState<TypeProp>('email');
 	// create a schema for the signup form using yup based on the active tab
 	const signupSchema = yup.object().shape({
-		fullName: yup.string().required('Full name is required'),
-		email: activeTab === 1 ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
-		phone_number: activeTab === 2 ? yup.string().required('Phone number is required') : yup.string(),
-		password: yup.string().required('Password is required.'),
+		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
+		password: yup.string().required('Password is required'),
+		phone_number: type === 'phone_number' ? yup.string().required('Phone number is required') : yup.string(),
 		get_to_know: yup.string().required('This field is required'),
+		fullName: yup.string().required('This field is required'),
 	});
 
 	// import the useForm hook from react-hook-form
@@ -56,19 +49,16 @@ const useValidateSignup = () => {
 		setValue('get_to_know', getToKnow);
 	}, [register, getToKnow, setValue]);
 
-	// handle the signup form submission
-	const handleSignup = (data: any) => {
-		console.log({ ...data, get_to_know: getToKnow });
+	// a function to switch the tab and reset clear either the email or the phone field depending on the users choice
+	const toggleTab = (selectType: TypeProp) => {
+		resetField(type);
+		setType(selectType);
 	};
 
-	// a function to switch the tab and reset clear either the email or the phone field depending on the users choice
-	const toggleTab = (tabIndex: number) => {
-		setActiveTab(tabIndex);
-		if (tabIndex === 1) {
-			resetField('phone_number');
-		} else if (tabIndex === 2) {
-			resetField('email');
-		}
+	// handle the signup form submission
+	const handleSignup = async (data: any) => {
+		console.log(data);
+		setIsRegistrationRequested(true);
 	};
 
 	return {
@@ -77,11 +67,10 @@ const useValidateSignup = () => {
 		errors,
 		handleSignup,
 		reset,
-		activeTab,
-		setActiveTab,
 		hearAboutOptions,
 		toggleTab,
 		onOptionChange,
+		type,
 	};
 };
 

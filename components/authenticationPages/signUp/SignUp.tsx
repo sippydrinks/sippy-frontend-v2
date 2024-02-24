@@ -11,21 +11,7 @@ type Props = {
 };
 
 const SignUp = ({ setIsRegistrationRequested }: Props) => {
-	const {
-		register,
-		handleSubmit,
-		errors,
-		// handleSignup,
-		activeTab,
-		hearAboutOptions,
-		toggleTab,
-		onOptionChange,
-	} = useValidateSignup();
-
-	const handleSignup = async (data: any) => {
-		console.log(data);
-		setIsRegistrationRequested(true);
-	};
+	const { register, handleSubmit, errors, handleSignup, hearAboutOptions, toggleTab, onOptionChange, type } = useValidateSignup({ setIsRegistrationRequested });
 
 	return (
 		<div className={styles.signIn_body}>
@@ -46,10 +32,10 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 						<div className={styles.line}></div>
 					</div>
 					<div className={styles.tabHeader_container}>
-						<div className={activeTab === 1 ? styles.tab_active : styles.tab} onClick={() => toggleTab(1)}>
+						<div data-active={type === 'email'} className={styles.tab} onClick={() => toggleTab('email')}>
 							<h3>Email</h3>
 						</div>
-						<div className={activeTab === 2 ? styles.tab_active : styles.tab} onClick={() => toggleTab(2)}>
+						<div data-active={type === 'phone_number'} className={styles.tab} onClick={() => toggleTab('phone_number')}>
 							<h3>Phone number</h3>
 						</div>
 					</div>
@@ -59,26 +45,30 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} inputClass={errors?.fullName && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.fullName?.message}</p>
 						</div>
-						{activeTab === 1 && (
+						{type === 'email' && (
 							<div>
 								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
-						{activeTab === 2 && (
-							<div>
-								<InputField
-									label='Phone number'
-									customPrefix={
-										<p className={styles.prefix_container}>
-											+234 <span className={styles.prefix_divider}></span>
-										</p>
-									}
-									type='number'
-									register={register('phone_number')}
-									inputClass={errors?.phone_number && styles.error_border}
-								/>
-								<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
+						{type === 'phone_number' && (
+							<div className={styles.tab_1}>
+								<div className={styles.input_fields}>
+									<div>
+										<InputField
+											label='Phone number'
+											customPrefix={
+												<p className={styles.prefix_container}>
+													+234 <span className={styles.prefix_divider}></span>
+												</p>
+											}
+											type='number'
+											register={register('phone_number')}
+											inputClass={errors?.phone_number && styles.error_border}
+										/>
+										<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
+									</div>
+								</div>
 							</div>
 						)}
 						<div>

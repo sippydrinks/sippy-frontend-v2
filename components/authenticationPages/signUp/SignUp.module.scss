@@ -86,16 +86,19 @@
 				margin-bottom: 1.6rem;
 				text-align: center;
 			}
+			.tab {
+				&[data-active='true'] {
+					h3 {
+						color: $col-primary-default;
+						font-family: $font-900;
+					}
+					border-bottom: 0.4rem solid $col-primary-default;
+				}
+			}
+
 			.tab_active,
 			.tab {
 				width: 18.4rem;
-			}
-			.tab_active {
-				h3 {
-					color: $col-primary-default;
-					font-family: $font-900;
-				}
-				border-bottom: 0.4rem solid $col-primary-default;
 			}
 		}
 		.error_styles {
