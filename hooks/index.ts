@@ -1,3 +1,3 @@
 import useValidateLogin from './authentication/useValidateLogin';
-
-export { useValidateLogin };
+import useValidateSignup from './authentication/useValidateSignup';
+export { useValidateLogin, useValidateSignup };
