@@ -6,7 +6,8 @@ import { useRecoverPassword } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 
 const RecoverPassword = () => {
-	const { register, handleSubmit, errors, type, toggleTab } = useRecoverPassword();
+	const { register, handleSubmit, errors, type, toggleTab, submitForm } = useRecoverPassword();
+	console.log(errors);
 	return (
 		<div className={styles.recover_password_page}>
 			<div className={styles.form_container}>
@@ -20,7 +21,7 @@ const RecoverPassword = () => {
 				<p className={styles.description}>
 					Enter your email or phone number and we`ll send you an OTP. <br /> Enter OTP to reset your password.
 				</p>
-				<form action=''>
+				<form onSubmit={handleSubmit(submitForm)}>
 					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>
 						{type === 'email' && (
@@ -33,6 +34,7 @@ const RecoverPassword = () => {
 							<div>
 								<InputField
 									label='Phone number'
+									type='number'
 									customPrefix={
 										<p className={styles.prefix_container}>
 											+234 <span className={styles.prefix_divider}></span>

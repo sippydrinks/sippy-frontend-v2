@@ -48,7 +48,7 @@ const InputField = ({ name, type = 'text', icon, label, className, inputClass, c
 					</div>
 				)}
 
-				<input className={styles.input_field} data-icon={!!icon} {...register} {...options} data-theme={themeColor} />
+				<input className={styles.input_field} type={type} data-icon={!!icon} {...register} {...options} data-theme={themeColor} />
 
 				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>

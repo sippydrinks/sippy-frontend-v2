@@ -12,7 +12,6 @@ const useRecoverPassword = () => {
 
 	const loginSchema = yup.object({
 		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
-		password: yup.string().required('Password is required'),
 		phone_number: type === 'phone_number' ? yup.string().required('Phone number is required') : yup.string(),
 	});
 
@@ -26,9 +25,9 @@ const useRecoverPassword = () => {
 		resolver: yupResolver(loginSchema),
 	});
 
-	const handleLogin = (data: any) => {
+	const submitForm = (data: any) => {
 		console.log(data);
-		router.push('/');
+		// router.push('/');
 	};
 
 	const toggleTab = (selectType: TypeProp) => {
@@ -40,9 +39,7 @@ const useRecoverPassword = () => {
 		register,
 		handleSubmit,
 		errors,
-		handleLogin,
-
-		reset,
+		submitForm,
 		toggleTab,
 		type,
 	};
