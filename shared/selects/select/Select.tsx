@@ -20,17 +20,14 @@ export interface SelectProps {
 	defaultOptionIndex?: number;
 	className?: string;
 	customPrefix?: React.JSX.Element;
-	iconClass?: string;
-	icon?: string;
 	title?: string;
 	isTransparent?: boolean;
 	defaultOption?: string;
 	register?: any;
 	label?: string;
-	errorClass?: string;
 }
 
-const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, iconClass, icon, title, isTransparent = false, defaultOption = 'Select an Option', register, label, customPrefix }: SelectProps) => {
+const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, title, isTransparent = false, defaultOption = 'Select an Option', register, label, customPrefix }: SelectProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(defaultOptionIndex);
 
@@ -72,7 +69,7 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, i
 					<div className={styles.select_header} onClick={toggling}>
 						<div className={styles.select_smallRow}>
 							<div className={styles.flex}>
-								{customPrefix && <div className={`${styles.icon}`}>{customPrefix}</div>}
+								{customPrefix && <div>{customPrefix}</div>}
 								<p>
 									{title ? title + ':' : ''} <span {...register}>{selectedOptionIndex === -1 ? defaultOption : shortenTitle(options[selectedOptionIndex].label, 42)}</span>
 								</p>
