@@ -60,6 +60,7 @@ export interface CartDetailsCardProps {
     productSize?: string
     productName?: string
     productQuantity?: number
+    cartproductQuantity?: number
     cardType?: 'account' | 'cart'
     className?: string
     actionBtnClass?: string
