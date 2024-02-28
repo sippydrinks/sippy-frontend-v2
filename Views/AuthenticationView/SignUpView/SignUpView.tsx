@@ -1,6 +1,5 @@
 'use client';
-import { RegistrationNotification, SignUp } from '@/components/authenticationPages';
-import { AuthLayout } from '@/layout';
+import { AuthWrapper, RegistrationNotification, SignUp } from '@/components';
 import { FailedSvg, SuccessSvg } from '@/shared/svgs/jsx';
 import React, { useState } from 'react';
 
@@ -34,13 +33,13 @@ const SignUpView = () => {
 	return (
 		<>
 			{isRegistrationRequested ? (
-				<AuthLayout backgroundType='with-icons'>
+				<AuthWrapper backgroundType='with-icons'>
 					<RegistrationNotification details={success ? notificationDetails.success : notificationDetails.failed} />
-				</AuthLayout>
+				</AuthWrapper>
 			) : (
-				<AuthLayout backgroundType='without-icons'>
+				<AuthWrapper backgroundType='without-icons'>
 					<SignUp setIsRegistrationRequested={setIsRegistrationRequested} />
-				</AuthLayout>
+				</AuthWrapper>
 			)}
 		</>
 	);

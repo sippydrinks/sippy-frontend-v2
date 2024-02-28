@@ -6,7 +6,6 @@ import EyeCloseIcon from '../svgs/jsx/EyeClose';
 import EyeOpenIcon from '../svgs/jsx/EyeOpen';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-	icon?: string;
 	name?: string;
 	label?: string;
 	isPassword?: boolean;
@@ -15,14 +14,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	customPrefix?: React.JSX.Element;
 	suffix?: React.JSX.Element;
 	register?: any;
-	// onChange?: (e: any) => void;
-	// onBlur?: (e: any) => void;
-	// onFocus?: (e: any) => void;
-	// min?: number;
-	// max?: number;
+	inputRef?: any;
 }
 
-const InputField = ({ name, type = 'text', icon, label, className, inputClass, customPrefix, isPassword, suffix, register, ...options }: Props) => {
+const InputField = ({ name, type = 'text', label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
 		if (inputType === 'password') {
@@ -42,13 +37,9 @@ const InputField = ({ name, type = 'text', icon, label, className, inputClass, c
 			)}
 
 			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} `}>
-				{customPrefix && (
-					<div data-theme={themeColor} className={`${styles.text}`}>
-						{customPrefix}
-					</div>
-				)}
+				{customPrefix && <>{customPrefix}</>}
 
-				<input className={styles.input_field} type={type} data-icon={!!icon} {...register} {...options} data-theme={themeColor} />
+				<input className={styles.input_field} type={type} ref={inputRef} {...register} {...options} data-theme={themeColor} />
 
 				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>
@@ -56,15 +47,7 @@ const InputField = ({ name, type = 'text', icon, label, className, inputClass, c
 					</div>
 				)}
 
-				{suffix && (
-					<div className={styles.suffix_container}>
-						{suffix && (
-							<div data-theme={themeColor}>
-								<p>{suffix}</p>
-							</div>
-						)}
-					</div>
-				)}
+				{suffix && <div className={styles.suffix_container}>{suffix && <>{suffix}</>}</div>}
 			</div>
 		</div>
 	);

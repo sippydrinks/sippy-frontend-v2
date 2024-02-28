@@ -1,2 +1,2 @@
-import { Login } from './authenticationPages';
-export { Login };
+import { Login, SignUp, RegistrationNotification, AuthWrapper } from './authenticationPages';
+export { Login, SignUp, RegistrationNotification, AuthWrapper };
