@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import styles from './Select.module.scss';
-import Image from 'next/image';
 import SmallLoader from '@/shared/loaders/smallLoader/SmallLoader';
 import { shortenTitle } from '@/utils';
 import SelectUpIcon from '@/shared/svgs/jsx/SelectUpIcon';
@@ -39,7 +38,6 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, c
 	const onOptionClicked = (selectedIndex: number) => () => {
 		setSelectedOptionIndex(selectedIndex);
 		setIsOpen(false);
-
 		if (onOptionChange) {
 			onOptionChange(options![selectedIndex].value);
 		}

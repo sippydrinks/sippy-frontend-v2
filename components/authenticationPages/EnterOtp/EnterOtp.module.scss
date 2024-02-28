@@ -2,6 +2,7 @@
 
 .otp_page_container {
 	max-width: 40rem;
+	box-sizing: border-box;
 
 	.otp_form {
 		display: flex;
