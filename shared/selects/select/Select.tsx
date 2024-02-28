@@ -1,11 +1,11 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import styles from './Select.module.scss';
-import Image from 'next/image';
 import SmallLoader from '@/shared/loaders/smallLoader/SmallLoader';
 import { shortenTitle } from '@/utils';
-import SelectUpIcon from '@/components/svgs/jsx/SelectUpIcon';
-import SelectDownIcon from '@/components/svgs/jsx/SelectDownIcon';
+import SelectUpIcon from '@/shared/svgs/SelectUpIcon';
+import SelectDownIcon from '@/shared/svgs/SelectDownIcon';
+
 // import { SelectOption } from "@/types";
 
 export interface OptionProps {
@@ -14,7 +14,6 @@ export interface OptionProps {
 }
 
 export interface SelectProps {
-	// options?: SelectOption[];
 	options?: any[];
 	onOptionChange?: (option?: any) => void;
 	defaultOptionIndex?: number;
@@ -23,11 +22,10 @@ export interface SelectProps {
 	title?: string;
 	isTransparent?: boolean;
 	defaultOption?: string;
-	register?: any;
 	label?: string;
 }
 
-const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, title, isTransparent = false, defaultOption = 'Select an Option', register, label, customPrefix }: SelectProps) => {
+const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, customPrefix, title, isTransparent = false, defaultOption = 'Select an Option', label }: SelectProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(defaultOptionIndex);
 
@@ -40,7 +38,6 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, t
 	const onOptionClicked = (selectedIndex: number) => () => {
 		setSelectedOptionIndex(selectedIndex);
 		setIsOpen(false);
-
 		if (onOptionChange) {
 			onOptionChange(options![selectedIndex].value);
 		}
@@ -69,9 +66,9 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, t
 					<div className={styles.select_header} onClick={toggling}>
 						<div className={styles.select_smallRow}>
 							<div className={styles.flex}>
-								{customPrefix && <div>{customPrefix}</div>}
+								{customPrefix && <>{customPrefix}</>}
 								<p>
-									{title ? title + ':' : ''} <span {...register}>{selectedOptionIndex === -1 ? defaultOption : shortenTitle(options[selectedOptionIndex].label, 42)}</span>
+									{title ? title + ':' : ''} <span>{selectedOptionIndex === -1 ? defaultOption : shortenTitle(options[selectedOptionIndex].label, 42)}</span>
 								</p>
 							</div>
 							<div className={`${styles.select_dropDownImage}`}>{isOpen ? <SelectUpIcon /> : <SelectDownIcon />}</div>
