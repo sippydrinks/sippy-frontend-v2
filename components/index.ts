@@ -1,2 +1,2 @@
-import { Login } from './authenticationPages';
-export { Login };
+import { Login, AuthWrapper } from './authenticationPages';
+export { Login, AuthWrapper };
