@@ -18,6 +18,6 @@ import { scrollTo } from './scrollTo';
 import { formatMatches, formatCompetitons } from './formatMatches';
 import { getPoolStage } from './getPoolStage';
 import truncateHash from './truncateHash';
+import { formatURL } from './formatUrl';
 import { hearAboutOptions } from './selectField';
-
-export { toggleScroll, formatNumber, stringShortner, errorMessage, getUnixTimeStamp, getLanguageFromUrl, formatNum, formatLargeNum, animateDisplay, convertMsToHM, timeSince, showDollar, generateSymbol, removeUnderScore, copyText, convertEpochToFormattedDate, shortenTitle, scrollTo, formatMatches, formatCompetitons, getPoolStage, truncateHash, hearAboutOptions };
+export { hearAboutOptions, toggleScroll, formatNumber, stringShortner, errorMessage, getUnixTimeStamp, getLanguageFromUrl, formatNum, formatLargeNum, animateDisplay, convertMsToHM, timeSince, showDollar, generateSymbol, removeUnderScore, copyText, convertEpochToFormattedDate, shortenTitle, scrollTo, formatMatches, formatCompetitons, getPoolStage, truncateHash, formatURL };

@@ -5,4 +5,4 @@ import RecoverPassword from './RecoverPassword/RecoverPassword';
 import EnterOtp from './EnterOtp/EnterOtp';
 import AuthWrapper from './AuthWrapper/AuthWrapper';
 
-export { Login, SignUp, RegistrationNotification, RecoverPassword, EnterOtp,AuthWrapper };
+export { Login, SignUp, RegistrationNotification, RecoverPassword, EnterOtp, AuthWrapper };

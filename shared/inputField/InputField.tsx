@@ -6,7 +6,6 @@ import EyeCloseIcon from '../svgs/jsx/EyeClose';
 import EyeOpenIcon from '../svgs/jsx/EyeOpen';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-	icon?: string;
 	name?: string;
 	label?: string;
 	isPassword?: boolean;
@@ -18,7 +17,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	inputRef?: any;
 }
 
-const InputField = ({ name, type = 'text', icon, label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
+const InputField = ({ name, type = 'text', label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
 		if (inputType === 'password') {
@@ -40,7 +39,7 @@ const InputField = ({ name, type = 'text', icon, label, className, inputClass, c
 			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} `}>
 				{customPrefix && <>{customPrefix}</>}
 
-				<input className={styles.input_field} type={type} ref={inputRef} data-icon={!!icon} {...register} {...options} data-theme={themeColor} />
+				<input className={styles.input_field} type={type} ref={inputRef} {...register} {...options} data-theme={themeColor} />
 
 				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>

@@ -1,5 +1,5 @@
 'use client';
-import { AuthWrapper, RegistrationNotification, SignUp } from '@/components/authenticationPages';
+import { AuthWrapper, RegistrationNotification, SignUp } from '@/components';
 import { FailedSvg, SuccessSvg } from '@/shared/svgs/jsx';
 import React, { useState } from 'react';
 
