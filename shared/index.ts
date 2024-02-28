@@ -23,6 +23,11 @@ import DrinkTypeCard from "./drinkTypesCard/drinkTypeCard/DrinkTypeCard";
 import MobileAppWidget from "./MobileAppWidget/MobileAppWidget";
 import AlcoholicDrinksCard from "./drinkTypesCard/alcohol/AlcoholDrinkCategory";
 import SoftDrinksCard from "./drinkTypesCard/soft/SoftDrinkCategory";
+// import ModalElement from "../../../updates/Done/modalElement/ModalElement";
+// import ItemDetailsCard from "../../../updates/Done/ItemDetailsCard/ItemDetailsCard";
+// import Counter from "../../../updates/Done/counter/Counter";
+
+
 
 export {
 	Nprogress,
@@ -50,4 +55,7 @@ export {
 	SoftDrinksCard,
 	MobileAppWidget,
 	DrinkTypeCard,
+	// ModalElement,
+	// ItemDetailsCard,
+	// Counter,
 };

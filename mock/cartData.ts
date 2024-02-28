@@ -7,6 +7,7 @@ export default [
 		productPrice: 350,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 104,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 2,
@@ -15,6 +16,7 @@ export default [
 		productPrice: 700,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 35,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 3,
@@ -23,6 +25,7 @@ export default [
 		productPrice: 800,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 0,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 4,
@@ -31,6 +34,7 @@ export default [
 		productPrice: 350,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 104,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 5,
@@ -39,6 +43,7 @@ export default [
 		productPrice: 700,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 35,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 6,
@@ -47,6 +52,7 @@ export default [
 		productPrice: 800,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 10,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 7,
@@ -55,6 +61,7 @@ export default [
 		productPrice: 350,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 104,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 8,
@@ -63,6 +70,7 @@ export default [
 		productPrice: 700,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 35,
+		cartProductQuantity: 0,
 	},
 	{
 		id: 9,
@@ -71,5 +79,6 @@ export default [
 		productPrice: 800,
 		productImage: "/svgs/cart-product-image.svg",
 		productQuantity: 10,
+		cartProductQuantity: 0,
 	},
 ];

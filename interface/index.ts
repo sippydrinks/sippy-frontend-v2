@@ -7,8 +7,8 @@ export interface LayoutProps {
 
 export interface ModalProps {
     modalImage?: string
-    isOpen?: any;
-    onClose?: any;
+    isOpen?: boolean;
+    onClose: () => void;
     bodyClass?: string
     children?: React.ReactNode
     className?: string
@@ -60,7 +60,7 @@ export interface CartDetailsCardProps {
     productSize?: string
     productName?: string
     productQuantity?: number
-    cartproductQuantity?: number
+    cartProductQuantity?: number
     cardType?: 'account' | 'cart'
     className?: string
     actionBtnClass?: string
