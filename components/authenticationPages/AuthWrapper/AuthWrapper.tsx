@@ -1,8 +1,8 @@
 'use client';
 import { AuthLayoutProps } from '@/interface/authentication';
-import styles from './AuthLayout.module.scss';
+import styles from './AuthWrapper.module.scss';
 
-const AuthLayout = ({ children, backgroundType }: AuthLayoutProps) => {
+const AuthWrapper = ({ children, backgroundType }: AuthLayoutProps) => {
 	return (
 		<div data-type={backgroundType} className={styles.auth_layout}>
 			{children}
@@ -10,4 +10,4 @@ const AuthLayout = ({ children, backgroundType }: AuthLayoutProps) => {
 	);
 };
 
-export default AuthLayout;
+export default AuthWrapper;
