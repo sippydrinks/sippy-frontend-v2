@@ -69,7 +69,7 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 							<p className={styles.error_styles}>{errors?.password?.message}</p>
 						</div>
 						<div>
-							<Select options={hearAboutOptions} defaultOption='Select an option' register={register('get_to_know')} className={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
+							<Select options={hearAboutOptions} defaultOption='Select an option' className={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
 							<p className={styles.error_styles}>{errors?.get_to_know?.message}</p>
 						</div>
 					</div>

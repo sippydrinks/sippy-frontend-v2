@@ -6,7 +6,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { TypeProp } from '@/interface/authentication';
 
-const useRecoverPassword = () => {
+interface Props {
+	setIsEnterOtp: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const useRecoverPassword = ({ setIsEnterOtp }: Props) => {
 	const router = useRouter();
 	const [type, setType] = useState<TypeProp>('email');
 
@@ -26,6 +30,7 @@ const useRecoverPassword = () => {
 	});
 
 	const submitForm = (data: any) => {
+		setIsEnterOtp(true);
 		console.log(data);
 		// router.push('/');
 	};

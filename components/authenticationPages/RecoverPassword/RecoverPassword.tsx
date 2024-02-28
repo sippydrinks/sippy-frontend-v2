@@ -4,9 +4,14 @@ import styles from './RecoverPassword.module.scss';
 import { Button, InputField, Logo } from '@/shared';
 import { useRecoverPassword } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
+import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
 
-const RecoverPassword = () => {
-	const { register, handleSubmit, errors, type, toggleTab, submitForm } = useRecoverPassword();
+interface Props {
+	setIsEnterOtp: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const RecoverPassword = ({ setIsEnterOtp }: Props) => {
+	const { register, handleSubmit, errors, type, toggleTab, submitForm } = useRecoverPassword({ setIsEnterOtp });
 	console.log(errors);
 	return (
 		<div className={styles.recover_password_page}>
@@ -14,13 +19,7 @@ const RecoverPassword = () => {
 				<div className={styles.logo}>
 					<Logo />
 				</div>
-				<div className={styles.subTitle_icon}>
-					<p>Oops! it happens</p>
-				</div>
-				<h2 className={styles.title}>Recover password</h2>
-				<p className={styles.description}>
-					Enter your email or phone number and we`ll send you an OTP. <br /> Enter OTP to reset your password.
-				</p>
+				<RecoverPasswordWrapper subTitle='Oops! it happens' title='Recover password' description='Enter your email or phone number and we`ll send you an OTP. Enter OTP to reset your password.' />
 				<form onSubmit={handleSubmit(submitForm)}>
 					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>

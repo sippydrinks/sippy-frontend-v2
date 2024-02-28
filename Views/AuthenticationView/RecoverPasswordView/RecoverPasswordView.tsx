@@ -1,13 +1,11 @@
-import { RecoverPassword } from '@/components/authenticationPages';
+'use client';
+import { EnterOtp, RecoverPassword } from '@/components/authenticationPages';
 import { AuthLayout } from '@/layout';
-import React from 'react';
+import React, { useState } from 'react';
 
 const RecoverPasswordView = () => {
-	return (
-		<AuthLayout backgroundType='with-icons'>
-			<RecoverPassword />
-		</AuthLayout>
-	);
+	const [isEnterOtp, setIsEnterOtp] = useState<boolean>(false);
+	return <AuthLayout backgroundType='with-icons'>{isEnterOtp ? <EnterOtp /> : <RecoverPassword setIsEnterOtp={setIsEnterOtp} />}</AuthLayout>;
 };
 
 export default RecoverPasswordView;
