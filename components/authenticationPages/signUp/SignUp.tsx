@@ -5,27 +5,14 @@ import { AuthComponent, Select } from '@/shared';
 import { Button, InputField } from '@/shared';
 import styles from './SignUp.module.scss';
 import { useValidateSignup } from '@/hooks';
+import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const SignUp = ({ setIsRegistrationRequested }: Props) => {
-	const {
-		register,
-		handleSubmit,
-		errors,
-		// handleSignup,
-		activeTab,
-		hearAboutOptions,
-		toggleTab,
-		onOptionChange,
-	} = useValidateSignup();
-
-	const handleSignup = async (data: any) => {
-		console.log(data);
-		setIsRegistrationRequested(true);
-	};
+	const { register, handleSubmit, errors, handleSignup, hearAboutOptions, toggleTab, onOptionChange, type } = useValidateSignup({ setIsRegistrationRequested });
 
 	return (
 		<div className={styles.signIn_body}>
@@ -45,40 +32,36 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 						<h3>or</h3>
 						<div className={styles.line}></div>
 					</div>
-					<div className={styles.tabHeader_container}>
-						<div className={activeTab === 1 ? styles.tab_active : styles.tab} onClick={() => toggleTab(1)}>
-							<h3>Email</h3>
-						</div>
-						<div className={activeTab === 2 ? styles.tab_active : styles.tab} onClick={() => toggleTab(2)}>
-							<h3>Phone number</h3>
-						</div>
-					</div>
-
+					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>
 						<div>
 							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} inputClass={errors?.fullName && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.fullName?.message}</p>
 						</div>
-						{activeTab === 1 && (
+						{type === 'email' && (
 							<div>
 								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
-						{activeTab === 2 && (
-							<div>
-								<InputField
-									label='Phone number'
-									customPrefix={
-										<p className={styles.prefix_container}>
-											+234 <span className={styles.prefix_divider}></span>
-										</p>
-									}
-									type='number'
-									register={register('phone_number')}
-									inputClass={errors?.phone_number && styles.error_border}
-								/>
-								<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
+						{type === 'phone_number' && (
+							<div className={styles.tab_1}>
+								<div className={styles.input_fields}>
+									<div>
+										<InputField
+											label='Phone number'
+											customPrefix={
+												<p className={styles.prefix_container}>
+													+234 <span className={styles.prefix_divider}></span>
+												</p>
+											}
+											type='number'
+											register={register('phone_number')}
+											inputClass={errors?.phone_number && styles.error_border}
+										/>
+										<p className={styles.error_styles}>{errors?.phone_number?.message}</p>
+									</div>
+								</div>
 							</div>
 						)}
 						<div>
@@ -86,7 +69,7 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 							<p className={styles.error_styles}>{errors?.password?.message}</p>
 						</div>
 						<div>
-							<Select options={hearAboutOptions} defaultOption='Select an option' register={register('get_to_know')} className={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
+							<Select options={hearAboutOptions} defaultOption='Select an option' className={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
 							<p className={styles.error_styles}>{errors?.get_to_know?.message}</p>
 						</div>
 					</div>

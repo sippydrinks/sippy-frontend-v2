@@ -4,15 +4,19 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
+import { TypeProp } from '@/interface/authentication';
 
-const useRecoverPassword = () => {
+interface Props {
+	setIsEnterOtp: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const useRecoverPassword = ({ setIsEnterOtp }: Props) => {
 	const router = useRouter();
-	const [activeTab, setActiveTab] = useState<number>(1);
+	const [type, setType] = useState<TypeProp>('email');
 
 	const loginSchema = yup.object({
-		email: activeTab === 1 ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
-		password: yup.string().required('Password is required'),
-		phone_number: activeTab === 2 ? yup.string().required('Phone number is required') : yup.string(),
+		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
+		phone_number: type === 'phone_number' ? yup.string().required('Phone number is required') : yup.string(),
 	});
 
 	const {
@@ -20,29 +24,29 @@ const useRecoverPassword = () => {
 		handleSubmit,
 		formState: { errors },
 		reset,
+		resetField,
 	} = useForm({
 		resolver: yupResolver(loginSchema),
 	});
 
-	const handleLogin = (data: any) => {
+	const submitForm = (data: any) => {
+		setIsEnterOtp(true);
 		console.log(data);
-		router.push('/');
+		// router.push('/');
 	};
 
-	const toggleTab = (tabIndex: number) => {
-		setActiveTab(tabIndex);
-		reset();
+	const toggleTab = (selectType: TypeProp) => {
+		resetField(type);
+		setType(selectType);
 	};
 
 	return {
 		register,
 		handleSubmit,
 		errors,
-		handleLogin,
-		setActiveTab,
-		activeTab,
-		reset,
+		submitForm,
 		toggleTab,
+		type,
 	};
 };
 
