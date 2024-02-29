@@ -67,11 +67,13 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 				<div className={styles.mob_view}>
 					<ThemeToggle />
 				</div>
-				<div data-buttons={isNavButton} className={styles.buttons}>
-					<ButtonNav />
-				</div>
+				{!isNavButton && 
+					<div className={styles.buttons}>
+						<ButtonNav />
+					</div>
+				}
 			</div>
-			<div ref={dropdownRef} className={styles.small_row}>
+			<div ref={dropdownRef} data-route={route === '/checkout'} className={`${styles.small_row} ${styles.nav_buttons}`}>
 				<div className={styles.button_container}>
 					<div className={styles.icon}>
 						<Image src={`/svgs/search-${theme}.svg`} alt="icon" fill />

@@ -8,9 +8,12 @@
 	&[data-type = "alcohol"] {
 		background-color: $col-coral-500;
 	}
-	@include screenMax("mobile") {
-		padding: 1rem 0.8rem;
-	}
+}
+.layout_alcohol {
+	background-color: $col-coral-500;
+	width: 100%;
+	position: relative;
+	padding: 2.4rem;
 }
 
 .layout_background {
@@ -49,7 +52,8 @@
 }
 
 @include screenMax("mobile") {
-	.layout {
+	.layout, .layout_alcohol {
+		padding: 1rem 0.8rem;;
 		.layout_background {
 			padding-bottom: 8rem;
 		}

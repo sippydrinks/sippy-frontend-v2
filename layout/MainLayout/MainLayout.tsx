@@ -16,12 +16,12 @@ const MainLayout = ({children, type, isNavButton}: MainLayoutProps) => {
 	})
   return (
     <div data-route={route} data-type={type} className={styles.layout}>
-			<div className={styles.layout_background} data-type={theme}>
-				<Header isNavButton={isNavButton} />
-				<main className={styles.layout_content}>{children}</main>
-			</div>
-			<Footer type={drinkType} />
+		<div className={styles.layout_background} data-type={theme}>
+			<Header isNavButton={isNavButton} />
+			<main className={styles.layout_content}>{children}</main>
 		</div>
+		<Footer type={drinkType} />
+	</div>
   )
 }
 

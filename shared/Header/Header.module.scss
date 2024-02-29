@@ -126,11 +126,10 @@
 		flex-grow: 1;
 		transition: transform 0.3s ease-out;
 		@include flex(center, center);
-		.buttons {
+	}
+	.nav_buttons {
+		&[data-route="true"] {
 			display: none;
-			&[data-buttons = "true"] {
-				display: block;
-			}
 		}
 	}
 
