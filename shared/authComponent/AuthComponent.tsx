@@ -6,7 +6,7 @@ import styles from './AuthComponent.module.scss';
 const AuthComponent = (props: AuthComponentProps) => {
 	return (
 		<div className={`${styles.auth_container} ${props.className}`}>
-				<Logo />
+			<Logo />
 			<div className={styles.banner}>
 				<AuthBanner bgColor={props.bgColor} bannerText={props.bannerText} />
 			</div>
