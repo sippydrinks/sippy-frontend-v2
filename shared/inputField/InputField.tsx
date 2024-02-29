@@ -1,97 +1,53 @@
-"use client";
-import React, { InputHTMLAttributes, useState } from "react";
-import styles from "./InputField.module.scss";
-import Image from "next/image";
+'use client';
+import React, { InputHTMLAttributes, useState, ReactNode } from 'react';
+import { useGlobalContext } from '@/contexts/AppContext';
+import styles from './InputField.module.scss';
+import EyeCloseIcon from '../svgs/EyeClose';
+import EyeOpenIcon from '../svgs/EyeOpen';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-	icon?: string;
 	name?: string;
 	label?: string;
-	password?: boolean;
+	isPassword?: boolean;
 	className?: string;
-	suffix?: string;
-	// onChange?: (e: any) => void;
-	// onBlur?: (e: any) => void;
-	// onFocus?: (e: any) => void;
-	// min?: number;
-	// max?: number;
+	inputClass?: string;
+	customPrefix?: React.JSX.Element;
+	suffix?: React.JSX.Element;
+	register?: any;
+	inputRef?: any;
 }
 
-const InputField = ({
-	name,
-	type = "text",
-	icon,
-	label,
-	placeholder,
-	onChange,
-	onBlur,
-	onFocus,
-	value,
-	className,
-	password,
-	disabled,
-	required,
-	min,
-	max,
-	suffix,
-	...options
-}: Props) => {
+const InputField = ({ name, type = 'text', label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
-		if (inputType === "password") {
-			setInputType("text");
+		if (inputType === 'password') {
+			setInputType('text');
 		}
-		if (inputType === "text") {
-			setInputType("password");
+		if (inputType === 'text') {
+			setInputType('password');
 		}
 	};
+	const { themeColor } = useGlobalContext();
 	return (
-		<div className={`${styles.input} ${className}`}>
+		<div data-theme={themeColor} className={`${styles.input} ${className}`}>
 			{!!label && (
 				<label className={styles.input_label} htmlFor={name}>
 					{label}
 				</label>
 			)}
 
-			<div className={styles.input_wrapper}>
-				{!!icon && (
-					<figure className={styles.input_icon}>
-						<Image src={icon} fill sizes="100vw" alt="" />
-					</figure>
-				)}
-				<input
-					className={styles.input_field}
-					type={inputType}
-					data-icon={!!icon}
-					placeholder={placeholder}
-					disabled={disabled}
-					onChange={onChange}
-					onBlur={onBlur}
-					onFocus={onFocus}
-					value={value}
-					required={required}
-					min={min}
-					max={max}
-					{...options}
-				/>
-				{password && (
+			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} `}>
+				{customPrefix && <>{customPrefix}</>}
+
+				<input className={styles.input_field} type={type} ref={inputRef} {...register} {...options} data-theme={themeColor} />
+
+				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>
-						<Image
-							src={
-								inputType !== "password"
-									? "/svgs/eye-close.svg"
-									: "/svgs/eye.svg"
-							}
-							layout="fill"
-							alt=""
-						/>
+						{inputType !== 'password' ? <EyeCloseIcon /> : <EyeOpenIcon />}
 					</div>
 				)}
-				{suffix && (
-					<div className={styles.text}>
-						<p>{suffix}</p>
-					</div>
-				)}
+
+				{suffix && <div className={styles.suffix_container}>{suffix && <>{suffix}</>}</div>}
 			</div>
 		</div>
 	);
