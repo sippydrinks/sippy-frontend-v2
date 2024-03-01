@@ -19,12 +19,14 @@ export interface SelectProps {
 	defaultOptionIndex?: number;
 	className?: string;
 	customPrefix?: React.JSX.Element;
+	customPrefix?: React.JSX.Element;
 	title?: string;
 	isTransparent?: boolean;
 	defaultOption?: string;
 	label?: string;
 }
 
+const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, customPrefix, title, isTransparent = false, defaultOption = 'Select an Option', label }: SelectProps) => {
 const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, customPrefix, title, isTransparent = false, defaultOption = 'Select an Option', label }: SelectProps) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(defaultOptionIndex);
@@ -60,6 +62,7 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, c
 		<div>
 			<label className={styles.select_label}>{label}</label>
 			<div className={`${styles.select} ${className}`} data-type={isTransparent}>
+			<div className={`${styles.select} ${className}`} data-type={isTransparent}>
 				{!options ? (
 					<SmallLoader />
 				) : (
@@ -67,7 +70,9 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, c
 						<div className={styles.select_smallRow}>
 							<div className={styles.flex}>
 								{customPrefix && <>{customPrefix}</>}
+								{customPrefix && <>{customPrefix}</>}
 								<p>
+									{title ? title + ':' : ''} <span>{selectedOptionIndex === -1 ? defaultOption : shortenTitle(options[selectedOptionIndex].label, 42)}</span>
 									{title ? title + ':' : ''} <span>{selectedOptionIndex === -1 ? defaultOption : shortenTitle(options[selectedOptionIndex].label, 42)}</span>
 								</p>
 							</div>
