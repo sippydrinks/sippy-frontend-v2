@@ -17,14 +17,17 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [cart, setCart] = useState<any[]>([]);
 	const [drinkType, setDrinkType] = useState<"soft" | "alcohol">("soft");
 	const [theme, setTheme] = useState<"light" | "dark">("light");
+	const urlCheck = path.includes('/alcohol')
 
 	useEffect(() => {
-		if (path.includes('/alcohol')) {
+		if (urlCheck) {
 			setDrinkType("alcohol");
 		} else {
 			setDrinkType("soft");
 		}
-	}, [path]);
+		const bodyNode = document.body.style
+		bodyNode.backgroundColor = urlCheck === false ? '#540068' : '#E77644'
+	}, [urlCheck]);
 
 	const cartDetails = useMemo<{ cartAmount: number; cartQuantity: number }>(() => {
 		const cartQuantity = cart.reduce((previousValue: any, currentValue: any) => {

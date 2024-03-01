@@ -1,5 +1,4 @@
-'use client';
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PreLoader } from "@/shared/loaders";
 import type { Metadata } from "next";
 import { AppProvider } from "@/contexts/AppContext";
@@ -34,23 +33,17 @@ const myFont = Localfont({
   ]
 })
 
-// export const metadata: Metadata = {
-//   title: "Sippy Life",
-//   description: "Sippy Life",
-// };
+export const metadata: Metadata = {
+  title: "Sippy Life",
+  description: "Sippy Life",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [loading, setLoading] = useState<boolean>(false);
-	useEffect(() => {
-		const load = setTimeout(() => setLoading(false), 2000);
-		return () => {
-			clearTimeout(load);
-		};
-	}, []);
+  const loading = false
   return (
     <html lang="en">
       <body className={myFont.className}>

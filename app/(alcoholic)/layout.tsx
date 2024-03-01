@@ -1,20 +1,19 @@
-'use client';
-import { MainLayout } from "@/layout"
 import { Footer, Header } from "@/shared"
-import styles from '@/layout/MainLayout/MainLayout.module.scss'
-
+import { ContextProps, useGlobalContext } from "@/contexts/AppContext"
+import styles from './layout.module.scss'
 
 export default function AlcoholLayout({children}: {children: React.ReactNode}) {
+    // const { theme } = useGlobalContext()
+    
     return (
-        // <MainLayout type="alcohol">
-        //     {children}
-        //  </MainLayout>
-        <div className={styles.layout_alcohol}>
+        <div className={styles.layout}>
             <div className={styles.layout_background}>
                 <Header />
-                <div className={styles.layout_content}>{children}</div>
+                <div className={styles.layout_content}>
+                    {children}
+                </div>
             </div>
-            <Footer />
+            <Footer type="alcohol" />
         </div>
     )
 }
