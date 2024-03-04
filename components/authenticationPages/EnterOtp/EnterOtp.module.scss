@@ -26,12 +26,20 @@
 					outline: none;
 					border: none;
 				}
+
+				.input_error {
+					color: $col-error-500;
+					font-family: $font-900;
+					border-color: $col-error-500;
+					@extend %text-16;
+				}
 			}
 		}
 
 		.resend {
 			@extend %text-16;
-			color: $col-error-500;
+			color: $col-orange-300;
+			font-family: $font-900;
 			cursor: pointer;
 		}
 
@@ -48,6 +56,16 @@
 				width: 100%;
 				h3 {
 					color: $col-white;
+					font-family: $font-900;
+					@extend %text-16;
+				}
+			}
+
+			.auth_btn_grey {
+				background: $col-purple-50;
+				width: 100%;
+				h3 {
+					color: $col-purple-500;
 					font-family: $font-900;
 					@extend %text-16;
 				}

@@ -19,7 +19,7 @@ const RecoverPassword = ({ setIsEnterOtp }: Props) => {
 				<div className={styles.logo}>
 					<Logo />
 				</div>
-				<RecoverPasswordWrapper subTitle='Oops! it happens' title='Recover password' description='Enter your email or phone number and we`ll send you an OTP. Enter OTP to reset your password.' />
+				<RecoverPasswordWrapper page='recoverPassword' subTitle='Oops! it happens' title='Recover password' description='Enter your email or phone number and we`ll send you an OTP. Enter OTP to reset your password.' />
 				<form onSubmit={handleSubmit(submitForm)}>
 					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>
