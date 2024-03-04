@@ -11,9 +11,12 @@ type Props = {
 const useNewPassword = ({ setIsNewPassword }: Props) => {
 	const router = useRouter();
 
-	const loginSchema = yup.object({
+	const schema = yup.object({
 		password: yup.string().required('Password is required'),
-		confirm_password: yup.string().required('Confirm your password '),
+		confirm_password: yup
+			.string()
+			.required('Confirm your password')
+			.oneOf([yup.ref('password')], 'Passwords must match'),
 	});
 
 	const {
@@ -21,7 +24,7 @@ const useNewPassword = ({ setIsNewPassword }: Props) => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({
-		resolver: yupResolver(loginSchema),
+		resolver: yupResolver(schema),
 	});
 
 	const submitForm = (data: any) => {
