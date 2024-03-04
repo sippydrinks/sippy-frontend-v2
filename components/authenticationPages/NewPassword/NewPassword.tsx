@@ -5,14 +5,16 @@ import { Button, InputField, Logo } from '@/shared';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
 import useNewPassword from '@/hooks/authentication/useNewPassword';
 
-const NewPassword = () => {
-	const { register, handleSubmit, errors, submitForm } = useNewPassword();
+type Props = {
+	setIsNewPassword: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const NewPassword = ({ setIsNewPassword }: Props) => {
+	const { register, handleSubmit, errors, submitForm } = useNewPassword({ setIsNewPassword });
 	return (
-		<div className={styles.recover_password_page}>
+		<div className={styles.new_password_page}>
 			<div className={styles.form_container}>
-				<div className={styles.logo}>
-					<Logo />
-				</div>
+				<Logo />
 				<RecoverPasswordWrapper page='recoverPassword' subTitle='Oops! it happens' title='Create new password' description='Set a password thats safe and also easy for you to remember this time around, ok' />
 				<form onSubmit={handleSubmit(submitForm)}>
 					<div className={styles.input_fields}>

@@ -15,7 +15,7 @@ const SignUpView = () => {
 			subTitle: 'Welcome to sippy!',
 			notificationType: 'success',
 			url: '/',
-			setIsRegistrationRequested: setIsRegistrationRequested,
+			setFunction: setIsRegistrationRequested,
 			notificationImage: <SuccessSvg />,
 		},
 		failed: {
@@ -25,7 +25,7 @@ const SignUpView = () => {
 			subTitle: 'Sorry!',
 			notificationType: 'failed',
 			url: '/createAccount',
-			setIsRegistrationRequested: setIsRegistrationRequested,
+			setFunction: setIsRegistrationRequested,
 			notificationImage: <FailedSvg />,
 		},
 	};

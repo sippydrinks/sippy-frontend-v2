@@ -5,12 +5,15 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 
-const useNewPassword = () => {
+type Props = {
+	setIsNewPassword: React.Dispatch<React.SetStateAction<boolean>>;
+};
+const useNewPassword = ({ setIsNewPassword }: Props) => {
 	const router = useRouter();
 
 	const loginSchema = yup.object({
-		password: yup.string().email('Invalid email address').required('Email is required'),
-		confirm_password: yup.string().required('Phone number is required'),
+		password: yup.string().required('Password is required'),
+		confirm_password: yup.string().required('Confirm your password '),
 	});
 
 	const {
@@ -22,6 +25,7 @@ const useNewPassword = () => {
 	});
 
 	const submitForm = (data: any) => {
+		setIsNewPassword(true);
 		console.log(data);
 		// router.push('/');
 	};

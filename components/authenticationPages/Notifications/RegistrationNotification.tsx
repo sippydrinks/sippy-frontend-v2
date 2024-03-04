@@ -14,7 +14,7 @@ interface Props {
 		icon?: React.JSX.Element;
 		notificationType: string;
 		url: string;
-		setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
+		setFunction: React.Dispatch<React.SetStateAction<boolean>>;
 	};
 }
 
@@ -32,7 +32,7 @@ const RegistrationNotification = ({ details }: Props) => {
 				</div>
 				<h2>{details.title}</h2>
 				<p className={styles.description}>{details.description}</p>
-				<Button type='button' buttonType='primary' className={styles.notification_btn} onClick={() => (details.notificationType === 'failed' ? details.setIsRegistrationRequested(false) : null)}>
+				<Button type='button' buttonType='primary' className={styles.notification_btn} onClick={() => (details.notificationType === 'failed' ? details.setFunction(false) : null)}>
 					<h3>
 						<Link href={details.url}>{details.buttonText}</Link>
 					</h3>

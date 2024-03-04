@@ -77,8 +77,10 @@
 		}
 
 		.logo {
-			display: block;
+			display: flex;
+			justify-content: center;
 			position: absolute;
+			width: 100%;
 			top: 6rem;
 		}
 	}
