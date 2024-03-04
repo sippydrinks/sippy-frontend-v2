@@ -64,9 +64,10 @@ const useRecoverPassword = ({ setIsEnterOtp }: Props) => {
 
 	const submitToken = (e: React.FormEvent) => {
 		e.preventDefault();
-		console.log(tokens);
-		setSubTitle('Oops');
-		setOtpError('Invalid OTP');
+		// console.log(tokens);
+		// setSubTitle('Oops');
+		// setOtpError('Invalid OTP');
+		router.push('/newPassword');
 	};
 
 	const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {

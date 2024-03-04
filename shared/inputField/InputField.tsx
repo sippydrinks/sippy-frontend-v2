@@ -39,7 +39,7 @@ const InputField = ({ name, type = 'text', label, className, inputClass, customP
 			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} `}>
 				{customPrefix && <>{customPrefix}</>}
 
-				<input className={styles.input_field} type={type} ref={inputRef} {...register} {...options} data-theme={themeColor} />
+				<input className={styles.input_field} type={inputType} ref={inputRef} {...register} {...options} data-theme={themeColor} />
 
 				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>
