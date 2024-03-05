@@ -1,5 +1,5 @@
 'use client';
-import { AuthWrapper, RegistrationNotification, SignUp } from '@/components';
+import { RegistrationNotification, SignUp } from '@/components';
 import { FailedSvg, SuccessSvg } from '@/shared/svgs/jsx';
 import React, { useState } from 'react';
 
@@ -15,7 +15,7 @@ const SignUpView = () => {
 			subTitle: 'Welcome to sippy!',
 			notificationType: 'success',
 			url: '/',
-			setIsRegistrationRequested: setIsRegistrationRequested,
+			setFunction: setIsRegistrationRequested,
 			notificationImage: <SuccessSvg />,
 		},
 		failed: {
@@ -25,7 +25,7 @@ const SignUpView = () => {
 			subTitle: 'Sorry!',
 			notificationType: 'failed',
 			url: '/createAccount',
-			setIsRegistrationRequested: setIsRegistrationRequested,
+			setFunction: setIsRegistrationRequested,
 			notificationImage: <FailedSvg />,
 		},
 	};
@@ -33,13 +33,13 @@ const SignUpView = () => {
 	return (
 		<>
 			{isRegistrationRequested ? (
-				<AuthWrapper backgroundType='with-icons'>
+				<>
 					<RegistrationNotification details={success ? notificationDetails.success : notificationDetails.failed} />
-				</AuthWrapper>
+				</>
 			) : (
-				<AuthWrapper backgroundType='without-icons'>
+				<>
 					<SignUp setIsRegistrationRequested={setIsRegistrationRequested} />
-				</AuthWrapper>
+				</>
 			)}
 		</>
 	);

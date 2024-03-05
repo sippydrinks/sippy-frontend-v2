@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { AuthComponentProps } from '@/interface';
 import { AuthBanner, Button, Logo } from '@/shared';
