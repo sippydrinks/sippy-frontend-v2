@@ -14,3 +14,8 @@ export interface AuthLayoutProps {
 }
 
 export type TypeProp = 'email' | 'phone_number';
+
+export enum AuthType {
+	EMAIL = 'email',
+	PHONE_NUMBER = 'phone_number',
+}
