@@ -14,7 +14,6 @@ type Props = {
 
 const SignUp = ({ setIsRegistrationRequested }: Props) => {
 	const [type, setType] = useState<AuthType>(AuthType.EMAIL);
-
 	const { register, handleSubmit, errors, handleSignup, hearAboutOptions, onOptionChange } = useValidateSignup({ setIsRegistrationRequested, type });
 
 	return (
