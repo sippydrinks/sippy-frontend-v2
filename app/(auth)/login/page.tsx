@@ -1,11 +1,6 @@
 import { LoginView } from '@/Views';
-import { AuthLayout } from '@/layout';
 
 const LoginPage = () => {
-	return (
-		<AuthLayout backgroundType='without-icons'>
-			<LoginView />
-		</AuthLayout>
-	);
+	return <LoginView />;
 };
 export default LoginPage;
