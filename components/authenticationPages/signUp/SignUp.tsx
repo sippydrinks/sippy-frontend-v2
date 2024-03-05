@@ -40,13 +40,13 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} inputClass={errors?.fullName && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.fullName?.message}</p>
 						</div>
-						{type === 'email' && (
+						{type === AuthType.EMAIL && (
 							<div>
 								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
-						{type === 'phone_number' && (
+						{type === AuthType.PHONE_NUMBER && (
 							<div className={styles.tab_1}>
 								<div className={styles.input_fields}>
 									<div>

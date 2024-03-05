@@ -22,7 +22,7 @@ const Login = () => {
 				<AuthComponent header='Log into your account' btnText='Login' bgColor='#EEE6F0' bannerText='Welcome Back! sippite' className={styles.auth_component}>
 					<AuthTabHeader toggleTab={setType} type={type} />
 					<div className={styles.tabcontent}>
-						{type === 'email' && (
+						{type === AuthType.EMAIL && (
 							<div className={styles.tab_1}>
 								<Button buttonType='transparent' className={styles.btn} iconPrefix='/svgs/google-icon.svg'>
 									<h3>Continue with Google</h3>
@@ -42,7 +42,7 @@ const Login = () => {
 							</div>
 						)}
 
-						{type === 'phone_number' && (
+						{type === AuthType.PHONE_NUMBER && (
 							<div className={styles.tab_1}>
 								<div className={styles.input_fields}>
 									<div>
