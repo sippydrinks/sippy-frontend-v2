@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
-import { AuthType, TypeProp } from '@/interface/authentication';
+import { TypeProp } from '@/interface/authentication';
 
 const useValidateLogin = (type: AuthType) => {
 	const router = useRouter();
