@@ -1,19 +1,18 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
-import { TypeProp } from '@/interface/authentication';
+import { AuthType, TypeProp } from '@/interface/authentication';
 
-const useValidateLogin = () => {
+const useValidateLogin = (type: AuthType) => {
 	const router = useRouter();
-	const [type, setType] = useState<TypeProp>('email');
 
 	const loginSchema = yup.object({
-		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
+		email: type === AuthType.EMAIL ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
 		password: yup.string().required('Password is required'),
-		phone_number: type === 'phone_number' ? yup.string().required('Phone number is required') : yup.string(),
+		phone_number: type === AuthType.PHONE_NUMBER ? yup.string().required('Phone number is required') : yup.string(),
 	});
 
 	const {
@@ -31,9 +30,13 @@ const useValidateLogin = () => {
 		router.push('/');
 	};
 
+	useEffect(() => {
+		resetField(type === AuthType.EMAIL ? AuthType.PHONE_NUMBER : AuthType.EMAIL);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [type]);
+
 	const toggleTab = (selectType: TypeProp) => {
-		resetField(type);
-		setType(selectType);
+		// setType(selectType);
 	};
 
 	return {
@@ -44,7 +47,7 @@ const useValidateLogin = () => {
 		reset,
 		toggleTab,
 		type,
-		setType,
+		// setType,
 	};
 };
 

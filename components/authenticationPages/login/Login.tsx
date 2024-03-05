@@ -1,13 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { AuthComponent, Button, InputField } from '@/shared';
 import styles from './Login.module.scss';
 import { useValidateLogin } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
+import { AuthType } from '@/interface/authentication';
 
 const Login = () => {
-	const { register, handleSubmit, errors, handleLogin, toggleTab, type } = useValidateLogin();
+	const [type, setType] = useState<AuthType>(AuthType.EMAIL);
+
+	const { register, handleSubmit, errors, handleLogin } = useValidateLogin(type);
 	return (
 		<div className={styles.signIn_body}>
 			<div className={styles.signIn_text}>
@@ -17,7 +20,7 @@ const Login = () => {
 			</div>
 			<form onSubmit={handleSubmit(handleLogin)}>
 				<AuthComponent header='Log into your account' btnText='Login' bgColor='#EEE6F0' bannerText='Welcome Back! sippite' className={styles.auth_component}>
-					<AuthTabHeader toggleTab={toggleTab} type={type} />
+					<AuthTabHeader toggleTab={setType} type={type} />
 					<div className={styles.tabcontent}>
 						{type === 'email' && (
 							<div className={styles.tab_1}>
