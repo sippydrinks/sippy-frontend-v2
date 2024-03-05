@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 .container {
 	@include grid(repeat(2, 1fr), 0.8rem);
 	border: 0.2rem solid $col-grey-header;
@@ -13,18 +13,18 @@
 			font-family: $font-900;
 			color: $col-grey-header;
 			border-radius: 10rem;
-			&[data-active="true"] {
+			&[data-active='true'] {
 				background-color: $col-primary-default;
 				font-family: $font-900;
 				color: $col-white;
 				border: 0.2rem solid $col-grey-dark-stroke;
-				&[data-type="alcohol"] {
+				&[data-type='alcohol'] {
 					background-color: $col-orange-active;
 				}
 			}
 		}
 	}
-	&[data-type="dark"] {
+	&[data-type='dark'] {
 		border-color: rgba($col-white, 0.3);
 		.button_container {
 			.button {
@@ -32,7 +32,7 @@
 			}
 		}
 	}
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		margin: 2.4rem 0;
 		width: 100%;
 	}

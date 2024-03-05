@@ -1,0 +1,16 @@
+@import '@/styles/imports';
+
+.auth_layout {
+	height: 100%;
+	display: block;
+	min-height: 100vh;
+	width: 100%;
+	background-color: $col-background-shade;
+	padding: 4rem 6.4rem;
+
+	@include screenMax('mobile') {
+		&[data-type='without-icons'] {
+			padding: 4rem 3rem;
+		}
+	}
+}

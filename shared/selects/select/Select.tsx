@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './Select.module.scss';
 import SmallLoader from '@/shared/loaders/smallLoader/SmallLoader';
 import { shortenTitle } from '@/utils';
-import SelectUpIcon from '@/shared/svgs/SelectUpIcon';
-import SelectDownIcon from '@/shared/svgs/SelectDownIcon';
+import SelectUpIcon from '@/shared/svgs/jsx/SelectUpIcon';
+import SelectDownIcon from '@/shared/svgs/jsx/SelectDownIcon';
 
 // import { SelectOption } from "@/types";
 

@@ -2,8 +2,8 @@
 import React, { InputHTMLAttributes, useState, ReactNode } from 'react';
 import { useGlobalContext } from '@/contexts/AppContext';
 import styles from './InputField.module.scss';
-import EyeCloseIcon from '../svgs/EyeClose';
-import EyeOpenIcon from '../svgs/EyeOpen';
+import EyeCloseIcon from '../svgs/jsx/EyeClose';
+import EyeOpenIcon from '../svgs/jsx/EyeOpen';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	name?: string;
@@ -14,7 +14,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	customPrefix?: React.JSX.Element;
 	suffix?: React.JSX.Element;
 	register?: any;
-	inputRef?: any;
+	inputRef?: React.RefObject<HTMLInputElement>;
 }
 
 const InputField = ({ name, type = 'text', label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
