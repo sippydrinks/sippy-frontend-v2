@@ -1,2 +1,2 @@
-import { Login, EnterOtp, SignUp, RegistrationNotification, RecoverPassword } from './authenticationPages';
-export { Login, EnterOtp, SignUp, RegistrationNotification, RecoverPassword };
+import { Login, SignUp, RegistrationNotification } from './authenticationPages';
+export { Login, SignUp, RegistrationNotification };

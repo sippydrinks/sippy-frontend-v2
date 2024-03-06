@@ -9,7 +9,6 @@ import { AuthType } from '@/interface/authentication';
 
 const Login = () => {
 	const [type, setType] = useState<AuthType>(AuthType.EMAIL);
-
 	const { register, handleSubmit, errors, handleLogin } = useValidateLogin(type);
 	return (
 		<div className={styles.signIn_body}>
