@@ -1,11 +1,14 @@
+'use client';
 import { HomeView } from "@/Views";
 import { Footer, Header } from "@/shared";
 import styles from './page.module.scss'
+import { ContextProps, useGlobalContext } from "@/contexts/AppContext";
 
 export default function Home({children}: {children: React.ReactNode}) {
+  const { theme }: ContextProps = useGlobalContext()
   return (
     <div className={styles.layout}>
-      <div className={styles.layout_background}>
+      <div data-theme={theme} className={styles.layout_background}>
           <Header />
           <div className={styles.layout_content}>
             <HomeView type="soft" />
