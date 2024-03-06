@@ -1,14 +1,7 @@
-%background-with-icon {
-	height: 100%;
-	width: 100%;
-	height: 100vh;
-	padding: 1rem;
+%auth-background {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: url('/svgs/notifications-bg.svg') no-repeat center center fixed;
-	background-color: $col-background-shade;
-	position: relative;
 }
