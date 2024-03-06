@@ -1,10 +1,12 @@
 import { Footer, Header } from '@/shared'
 import styles from './layout.module.scss'
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext'
 
-export default function SoftLayout({children}: {children: React.ReactNode}) {
+export default function Layout({children}: {children: React.ReactNode}) {
+    const { theme }: ContextProps = useGlobalContext()
     return (
         <div className={styles.layout}>
-            <div className={styles.layout_background}>
+            <div data-theme={theme} className={styles.layout_background}>
                 <Header />
                 <div className={styles.layout_content}>
                     {children}

@@ -3,7 +3,7 @@ import { Footer, Header } from "@/shared"
 import { ContextProps, useGlobalContext } from "@/contexts/AppContext"
 import styles from './layout.module.scss'
 
-export default function AlcoholLayout({children}: {children: React.ReactNode}) {
+export default function Layout({children}: {children: React.ReactNode}) {
     const { theme }: ContextProps = useGlobalContext()
     return (
         <div className={styles.layout}>

@@ -43,19 +43,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loading = false
   return (
     <html lang="en">
       <body className={myFont.className}>
         <AppProvider>
-          {
-            loading ? 
-              <PreLoader /> 
-            : 
-              <React.Fragment>
-                {children}
-              </React.Fragment>
-          }
+          <PreLoader /> 
+          <React.Fragment>
+            {children}
+          </React.Fragment>
         </AppProvider>
       </body>
     </html>

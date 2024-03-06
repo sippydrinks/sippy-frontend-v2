@@ -1,11 +1,17 @@
 import { HomeView } from "@/Views";
-import { MainLayout } from "@/layout";
+import { Footer, Header } from "@/shared";
+import styles from './page.module.scss'
 
-
-export default function Home() {
+export default function Home({children}: {children: React.ReactNode}) {
   return (
-    <MainLayout type="soft">
-      <HomeView type="soft" />
-    </MainLayout>
+    <div className={styles.layout}>
+      <div className={styles.layout_background}>
+          <Header />
+          <div className={styles.layout_content}>
+            <HomeView type="soft" />
+          </div>
+      </div>
+      <Footer type='soft' />
+    </div>
   );
 }

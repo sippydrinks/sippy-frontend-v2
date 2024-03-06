@@ -5,10 +5,10 @@ import { DrinkTypeProps } from "@/interface/home";
 import { ProductCard } from "../../../shared";
 import { ProductData } from "@/mock";
 import { useGlobalContext } from "@/contexts/AppContext";
-import { useRouter } from "next/navigation";
 import { Button } from "../../../shared";
 import styles from "./Catalog.module.scss";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { ProductCardProps } from "@/interface";
 
 const Catalog = ({ type }: DrinkTypeProps) => {
 	const { theme, drinkType, productListing } = useGlobalContext();
@@ -37,7 +37,7 @@ const Catalog = ({ type }: DrinkTypeProps) => {
 				</div>
 			</div>
 			<div className={styles.hero_container}>
-				{ProductData.slice(0, 12).map((product: any, index: number) => (
+				{ProductData.slice(0, 12).map((product: ProductCardProps, index: number) => (
 					<ProductCard key={index} {...product} />
 				))}
 			</div>
