@@ -5,21 +5,23 @@
 	border: 0.2rem solid $light-border-divider;
 	border-radius: 10rem;
 	width: 7.2rem;
-	margin-left: 3.2rem;
 	background-color: $col-yellow-500;
 	padding: 0.4rem;
 	transition: $all-transition;
+	cursor: pointer;
 	.image {
 		position: relative;
-		cursor: pointer;
 		width: 3.2rem;
 		height: 3.2rem;
 		transition: $all-transition;
 	}
-	&[data-type="dark"] {
+	&[data-theme="dark"] {
 		border-color: $dark-border-divider;
 		background-color: $col-primary-default;
 		transition: $all-transition;
+		&[data-type="true"] {
+			background-color: $col-orange-300;
+		}
 		.image {
 			transition: $all-transition;
 			transform: translate(2.8rem);

@@ -1,20 +1,22 @@
-// import { navLinks } from '@/mock'
 'use client';
-import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
-import { Button, Logo } from '@/shared';
-import styles from './Header.module.scss';
-import ButtonNav from '../buttonNav/ButtonNav';
-import ThemeToggle from '../themeToggle/ThemeToggle';
+import { usePathname } from 'next/navigation';
+import { Dropdown, Logo, ThemeToggle, ButtonNav } from '@/shared';
+import { HeaderProps } from '@/interface';
 import { useGlobalContext } from '@/contexts/AppContext';
+import Link from 'next/link';
 import Image from 'next/image';
-// import { navLinks } from "@/mock";
+import styles from './Header.module.scss';
 
-const Header = () => {
-	const { theme, drinkType }: any = useGlobalContext();
-	const router = useRouter();
+const Header = ({isNavButton = false}: HeaderProps) => {
+	const route = usePathname()
+	const { theme, cartDetails, drinkType } = useGlobalContext();
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [collapsed, setCollapsed] = useState<boolean>(true);
+
+	const toggleDropdown = () => setIsOpen(!isOpen);
+	const dropdownRef = useRef<HTMLDivElement>(null);
+	const refNode = dropdownRef.current;
 	useEffect(() => {
 		if (!collapsed) {
 			document.body.classList.add('no-scroll');
@@ -23,66 +25,106 @@ const Header = () => {
 		}
 
 		return () => {
-			// Cleanup to remove the class when the component unmounts
 			document.body.classList.remove('no-scroll');
 		};
 	}, [collapsed]);
-	const handleNavClick = (id: string) => {
-		// scrollTo({ id });
-		setCollapsed(true);
-	};
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (refNode && !refNode.contains(event.target as Node)) {
+				setIsOpen(false);
+			}
+		};
+		document.addEventListener("click", handleClickOutside);
+
+		return () => {
+			document.removeEventListener("click", handleClickOutside);
+		};
+	}, [refNode]);
 
 	return (
 		<header className={`${styles.header}`} data-type={theme} data-value={drinkType}>
 			<div className={styles.small_row}>
-				{/* <div
-					onClick={() => setCollapsed(!collapsed)}
-					className={
-						styles[collapsed ? "header_hamburger" : "header_hamburger__open"]
-					}
-				>
-					<span className={styles.header_hamburgerBar}></span>
-					<span className={styles.header_hamburgerBar}></span>
-				</div> */}
 				<Hamburger collapsed={collapsed} setCollapsed={setCollapsed} />
-				<Link href='/'>
-					<div className={styles.header_logoContainer} onClick={() => setCollapsed(true)}>
-						<Logo type={theme === 'dark' ? 'light' : 'dark'} />
+				<Link href="/">
+					<div
+						className={styles.header_logoContainer}
+						onClick={() => setCollapsed(true)}
+					>
+						<Logo />
 					</div>
 				</Link>
 				<div className={styles.desk_view}>
 					<ThemeToggle />
 				</div>
 			</div>
-			<div className={styles[!collapsed ? 'header_wrapper' : 'header_wrapper__collapsed']} data-active={!collapsed}>
+			<div
+				className={
+					styles[!collapsed ? "header_wrapper" : "header_wrapper__collapsed"]
+				}
+				data-active={!collapsed}
+			>
 				<div className={styles.mob_view}>
 					<ThemeToggle />
 				</div>
-				<ButtonNav />
+				{!isNavButton && 
+					<div className={styles.buttons}>
+						<ButtonNav />
+					</div>
+				}
 			</div>
-			<div className={styles.small_row}>
+			<div ref={dropdownRef} data-route={route === '/checkout'} className={`${styles.small_row} ${styles.nav_buttons}`}>
 				<div className={styles.button_container}>
-					<div className={styles.button}>
-						<Image src={`/svgs/search${theme === 'dark' ? '-dark' : ''}.svg`} fill sizes='100vw' alt=' ' />
+					<div className={styles.icon}>
+						<Image src={`/svgs/search-${theme}.svg`} alt="icon" fill />
 					</div>
 				</div>
-				<div className={styles.button_container}>
-					<div className={styles.button}>
-						<Image src={`/svgs/bell${theme === 'dark' ? '-dark' : ''}.svg`} fill sizes='100vw' alt='' />
+				<div className={`${styles.button_container} ${styles.desk_view}`}>
+					<div className={styles.icon}>
+						<Image src={`/svgs/bell-${theme}.svg`} alt="icon" fill />
 					</div>
 				</div>
-				<div className={styles.button_container}>
-					<div className={styles.button}>
-						<Image src={`/svgs/user${theme === 'dark' ? '-dark' : ''}.svg`} fill sizes='100vw' alt='' />
+				<div onClick={toggleDropdown} className={styles.button_container}>
+					<div className={styles.icon}>
+						<Image alt="icon" fill src={`/svgs/User-${theme}.svg`} />
 					</div>
+					{isOpen && (
+						<div className={styles.dropdownMenu}>
+							<Dropdown />
+						</div>
+					)}
+				</div>
+				<div className={styles.mob_view}>
+					<Link href="/cart">
+						<div data-type={theme} className={styles.button_container}>
+							<div className={styles.icon}>
+								<Image alt="cart" fill
+									src={`/svgs/cart-${theme}.svg`} />
+							</div>
+							<div data-route={route.includes('/alcohol')} className={styles.item}>
+								<p data-type={theme}
+									className={styles.cart_container_text}
+								>
+									{cartDetails.cartQuantity}
+								</p>
+							</div>
+						</div>
+					</Link>
 				</div>
 				<div className={styles.desk_view}>
-					<div className={styles.cart_button}>
-						<div className={styles.cart_icon}>
-							<Image src={`/svgs/cart${theme === 'dark' ? '-dark' : ''}.svg`} fill sizes='100vw' alt='' />
+					<Link href="/cart">
+						<div data-type={theme} className={styles.cart_button}>
+							<div className={styles.cart_icon}>
+								<Image alt="cart" fill
+									src={`/svgs/cart-${theme}.svg`} />
+							</div>
+							<p data-type={theme}
+								className={styles.cart_container_text}
+							>
+								₦{cartDetails.cartAmount} ({cartDetails.cartQuantity})
+							</p>
 						</div>
-						<p>₦0.00 (0)</p>
-					</div>
+					</Link>
 				</div>
 			</div>
 		</header>
@@ -97,11 +139,15 @@ function Hamburger({ collapsed, setCollapsed }: any) {
 	};
 	return (
 		<div className={styles.controls}>
-			<button aria-hidden='true' onClick={handleToggleClick} aria-pressed={!collapsed}>
-				<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='none'>
-					<rect width='18' height='1.5' fill='red' ry='0.75' x='3' y='6.25' />
-					<rect width='18' height='1.5' fill='red' ry='0.75' x='3' y='11.25' />
-					<rect width='18' height='1.5' fill='red' ry='0.75' x='3' y='16.25' />
+			<button
+				aria-hidden="true"
+				onClick={handleToggleClick}
+				aria-pressed={!collapsed}
+			>
+				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+					<rect width="18" height="1.5" fill="red" ry="0.75" x="3" y="6.25" />
+					<rect width="18" height="1.5" fill="red" ry="0.75" x="3" y="11.25" />
+					<rect width="18" height="1.5" fill="red" ry="0.75" x="3" y="16.25" />
 				</svg>
 			</button>
 		</div>

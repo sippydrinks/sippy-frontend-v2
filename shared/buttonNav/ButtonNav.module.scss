@@ -1,12 +1,13 @@
 @import '@/styles/imports';
 .container {
-	@include grid(repeat(2, 1fr), 0.8rem);
+	display: flex;
+	align-items: center;
 	border: 0.2rem solid $col-grey-header;
 	border-radius: 10rem;
-	// margin-left: auto;
 	padding: 0.4rem;
 	.button_container {
 		padding: 0;
+		cursor: pointer;
 		.button {
 			padding: 0.8rem 1.6rem;
 			@extend %text-16;
@@ -18,14 +19,14 @@
 				font-family: $font-900;
 				color: $col-white;
 				border: 0.2rem solid $col-grey-dark-stroke;
-				&[data-type='alcohol'] {
-					background-color: $col-orange-active;
+				&[data-route="true"] {
+					background-color: $col-orange-300;
 				}
 			}
 		}
 	}
-	&[data-type='dark'] {
-		border-color: rgba($col-white, 0.3);
+	&[data-type="dark"] {
+		border-color: $col-white;
 		.button_container {
 			.button {
 				color: $col-white;
@@ -35,5 +36,6 @@
 	@include screenMax('mobile') {
 		margin: 2.4rem 0;
 		width: 100%;
+		gap: 3rem;
 	}
 }

@@ -1,0 +1,12 @@
+@import "@/styles/imports";
+
+.container {
+    @include grid(repeat(2, 1fr), 4rem);
+    margin: 0 auto 12rem;
+    padding: 4rem;
+    @include screenMax("mobile") {
+        display: block;
+        padding: 1.6rem;
+        margin-bottom: 8rem;
+    }
+}

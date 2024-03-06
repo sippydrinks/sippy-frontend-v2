@@ -4,9 +4,10 @@
 	border-top: 0.2rem solid $col-black;
 	border-bottom: 0.2rem solid $col-black;
 	padding: 3.2rem 0;
-	width: calc(100% + 8rem);
-	margin-left: -4rem;
-	margin-right: -4rem;
+	// width: calc(100% + 8rem);
+	// margin-left: -4rem;
+	// margin-right: -4rem;
+	width: 100%;
 	overflow-x: hidden;
 	.row {
 		@include flex(flex-start, center);
@@ -28,7 +29,7 @@
 			flex-shrink: 0;
 		}
 	}
-	&[data-type="dark"] {
+	&[data-theme="dark"] {
 		border-color: $col-white;
 		.row {
 			.text {
@@ -38,10 +39,24 @@
 			}
 		}
 	}
+	&[data-isborder = "false"] {
+        border: 0;
+    }
+    &[data-type = "big"] {
+	.text {
+		h1 {
+			@extend %title-200;
+			font-size: 20rem;
+			line-height: 20rem;
+			color: $col-white;
+			font-family: $font-900;
+			width: max-content;
+			text-transform: uppercase;
+		}
+	}
+    }
 	@include screenMax("mobile") {
-		width: calc(100% + 4.8rem);
-		margin-left: -2.4rem;
-		margin-right: -2.4rem;
+		width: 100%;
 		padding: 1.6rem 0;
 		.row {
 			.text {
@@ -54,6 +69,18 @@
 				width: 4rem;
 				height: 4rem;
 			}
+		}
+		&[data-type = "big"] {
+			.text {
+				h1 {
+					font-size: 9rem;
+					line-height: 9rem;
+				}
+			}
+		}
+		&[data-isborder = "false"] {
+			margin-bottom: 3rem;
+			padding: 1.6rem 0;
 		}
 	}
 }
