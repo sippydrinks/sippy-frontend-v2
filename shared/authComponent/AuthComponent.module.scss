@@ -1,0 +1,46 @@
+@import "@/styles/imports";
+
+.auth_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: $col-background-shade;
+	width: 40rem;
+	margin: 0 auto;
+	.logo {
+		margin-bottom: 4rem;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.banner {
+		margin-bottom: 0.8rem;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	h1 {
+		text-align: center;
+		@extend %title-32;
+		font-family: $font-900;
+		color: $light-text-main;
+		margin-bottom: 2.4rem;
+	}
+	.children {
+		margin-bottom: 2.4rem;
+	}
+	.auth_btn {
+		background: $col-primary-default;
+		width: 100%;
+		h3 {
+			color: $col-white;
+			font-family: $font-900;
+			@extend %text-16;
+		}
+	}
+	@include screenMax("mobile") {
+		width: 100%;
+		// margin-bottom: 4rem;
+		align-items: stretch;
+	}
+}

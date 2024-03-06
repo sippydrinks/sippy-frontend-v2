@@ -1,5 +1,5 @@
 import HomeView from "./HomeView/HomeView";
+import LoginView from './AuthenticationView/LoginView/LoginView';
+import SignUpView from './AuthenticationView/SignUpView/SignUpView';
 
-export {
-    HomeView,
-}
+export { LoginView, SignUpView, HomeView };

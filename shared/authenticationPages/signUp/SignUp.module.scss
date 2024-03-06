@@ -1,0 +1,108 @@
+@import '@/styles/imports';
+
+.signIn_body {
+	width: 100%;
+	.signIn_text {
+		text-align: right;
+		margin-bottom: 2.4rem;
+		p {
+			font-family: $font;
+			color: $col-grey-500;
+			@extend %text-16;
+			a {
+				color: $col-primary-default;
+				font-family: $font-700;
+				margin-left: 0.8rem;
+			}
+		}
+		@include screenMax('mobile') {
+			display: none;
+		}
+	}
+	.signIn_text_mobile {
+		text-align: right;
+		display: none;
+		margin-bottom: 2.4rem;
+		p {
+			font-family: $font;
+			color: $col-grey-500;
+			@extend %text-16;
+			a {
+				color: $col-primary-default;
+				font-family: $font-700;
+				margin-left: 0.8rem;
+			}
+		}
+		@include screenMax('mobile') {
+			text-align: center;
+			display: block;
+			margin-top: 2.4rem;
+		}
+	}
+	.auth_component {
+		.btn {
+			margin-bottom: 1.6rem;
+			width: 100%;
+			justify-content: space-evenly;
+			h3 {
+				font-family: $font-500;
+				font-size: 1.8rem;
+				line-height: 2.4rem;
+				color: #666;
+			}
+		}
+		.divider {
+			width: 100%;
+			@extend %flex-align !optional;
+			gap: 1.6rem;
+			height: 4rem;
+			margin-bottom: 1rem;
+
+			h3 {
+				@extend %text-16;
+				color: $col-grey-500;
+				font-family: $font;
+			}
+			.line {
+				width: 17.5rem;
+				height: 0.1rem;
+				background: $col-grey-700;
+			}
+		}
+		.error_styles {
+			@extend %text-14;
+			font-family: $font-500;
+			color: $col-error-500;
+		}
+
+		.error_border {
+			border: 0.1rem solid $col-error-500;
+		}
+		.input_fields {
+			display: flex;
+			flex-direction: column;
+			gap: 1.6rem;
+			input {
+				width: 100%;
+			}
+
+			.prefix_container {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 0.5rem;
+
+				.prefix_divider {
+					width: 1px;
+					height: 2rem;
+					background-color: $col-grey-300;
+					display: flex;
+				}
+			}
+		}
+	}
+	@include screenMax('mobile') {
+		padding: 4rem 2rem 0;
+		padding-bottom: 10rem;
+	}
+}

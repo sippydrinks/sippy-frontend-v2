@@ -1,32 +1,33 @@
 'use client';
 import React from 'react';
 import styles from './Button.module.scss';
-import Image from 'next/legacy/image';
-import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
+import Image from 'next/image';
+import { useGlobalContext } from '@/contexts/AppContext';
 
 interface Props extends React.HTMLProps<HTMLButtonElement> {
-	buttonType?: 'primary' | 'transparent';
+	buttonType?: 'primary' | 'transparent' | 'secondary';
 	children: React.ReactNode;
 	iconPrefix?: string;
 	iconSuffix?: string;
 	className?: string;
 	disabled?: boolean;
-	onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
+	onClick?: (event?: any) => void;
+	type?: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({ buttonType = 'primary', children, onClick, className, iconPrefix, iconSuffix, disabled = false }: Props) => {
-	const { theme }: ContextProps = useGlobalContext();
+const Button = ({ buttonType = 'primary', children, onClick, type = 'button', className, iconPrefix, iconSuffix, disabled = false }: Props) => {
+	const { themeColor } = useGlobalContext();
 	return (
-		<button onClick={onClick} className={`${styles[buttonType]} ${className} ${styles.button}`} data-type={theme} disabled={disabled}>
+		<button type={type} onClick={onClick} className={`${styles[buttonType]} ${className} ${styles.button}`} data-type={buttonType} data-theme={themeColor} disabled={disabled}>
 			{!!iconPrefix && (
 				<figure className={styles.button_icon}>
-					<Image src={iconPrefix} layout='fill' alt='' />
+					<Image src={iconPrefix} fill alt='' />
 				</figure>
 			)}
 			{children}
 			{!!iconSuffix && (
 				<figure className={styles.button_icon}>
-					<Image src={iconSuffix} layout='fill' alt='' />
+					<Image src={iconSuffix} fill alt='' />
 				</figure>
 			)}
 		</button>
