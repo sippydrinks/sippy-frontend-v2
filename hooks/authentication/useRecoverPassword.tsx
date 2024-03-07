@@ -19,8 +19,8 @@ const useRecoverPassword = ({ setIsEnterOtp, type }: Props) => {
 	const inputRefs = useRef<any[]>([]);
 
 	const otpSchema = yup.object({
-		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
-		phone_number: type === 'phone_number' ? yup.string().required('Phone number is required') : yup.string(),
+		email: type === AuthType.EMAIL ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
+		phone_number: type === AuthType.PHONE_NUMBER ? yup.string().required('Phone number is required') : yup.string(),
 	});
 
 	const {

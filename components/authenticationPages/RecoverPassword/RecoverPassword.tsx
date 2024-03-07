@@ -6,6 +6,7 @@ import { useRecoverPassword } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
 import { AuthType } from '@/interface/authentication';
+
 interface Props {
 	setIsEnterOtp: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -24,13 +25,13 @@ const RecoverPassword = ({ setIsEnterOtp }: Props) => {
 				<form onSubmit={handleSubmit(submitForm)}>
 					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>
-						{type === 'email' && (
+						{type === AuthType.EMAIL && (
 							<div>
 								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
-						{type === 'phone_number' && (
+						{type === AuthType.PHONE_NUMBER && (
 							<div>
 								<InputField
 									label='Phone number'
