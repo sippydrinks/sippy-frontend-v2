@@ -1,0 +1,33 @@
+@import '@/styles/imports';
+
+.modal_body {
+    h3 {
+        text-align: center;
+        @extend %title-32;
+        color: $light-text-main;
+        font-family: $font-900;
+    }
+    p {
+        text-align: center;
+        margin: 0.8rem 0 2.4rem;
+        @extend %text-14;
+        color: $col-grey-500;
+    }
+    .btns {
+        width: 100%;
+        @extend %flex-align;
+        gap: 2.4rem;
+        margin-top: 2.4rem;
+        h3 {
+            color: $light-text-main;
+            font-family: $font-900;
+            @extend %text-16;
+        }
+        .leavecart_btn {
+            background: $col-primary-default;
+            h3 {
+                color: $col-white;
+            }
+        }
+    }
+}

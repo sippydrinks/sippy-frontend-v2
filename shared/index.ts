@@ -25,6 +25,10 @@ import DrinkTypeCard from "./drinkTypesCard/drinkTypeCard/DrinkTypeCard";
 import MobileAppWidget from "./MobileAppWidget/MobileAppWidget";
 import AlcoholicDrinksCard from "./drinkTypesCard/alcohol/AlcoholDrinkCategory";
 import SoftDrinksCard from "./drinkTypesCard/soft/SoftDrinkCategory";
+import Counter from './counter/Counter';
+import ModalElement from './modalElement/ModalElement';
+import ItemDetailsCard from './ItemDetailsCard/ItemDetailsCard';
+import Accordion from './accordion/Accordion';
 
 
 
@@ -56,4 +60,8 @@ export {
 	MobileAppWidget,
 	AlcoholicDrinksCard,
 	SoftDrinksCard,
+	ItemDetailsCard,
+	ModalElement,
+	Counter,
+	Accordion,
 };

@@ -1,0 +1,177 @@
+@import '@/styles/imports';
+
+.modal_body {
+    h3 {
+        text-align: center;
+        @extend %title-32;
+        color: $light-text-main;
+        font-family: $font-900;
+    }
+    p {
+        text-align: center;
+        margin: 0.8rem 0 2.4rem;
+        @extend %text-14;
+        color: $col-grey-500;
+    }
+    .tabHeader_container {
+        width: 100%;
+        height: 5.6rem;
+        padding: 1.6rem 1.6rem 0;
+        border-radius: 1.6rem;
+        background: $col-white;
+        margin: 2.4rem 0;
+        justify-content: space-around;
+        @extend %flex-align;
+        cursor: pointer;
+        h3 {
+            font-family: $font;
+            @extend %text-16;
+            color: $col-grey-500;
+            margin-bottom: 1.6rem;
+        }
+        .tab_active, .tab {
+            width: 17.6rem;
+        }
+        .tab_active {
+            h3 {
+                color: $col-primary-default;
+                font-family: $font-900;
+            }
+            border-bottom: 0.4rem solid $col-primary-default;
+        }
+    }
+    .tabcontent_container {
+        .newGroup_tab {
+            height: 35rem;
+            overflow-y: scroll;
+            @include noScrollBar;
+            .email_inputField {
+                margin-bottom: 1.6rem;
+            }
+            .description_inputField {
+                position: relative;
+                h4, p {
+                    @extend %text-14;
+                    font-family: $font;
+                    color: $col-grey-500;
+                }
+                h4 {
+                    text-align: right;
+                    position: absolute;
+                    right: 0;
+                    top: 0.1rem;
+                }
+                p {
+                    text-align: left;
+                    margin: 0;
+                }
+            }
+            .accounts_list_container {
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem;
+                margin: 2.4rem 0 4rem;
+                .accounts_list {
+                    @extend %flex-align;
+                    justify-content: space-between;
+                    gap: 0.8rem;
+                    h3, h4 {
+                        color: $light-text-main;
+                        font-family: $font-900;
+                        @extend %text-14;
+                    }
+                    h4 {
+                        color: $col-coral-500;
+                        cursor: pointer;
+                    }
+                    .userImage_container {
+                        @extend %flex-align;
+                        gap: 0.8rem;
+                        .userImage {
+                            width: 2.4rem;
+                            height: 2.4rem;
+                            position: relative;
+                        }
+                        p {
+                            color: $light-text-main;
+                            @extend %text-16;
+                            font-family: $font-700;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            .inviteLink_container {
+                @extend %flex-align;
+                justify-content: space-between;
+                margin: 0;
+                padding: 0 0.5rem 0.5rem 0;
+                .copyLink_container {
+                    cursor: pointer;
+                    @extend %flex-align;
+                    gap: 0.8rem;
+                    h3 {
+                        color: $col-primary-default;
+                        @extend %text-16;
+                        font-family: $font-900;
+                    }
+                    .copylink_icon {
+                        width: 2.4rem;
+                        height: 2.4rem;
+                        position: relative;
+                    }
+                }
+                .inviteBtn {
+                    background: $col-primary-default;
+                    width: 16.5rem;
+                    height: 5.6rem;
+                    h3 {
+                        color: $col-white;
+                        font-family: $font-900;
+                        @extend %text-14;
+                    }
+                }
+            }
+        }
+        .shopping_tab {
+            height: 29rem;
+            overflow-y: scroll;
+            border: 0.2rem solid $col-black;
+            width: 100%;
+            padding: 1.6rem;
+            border-radius: 1.6rem;
+            @include noScrollBar;
+            .accordion_body {
+                .card_container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.6rem;
+                }
+                .accordion_btn {
+                    width: 100%;
+                    margin: 2.4rem 0 1.6rem;
+                    height: 5.6rem;
+                    background: $col-primary-default;
+                    h3 {
+                        color: $col-white;
+                        @extend %text-14;
+                        font-family: $font-900;
+                    }
+                }
+            }
+        }
+    }
+
+    @include screenMax("mobile") {
+        .tabcontent_container {
+            .shopping_tab {
+                height: auto;
+                min-height: 28rem;
+            }
+        }
+    }
+
+}
+.modalBodyClass {
+    width: 70rem;
+}

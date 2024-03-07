@@ -1,0 +1,40 @@
+@import '@/styles/imports';
+
+.signUp_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+
+    .signUp_image {
+        width: 29.4rem;
+        height: 20rem;
+        position: relative;
+    }
+    .text {
+        margin-bottom: 2.4rem;
+        h3 {
+            @extend %title-32;
+            font-family: $font-900;
+            color: $light-text-main;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+        p {
+            font-family: $font;
+            color: $col-grey-500;
+            @extend %text-14;
+            text-align: center;
+            margin: 0 auto;
+            width: 75%;
+        }
+    }
+    .signUp_btn {
+        background: $col-primary-default;
+        h3 {
+            font-family: $font-900;
+            color: $col-white;
+            @extend %text-16;
+        }
+    }
+}

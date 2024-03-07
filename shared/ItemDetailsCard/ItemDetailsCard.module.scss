@@ -1,0 +1,198 @@
+@import '@/styles/imports';
+
+.card_container, .card_container_disabled {
+    @extend %flex-align;
+    justify-content: space-between;
+    position: relative;
+    &[data-quantity = "0"] {
+        .product_details {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .counter_container {
+            .counterClass {
+                opacity: 0.3;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+        }
+    }
+    &[data-type = "account"] {
+        border-bottom: 0.2rem solid $col-grey-light-stroke;
+        padding: 2.4rem;
+        justify-content: space-between;
+        &:nth-last-child(1) {
+            border-bottom: 0;
+        }
+    }
+    .product_details, .counter_container {
+        @extend %flex-align;
+        gap: 2.4rem
+    }
+    .counter_container {
+        flex-shrink: 0;
+        width: 32.8rem;
+        .delete_icon_container {
+            width: 7.6rem;
+            height: 5.6rem;
+            border-radius: 10rem;
+            border: 0.2rem solid $light-text-main;
+            @extend %flex-center;
+            cursor: pointer;
+            .delete_icon {
+                width: 2.4rem;
+                height: 2.4rem;
+                position: relative;
+            }
+        }
+        .card_btn  {
+            width: 14.6rem;
+            background: $col-primary-default;
+            h3 {
+                color: $col-white;
+                font-family: $font-900;
+                @extend %text-16;
+            }
+        }
+    }
+    .product_details {
+        .productImage_container {
+            width: 12.4rem;
+            height: 10rem;
+            position: relative;
+            .svg_stroke {
+                opacity: 0;
+                transition: $all-transition;
+            }
+            .svg_path {
+                opacity: 0.1;
+                transition: $all-transition;
+            }
+            &[data-hover="true"] {
+                .svg_path {
+                    opacity: 1;
+                    transition: $all-transition;
+                    stroke-width: 0.6rem;
+                    stroke: #000;
+                    &[data-theme = "dark"] {
+                        stroke-width: 0.6rem;
+                        stroke: #FFF;
+                    }
+                }
+                .svg_stroke {
+                    opacity: 1;
+                    transition: $all-transition;
+                }
+            }
+            .productImage {
+                width: 6.9rem;
+                height: 6.7rem;
+                position: absolute;
+                top: 1.75rem;
+                left: 3.25rem;
+                flex-shrink: 0;
+            }
+        }
+
+        .product_text {
+            h3 {
+                font-family: $font-900;
+                color: $light-text-main;
+                @extend %title-24;
+                margin-bottom: 0.4rem;
+                text-transform: capitalize;
+            }
+            p {
+                font-family: $font;
+                @extend %text-16;
+                color: $col-grey-500;
+            }
+        }
+    }
+    .outOfStock_container {
+        position: absolute;
+        left: 40%;
+        z-index: 2;
+    }
+    .outOfStock {
+        width: 16.7rem;
+        height: 14rem;
+        position: relative;
+    }
+    &[data-theme = "dark"] {
+        .counter_container {
+            .delete_icon_container {
+                border-color: $col-white;
+            }
+        }
+        .product_details {
+            .product_text {
+                h3, p {
+                    color: $col-white;
+                }
+            }
+        }
+    }
+    @include screenMax("mobile") {
+        flex-direction: column;
+        .counter_container {
+            width: 100%;
+            gap: 0;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            .delete_icon_container {
+                width: 4.2rem;
+                height: 4.2rem;
+                .delete_icon {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+            .card_btn {
+                width: 8.2rem;
+                height: 4rem;
+                h3 {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                }
+            }
+        }
+        .product_details {
+            gap: 0;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 1.6rem;
+            .productImage_container {
+                width: 15rem;
+                height: 12.1rem;
+                .productImage {
+                    width: 7.4rem;
+                    height: 7.2rem;
+                    top: 2.5rem;
+                    left: 4.75rem;
+                }
+            }
+            .product_text {
+                h3 {
+                    font-size: 2.1rem;
+                    line-height: 2.8rem;
+                }
+                p {
+                    font-size: 1.4rem;
+                    line-height: 2.4rem;
+                    width: max-content;
+                }
+            }
+        }
+        .outOfStock {
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+}
+
+.card_container_disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}

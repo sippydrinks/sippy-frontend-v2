@@ -1,0 +1,55 @@
+@import '@/styles/imports';
+
+.modal_children {
+    padding-left: 1.4rem;
+    margin-right: 2.4rem;
+    .modal_header {
+        @extend %flex-align;
+        justify-content: space-between;
+        margin-bottom: 2.4rem;
+        h3 {
+            @extend %title-32;
+            color: $col-black;
+            font-family: $font-900;
+        }
+        .close_icon {
+            width: 4rem;
+            height: 4rem;
+            position: relative;
+            rotate: 45deg;
+            cursor: pointer;
+            right: -2rem;
+        }
+    }
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-left: -3rem;
+        .emptyCart {
+            @extend %flex-center;
+            height: 100%;
+            h1 {
+                @extend %text-24;
+                font-family: $font-900;
+            }
+        }
+    }
+    @include screenMax("mobile") {
+        margin-right: 0;
+        padding-right: 1.4rem;
+        .modal_header {
+            .close_icon {
+                right: 0;
+            }
+        }
+        .cards {
+            margin-left: 0;
+            gap: 4.5rem;
+        }
+    }
+}
+.body_class {
+    padding: 3rem 2rem 2rem;
+    width: 85rem;
+}
