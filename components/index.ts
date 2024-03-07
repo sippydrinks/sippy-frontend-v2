@@ -1,6 +1,2 @@
-import { Login, SignUp, RegistrationNotification } from './authenticationPages';
-export { 
-    Login, 
-    SignUp, 
-    RegistrationNotification 
-};
+import { Login, SignUp, RegistrationNotification, NewPassword } from './authenticationPages';
+export { Login, SignUp, RegistrationNotification, NewPassword };
