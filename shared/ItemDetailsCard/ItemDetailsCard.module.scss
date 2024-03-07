@@ -33,12 +33,6 @@
     .counter_container {
         flex-shrink: 0;
         width: 32.8rem;
-        @include screenMax("mobile") {
-            width: 100%;
-            gap: 0;
-            justify-content: space-between;
-            flex-direction: row-reverse;
-        }
         .delete_icon_container {
             width: 7.6rem;
             height: 5.6rem;
@@ -46,18 +40,10 @@
             border: 0.2rem solid $light-text-main;
             @extend %flex-center;
             cursor: pointer;
-            @include screenMax("mobile") {
-                width: 4.2rem;
-                height: 4.2rem;
-            }
             .delete_icon {
                 width: 2.4rem;
                 height: 2.4rem;
                 position: relative;
-                @include screenMax("mobile") {
-                    width: 2rem;
-                    height: 2rem;
-                }
             }
         }
         .card_btn  {
@@ -68,31 +54,13 @@
                 font-family: $font-900;
                 @extend %text-16;
             }
-            @include screenMax("mobile") {
-                width: 8.2rem;
-                height: 4rem;
-                h3 {
-                    font-size: 1.2rem;
-                    line-height: 1.6rem;
-                }
-            }
         }
     }
     .product_details {
-        @include screenMax("mobile") {
-            gap: 0;
-            justify-content: space-between;
-            width: 100%;
-            margin-bottom: 1.6rem;
-        }
         .productImage_container {
             width: 12.4rem;
             height: 10rem;
             position: relative;
-            @include screenMax("mobile") {
-                width: 15rem;
-                height: 12.1rem;
-            }
             .svg_stroke {
                 opacity: 0;
                 transition: $all-transition;
@@ -124,12 +92,6 @@
                 top: 1.75rem;
                 left: 3.25rem;
                 flex-shrink: 0;
-                @include screenMax("mobile") {
-                    width: 7.4rem;
-                    height: 7.2rem;
-                    top: 2.5rem;
-                    left: 4.75rem;
-                }
             }
         }
 
@@ -146,35 +108,17 @@
                 @extend %text-16;
                 color: $col-grey-500;
             }
-            @include screenMax("mobile") {
-                h3 {
-                    font-size: 2.1rem;
-                    line-height: 2.8rem;
-                }
-                p {
-                    font-size: 1.4rem;
-                    line-height: 2.4rem;
-                    width: max-content;
-                }
-            }
         }
     }
     .outOfStock_container {
         position: absolute;
         left: 40%;
         z-index: 2;
-        // @include screenMax("mobile") {
-        //     left: 45%;
-        // }
     }
     .outOfStock {
         width: 16.7rem;
         height: 14rem;
         position: relative;
-        @include screenMax("mobile") {
-            width: 10rem;
-            height: 10rem;
-        }
     }
     &[data-theme = "dark"] {
         .counter_container {
@@ -192,6 +136,59 @@
     }
     @include screenMax("mobile") {
         flex-direction: column;
+        .counter_container {
+            width: 100%;
+            gap: 0;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            .delete_icon_container {
+                width: 4.2rem;
+                height: 4.2rem;
+                .delete_icon {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+            .card_btn {
+                width: 8.2rem;
+                height: 4rem;
+                h3 {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                }
+            }
+        }
+        .product_details {
+            gap: 0;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 1.6rem;
+            .productImage_container {
+                width: 15rem;
+                height: 12.1rem;
+                .productImage {
+                    width: 7.4rem;
+                    height: 7.2rem;
+                    top: 2.5rem;
+                    left: 4.75rem;
+                }
+            }
+            .product_text {
+                h3 {
+                    font-size: 2.1rem;
+                    line-height: 2.8rem;
+                }
+                p {
+                    font-size: 1.4rem;
+                    line-height: 2.4rem;
+                    width: max-content;
+                }
+            }
+        }
+        .outOfStock {
+            width: 10rem;
+            height: 10rem;
+        }
     }
 }
 
