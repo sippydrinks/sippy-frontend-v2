@@ -1,0 +1,57 @@
+@import '@/styles/imports';
+
+.otp_page_container {
+	max-width: 40rem;
+	box-sizing: border-box;
+
+	.otp_form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+		.input_fields {
+			.otp_container {
+				display: flex;
+				width: 100%;
+				gap: 1rem;
+
+				.otp_field {
+					width: 5.6rem;
+					height: 5.6rem;
+					color: var(--primary-text-light);
+					font-size: 1.5rem;
+					background-color: var(--token-input-bg);
+					border-radius: 0.25rem;
+					text-align: center;
+					outline: none;
+					border: none;
+				}
+			}
+		}
+
+		.resend {
+			@extend %text-16;
+			color: $col-error-500;
+			cursor: pointer;
+		}
+
+		.btn_container {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			flex-direction: column;
+			gap: 2rem;
+			margin-top: 1.5rem;
+
+			.auth_btn {
+				background: $col-primary-default;
+				width: 100%;
+				h3 {
+					color: $col-white;
+					font-family: $font-900;
+					@extend %text-16;
+				}
+			}
+		}
+	}
+}
