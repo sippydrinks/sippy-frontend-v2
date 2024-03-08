@@ -7,13 +7,9 @@ import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
 import { AuthType } from '@/interface/authentication';
 
-interface Props {
-	setIsEnterOtp: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const RecoverPassword = ({ setIsEnterOtp }: Props) => {
+const RecoverPassword = () => {
 	const [type, toggleTab] = React.useState<AuthType>(AuthType.EMAIL);
-	const { register, handleSubmit, errors, submitForm } = useRecoverPassword({ setIsEnterOtp, type });
+	const { register, handleSubmit, errors, submitForm } = useRecoverPassword({ type });
 
 	return (
 		<div className={styles.recover_password_page}>

@@ -24,7 +24,7 @@ const NewPassword = ({ setIsNewPassword }: Props) => {
 						</div>
 
 						<div>
-							<InputField label='Confirm Password' isPassword={true} type='password' register={register('confirm_password')} inputClass={errors?.confirm_password && styles.error_border} />
+							<InputField label='Confirm Password' isPassword={true} type='password' register={register('confirm_password')} inputClass={errors?.confirm_password && styles.error_border} placeholder='Confirm your new password' />
 							<p className={styles.error_styles}>{errors?.confirm_password?.message}</p>
 						</div>
 					</div>

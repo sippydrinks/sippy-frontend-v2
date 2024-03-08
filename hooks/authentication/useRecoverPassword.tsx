@@ -7,11 +7,10 @@ import { useRouter } from 'next/navigation';
 import { AuthType, TypeProp } from '@/interface/authentication';
 
 interface Props {
-	setIsEnterOtp?: React.Dispatch<React.SetStateAction<boolean>>;
 	type?: AuthType;
 }
 
-const useRecoverPassword = ({ setIsEnterOtp, type }: Props) => {
+const useRecoverPassword = ({ type }: Props) => {
 	const router = useRouter();
 	const [subTitle, setSubTitle] = useState('Hurray');
 	const [otpError, setOtpError] = useState<string | undefined>(undefined);
@@ -34,11 +33,7 @@ const useRecoverPassword = ({ setIsEnterOtp, type }: Props) => {
 	});
 
 	const submitForm = (data: any) => {
-		if (setIsEnterOtp) {
-			setIsEnterOtp(true);
-		}
-		console.log(data);
-		// router.push('/');
+		router.push('/verifyToken');
 	};
 
 	useEffect(() => {

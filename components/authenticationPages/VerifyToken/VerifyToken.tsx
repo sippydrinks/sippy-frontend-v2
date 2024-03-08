@@ -1,12 +1,12 @@
 'use client';
 import { Button, InputField } from '@/shared';
 import React, { KeyboardEvent, useState } from 'react';
-import styles from './EnterOtp.module.scss';
+import styles from './VerifyToken.module.scss';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
 import { useRecoverPassword } from '@/hooks';
 import OtpTimer from './OtpTimer';
 
-const EnterOtp = () => {
+const VerifyToken = () => {
 	const [otpTime, setOtpTime] = useState<number>(1);
 	const [isTimerRunning, setIsTimerRunning] = useState<boolean>(true);
 	const { subTitle, otpError, handleInputChange, handleKeyDown, handlePaste, inputRefs, tokens, submitToken } = useRecoverPassword({});
@@ -47,4 +47,4 @@ const EnterOtp = () => {
 	);
 };
 
-export default EnterOtp;
+export default VerifyToken;
