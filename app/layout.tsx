@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { AppProvider } from "@/contexts/AppContext";
 import { Inter } from "next/font/google";
 import Localfont from 'next/font/local'
+import { Toaster }  from 'react-hot-toast'
 import "@/styles/index.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -47,6 +48,18 @@ export default function RootLayout({
     <html lang="en">
       <body className={myFont.className}>
         <AppProvider>
+          <Toaster
+            position="top-right"
+            // autoClose={2000}
+            // hideProgressBar={false}
+            // newestOnTop={false}
+            // closeOnClick
+            // rtl={false}
+            // pauseOnFocusLoss
+            // draggable
+            // pauseOnHover
+            // theme="dark"
+          />
           <PreLoader /> 
           <React.Fragment>
             {children}

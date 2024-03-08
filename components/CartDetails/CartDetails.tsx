@@ -5,8 +5,7 @@ import { Button, InputField, ItemDetailsCard } from "@/shared";
 import { useGlobalContext } from "@/contexts/AppContext";
 import { ShoppingModal, DeleteDrinkModal } from "@/shared/modals";
 import { ChartLoader } from "@/shared/loaders";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
 import { CartDetailsCardProps } from "@/interface";
 import { formatNum } from "@/utils";
 import { cartData, couponCodes } from "@/mock";
@@ -23,21 +22,10 @@ const CartDetails = () => {
 		setLoading(false)
 	}, 2000)
 	const handleCheckout = () => {
-		const validForCheckout = cartData.length > 0
-		if (validForCheckout) {
+		if (cartData.length) {
 		    router.push('/checkout')
 		} else {
-        toast('There are no items in cart to be checked out', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          type: 'info'
-        })
+			toast.error('There are no items in cart to be checked out')
 		}
 	};
 	const openModal = () => {

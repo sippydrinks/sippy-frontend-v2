@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { Button } from '..';
 import { useGlobalContext } from '@/contexts/AppContext';
 import { usePathname } from 'next/navigation';

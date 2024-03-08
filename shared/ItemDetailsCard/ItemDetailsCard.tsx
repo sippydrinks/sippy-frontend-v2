@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button, Counter } from "@/shared";
 import { useGlobalContext } from "@/contexts/AppContext";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { cartData } from "@/mock";
 import { CartDetailsCardProps } from "@/interface";
 import Image from "next/image";
