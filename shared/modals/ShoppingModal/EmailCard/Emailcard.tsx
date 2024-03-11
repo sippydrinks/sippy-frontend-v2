@@ -1,31 +1,19 @@
 import React, { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import styles from './Emailcard.module.scss'
+import { Toaster, toast } from 'react-hot-toast';
 import Image from 'next/image'
+import styles from './Emailcard.module.scss'
 
-
-interface Props {
+interface EmailCardProps {
     image: string
     name?: string
     email?: string
 }
-const Emailcard = ({image, name, email}: Props) => {
-    const [copy, setCopy] = useState('')
+const Emailcard = ({image, name, email}: EmailCardProps) => {
+    const [copy, setCopy] = useState<string>('')
     const handleCopy = async (email: any) => {
         try {
           await navigator.clipboard.writeText(email);
-          (toast('Copied!', {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            type: 'success'
-          }));
+          (toast.success('Copied!'));
         } catch (err) {
           setCopy('Failed to copy text');
         }

@@ -4,4 +4,13 @@ import SignUpView from './AuthenticationView/SignUpView/SignUpView';
 import RecoverPasswordView from './AuthenticationView/RecoverPasswordView/RecoverPasswordView';
 import NewPasswordView from './AuthenticationView/NewPasswordView/NewPasswordView';
 import VerifyTokenView from './AuthenticationView/VerifyTokenView/VerifyTokenView';
-export { LoginView, SignUpView, HomeView, RecoverPasswordView, NewPasswordView, VerifyTokenView };
+import CartView from './CartView/CartView';
+export { 
+    LoginView,
+    SignUpView,
+    CartView,
+    HomeView,
+    RecoverPasswordView,
+    NewPasswordView,
+    VerifyTokenView,
+};

@@ -1,0 +1,179 @@
+@import '@/styles/imports';
+
+.cartDetails_container {
+    padding: 0 4rem;
+    margin: 0 auto 12rem;
+    .invite_container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 1.6rem;
+        padding: 1.6rem;
+        border: 0.2rem solid $col-coral-500;
+        background: $col-coral-50;
+        margin: 2.4rem 0 6rem;
+        height: 8.8rem;
+        .invite_text {
+            h3 {
+                font-family: $font-700;
+                color: $light-text-main;
+                @extend %text-18;
+            }
+        }
+        .btn {
+            background: $col-coral-500;
+            width: 16.5rem;
+            height: 5.6rem;
+            h3 {
+                font-family: $font-900;
+                color: $col-white;
+                @extend %text-14;
+            }
+        }
+    }
+    .cart_summary {
+        display: flex;
+        gap: 2.4rem;
+        .cardDetailsContainer {
+            width: 68%;
+            gap: 6rem;
+            display: flex;
+            flex-direction: column;
+            .emptyCart {
+                @extend %flex-center;
+                height: 100%;
+                h1 {
+                    @extend %text-24;
+                    font-family: $font-900;
+                }
+            }
+        }
+        .divider {
+            height: 52.2rem;
+            width: 0.2rem;
+            background: $col-grey-500;
+        }
+        .cartSummaryContainer {
+            width: 35%;
+            h1 {
+                font-family: $font-700;
+                color: $light-text-main;
+                @extend %title-24;
+                margin-bottom: 2.4rem;
+            }
+            .input_container {
+                display: flex;
+                gap: 1.6rem;
+                margin-bottom: 2.4rem;
+                .text_input label {
+                    @extend %text-16;
+                }
+                .applyDiscount_btn, .applyDiscount_btnActive {
+                    height: 5.6rem;
+                    width: 8.8rem;
+                    align-self: flex-end;
+                    background: $col-grey-light-stroke;
+                    cursor: not-allowed;
+                    h4 {
+                        @extend %text-14;
+                        font-family: $font-900;
+                    }
+                }
+                .applyDiscount_btnActive {
+                    opacity: 1;
+                    cursor: pointer;
+                    pointer-events: unset;
+                }
+            }
+            .total {
+                @extend %flex-align;
+                justify-content: space-between;
+                p {
+                    font-family: $font-900;
+                    color: $light-text-main;
+                    @extend %text-18;
+                }
+                h3 {
+                    font-family: $font;
+                    color: $col-grey-500;
+                    @extend %text-18;
+                }
+            }
+            .btn_checkout {
+                width: 100%;
+                background: $col-primary-default;
+                height: 6.2rem;
+                margin-top: 4rem;
+                h3 {
+                    font-family: $font-900;
+                    @extend %text-16;
+                    color: $col-white;
+                }
+            }
+            .btn_leaveCart {
+                width: 100%;
+                height: 6.2rem;
+                margin-top: 1.6rem;
+                h3 {
+                    font-family: $font-900;
+                    @extend %text-16;
+                }
+            }
+        }
+    }
+
+    &[data-theme = "dark"] {
+        .cartSummaryContainer {
+            h1, h3, p {
+                color: $col-white;
+            }
+            .total {
+                h3, p {
+                    color: $col-white;
+                }
+            }
+            .input_container {
+                .text_input {
+                    color: $col-white;
+                    label {
+                        color: $col-white;
+                    }
+                    &::placeholder {
+                        color: $col-white;
+                    }
+                }
+            }
+        }
+    }
+
+    @include screenMax("mobile") {
+        padding: 0 1.6rem;
+        margin: 0 auto 6rem;
+        .invite_container {
+            margin: 1.6rem 0 2.4rem;
+            .btn {
+                height: 5.2rem;
+                width: 13.5rem;
+                h3 {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                }
+            }
+        }
+        .cart_summary {
+            flex-direction: column;
+            .cardDetailsContainer {
+                width: 100%;
+                gap: 3rem;
+            }
+            .divider {
+                width: 100%;
+                height: 0.2rem;
+            }
+            .cartSummaryContainer {
+                width: 100%;
+            }
+        }
+    }
+}

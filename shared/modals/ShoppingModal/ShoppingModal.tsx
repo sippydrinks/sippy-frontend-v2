@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react'
 import { ModalElement, InputField, Button, Accordion } from '@/shared'
 import { ModalProps } from '@/interface'
@@ -6,13 +7,19 @@ import styles from './ShoppingModal.module.scss'
 import Image from 'next/image'
 
 const ShoppingModal = ({ isOpen, onClose }: ModalProps) => {
-    const [activeTab, setActiveTab] = useState(1)
+    const [activeTab, setActiveTab] = useState<number>(1)
+    const [initial, setInitial] = useState<number>(12)
     const ToggleTab = (tabIndex: number) => {
         setActiveTab(tabIndex);
     }
+    const handleSeeMore = () => {
+        setInitial(initial => initial + 8)
+    }
     
   return (
-    <ModalElement bodyClass={styles.modalBodyClass} isOpen={isOpen} onClose={onClose} modalImage='/svgs/modal-Image2.svg'>
+    <ModalElement bodyClass={styles.modalBodyClass} isOpen={isOpen} onClose={onClose} 
+        modalImage='/svgs/modal-Image2.svg'
+    >
         <div className={styles.modal_body}>
             <h3>Shop with friends</h3>
             <p>

@@ -29,6 +29,7 @@ import Counter from './counter/Counter';
 import ModalElement from './modalElement/ModalElement';
 import ItemDetailsCard from './ItemDetailsCard/ItemDetailsCard';
 import Accordion from './accordion/Accordion';
+import RelatedProducts from './RelatedProducts/RelatedProducts';
 
 
 
@@ -64,4 +65,5 @@ export {
 	ModalElement,
 	Counter,
 	Accordion,
+	RelatedProducts,
 };
