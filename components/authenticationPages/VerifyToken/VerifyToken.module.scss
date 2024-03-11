@@ -1,0 +1,95 @@
+@import '@/styles/imports';
+
+.otp_page_container {
+	max-width: 40rem;
+	box-sizing: border-box;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.otp_form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+		.input_fields {
+			.otp_container {
+				display: flex;
+				width: 100%;
+				gap: 1rem;
+
+				.otp_field {
+					width: 5.6rem;
+					height: 5.6rem;
+					color: var(--primary-text-light);
+					font-size: 1.5rem;
+					background-color: var(--token-input-bg);
+					border-radius: 0.25rem;
+					text-align: center;
+					outline: none;
+					border: none;
+				}
+
+				.input_error {
+					color: $col-error-500;
+					font-family: $font-900;
+					border-color: $col-error-500;
+					@extend %text-16;
+				}
+			}
+		}
+
+		.receive_otp {
+			display: flex;
+			align-items: center;
+			gap: 4px;
+		}
+
+		.otp_timer {
+			@extend %text-14;
+			color: $col-grey-500;
+			font-family: $font-500;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+		}
+
+		.resend {
+			@extend %text-14;
+			color: $col-orange-300;
+			font-family: $font-900;
+			cursor: pointer;
+		}
+
+		.btn_container {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			flex-direction: column;
+			gap: 2rem;
+			margin-top: 1.5rem;
+
+			.auth_btn {
+				background: $col-primary-default;
+				width: 100%;
+				h3 {
+					color: $col-white;
+					font-family: $font-900;
+					@extend %text-16;
+				}
+			}
+
+			.auth_btn_grey {
+				background: $col-purple-50;
+				width: 100%;
+				h3 {
+					color: $col-purple-500;
+					font-family: $font-900;
+					@extend %text-16;
+				}
+			}
+		}
+	}
+}
