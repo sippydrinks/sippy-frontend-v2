@@ -7,11 +7,10 @@ import { useRouter } from 'next/navigation';
 import { AuthType, TypeProp } from '@/interface/authentication';
 
 interface Props {
-	setIsEnterOtp?: React.Dispatch<React.SetStateAction<boolean>>;
 	type?: AuthType;
 }
 
-const useRecoverPassword = ({ setIsEnterOtp, type }: Props) => {
+const useRecoverPassword = ({ type }: Props) => {
 	const router = useRouter();
 	const [subTitle, setSubTitle] = useState('Hurray');
 	const [otpError, setOtpError] = useState<string | undefined>(undefined);
@@ -19,8 +18,8 @@ const useRecoverPassword = ({ setIsEnterOtp, type }: Props) => {
 	const inputRefs = useRef<any[]>([]);
 
 	const otpSchema = yup.object({
-		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
-		phone_number: type === 'phone_number' ? yup.string().required('Phone number is required') : yup.string(),
+		email: type === AuthType.EMAIL ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
+		phone_number: type === AuthType.PHONE_NUMBER ? yup.string().required('Phone number is required') : yup.string(),
 	});
 
 	const {
@@ -34,11 +33,7 @@ const useRecoverPassword = ({ setIsEnterOtp, type }: Props) => {
 	});
 
 	const submitForm = (data: any) => {
-		if (setIsEnterOtp) {
-			setIsEnterOtp(true);
-		}
-		console.log(data);
-		// router.push('/');
+		router.push('/verifyToken');
 	};
 
 	useEffect(() => {
