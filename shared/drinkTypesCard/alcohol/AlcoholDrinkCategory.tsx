@@ -1,13 +1,17 @@
+'use client';
 import React from 'react'
 import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard'
 import AlcoholicDrinkData from '@/mock/AlcoholicDrinkData'
-import { useGlobalContext } from '@/contexts/AppContext'
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext'
+import { usePathname } from 'next/navigation'
 import styles from '../soft/Soft.module.scss'
 
 const AlcoholicDrinksCard = () => {
-    const { theme } = useGlobalContext()
+    const { theme }: ContextProps = useGlobalContext()
+    const route = usePathname()
+    const checkRoute = route.includes('/categories')
   return (
-    <div className={styles.container}>
+    <div data-route={checkRoute} className={styles.container}>
         {
             AlcoholicDrinkData.map(({id, bglight, bgdark, icon, btnText}: any) => {
                 return (

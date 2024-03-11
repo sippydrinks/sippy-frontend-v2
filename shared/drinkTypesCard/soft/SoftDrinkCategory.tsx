@@ -1,13 +1,17 @@
-import React, { use } from 'react'
+'use client';
+import React from 'react'
 import SoftDrinksData from '../../../mock/SoftDrinksData'
 import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard'
-import { useGlobalContext } from '@/contexts/AppContext'
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext'
+import { usePathname } from 'next/navigation'
 import styles from './Soft.module.scss'
 
 const SoftDrinksCard = () => {
-    const { theme } = useGlobalContext()
+    const { theme }: ContextProps = useGlobalContext()
+    const route = usePathname()
+    const checkRoute = route.includes('/categories')
   return (
-    <div className={styles.container}>
+    <div data-route={checkRoute} className={styles.container}>
         {
             SoftDrinksData.map(({id, bglight, bgdark, icon, btnText}: any) => {
                 return (

@@ -9,4 +9,7 @@
         padding: 1.6rem;
         margin-bottom: 8rem;
     }
+    &[data-route="true"] {
+        @include grid(repeat(2, 1fr), 2.4rem)
+    }
 }
