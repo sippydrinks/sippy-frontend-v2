@@ -67,6 +67,9 @@
                 background: $col-coral-500;
             }
         }
+        &[data-active = "true"] {
+            display: none;
+        }
         .view_more {
             margin: 0 auto;
             cursor: pointer;
