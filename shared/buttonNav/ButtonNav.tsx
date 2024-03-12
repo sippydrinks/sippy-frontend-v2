@@ -10,10 +10,11 @@ const ButtonNav = () => {
 	const route = usePathname()
 
 	// function to check if the button is active
-	const checkActive = (url: string) => {
-		let isActive = url === route;
-		return isActive;
-	};
+	// const checkActive = (url: string) => {
+	// 	let isActive = url === route.includes('/alcohol');
+	// 	return isActive;
+	// };
+	const checkActive = route.includes('/alcohol')
 
 	const urlArr: string[] = route.split('/')
     const handleNonAlcohol = () => {
@@ -33,7 +34,7 @@ const ButtonNav = () => {
 				className={styles.button_container}
 				onClick={handleNonAlcohol}
 			>
-				<div className={styles.button} data-active={checkActive('/')} data-route={checkRoute}>
+				<div className={styles.button} data-active={checkActive}>
 					Non-Alcoholic Drinks
 				</div>
 			</div>
@@ -41,7 +42,7 @@ const ButtonNav = () => {
 				className={styles.button_container}
 				onClick={handleAlcohol}
 			>
-				<div className={styles.button} data-active={checkActive('/alcohol')} data-route={checkRoute}>
+				<div className={styles.button} data-route={checkRoute}>
 					Alcoholic Drinks
 				</div>
 			</div>

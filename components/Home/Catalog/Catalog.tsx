@@ -1,5 +1,5 @@
 'use client';
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { DrinkTypeProps } from "@/interface/home";
 import { ProductCard } from "../../../shared";
@@ -7,13 +7,17 @@ import { ProductData } from "@/mock";
 import { useGlobalContext } from "@/contexts/AppContext";
 import { Button } from "../../../shared";
 import styles from "./Catalog.module.scss";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ProductCardProps } from "@/interface";
 
 const Catalog = ({ type }: DrinkTypeProps) => {
 	const { theme, drinkType, productListing } = useGlobalContext();
-	const router = useRouter();
+	const [numberOfProducts, setNumberOfProducts] = useState<number>(12)
 	const route = usePathname();
+
+	const handleViewMore = () => {
+		setNumberOfProducts((prevNumOfProducts) => prevNumOfProducts + 8)
+	}
 	
 	return (
 		<div className={styles.catalog_container}>
@@ -37,34 +41,17 @@ const Catalog = ({ type }: DrinkTypeProps) => {
 				</div>
 			</div>
 			<div className={styles.hero_container}>
-				{ProductData.slice(0, 12).map((product: ProductCardProps, index: number) => (
+				{ProductData.slice(0, numberOfProducts).map((product: ProductCardProps, index: number) => (
 					<ProductCard key={index} {...product} />
 				))}
 			</div>
 
 			<div data-route={route} className={styles.btn_wrapper}>
-				{
-					route === '/' ? 
-					(
-						<Button
-							onClick={() => router.push(`/categories`)}
-							buttonType="primary"
-							className={styles.view_more}
-							data-type={type}
-						>
-							<h3>View more drinks</h3>
-						</Button>
-					) : (
-						<Button
-							onClick={() => router.push(`/categories/alcohol`)}
-							buttonType="primary"
-							className={styles.view_more}
-							data-type={type}
-						>
-							<h3>View more drinks</h3>
-						</Button>
-					)
-				}
+				<Button onClick={handleViewMore} buttonType="primary" data-type={type}
+					className={styles.view_more}
+				>
+					<h3>View more drinks</h3>
+				</Button>
 			</div>
 		</div>
 	);

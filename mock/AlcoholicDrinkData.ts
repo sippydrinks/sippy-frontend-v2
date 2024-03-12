@@ -29,4 +29,33 @@ export default [
         icon: '/svgs/beers.svg',
         btnText: 'Beers & ciders',
     },
+    {
+        id: 5,
+        bglight: '#FFF4D6',
+        bgdark: '#F8BC14',
+        icon: '/svgs/champagne.svg',
+        btnText: 'Champagne',
+    },
+    {
+        id: 6,
+        bglight: '#FFE8D9',
+        bgdark: '#FF7217',
+        icon: '/svgs/spirits.svg',
+        btnText: 'Spirits',
+    },
+    {
+        id: 7,
+        bglight: '#FDF1EC',
+        bgdark: '#FF4D51',
+        icon:'/svgs/wine.svg',
+        btnText: 'Wine',
+    },
+    {
+        id: 8,
+        bglight: '#E0F1CC',
+        bgdark: '#20ED10',
+        icon: '/svgs/beers.svg',
+        btnText: 'Beers & ciders',
+    },
+    
 ]
