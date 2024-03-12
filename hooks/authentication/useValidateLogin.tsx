@@ -35,17 +35,12 @@ const useValidateLogin = (type: AuthType) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [type]);
 
-	const toggleTab = (selectType: TypeProp) => {
-		// setType(selectType);
-	};
-
 	return {
 		register,
 		handleSubmit,
 		errors,
 		handleLogin,
 		reset,
-		toggleTab,
 		type,
 		// setType,
 	};
