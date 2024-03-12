@@ -62,13 +62,10 @@
         padding:  0 4rem;
     }
     .btn_wrapper {
-        &[data-route = "/alcohol"] {
+        &[data-route = "true"] {
             .view_more {
                 background: $col-coral-500;
             }
-        }
-        &[data-active = "true"] {
-            display: none;
         }
         .view_more {
             margin: 0 auto;

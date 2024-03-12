@@ -16,26 +16,27 @@ const AlcoholicDrinksCard = () => {
     <div className={styles.wrapper} data-route={checkRoute}>
         <div data-route={checkRoute} className={styles.container}>
             {checkRoute ?
-               (AlcoholicDrinkData.map(({id, bglight, bgdark, icon, btnText}: any) => {
+               (AlcoholicDrinkData.map(({id, bglight, bgdark, icon, text}: any) => {
                     return (
                         <DrinkTypeCard
                             key={id}
                             id={id}
                             icon={icon}
                             bg={theme === 'light' ? bglight : bgdark}
-                            buttonText={btnText}
+                            text={text}
+                            cardType='categories'
                         />
                     )
                 }))
             : 
-               (AlcoholicDrinkData.slice(0, 4).map(({id, bglight, bgdark, icon, btnText}: any) => {
+               (AlcoholicDrinkData.slice(0, 4).map(({id, bglight, bgdark, icon, text}: any) => {
                     return (
                         <DrinkTypeCard
                             key={id}
                             id={id}
                             icon={icon}
                             bg={theme === 'light' ? bglight : bgdark}
-                            buttonText={btnText}
+                            text={text}
                         />
                     )
                 }))

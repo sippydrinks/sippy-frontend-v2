@@ -30,6 +30,7 @@ import ModalElement from './modalElement/ModalElement';
 import ItemDetailsCard from './ItemDetailsCard/ItemDetailsCard';
 import Accordion from './accordion/Accordion';
 import RelatedProducts from './RelatedProducts/RelatedProducts';
+import ActionPanel from './ActionPanel/ActionPanel';
 
 
 
@@ -66,4 +67,5 @@ export {
 	Counter,
 	Accordion,
 	RelatedProducts,
+	ActionPanel,
 };

@@ -11,31 +11,32 @@ const SoftDrinksCard = () => {
     const { theme }: ContextProps = useGlobalContext()
     const route = usePathname()
     const router = useRouter()
-    const checkRoute = route.includes('/categories')
+    const isCategoryRoute = route.includes('/categories')
   return (
-    <div className={styles.wrapper} data-route={checkRoute}>
+    <div className={styles.wrapper} data-route={isCategoryRoute}>
         <div className={styles.container}>
-            {checkRoute ?
-                (SoftDrinksData.map(({id, bglight, bgdark, icon, btnText}: any) => {
+            {isCategoryRoute ?
+                (SoftDrinksData.map(({id, bglight, bgdark, icon, text}: any) => {
                     return (
                         <DrinkTypeCard
                             key={id}
                             id={id}
                             icon={icon}
                             bg={theme === 'light' ? bglight : bgdark}
-                            buttonText={btnText}
+                            text={text}
+                            cardType='categories'
                         />
                     )
                 }))
             :
-                (SoftDrinksData.slice(0, 4).map(({id, bglight, bgdark, icon, btnText}: any) => {
+                (SoftDrinksData.slice(0, 4).map(({id, bglight, bgdark, icon, text}: any) => {
                     return (
                         <DrinkTypeCard
                             key={id}
                             id={id}
                             icon={icon}
                             bg={theme === 'light' ? bglight : bgdark}
-                            buttonText={btnText}
+                            text={text}
                         />
                     )
                 }))
