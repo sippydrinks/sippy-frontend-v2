@@ -5,6 +5,9 @@ import RecoverPasswordView from './AuthenticationView/RecoverPasswordView/Recove
 import NewPasswordView from './AuthenticationView/NewPasswordView/NewPasswordView';
 import VerifyTokenView from './AuthenticationView/VerifyTokenView/VerifyTokenView';
 import CartView from './CartView/CartView';
+import CategoriesView from './CategoriesView/CategoriesView';
+
+
 export { 
     LoginView,
     SignUpView,
@@ -13,4 +16,5 @@ export {
     RecoverPasswordView,
     NewPasswordView,
     VerifyTokenView,
+    CategoriesView,
 };

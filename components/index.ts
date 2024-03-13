@@ -1,4 +1,5 @@
 import CartDetails from './CartDetails/CartDetails';
+import Categories from './Categories/Categories';
 import { Login, SignUp, RegistrationNotification, NewPassword, VerifyToken } from './authenticationPages';
 
 
@@ -10,4 +11,5 @@ export {
     NewPassword,
     VerifyToken,
     CartDetails,
+    Categories,
 };

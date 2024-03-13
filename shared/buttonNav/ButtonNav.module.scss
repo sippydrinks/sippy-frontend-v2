@@ -14,14 +14,17 @@
 			font-family: $font-900;
 			color: $col-grey-header;
 			border-radius: 10rem;
-			&[data-active='true'] {
+			&[data-active='false'] {
 				background-color: $col-primary-default;
 				font-family: $font-900;
 				color: $col-white;
 				border: 0.2rem solid $col-grey-dark-stroke;
-				&[data-route="true"] {
-					background-color: $col-orange-300;
-				}
+			}
+			&[data-route='true'] {
+				background-color: $col-orange-300;
+				font-family: $font-900;
+				color: $col-white;
+				border: 0.2rem solid $col-grey-dark-stroke;
 			}
 		}
 	}

@@ -1,15 +1,42 @@
 @import "@/styles/imports";
 
-.container {
-    @include grid(repeat(2, 1fr), 4rem);
-    margin: 0 auto 12rem;
-    padding: 4rem;
-    @include screenMax("mobile") {
-        display: block;
-        padding: 1.6rem;
-        margin-bottom: 8rem;
+.wrapper {
+    .container {
+        @include grid(repeat(2, 1fr), 4rem);
+        margin: 0 auto 3.2rem;
+        padding: 4rem;
     }
+    .btn {
+        width: 21.8rem;
+        background-color: $col-primary-default;
+        margin: 0 auto 4rem;
+        h3 {
+            @extend %text-16;
+            color: $col-white;
+        }
+    }
+
     &[data-route="true"] {
-        @include grid(repeat(2, 1fr), 2.4rem)
+        .container {
+            @include grid(repeat(2, 1fr), 2.4rem);
+            margin-bottom: 8rem;
+        }
+        .btn {
+            display: none;
+        }
+    }
+
+    @include screenMax("mobile") {
+        &[data-route="true"] {
+            .container {
+                display: block;
+                padding: 1.6rem;
+            }
+        }
+        .container {
+            display: block;
+            padding: 1.6rem;
+
+        }
     }
 }
