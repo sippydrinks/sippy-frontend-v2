@@ -1,0 +1,59 @@
+@import '@/styles/imports';
+
+.counterAndBtns_mob {
+    display: none;
+    @include screenMax("mobile") {
+        display: block;
+        padding: 1.6rem;
+        border-top: 0.1rem solid $col-grey-700;
+        .counter_mob {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h3 {
+                font-size: 1.8rem;
+                line-height: 2.7rem;
+                color: $light-text-main;
+                font-family: $font-700;
+            }
+        }
+        .btns_container_mob {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            flex-shrink: 1;
+            .buyNowBtn {
+                width: 100%;
+                margin-bottom: 1.6rem;
+                background: $col-primary-default;
+                h4 {
+                    font-size: 1.6rem;
+                    line-height: 2.4rem;
+                    font-family: $font-700;
+                    color: $col-white;
+                }
+                @include screenMax("mobile") {
+                    height: 5.6rem;
+                }
+            }
+            .addToCartBtn {
+                width: 100%;
+                margin-bottom: 1.6rem;
+                justify-content: center;
+                gap: 1.6rem;
+                height: 5.6rem;
+                .cartIcon {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    position: relative;
+                }
+                h3 {
+                    font-size: 1.6rem;
+                    line-height: 2.4rem;
+                    font-family: $font-700;
+                }
+            }
+        }
+    }
+}

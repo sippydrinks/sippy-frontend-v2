@@ -1,0 +1,134 @@
+@import '@/styles/imports';
+
+%align-center {
+	display: flex;
+	align-items: center;
+}
+.productQtySummaryContainer {
+	width: 36rem;
+	@include screenMax('mobile') {
+		width: 100%;
+	}
+	.fadedText {
+		@extend %text-16;
+		font-family: $font;
+		color: $col-grey-light-stroke;
+		margin-bottom: 0.8rem;
+	}
+	.productPrice {
+		@extend %text-18;
+		font-family: $font-900;
+		color: $light-text-main;
+		margin-bottom: 2rem;
+		@include screenMax('mobile') {
+			font-size: 2rem;
+			line-height: 2.8rem;
+		}
+	}
+	.productQtyBtnCont {
+		@extend %align-center;
+		gap: 1.6rem;
+		margin-bottom: 2rem;
+		@include screenMax('mobile') {
+			justify-content: space-between;
+		}
+		.productQtyBtn {
+			width: 11rem;
+			height: 4.8rem;
+			border-radius: 20rem;
+			border: 0.1rem solid $light-text-main;
+			@extend %align-center;
+			justify-content: center;
+			cursor: pointer;
+			&[data-active='true'] {
+				color: $col-white;
+				background: $light-text-main;
+			}
+
+			.productSizes {
+				@extend %text-16;
+				font-family: $font;
+			}
+		}
+		div {
+			&:nth-child(3) {
+				color: $col-grey-light-stroke;
+				text-decoration: line-through;
+				pointer-events: none;
+			}
+		}
+	}
+	.buyNowBtn {
+		width: 100%;
+		margin-bottom: 1.6rem;
+		background: $col-primary-default;
+		h4 {
+			@extend %text-16;
+			color: $col-white;
+		}
+		@include screenMax('mobile') {
+			height: 5.6rem;
+		}
+	}
+	.addToCartBtn {
+		width: 100%;
+		margin-bottom: 1.6rem;
+		justify-content: center;
+		gap: 1.6rem;
+		.cartIcon {
+			width: 2.4rem;
+			height: 2.4rem;
+			position: relative;
+		}
+		h3 {
+			@extend %text-16;
+		}
+		@include screenMax('mobile') {
+			height: 5.6rem;
+		}
+	}
+	.btns_container {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		margin-top: 2rem;
+		flex-shrink: 1;
+	}
+	.counterAndBtns_mobile {
+		display: none;
+	}
+	&[data-theme='dark'] {
+		.fadedText,
+		.productPrice {
+			color: $col-background-shade;
+		}
+		.productQtyBtnCont {
+			.productQtyBtn {
+				border-color: $col-grey-texts;
+				color: $col-white;
+				.productSizes {
+					color: $col-white;
+				}
+			}
+		}
+		.addToCartBtn {
+			.addToCartText {
+				color: $col-white;
+			}
+		}
+	}
+}
+
+.is_sticky {
+	position: -webkit-sticky; /* for Safari */
+	position: sticky;
+	top: 10px;
+	z-index: 999;
+	animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+}
+
+@include screenMax('mobile') {
+	.counterAndBtns {
+		display: none;
+	}
+}

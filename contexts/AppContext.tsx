@@ -1,6 +1,12 @@
 'use client';
 import { useRouter, usePathname } from 'next/navigation';
 import React, { useState, useEffect, useContext, createContext, useMemo } from 'react';
+import useFetchAll from '@/hooks/useFetchAll';
+
+function GlobalHooks() {
+	useFetchAll();
+	return null;
+}
 
 const AppContext = createContext<any>(null);
 
@@ -20,13 +26,13 @@ export interface ContextProps {
 }
 
 const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const router = useRouter();
 	const path = usePathname();
 	const [categoryHeight, setCategoryHeight] = useState<number>(0);
 	const [cart, setCart] = useState<any[]>([]);
 	const [drinkType, setDrinkType] = useState<'soft' | 'alcohol'>('soft');
 	const [theme, setTheme] = useState<'light' | 'dark'>('light');
 	const urlCheck = path.includes('/alcohol');
+	const [productListing, setProductListing] = useState<any[]>([]);
 
 	useEffect(() => {
 		if (urlCheck) {
@@ -63,7 +69,10 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 				categoryHeight,
 				setCategoryHeight,
 				cartDetails,
+				productListing,
+				setProductListing,
 			}}>
+			<GlobalHooks />
 			{children}
 		</AppContext.Provider>
 	);

@@ -1,4 +1,5 @@
 import CartDetails from './CartDetails/CartDetails';
 import { Login, SignUp, RegistrationNotification, NewPassword, VerifyToken } from './authenticationPages';
+import ProductDetail from './ProductDetail/ProductDetail';
 
-export { Login, SignUp, RegistrationNotification, NewPassword, VerifyToken, CartDetails };
+export { ProductDetail, Login, SignUp, RegistrationNotification, NewPassword, VerifyToken, CartDetails };
