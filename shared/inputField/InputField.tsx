@@ -13,8 +13,8 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	inputClass?: string;
 	customPrefix?: React.JSX.Element;
 	suffix?: React.JSX.Element;
-	register?: any;
 	inputRef?: any;
+	register?: any;
 }
 
 const InputField = ({ name, type = 'text', label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {

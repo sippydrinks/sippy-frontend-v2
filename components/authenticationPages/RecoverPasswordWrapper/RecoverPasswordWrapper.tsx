@@ -5,12 +5,11 @@ interface Props {
 	title: string;
 	subTitle: string;
 	description: string;
-	page: string;
 }
-const RecoverPasswordWrapper = ({ title, subTitle, description, page }: Props) => {
+const RecoverPasswordWrapper = ({ title, subTitle, description }: Props) => {
 	return (
 		<section className={styles.recover_password_wrapper}>
-			<div data-page={page} className={styles.subTitle_icon}>
+			<div className={styles.subTitle_icon}>
 				<p>{subTitle}</p>
 			</div>
 			<h2 className={styles.title}>{title}</h2>

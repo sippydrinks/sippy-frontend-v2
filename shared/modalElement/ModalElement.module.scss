@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .overlay {
 	position: fixed;
@@ -14,15 +14,7 @@
 		background: $col-background-shade;
 		padding: 9.4rem 6.4rem 6.4rem;
 		border-radius: 1.6rem;
-		@include screenMax("mobile") {
-			width: 44rem;
-			padding: 4rem 1.6rem 1.6rem;
-			height: 85%;
-			overflow-y: scroll;
-			max-height: 67rem;
-			@include noScrollBar;
-		}
-		&[data-theme="dark"] {
+		&[data-theme='dark'] {
 			color: $col-white;
 		}
 		.modalImage_container {
@@ -36,17 +28,11 @@
 			background: $col-white;
 			@extend %flex-center;
 			z-index: 2;
-			@include screenMax("mobile") {
-				display: none;
-			}
 			.modalImage {
 				position: relative;
 				border-radius: 100rem;
 				width: 12rem;
 				height: 12rem;
-				@include screenMax("mobile") {
-					display: none;
-				}
 			}
 		}
 	}
@@ -59,28 +45,49 @@
 		background: $col-white;
 		@extend %flex-center;
 		z-index: 2;
-		@include screenMax("mobile") {
-			display: block;
-			width: 10rem;
-			height: 10rem;
-			top: 4rem;
-			left: 40%;
-		}
-		@include screenMax("xsm-mobile") {
-			top: 10.5rem;
-		}
-		@include screenMax("xxsm-mobile") {
-			top: 7rem;
-		}
 		.modalImage {
 			position: relative;
 			border-radius: 100rem;
 			width: 12rem;
 			height: 12rem;
-			@include screenMax("mobile") {
+		}
+	}
+	@include screenMax('mobile') {
+		.modalbody {
+			width: 44rem;
+			padding: 4rem 1.6rem 1.6rem;
+			height: 85%;
+			overflow-y: scroll;
+			max-height: 67rem;
+			@include noScrollBar;
+			.modalImage_container {
+				display: none;
+				.modalImage {
+					display: none;
+				}
+			}
+		}
+		.modalImage_container_sm {
+			display: block;
+			width: 10rem;
+			height: 10rem;
+			top: 4rem;
+			left: 40%;
+			.modalImage {
 				width: 9rem;
 				height: 9rem;
+				position: relative;
 			}
+		}
+	}
+	@include screenMax('xsm-mobile') {
+		.modalImage_container_sm {
+			top: 10.5rem;
+		}
+	}
+	@include screenMax('xxsm-mobile') {
+		.modalImage_container_sm {
+			top: 7rem;
 		}
 	}
 }

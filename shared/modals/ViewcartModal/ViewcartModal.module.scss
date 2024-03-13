@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .modal_children {
 	padding-left: 1.4rem;
@@ -19,9 +19,6 @@
 			rotate: 45deg;
 			cursor: pointer;
 			right: -2rem;
-			@include screenMax("mobile") {
-				right: 0;
-			}
 		}
 	}
 	.cards {
@@ -37,14 +34,19 @@
 				font-family: $font-900;
 			}
 		}
-		@include screenMax("mobile") {
+	}
+	@include screenMax('mobile') {
+		margin-right: 0;
+		padding-right: 1.4rem;
+		.modal_header {
+			.close_icon {
+				right: 0;
+			}
+		}
+		.cards {
 			margin-left: 0;
 			gap: 4.5rem;
 		}
-	}
-	@include screenMax("mobile") {
-		margin-right: 0;
-		padding-right: 1.4rem;
 	}
 }
 .body_class {

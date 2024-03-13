@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .modal_body {
 	h3 {
@@ -25,10 +25,6 @@
 			color: $light-text-main;
 			font-family: $font-900;
 			@extend %text-16;
-			@include screenMax("mobile") {
-				font-size: 1.4rem;
-				height: 2rem;
-			}
 		}
 		.delete_btn {
 			background: $col-grey-light-stroke;
@@ -39,6 +35,14 @@
 			background: $col-primary-default;
 			h3 {
 				color: $col-white;
+			}
+		}
+	}
+	@include screenMax('mobile') {
+		.btns {
+			h3 {
+				font-size: 1.4rem;
+				height: 2rem;
 			}
 		}
 	}

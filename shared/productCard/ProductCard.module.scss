@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .card {
 	width: 100%;
@@ -24,20 +24,20 @@
 		.svg {
 			opacity: 0.1;
 			transition: $all-transition;
-			&[data-type = "alcohol"] {
+			&[data-type='alcohol'] {
 				opacity: 0.5;
 			}
-			&[data-theme = "dark"] {
+			&[data-theme='dark'] {
 				opacity: 0.1;
 			}
 		}
-		&[data-active="true"] {
+		&[data-active='true'] {
 			.svg {
 				opacity: 1;
 				transition: $all-transition;
 				stroke-width: 0.6rem;
 				stroke: #000;
-				&[data-theme="dark"] {
+				&[data-theme='dark'] {
 					stroke-width: 0.6rem;
 					stroke: #fff;
 				}
@@ -56,10 +56,6 @@
 			color: $col-grey-darker;
 			@extend %title-24;
 			text-transform: capitalize;
-			@include screenMax("mobile") {
-				font-size: 1.8rem;
-				line-height: 2.7rem;
-			}
 		}
 		p {
 			color: $col-grey-500;
@@ -74,16 +70,13 @@
 			@extend %text-16;
 			font-family: $font-900;
 			color: $light-text-main;
-			&[data-type="dark"] {
+			&[data-type='dark'] {
 				color: $col-white;
-			}
-			@include screenMax("mobile") {
-				font-size: 1.4rem;
-				line-height: 2.4rem;
 			}
 		}
 	}
-	&[data-theme="dark"] {
+
+	&[data-theme='dark'] {
 		.text {
 			h3 {
 				color: $col-white;
@@ -100,7 +93,7 @@
 		}
 	}
 
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		.clip {
 			height: 12.5rem;
 			.icon_container {
@@ -124,6 +117,10 @@
 		.button {
 			padding: 1.6rem;
 			height: 5rem;
+			h4 {
+				font-size: 1.4rem;
+				line-height: 2.4rem;
+			}
 		}
 	}
 }

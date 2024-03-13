@@ -2,8 +2,7 @@ import Login from './login/Login';
 import SignUp from './signUp/SignUp';
 import RegistrationNotification from './Notifications/RegistrationNotification';
 import RecoverPassword from './RecoverPassword/RecoverPassword';
-import EnterOtp from './EnterOtp/EnterOtp';
-import AuthWrapper from './AuthWrapper/AuthWrapper';
+import VerifyToken from './VerifyToken/VerifyToken';
 import NewPassword from './NewPassword/NewPassword';
 
-export { Login, SignUp, RegistrationNotification, RecoverPassword, EnterOtp, AuthWrapper, NewPassword };
+export { Login, SignUp, RegistrationNotification, RecoverPassword, VerifyToken, NewPassword };

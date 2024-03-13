@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { TypeProp } from '@/interface/authentication';
+import { AuthType, TypeProp } from '@/interface/authentication';
 import { hearAboutOptions } from '@/utils';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
+	type: AuthType;
 };
 
-const useValidateSignup = ({ setIsRegistrationRequested }: Props) => {
-	const [type, setType] = useState<TypeProp>('email');
+const useValidateSignup = ({ setIsRegistrationRequested, type }: Props) => {
 	// create a schema for the signup form using yup based on the active tab
 	const signupSchema = yup.object().shape({
 		email: type === 'email' ? yup.string().email('Invalid email address').required('Email is required') : yup.string(),
@@ -49,11 +49,10 @@ const useValidateSignup = ({ setIsRegistrationRequested }: Props) => {
 		setValue('get_to_know', getToKnow);
 	}, [register, getToKnow, setValue]);
 
-	// a function to switch the tab and reset clear either the email or the phone field depending on the users choice
-	const toggleTab = (selectType: TypeProp) => {
-		resetField(type);
-		setType(selectType);
-	};
+	useEffect(() => {
+		resetField(type === AuthType.EMAIL ? AuthType.PHONE_NUMBER : AuthType.EMAIL);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [type]);
 
 	// handle the signup form submission
 	const handleSignup = async (data: any) => {
@@ -66,11 +65,8 @@ const useValidateSignup = ({ setIsRegistrationRequested }: Props) => {
 		handleSubmit,
 		errors,
 		handleSignup,
-		reset,
 		hearAboutOptions,
-		toggleTab,
 		onOptionChange,
-		type,
 	};
 };
 

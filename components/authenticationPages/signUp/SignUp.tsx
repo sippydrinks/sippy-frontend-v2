@@ -1,18 +1,20 @@
 'use state';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { AuthComponent, Select } from '@/shared';
 import { Button, InputField } from '@/shared';
 import styles from './SignUp.module.scss';
 import { useValidateSignup } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
+import { AuthType } from '@/interface/authentication';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const SignUp = ({ setIsRegistrationRequested }: Props) => {
-	const { register, handleSubmit, errors, handleSignup, hearAboutOptions, toggleTab, onOptionChange, type } = useValidateSignup({ setIsRegistrationRequested });
+	const [type, setType] = useState<AuthType>(AuthType.EMAIL);
+	const { register, handleSubmit, errors, handleSignup, hearAboutOptions, onOptionChange } = useValidateSignup({ setIsRegistrationRequested, type });
 
 	return (
 		<div className={styles.signIn_body}>
@@ -32,19 +34,19 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 						<h3>or</h3>
 						<div className={styles.line}></div>
 					</div>
-					<AuthTabHeader toggleTab={toggleTab} type={type} />
+					<AuthTabHeader toggleTab={setType} type={type} />
 					<div className={styles.input_fields}>
 						<div>
 							<InputField label='Full name' placeholder='Enter your full name' register={register('fullName')} inputClass={errors?.fullName && styles.error_border} />
 							<p className={styles.error_styles}>{errors?.fullName?.message}</p>
 						</div>
-						{type === 'email' && (
+						{type === AuthType.EMAIL && (
 							<div>
 								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
-						{type === 'phone_number' && (
+						{type === AuthType.PHONE_NUMBER && (
 							<div className={styles.tab_1}>
 								<div className={styles.input_fields}>
 									<div>

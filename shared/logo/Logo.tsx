@@ -4,11 +4,12 @@ import Image from 'next/image';
 import styles from './Logo.module.scss';
 
 const Logo = () => {
-	const theme = 'light';
-	// const { theme }: ContextProps =  useGlobalContext();
+	const { theme }: ContextProps = useGlobalContext();
 	return (
-		<div className={styles.logo}>
-			<Image src={`/svgs/logo-${theme}.svg`} priority={true} alt='Sippy Life' fill quality={100} />
+		<div className={styles.container}>
+			<div className={styles.logo}>
+				<Image src={`/svgs/logo-${theme}.svg`} priority={true} alt='Sippy Life' fill quality={100} />
+			</div>
 		</div>
 	);
 };

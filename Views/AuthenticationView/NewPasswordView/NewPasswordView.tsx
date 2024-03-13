@@ -1,5 +1,5 @@
 'use client';
-import { AuthWrapper, NewPassword, RegistrationNotification } from '@/components';
+import { NewPassword, RegistrationNotification } from '@/components';
 import { NewPasswordFailed, NewPasswordSuccess } from '@/shared/svgs/jsx';
 import React, { useState } from 'react';
 
@@ -33,13 +33,13 @@ const NewPasswordView = () => {
 		<>
 			<>
 				{isNewPassword ? (
-					<AuthWrapper backgroundType='with-icons'>
+					<>
 						<RegistrationNotification details={success ? notificationDetails.success : notificationDetails.failed} />
-					</AuthWrapper>
+					</>
 				) : (
-					<AuthWrapper backgroundType='without-icons'>
+					<>
 						<NewPassword setIsNewPassword={setIsNewPassword} />
-					</AuthWrapper>
+					</>
 				)}
 			</>
 		</>

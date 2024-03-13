@@ -1,20 +1,21 @@
 import React from 'react';
-import Image from 'next/image';
 import { DrinkTypeCardProps } from '@/interface';
 import { Button } from '@/shared';
 import { usePathname } from 'next/navigation';
 import { useGlobalContext } from '@/contexts/AppContext';
+import Image from 'next/image';
 import styles from './DrinkTypeCard.module.scss';
 
 const DrinkTypeCard = ({ id, bg, icon, buttonText }: DrinkTypeCardProps) => {
-	const { themeColor } = useGlobalContext();
+	const { theme } = useGlobalContext();
 	const route = usePathname();
+	const checkRoute = route.includes('/categories');
 	return (
-		<div key={id} className={styles.card} style={{ background: `${bg}` }}>
-			<div className={styles.btn_container}>
+		<div key={id} className={styles.card} data-checkroute={checkRoute} style={{ background: `${bg}` }}>
+			<div data-checkroute={checkRoute} className={styles.btn_container}>
 				<h3>{buttonText}</h3>
 				<Button buttonType='transparent' className={styles.btn}>
-					<p data-theme={themeColor}>View all</p>
+					<p data-theme={theme}>View all</p>
 				</Button>
 			</div>
 

@@ -1,16 +1,14 @@
+import React from "react";
+import { PreLoader } from "@/shared/loaders";
 import type { Metadata } from "next";
 import { AppProvider } from "@/contexts/AppContext";
 import { Inter } from "next/font/google";
 import Localfont from 'next/font/local'
+import { Toaster }  from 'react-hot-toast'
 import "@/styles/index.scss";
 
 const inter = Inter({ subsets: ['latin'] });
 
-
-export const metadata: Metadata = {
-  title: "Sippy Life",
-  description: "Sippy Life",
-};
 
 const myFont = Localfont({
   src: [
@@ -37,6 +35,11 @@ const myFont = Localfont({
   ]
 })
 
+export const metadata: Metadata = {
+  title: "Sippy Life",
+  description: "Sippy Life",
+};
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -46,7 +49,22 @@ export default function RootLayout({
     <html lang="en">
       <body className={myFont.className}>
         <AppProvider>
-          {children}
+          <Toaster
+            position="top-right"
+            // autoClose={2000}
+            // hideProgressBar={false}
+            // newestOnTop={false}
+            // closeOnClick
+            // rtl={false}
+            // pauseOnFocusLoss
+            // draggable
+            // pauseOnHover
+            // theme="dark"
+          />
+          <PreLoader /> 
+          <React.Fragment>
+            {children}
+          </React.Fragment>
         </AppProvider>
       </body>
     </html>

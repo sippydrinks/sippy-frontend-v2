@@ -1,0 +1,29 @@
+@import '@/styles/imports';
+
+.auth_container {
+	box-sizing: border-box;
+	width: 100%;
+	overflow: auto;
+
+	.auth_layout {
+		min-height: 100vh;
+		height: 100%;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background-color: $col-background-shade;
+		padding: 4rem 6.4rem;
+		padding-bottom: 8rem;
+	}
+
+	@include screenMax('mobile') {
+		.auth_layout {
+			padding-bottom: 0;
+			padding: 4rem 2rem;
+		}
+		padding: 1rem;
+	}
+}

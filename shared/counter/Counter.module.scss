@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .incrementor {
 	@extend %flex-align;
@@ -9,12 +9,8 @@
 	padding: 2rem 2.4rem;
 	border: 0.2rem solid $col-grey-700;
 	background: $col-background-shade;
-	&[data-type="dark"] {
+	&[data-type='dark'] {
 		background: $light-text-main;
-	}
-	@include screenMax("mobile") {
-		height: 3.2rem;
-		width: 16rem;
 	}
 	.plusBtn,
 	.minusBtn {
@@ -24,12 +20,8 @@
 			font-size: 3.2rem;
 			line-height: 3.2rem;
 			caret-color: transparent;
-			&[data-type="dark"] {
+			&[data-type='dark'] {
 				color: $col-white;
-			}
-			@include screenMax("mobile") {
-				font-size: 2rem;
-				line-height: 2rem;
 			}
 		}
 	}
@@ -37,13 +29,24 @@
 		@extend %text-16;
 		color: $light-text-main;
 		font-family: $font-900;
-		&[data-type="dark"] {
+		&[data-type='dark'] {
 			color: $col-white;
 		}
 	}
 	.minusBtn {
 		margin-bottom: 0.5rem;
-		@include screenMax("mobile") {
+	}
+	@include screenMax('mobile') {
+		height: 3.2rem;
+		width: 16rem;
+		.plusBtn,
+		.minusBtn {
+			.actionBtn {
+				font-size: 2rem;
+				line-height: 2rem;
+			}
+		}
+		.minusBtn {
 			margin: 0;
 		}
 	}

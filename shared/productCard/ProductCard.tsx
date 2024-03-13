@@ -1,18 +1,19 @@
 'use client';
 import React, { useState } from 'react';
-import { toast } from "react-toastify";
+import { toast } from 'react-hot-toast';
 import { Button } from '..';
 import { useGlobalContext } from '@/contexts/AppContext';
 import { usePathname } from 'next/navigation';
-import { formatNum, formatURL } from '@/utils';;
+import { ProductCardProps } from '@/interface';
+import { formatNum, formatURL } from '@/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ProductCard.module.scss';
 
-const Product = ({data}: any) => {
+const Product = (data: ProductCardProps) => {
 	const { theme, drinkType, setCart }: any = useGlobalContext();
-	const route = usePathname()
-	const urlCheck = route.includes('/alcohol')
+	const route = usePathname();
+	const urlCheck = route.includes('/alcohol');
 	const [isHover, setIsHover] = useState<boolean>(false);
 	const onHover = () => {
 		setIsHover(true);
@@ -41,9 +42,7 @@ const Product = ({data}: any) => {
 			const itemIndex = prevCart.findIndex((item: any) => item.id === data.id);
 			if (itemIndex !== -1) {
 				// If the item is already in the cart, create a new array with the updated item
-				toast.success(
-					`One more ${productData.productName} has been added to cart`
-				);
+				toast.success(`One more ${productData.productName} has been added to cart`);
 				return [
 					...prevCart.slice(0, itemIndex),
 					{
@@ -78,19 +77,16 @@ const Product = ({data}: any) => {
 					</svg>
 					<div className={styles.icon_container}>
 						<div className={styles.icon}>
-							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol}
-								alt=''
-								fill
-							/>
+							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol} alt='' fill />
 						</div>
 					</div>
 				</div>
 			</Link>
 			<div className={styles.text}>
-				<h3>{data && data.productName}</h3>
+				<h3>{data && urlCheck === false ? data.productName : data.productNameAlcohol}</h3>
 				<p>NGN{formatNum(data.productPrice)}</p>
 			</div>
-			<Button className={styles.button} buttonType="primary" onClick={addToCart}>
+			<Button className={styles.button} buttonType='primary' onClick={addToCart}>
 				<h4 data-theme={theme}>Add to cart</h4>
 			</Button>
 		</div>

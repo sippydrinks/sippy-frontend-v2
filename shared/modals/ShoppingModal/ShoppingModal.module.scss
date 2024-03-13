@@ -1,8 +1,6 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .modal_body {
-	// height: 50rem;
-	// overflow-y: scroll;
 	h3 {
 		text-align: center;
 		@extend %title-32;
@@ -146,10 +144,6 @@
 			padding: 1.6rem;
 			border-radius: 1.6rem;
 			@include noScrollBar;
-			@include screenMax("mobile") {
-				height: auto;
-				min-height: 28rem;
-			}
 			.accordion_body {
 				.card_container {
 					display: flex;
@@ -167,6 +161,15 @@
 						font-family: $font-900;
 					}
 				}
+			}
+		}
+	}
+
+	@include screenMax('mobile') {
+		.tabcontent_container {
+			.shopping_tab {
+				height: auto;
+				min-height: 28rem;
 			}
 		}
 	}

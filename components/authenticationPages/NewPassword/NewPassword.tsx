@@ -15,7 +15,7 @@ const NewPassword = ({ setIsNewPassword }: Props) => {
 		<div className={styles.new_password_page}>
 			<div className={styles.form_container}>
 				<Logo />
-				<RecoverPasswordWrapper page='recoverPassword' subTitle='Oops! it happens' title='Create new password' description='Set a password thats safe and also easy for you to remember this time around, ok' />
+				<RecoverPasswordWrapper subTitle='Oops! it happens' title='Create new password' description='Set a password thats safe and also easy for you to remember this time around, ok' />
 				<form onSubmit={handleSubmit(submitForm)}>
 					<div className={styles.input_fields}>
 						<div>
@@ -24,7 +24,7 @@ const NewPassword = ({ setIsNewPassword }: Props) => {
 						</div>
 
 						<div>
-							<InputField label='Confirm Password' isPassword={true} type='password' register={register('confirm_password')} inputClass={errors?.confirm_password && styles.error_border} />
+							<InputField label='Confirm Password' isPassword={true} type='password' register={register('confirm_password')} inputClass={errors?.confirm_password && styles.error_border} placeholder='Confirm your new password' />
 							<p className={styles.error_styles}>{errors?.confirm_password?.message}</p>
 						</div>
 					</div>

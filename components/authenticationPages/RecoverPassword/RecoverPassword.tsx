@@ -5,31 +5,29 @@ import { Button, InputField, Logo } from '@/shared';
 import { useRecoverPassword } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
+import { AuthType } from '@/interface/authentication';
 
-interface Props {
-	setIsEnterOtp: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const RecoverPassword = () => {
+	const [type, toggleTab] = React.useState<AuthType>(AuthType.EMAIL);
+	const { register, handleSubmit, errors, submitForm } = useRecoverPassword({ type });
 
-const RecoverPassword = ({ setIsEnterOtp }: Props) => {
-	const { register, handleSubmit, errors, type, toggleTab, submitForm } = useRecoverPassword({ setIsEnterOtp });
-	console.log(errors);
 	return (
 		<div className={styles.recover_password_page}>
 			<div className={styles.form_container}>
 				<div className={styles.logo}>
 					<Logo />
 				</div>
-				<RecoverPasswordWrapper page='recoverPassword' subTitle='Oops! it happens' title='Recover password' description='Enter your email or phone number and we`ll send you an OTP. Enter OTP to reset your password.' />
+				<RecoverPasswordWrapper subTitle='Oops! it happens' title='Recover password' description='Enter your email or phone number and we`ll send you an OTP. Enter OTP to reset your password.' />
 				<form onSubmit={handleSubmit(submitForm)}>
 					<AuthTabHeader toggleTab={toggleTab} type={type} />
 					<div className={styles.input_fields}>
-						{type === 'email' && (
+						{type === AuthType.EMAIL && (
 							<div>
 								<InputField label='Email address' placeholder='Enter your email address' register={register('email')} inputClass={errors?.email && styles.error_border} />
 								<p className={styles.error_styles}>{errors?.email?.message}</p>
 							</div>
 						)}
-						{type === 'phone_number' && (
+						{type === AuthType.PHONE_NUMBER && (
 							<div>
 								<InputField
 									label='Phone number'

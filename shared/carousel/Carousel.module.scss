@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .container {
 	border-top: 0.2rem solid $col-black;
@@ -19,6 +19,7 @@
 				font-family: $font-900;
 				text-transform: uppercase;
 				color: $col-black;
+				width: max-content;
 			}
 		}
 		.icon {
@@ -29,7 +30,7 @@
 			flex-shrink: 0;
 		}
 	}
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		border-color: $col-white;
 		.row {
 			.text {
@@ -39,27 +40,23 @@
 			}
 		}
 	}
-	&[data-isborder = "false"] {
-        border: 0;
-        @include screenMax("mobile") {
-            margin-bottom: 3rem;
-            padding: 1.6rem 0;
-        }
-    }
-    &[data-type = "big"] {
-	.text {
-		h1 {
-			@extend %title-200;
-			font-size: 20rem;
-			line-height: 20rem;
-			color: $col-white;
-			font-family: $font-900;
-			width: max-content;
-			text-transform: uppercase;
+	&[data-isborder='false'] {
+		border: 0;
+	}
+	&[data-type='big'] {
+		.text {
+			h1 {
+				@extend %title-200;
+				font-size: 20rem;
+				line-height: 20rem;
+				color: $col-white;
+				font-family: $font-900;
+				width: max-content;
+				text-transform: uppercase;
+			}
 		}
 	}
-    }
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		width: 100%;
 		padding: 1.6rem 0;
 		.row {
@@ -74,13 +71,17 @@
 				height: 4rem;
 			}
 		}
-		&[data-type = "big"] {
+		&[data-type='big'] {
 			.text {
 				h1 {
 					font-size: 9rem;
 					line-height: 9rem;
 				}
 			}
+		}
+		&[data-isborder='false'] {
+			margin-bottom: 3rem;
+			padding: 1.6rem 0;
 		}
 	}
 }

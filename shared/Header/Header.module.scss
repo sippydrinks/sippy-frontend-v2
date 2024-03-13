@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .header {
 	padding: 2.4rem 4rem;
@@ -41,10 +41,6 @@
 			top: 5rem;
 			right: -0.1rem;
 			z-index: 3;
-			@include screenMax("mobile") {
-				top: 4rem;
-				right: -0.2rem;
-			}
 		}
 	}
 	.cart_button {
@@ -97,43 +93,60 @@
 				transform-origin: 50% 50%;
 				fill: $light-text-main;
 			}
-			&[aria-pressed="true"] rect {
+			&[aria-pressed='true'] rect {
 				transition: translate 0.2s, rotate 0.2s 0.3s;
 			}
 			rect {
 				transition: rotate 0.2s 0s, translate 0.2s 0.2s;
 			}
 
-			&[aria-pressed="true"] rect:nth-of-type(1) {
+			&[aria-pressed='true'] rect:nth-of-type(1) {
 				translate: 0 333%;
 				rotate: -45deg;
 			}
-			&[aria-pressed="true"] rect:nth-of-type(2) {
+			&[aria-pressed='true'] rect:nth-of-type(2) {
 				rotate: 45deg;
 			}
-			&[aria-pressed="true"] rect:nth-of-type(3) {
+			&[aria-pressed='true'] rect:nth-of-type(3) {
 				translate: 0 -333%;
 				rotate: 45deg;
 			}
-			&[aria-pressed="true"] svg {
+			&[aria-pressed='true'] svg {
 				rotate: 90deg;
 				transition: rotate 1s 0.4s;
 			}
 
-			&[aria-pressed="true"] svg {
+			&[aria-pressed='true'] svg {
 				transition-timing-function: var(--elastic-out);
 			}
 		}
 	}
-	@include screenMax("mobile") {
+	.header_wrapper,
+	.header_wrapper__collapsed {
+		flex-grow: 1;
+		transition: transform 0.3s ease-out;
+		@include flex(center, center);
+	}
+	.nav_buttons {
+		&[data-route='true'] {
+			display: none;
+		}
+	}
+
+	@include screenMax('mobile') {
 		padding: 2.4rem 1.6rem;
 		justify-content: space-between;
+
 		.button_container {
 			width: 3.2rem;
 			height: 3.2rem;
 			.icon {
 				width: 1.6rem;
 				height: 1.6rem;
+			}
+			.dropdownMenu {
+				top: 4rem;
+				right: -0.2rem;
 			}
 			.item {
 				width: 1.6rem;
@@ -146,7 +159,7 @@
 				position: absolute;
 				top: -0.6rem;
 				right: -0.5rem;
-				&[data-route = "true"] {
+				&[data-route='true'] {
 					background: $col-orange-300;
 				}
 				p {
@@ -185,14 +198,8 @@
 				display: grid;
 			}
 		}
-	}
-	.header_wrapper,
-	.header_wrapper__collapsed {
-		flex-grow: 1;
-		transition: transform 0.3s ease-out;
-		@include flex(center, center);
-
-		@include screenMax("mobile") {
+		.header_wrapper,
+		.header_wrapper__collapsed {
 			order: 3;
 			width: calc(100% - 1.6rem);
 			height: 100%;
@@ -208,23 +215,20 @@
 		}
 		.buttons {
 			display: none;
-			&[data-buttons = "true"] {
+			&[data-buttons='true'] {
 				display: block;
 				// width: 100%;
 			}
 		}
-	}
-
-	.header_wrapper__collapsed {
-		@include screenMax("mobile") {
-			right: 101dvw;
+		.header_wrapper__collapsed {
+			right: 100dvw;
 		}
 	}
 
-	&[data-value="alcohol"] {
+	&[data-value='alcohol'] {
 		transition: $all-transition;
 	}
-	&[data-type="dark"] {
+	&[data-type='dark'] {
 		background-color: $dark-background-sd-body;
 		transition: $all-transition;
 		.button_container,
@@ -242,7 +246,7 @@
 		}
 		.header_wrapper,
 		.header_wrapper__collapsed {
-			@include screenMax("mobile") {
+			@include screenMax('mobile') {
 				background-color: $col-grey-darker;
 				transition: $all-transition;
 			}
@@ -255,18 +259,9 @@
 				}
 			}
 		}
-		&[data-value="alcohol"] {
+		&[data-value='alcohol'] {
 			background-color: $dark-background-ad-body;
 			transition: $all-transition;
 		}
-	}
-}
-
-.header_scrolled {
-	padding: 1.4rem 4.4rem 1rem;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-	transition: $all-transition;
-	@include screenMax("mobile") {
-		padding: 2.4rem 1.4rem;
 	}
 }
