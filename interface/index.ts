@@ -102,7 +102,7 @@ export interface ProductCardProps {
 	productNameAlcohol: string;
 	productImage: string;
 	productImageAlcohol: string;
-	productPrice?: number;
+	productPrice: number;
 	slug: string;
 }
 

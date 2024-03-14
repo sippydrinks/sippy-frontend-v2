@@ -16,29 +16,31 @@ const ActionButtons = ({ price }: { price: number }) => {
 	};
 
 	return (
-		<div className={styles.counterAndBtns}>
-			<div>
+		<div className={styles.container}>
+			<div className={styles.counterAndBtns}>
 				<div>
-					<p className={styles.fadedText}>Quantity</p>
-					<div className={styles.counter_mob}>
-						<h3 className={styles.productTotalPrice}>₦{price * counter}</h3>
-						<Counter counterValue={counter} onDecrement={handleCountDecrease} onIncrement={handleCountIncrease} />
+					<div>
+						<p className={styles.fadedText}>Quantity</p>
+						<div className={styles.counter_mob}>
+							<h3 className={styles.productTotalPrice}>₦{price * counter}</h3>
+							<Counter counterValue={counter} onDecrement={handleCountDecrease} onIncrement={handleCountIncrease} />
+						</div>
+					</div>
+
+					<div className={styles.btns_container}>
+						<Button buttonType='primary' className={styles.addToCartBtn}>
+							<h3 className={styles.addToCartText}>Add to cart</h3>
+						</Button>
+
+						<Button buttonType='primary' className={styles.buyNowBtn}>
+							<h4>Buy now</h4>
+						</Button>
 					</div>
 				</div>
-
-				<div className={styles.btns_container}>
-					<Button buttonType='primary' className={styles.addToCartBtn}>
-						<h3 className={styles.addToCartText}>Add to cart</h3>
-					</Button>
-
-					<Button buttonType='primary' className={styles.buyNowBtn}>
-						<h4>Buy now</h4>
-					</Button>
-				</div>
+				<section className={styles.bonanza_container}>
+					<Bonanza />
+				</section>
 			</div>
-			<section className={styles.bonanza_container}>
-				<Bonanza />
-			</section>
 		</div>
 	);
 };
