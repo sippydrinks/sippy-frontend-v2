@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .panel_container {
 	position: fixed;
@@ -15,7 +15,7 @@
 	overflow: hidden;
 	transition: $all-transition;
 	border-top: 0.1rem solid $col-grey-700;
-	&[data-active="true"] {
+	&[data-active='true'] {
 		height: calc(100dvh - 1rem);
 		padding: 2.4rem 1.6rem;
 		top: 1rem;
@@ -25,11 +25,11 @@
 		border-bottom-right-radius: 0;
 		transition: $all-transition;
 	}
-	&[data-type="big"] {
+	&[data-type='big'] {
 		height: 13.6rem;
 		top: calc(100dvh - 13.6rem);
 	}
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		background: $col-black;
 		border-color: $col-white;
 	}

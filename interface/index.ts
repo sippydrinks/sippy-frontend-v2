@@ -82,10 +82,11 @@ export interface DrinkTypeProps {
 }
 
 export interface DrinkTypeCardProps {
-	id?: any;
+	id?: number;
 	bg: string;
 	icon: string;
-	buttonText?: string;
+	text?: string;
+	cardType?: 'home' | 'categories';
 }
 
 export interface CounterProps {

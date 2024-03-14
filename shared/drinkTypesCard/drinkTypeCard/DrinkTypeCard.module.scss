@@ -110,8 +110,11 @@
 		}
 	}
 
-	&[data-checkroute='true'] {
+	&[data-type='categories'] {
 		height: 16rem;
+		flex-direction: row-reverse;
+		align-content: unset;
+		padding: 2.4rem 4rem;
 		.btn_container {
 			justify-content: center;
 			h3 {
@@ -123,67 +126,157 @@
 			}
 		}
 		&:nth-child(1) {
+			margin: 0 0 2.4rem;
 			.image {
 				transform: rotate(8deg);
 				left: 3rem;
-				top: -3rem;
+				top: -2rem;
 				.imageCont {
 					width: 12rem;
 					height: 20rem;
 				}
+				&[data-route='/categories/alcohol'] {
+					top: 0.5rem;
+					left: 2rem;
+					.imageCont {
+						width: 14rem;
+					}
+				}
 			}
 		}
 		&:nth-child(2) {
+			margin: 0 0 2.4rem;
 			.image {
-				left: -8rem;
-				top: -13rem;
+				left: -2rem;
+				top: -2rem;
 				.imageCont {
 					width: 19.5rem;
 					height: 19.5rem;
 				}
+				&[data-route='/categories/alcohol'] {
+					top: 2rem;
+					left: 0;
+					.imageCont {
+						width: 12.5rem;
+					}
+				}
 			}
 		}
 		&:nth-child(3) {
+			margin: 0 0 2.4rem;
 			.image {
 				transform: rotate(8deg);
 				left: -1rem;
-				top: -4rem;
+				top: -2rem;
 				.imageCont {
 					width: 18rem;
 					height: 20rem;
 				}
+				&[data-route='/categories/alcohol'] {
+					top: 0.5rem;
+					left: 1rem;
+					.imageCont {
+						width: 15rem;
+					}
+				}
 			}
 		}
 		&:nth-child(4) {
+			margin: 0 0 2.4rem;
 			.image {
 				transform: rotate(10deg);
+				left: -2rem;
+				top: -2rem;
+				.imageCont {
+					width: 17rem;
+					height: 21.5rem;
+				}
+				&[data-route='/categories/alcohol'] {
+					top: 0;
+					left: 0;
+					.imageCont {
+						width: 14rem;
+					}
+				}
+			}
+		}
+		&:nth-child(5) {
+			margin: 0 0 2.4rem;
+			.image {
+				position: absolute;
+				transform: rotate(8deg);
+				left: 4rem;
+				top: -5rem;
+				.imageCont {
+					width: 12rem;
+					height: 20rem;
+				}
+				&[data-route='/categories/alcohol'] {
+					top: -2rem;
+					left: 2rem;
+					.imageCont {
+						width: 14rem;
+					}
+				}
+			}
+		}
+		&:nth-child(6) {
+			margin: 0 0 2.4rem;
+			.image {
+				position: absolute;
+				transform: rotate(10deg);
+				left: -1rem;
+				top: -6rem;
+				.imageCont {
+					height: 19.5rem;
+					width: 19.5rem;
+				}
+				&[data-route='/categories/alcohol'] {
+					top: -3rem;
+					left: 1rem;
+					.imageCont {
+						width: 12.5rem;
+					}
+				}
+			}
+		}
+		&:nth-child(7) {
+			margin: 0 0 2.4rem;
+			.image {
+				position: absolute;
+				transform: rotate(8deg);
 				left: 0rem;
+				top: -5rem;
+				.imageCont {
+					width: 18rem;
+					height: 20rem;
+				}
+				&[data-route='/categories/alcohol'] {
+					top: -3rem;
+					left: 1rem;
+					.imageCont {
+						width: 15rem;
+					}
+				}
+			}
+		}
+		&:nth-child(8) {
+			margin: 0 0 2.4rem;
+			.image {
+				position: absolute;
+				transform: rotate(10deg);
+				left: -1rem;
 				top: -6rem;
 				.imageCont {
 					width: 17rem;
 					height: 21.5rem;
 				}
-			}
-		}
-		&:nth-child(5) {
-			.image {
-				transform: rotate(8deg);
-				left: 2rem;
-				top: -3rem;
-				.imageCont {
-					height: 20rem;
-					width: 16rem;
-				}
-			}
-		}
-		&:nth-child(6) {
-			.image {
-				transform: rotate(10deg);
-				left: -1rem;
-				top: -6rem;
-				.imageCont {
-					height: 19.5rem;
-					width: 16rem;
+				&[data-route='/categories/alcohol'] {
+					top: -4rem;
+					left: 1rem;
+					.imageCont {
+						width: 14rem;
+					}
 				}
 			}
 		}
@@ -193,6 +286,129 @@
 		height: 25.1rem;
 		padding: 1.6rem;
 		margin-top: 1.6rem;
+		&[data-type='categories'] {
+			padding: 1.6rem;
+			height: 14rem;
+			.btn_container {
+				h3 {
+					font-size: 2.1rem;
+					line-height: 2.8rem;
+				}
+			}
+			&:nth-child(1) {
+				.image {
+					left: 0;
+					top: -3rem;
+					.imageCont {
+						width: 10rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: -1.5rem;
+						left: 1rem;
+						.imageCont {
+							width: 9.5rem;
+						}
+					}
+				}
+			}
+			&:nth-child(2),
+			&:nth-child(6) {
+				.image {
+					top: -4rem;
+					.imageCont {
+						width: 16.5rem;
+						height: 16.5rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: -2rem;
+						left: 1rem;
+						.imageCont {
+							width: 8rem;
+						}
+					}
+				}
+			}
+			&:nth-child(3) {
+				.image {
+					left: -3rem;
+					.imageCont {
+						width: 13rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: -1.5rem;
+						left: 1rem;
+						.imageCont {
+							width: 12rem;
+						}
+					}
+				}
+			}
+			&:nth-child(4) {
+				.image {
+					left: -1rem;
+					.imageCont {
+						width: 12rem;
+						height: 18.5rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: 0.5rem;
+						left: 0;
+						.imageCont {
+							width: 10rem;
+						}
+					}
+				}
+			}
+			&:nth-child(5) {
+				.image {
+					left: 0.5rem;
+					.imageCont {
+						width: 10rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: -3rem;
+						.imageCont {
+							width: 9rem;
+						}
+					}
+				}
+			}
+			&:nth-child(6) {
+				.image {
+					transform: rotate(0deg);
+				}
+			}
+			&:nth-child(7) {
+				.image {
+					left: -5rem;
+					.imageCont {
+						width: 13rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: -3.5rem;
+						left: 1rem;
+						.imageCont {
+							width: 11rem;
+						}
+					}
+				}
+			}
+			&:nth-child(8) {
+				.image {
+					.imageCont {
+						width: 13rem;
+						height: 18.5rem;
+					}
+					&[data-route='/categories/alcohol'] {
+						top: -3rem;
+						left: 0;
+						.imageCont {
+							width: 10rem;
+						}
+					}
+				}
+			}
+		}
 		.btn {
 			flex-shrink: 0;
 			z-index: 2;
