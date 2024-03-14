@@ -1,108 +1,152 @@
 @import '@/styles/imports';
 
 .productcard {
-    @extend %flex-align;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 4rem;
+	@extend %flex-align;
+	flex-direction: column;
+	position: relative;
+	margin-bottom: 4rem;
+	.clip {
+		width: 100%;
+		height: 25rem;
+		position: relative;
+		@extend %center;
+		.icon_container {
+			position: absolute;
+			.icon {
+				position: relative;
+				width: 16rem;
+				height: 16rem;
+			}
+		}
+		.svg_stroke {
+			opacity: 0;
+			transition: $all-transition;
+		}
+		.svg {
+			opacity: 0.1;
+			transition: $all-transition;
+			&[data-type='alcohol'] {
+				opacity: 0.5;
+			}
+			&[data-theme='dark'] {
+				opacity: 0.1;
+			}
+		}
+		&[data-active='true'] {
+			.svg {
+				opacity: 1;
+				transition: $all-transition;
+				stroke-width: 0.6rem;
+				stroke: #000;
+				&[data-theme='dark'] {
+					stroke-width: 0.6rem;
+					stroke: #fff;
+				}
+			}
+			.svg_stroke {
+				opacity: 1;
+				transition: $all-transition;
+			}
+		}
+	}
 
-    .clippath_img {
-        width: 47rem;
-        height: 38rem;
-        position: relative;
-        .svg_component {
-            transition: fill 0.3s ease-in-out;
-        }
-        .svg_stroke {
-            opacity: 0;
-            transition: $all-transition;
-        }
-        .svg_path {
-            opacity: 0.1;
-            transition: $all-transition;
-        }
-        &[data-active="true"] {
-            .svg_path {
-                opacity: 1;
-                transition: $all-transition;
-                stroke-width: 0.6rem;
-                stroke: #000;
-                &[data-theme = "dark"] {
-                    stroke-width: 0.6rem;
-                    stroke: #FFF;
-                }
-            }
-            .svg_stroke {
-                opacity: 1;
-                transition: $all-transition;
-            }
-        }
-        @include screenMax("mobile") {
-            width: 32rem;
-            height: 26rem;
-        }
+	.clippath_img {
+		/* width: 47rem;
+		height: 38rem;
+		position: relative;
+		.svg_component {
+			transition: fill 0.3s ease-in-out;
+		}
+		.svg_stroke {
+			opacity: 0;
+			transition: $all-transition;
+		}
+		.svg_path {
+			opacity: 0.1;
+			transition: $all-transition;
+		}
+		&[data-active='true'] {
+			.svg_path {
+				opacity: 1;
+				transition: $all-transition;
+				stroke-width: 0.6rem;
+				stroke: #000;
+				&[data-theme='dark'] {
+					stroke-width: 0.6rem;
+					stroke: #fff;
+				}
+			}
+			.svg_stroke {
+				opacity: 1;
+				transition: $all-transition;
+			}
+		} */
+		/* 	@include screenMax('mobile') {
+			width: 32rem;
+			height: 26rem;
+		} */
 
-        .qtyImage {
-            position: absolute;
-            width: 22rem;
-            height: 22rem;
-            left: 13rem;
-            top: 8rem;
-            @include screenMax("mobile") {
-                width: 13.3rem;
-                height: 13.3rem;
-            }
-        }
-    }
-    .quantityTag {
-        width: 4.4rem;
-        height: 4.4rem;
-        position: absolute;
-        border: 0.2rem solid $light-text-main;
-        top: 10.5rem;
-        right: 2rem;
-        clip-path: polygon(48% 1%, 100% 21%, 100% 75%, 51% 100%, 0 75%, 0 23%);
-        background: $col-primary-default;
-        @extend %flex-center;
-        @include screenMax("mobile") {
-            width: 3rem;
-            height: 3rem;
-            right: 3rem;
-            top: 9rem;
-        }
+		.qtyImage {
+			position: absolute;
+			width: 22rem;
+			height: 22rem;
+			left: 13rem;
+			top: 8rem;
+			@include screenMax('mobile') {
+				width: 13.3rem;
+				height: 13.3rem;
+			}
+		}
+	}
+	.quantityTag {
+		width: 4.4rem;
+		height: 4.4rem;
+		position: absolute;
+		border: 0.2rem solid $light-text-main;
+		top: 10.5rem;
+		right: 2rem;
+		clip-path: polygon(48% 1%, 100% 21%, 100% 75%, 51% 100%, 0 75%, 0 23%);
+		background: $col-primary-default;
+		@extend %flex-center;
+		@include screenMax('mobile') {
+			width: 3rem;
+			height: 3rem;
+			right: 3rem;
+			top: 9rem;
+		}
 
-        h3 {
-            color: $col-white;
-            @extend %text-24;
-            font-family: $font-900;
-            @include screenMax("mobile") {
-                font-size: 1.6rem;
-                line-height: 2.4rem;
-            }
-        }
-        .none {
-            display: none;
-        }
-        .block {
-            display: block;
-        }
-    }
-    .tag {
-        width: 3.6rem;
-        height: 3.2rem;
-        @extend %flex-center;
-        border-radius: 1.6rem;
-        background: $col-white;
-        position: absolute;
-        top: 0;
-        left: 0;
-        p {
-            @extend %text-14;
-            font-family: $font-700;
-            color: $light-text-main;
-        }
-    }
-    @include screenMax("mobile") {
-        margin: 0;
-    }
+		h3 {
+			color: $col-white;
+			@extend %text-24;
+			font-family: $font-900;
+			@include screenMax('mobile') {
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+			}
+		}
+		.none {
+			display: none;
+		}
+		.block {
+			display: block;
+		}
+	}
+	.tag {
+		width: 3.6rem;
+		height: 3.2rem;
+		@extend %flex-center;
+		border-radius: 1.6rem;
+		background: $col-white;
+		position: absolute;
+		top: 0;
+		left: 0;
+		p {
+			@extend %text-14;
+			font-family: $font-700;
+			color: $light-text-main;
+		}
+	}
+	@include screenMax('mobile') {
+		margin: 0;
+	}
 }

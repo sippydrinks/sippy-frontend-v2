@@ -4,6 +4,7 @@ import { useGlobalContext } from '@/contexts/AppContext';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import styles from './styles.module.scss';
+import { ProductData } from '@/mock';
 
 const ProductDetailComponent = () => {
 	const { theme, productListing, drinkType, setDrinkType } = useGlobalContext();
@@ -16,7 +17,7 @@ const ProductDetailComponent = () => {
 	useEffect(() => {
 		const fetchProductDetails = () => {
 			if (slug && productListing) {
-				productListing.find((product: any) => {
+				ProductData.find((product: any) => {
 					if (product.slug === slug) {
 						setProduct(product);
 					}
@@ -57,14 +58,13 @@ const ProductDetailComponent = () => {
 					<p className={styles.span_text}>Drink</p>
 				</div>
 				<div className={styles.productNameBg}>
-					{/* <h1 data-type={themeColor}>Coca-cola</h1> */}
 					<h1 data-type={theme}>{product?.productName}</h1>
 				</div>
 			</div>
 
-			<div data-issticky={isSticky} className={styles.productDesc_container} ref={sectionRef}>
+			<div className={styles.productDesc_container} ref={sectionRef}>
 				<ProductSpecification type={drinkType} currentItem={product} name={product?.productName} isSticky={isSticky} />
-				<ProductListing />
+				<ProductListing isSticky={isSticky} />
 				<ProductQtySummary price={product?.productPrice} size={product?.productSize} isSticky={isSticky} />
 			</div>
 		</div>

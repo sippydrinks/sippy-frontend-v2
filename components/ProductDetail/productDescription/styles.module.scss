@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .details_container {
 	border-top: 0.1rem solid $col-grey-700;
@@ -6,7 +6,7 @@
 	padding: 4rem 4rem 0;
 	margin-bottom: 11rem;
 	position: relative;
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		padding: 4rem 2rem 0;
 		margin-bottom: 4rem;
 	}
@@ -22,11 +22,11 @@
 				font-family: $font-900;
 				color: $light-text-main;
 				text-transform: capitalize;
-				&[data-type="dark"] {
+				&[data-type='dark'] {
 					color: $col-white;
 				}
 			}
-			@include screenMax("mobile") {
+			@include screenMax('mobile') {
 				text-align: left;
 				margin-bottom: 3rem;
 			}
@@ -48,7 +48,7 @@
 				width: 1.6rem;
 				height: 1.6rem;
 			}
-			&[data-type="dark"] {
+			&[data-type='dark'] {
 				p {
 					color: $col-white;
 				}
@@ -65,37 +65,7 @@
 		@include noScrollBar;
 		position: relative;
 
-		&[data-issticky="true"] {
-			height: 500px;
-			overflow: auto;
-		}
-
-		.productSpecification {
-			position: sticky;
-			top: 5rem;
-			@include screenMax("mobile") {
-				order: 3;
-			}
-		}
-		.productListing.sticky {
-			/* position: fixed; */
-			height: 80rem;
-			top: 1rem;
-			@include screenMax("mobile") {
-				order: 1;
-			}
-		}
-		.productListing {
-			position: relative;
-		}
-		.productQtySummary {
-			/* 	position: sticky; */
-			// top: 5rem;
-			@include screenMax("mobile") {
-				order: 2;
-			}
-		}
-		@include screenMax("mobile") {
+		@include screenMax('mobile') {
 			flex-direction: column;
 			gap: 2rem;
 			padding: 0;

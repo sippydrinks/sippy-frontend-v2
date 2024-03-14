@@ -35,7 +35,7 @@ const Catalog = ({ type }: DrinkTypeProps) => {
 				</div>
 			</div>
 			<div className={styles.hero_container}>
-				{productListing.slice(0, 12).map((product: ProductCardProps, index: number) => (
+				{ProductData.slice(0, 12).map((product: ProductCardProps, index: number) => (
 					<ProductCard key={index} {...product} />
 				))}
 			</div>

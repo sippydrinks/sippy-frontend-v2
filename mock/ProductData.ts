@@ -8,6 +8,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
 		slug: 'coke-zero',
+		productImageAlcohol: '',
 	},
 	{
 		id: 2,
@@ -17,6 +18,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
 		slug: 'yoghurt',
+		productImageAlcohol: '',
 	},
 	{
 		id: 3,
@@ -26,6 +28,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 0,
 		slug: 'chivita',
+		productImageAlcohol: '',
 	},
 	{
 		id: 4,
@@ -35,6 +38,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
 		slug: 'cocacola',
+		productImageAlcohol: '',
 	},
 	{
 		id: 5,
@@ -44,6 +48,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
 		slug: 'fayrouz',
+		productImageAlcohol: '',
 	},
 	{
 		id: 6,
@@ -53,6 +58,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'amstel-malt',
+		productImageAlcohol: '',
 	},
 	{
 		id: 7,
@@ -62,6 +68,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
 		slug: 'chi-exotic',
+		productImageAlcohol: '',
 	},
 	{
 		id: 8,
@@ -71,6 +78,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
 		slug: 'sprite',
+		productImageAlcohol: '',
 	},
 	{
 		id: 9,
@@ -80,6 +88,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'fanta',
+		productImageAlcohol: '',
 	},
 	{
 		id: 10,
@@ -89,6 +98,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
 		slug: 'hollandia',
+		productImageAlcohol: '',
 	},
 	{
 		id: 11,
@@ -98,6 +108,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
 		slug: 'vitamilk',
+		productImageAlcohol: '',
 	},
 	{
 		id: 12,
@@ -107,6 +118,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'smoothie',
+		productImageAlcohol: '',
 	},
 	{
 		id: 13,
@@ -116,6 +128,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'cocktails',
+		productImageAlcohol: '',
 	},
 	{
 		id: 14,
@@ -125,6 +138,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'milkshake',
+		productImageAlcohol: '',
 	},
 	{
 		id: 15,
@@ -134,6 +148,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'pepsi',
+		productImageAlcohol: '',
 	},
 	{
 		id: 16,
@@ -143,5 +158,6 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
 		slug: 'tonic',
+		productImageAlcohol: '',
 	},
 ];

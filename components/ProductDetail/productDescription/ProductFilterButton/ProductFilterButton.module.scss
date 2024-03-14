@@ -1,19 +1,23 @@
 @import '@/styles/imports';
 
-.productQtyBtn{
-    width: 11rem;
-    height: 4.8rem;
-    border-radius: 20rem;
-    border: 0.1rem solid $light-text-main;
-    @extend %flex-center;
-    justify-content: center;
-    cursor: pointer;
-    &[data-active = "true"] {
-        color: $col-white;
-        background: $light-text-main;
-    }
-    .productSizes {
-        @extend %text-16;
-        font-family: $font;
-    }
+.productQtyBtn {
+	width: 11rem;
+	height: 4.8rem;
+	border-radius: 20rem;
+	border: 0.1rem solid $light-text-main;
+	@extend %flex-center;
+	justify-content: center;
+	cursor: pointer;
+	&[data-active='true'] {
+		color: $col-white;
+		background: $light-text-main;
+	}
+	.productSizes {
+		@extend %text-16;
+		font-family: $font;
+	}
+
+	@include screenMax('mobile') {
+		width: 100%;
+	}
 }

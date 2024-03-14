@@ -293,6 +293,7 @@ const alcholicDrinks = [
 		slug: '',
 	},
 ];
+
 export async function GET(request: Request) {
 	try {
 		const url = new URL(request.url);

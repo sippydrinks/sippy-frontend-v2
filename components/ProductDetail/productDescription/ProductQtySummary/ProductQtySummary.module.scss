@@ -117,6 +117,17 @@
 			}
 		}
 	}
+	.counter_mob {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		h3 {
+			font-size: 1.8rem;
+			line-height: 2.7rem;
+			color: $light-text-main;
+			font-family: $font-700;
+		}
+	}
 }
 
 .is_sticky {
@@ -128,7 +139,7 @@
 }
 
 @include screenMax('mobile') {
-	.counterAndBtns {
-		display: none;
+	.is_sticky {
+		position: static;
 	}
 }

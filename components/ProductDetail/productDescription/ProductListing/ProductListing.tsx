@@ -4,7 +4,7 @@ import { ProductListingCard } from '..';
 import Image from 'next/image';
 import styles from './ProductListing.module.scss';
 
-const ProductListing = ({}) => {
+const ProductListing = ({ isSticky }: { isSticky: boolean }) => {
 	console.log(productListData);
 	return (
 		<div className={styles.productListing_container}>
