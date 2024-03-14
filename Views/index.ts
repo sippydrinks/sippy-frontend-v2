@@ -6,5 +6,5 @@ import NewPasswordView from './AuthenticationView/NewPasswordView/NewPasswordVie
 import VerifyTokenView from './AuthenticationView/VerifyTokenView/VerifyTokenView';
 import CartView from './CartView/CartView';
 import ProductDetailsView from './ProductDetailsView/ProductDetailsView';
-
-export { LoginView, SignUpView, CartView, HomeView, RecoverPasswordView, NewPasswordView, VerifyTokenView, ProductDetailsView };
+import CategoriesView from './CategoriesView/CategoriesView';
+export { LoginView, SignUpView, CartView, HomeView, RecoverPasswordView, NewPasswordView, VerifyTokenView, ProductDetailsView, CategoriesView };

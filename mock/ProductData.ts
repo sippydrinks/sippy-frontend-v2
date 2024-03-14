@@ -168,6 +168,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 14,
@@ -177,6 +178,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 15,
@@ -186,6 +188,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 0,
+		slug: '',
 	},
 	{
 		id: 16,
@@ -195,6 +198,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 17,
@@ -204,6 +208,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 18,
@@ -213,6 +218,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 10,
+		slug: '',
 	},
 	{
 		id: 19,
@@ -222,6 +228,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 20,
@@ -231,6 +238,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 21,
@@ -240,6 +248,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 10,
+		slug: '',
 	},
 	{
 		id: 22,
@@ -249,6 +258,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 23,
@@ -258,6 +268,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 24,
@@ -267,6 +278,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 10,
+		slug: '',
 	},
 	{
 		id: 25,
@@ -276,6 +288,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 26,
@@ -285,6 +298,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 27,
@@ -294,6 +308,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 0,
+		slug: '',
 	},
 	{
 		id: 28,
@@ -303,6 +318,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 29,
@@ -312,6 +328,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 30,
@@ -321,6 +338,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 10,
+		slug: '',
 	},
 	{
 		id: 31,
@@ -330,6 +348,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 32,
@@ -339,6 +358,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 33,
@@ -348,6 +368,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 10,
+		slug: '',
 	},
 	{
 		id: 34,
@@ -357,6 +378,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 104,
+		slug: '',
 	},
 	{
 		id: 35,
@@ -366,6 +388,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 35,
+		slug: '',
 	},
 	{
 		id: 36,
@@ -375,5 +398,6 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 		productQuantity: 10,
+		slug: '',
 	},
 ];
