@@ -130,10 +130,10 @@
 		left: 0;
 		background-color: $col-primary-default;
 		padding: 0 0.8rem;
+		z-index: 100;
 		.counterAndBtns {
 			padding: 2rem;
 			gap: 2rem;
-			z-index: 100000;
 			// display: none;
 			background: $col-background-shade;
 			width: 100%;
