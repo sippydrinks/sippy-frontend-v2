@@ -1,0 +1,257 @@
+@import '@/styles/imports';
+
+.checkout_container {
+    padding: 2.4rem 4rem 0;
+    display: flex;
+    gap: 2.4rem;
+    margin-bottom: 8rem;
+    .checkout_details {
+        padding-right: 1.6rem;
+        width: 68%;
+        .breadcrumbs {
+            @extend %flex-align;
+            gap: 0.8rem;
+            margin-bottom: 4rem;
+            .arrow {
+                width: 1.6rem;
+                height: 1.6rem;
+                position: relative;
+            }
+            p {
+                @extend %text-18;
+                color: $light-text-main;
+                font-family: $font-700;
+            }
+            a {
+                p {
+                    font-family: $font;
+                }
+            }
+        }
+        .login_body {
+            width: 100%;
+            height: 5.6rem;
+            border-radius: 1.6rem;
+            background: $col-coral-50;
+            border: 0.1rem solid $col-coral-500;
+            @extend %flex-align;
+            padding: 1.6rem;
+            margin-bottom: 2.4rem;
+            p {
+                @extend %text-16;
+                color: $col-grey-500;
+                font-family: $font;
+                span {
+                    font-family: $font-900;
+                    color: $col-coral-500;
+                    cursor: pointer;
+                }
+            }
+        }
+        .checkout_details_content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            input[type = 'checkbox'] {
+                width: 2.4rem;
+                height: 2.4rem;
+                border: 0.2rem solid #1D1D1D;
+                cursor: pointer;
+                border-radius: 50%;
+                background: transparent;
+                margin: 0;
+                accent-color: $col-primary-default;
+            }
+            .delivery_details {
+                display: flex;
+                flex-direction: column;
+                gap: 1.6rem;
+                .delivery_header {
+                    @extend %flex-align;
+                    justify-content: space-between;
+                    h3 {
+                        @extend %text-24;
+                        font-family: $font-700;
+                        color: $light-text-main;
+                    }
+                    .checkbox_container {
+                        @extend %flex-align;
+                        gap: 0.8rem;
+                        p {
+                            color: $col-grey-500;
+                            font-family: $font-500;
+                            @extend %text-18;
+                        }
+                    }
+                }
+                .delivery_note {
+                    height: 8rem;
+                }
+                .nameAndNumber {
+                    @extend %flex-align;
+                    gap: 1.6rem;
+                }
+            }
+            .shipping_details {
+                h3 {
+                    @extend %text-24;
+                    font-family: $font-700;
+                    color: $light-text-main;
+                }
+                .shipping_options {
+                    margin-top: 1.6rem;
+                    width: 100%;
+                    height: 6.7rem;
+                    border-radius: 1.6rem;
+                    border: 0.1rem solid #E6E6E6;
+                    padding: 2rem 1.6rem;
+                    @extend %flex-align;
+                    gap: 2.4rem;
+                    .select_date {
+                        @extend %flex-align;
+                        gap: 1.6rem;
+                        p {
+                            color: $col-grey-500;
+                            font-family: $font;
+                            @extend %text-18;
+                        }
+                    }
+                }
+            }
+            .payment_details {
+                h3 {
+                    @extend %text-24;
+                    font-family: $font-700;
+                    color: $light-text-main;
+                }
+                .payment_options {
+                    border: 0.1rem solid #E6E6E6;
+                    border-radius: 1.6rem;
+                    width: 100%;
+                    margin-top: 1.6rem;
+                    .fiat_payment, .crypto_payment {
+                        @extend %flex-align;
+                        gap: 1.6rem;
+                        height: 6.7rem;
+                        padding: 2rem 1.6rem;
+                        border-bottom: 0.1rem solid #E6E6E6;
+                        h3 {
+                            @extend %text-18;
+                            color: $col-grey-500;
+                            font-family: $font;
+                        }
+                    }
+                    .crypto_payment {
+                        border: 0;
+                        .icons {
+                            justify-content: space-between;
+                            @extend %flex-align;
+                            width: 100%;
+                            h3 {
+                                @extend %text-18;
+                                color: $col-grey-500;
+                                font-family: $font;
+                            }
+                            .icon_container {
+                                @extend %flex-align;
+                                gap: 0.4rem;
+                                .icon {
+                                    width: 3.2rem;
+                                    height: 3.2rem;
+                                    position: relative;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .divider {
+        width: 0.2rem;
+        height: 100rem;
+        background: $col-grey-500;
+    }
+    @include screenMax("mobile") {
+        flex-direction: column;
+        padding: 1.6rem 1.6rem 0;
+        .divider {
+            display: none;
+        }
+        .checkout_details {
+            width: 100%;
+            .breadcrumbs {
+                margin-bottom: 2rem;
+            }
+            .login_body {
+                p {
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                }
+            }
+            .checkout_details_content {
+               .shipping_details {
+                .shipping_options {
+                    flex-direction: column;
+                    height: 11.2rem;
+                    .select_date {
+                        align-self: flex-start;
+                    }
+                }
+               }
+            }
+        }
+    }
+    &[data-theme = "dark"] {
+        .checkout_details {
+            .breadcrumbs {
+                p {
+                    color: $col-white;
+                }
+            }
+            .checkout_details_content {
+                .delivery_details {
+                    .delivery_header {
+                        h3 {
+                            color: $col-white;
+                        }
+                        .checkbox_container {
+                            p {
+                                color: $col-white;
+                            }
+                        }
+                    }
+                }
+                .shipping_details {
+                    h3 {
+                        color: $col-white;
+                    }
+                    .shipping_options {
+                        .select_date {
+                            p {
+                                color: $col-white;
+                            }
+                        }
+                    }
+                }
+                .payment_details {
+                    h3 {
+                        color: $col-white;
+                    }
+                    .payment_options {
+                        .fiat_payment, .crypto_payment {
+                            h3 {
+                                color: $col-white;
+                            }
+                            .icons {
+                                h3 {
+                                    color: $col-white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

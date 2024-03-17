@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useGlobalContext } from '@/contexts/AppContext';
 import { Carousel, RelatedProducts } from '@/shared';

@@ -1,0 +1,121 @@
+@import '@/styles/imports';
+
+.checkout_summary {
+    width: 30%;
+    h5, .summary_header {
+        color: $light-text-main;
+        @extend %text-24;
+        font-family: $font-900;
+        margin-bottom: 2.4rem;
+    }
+    h5 {
+        margin: 0;
+    }
+    .summary_details {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5.2rem;
+        gap: 1.6rem;
+        .input_container {
+            @extend %flex-align;
+            gap: 1.6rem;
+            .applyDiscount_btn, .applyDiscount_btnActive {
+                height: 5.6rem;
+                width: 8.8rem;
+                align-self: flex-end;
+                background: $col-grey-light-stroke;
+                cursor: not-allowed;
+                h4 {
+                    @extend %text-14;
+                    font-family: $font-900;
+                    color: $light-text-main;
+                }
+            }
+            .applyDiscount_btnActive {
+                opacity: 1;
+                cursor: pointer;
+                pointer-events: unset;
+            }
+        }
+        .line {
+            width: 100%;
+            height: 0.1rem;
+            background: $col-grey-700;
+            margin-bottom: 0.8rem
+        }
+        .summary_body {
+            @extend %flex-align;
+            justify-content: space-between;
+            p {
+                color: $col-grey-500;
+                @extend %text-16;
+                font-family: $font;
+            }
+            h3 {
+                color: $light-text-main;
+                @extend %text-16;
+                font-family: $font-700;
+                margin: 0;
+            }
+            h1 {
+                color: $light-text-main;
+                @extend %text-24;
+                font-family: $font-900;
+                margin: 0;
+            }
+            .view_cart {
+                cursor: pointer;
+                color: $col-primary-default;
+            }
+        }
+    }
+    .summary_btn, .summary_btn_active  {
+        width: 100%;
+        background: $col-grey-light-stroke;
+        cursor: not-allowed;
+        h3 {
+            color: $light-text-main;
+            @extend %text-16;
+            font-family: $font-900;
+            margin: 0;
+        }
+    }
+    .summary_btn_active {
+        background: $col-primary-default;
+        cursor: pointer;
+        h3 {
+            color: $col-white;
+        }
+    }
+    @include screenMax("mobile") {
+        width: 100%;
+        .summary_btn, .summary_btn_active {
+            height: 5rem;
+        }
+    }
+    &[data-theme = "dark"] {
+        h5, .summary_header {
+            color: $col-white;
+        }
+        .summary_details {
+            .input_container {
+                .applyDiscount_btn, .applyDiscount_btnActive {
+                    h4 {
+                        color: $col-white;
+                    }
+                }
+            }
+            .summary_body {
+                p, h3, h1 {
+                    color: $col-white;
+                }
+            }
+        }
+        .summary_btn {
+            opacity: 0.9;
+            h3 {
+                color: $col-white;
+            }
+        }
+    }
+}

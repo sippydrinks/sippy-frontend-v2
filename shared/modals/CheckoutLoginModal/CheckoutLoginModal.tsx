@@ -3,7 +3,7 @@ import React from 'react';
 import { ModalElement, Button } from '@/shared';
 import { ModalProps } from '@/interface';
 import styles from './CheckoutLoginModal.module.scss';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const CheckoutLoginModal = ({ isOpen, onClose }: ModalProps) => {
 	const router = useRouter();
