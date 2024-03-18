@@ -1,0 +1,50 @@
+@import '@/styles/imports';
+
+.productListing_container {
+	width: 45rem;
+	@include noScrollBar;
+	@include screenMax('mobile') {
+		width: 100%;
+		height: auto;
+	}
+
+	&[data-issticky='true'] {
+		height: 500px;
+		overflow: auto;
+	}
+
+	.bannerAndTag {
+		width: 100%;
+		position: relative;
+		.banner_container {
+			width: 100%;
+			height: 37.9rem;
+			position: relative;
+			img {
+				border-radius: 2rem;
+				flex-shrink: 0;
+			}
+			@include screenMax('mobile') {
+				display: none;
+			}
+		}
+		.banner_tag {
+			width: 3.9rem;
+			height: 3.2rem;
+			@extend %flex-center;
+			border-radius: 1.6rem;
+			background: $col-white;
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+			p {
+				@extend %text-14;
+				font-family: $font-700;
+				color: $light-text-main;
+			}
+			@include screenMax('mobile') {
+				display: none;
+			}
+		}
+	}
+}

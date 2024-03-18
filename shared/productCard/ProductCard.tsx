@@ -1,19 +1,19 @@
 'use client';
 import React, { useState } from 'react';
-import { toast } from "react-hot-toast";
+import { toast } from 'react-hot-toast';
 import { Button } from '..';
 import { useGlobalContext } from '@/contexts/AppContext';
 import { usePathname } from 'next/navigation';
 import { ProductCardProps } from '@/interface';
-import { formatNum, formatURL } from '@/utils';;
+import { formatNum, formatURL } from '@/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ProductCard.module.scss';
 
 const Product = (data: ProductCardProps) => {
 	const { theme, drinkType, setCart }: any = useGlobalContext();
-	const route = usePathname()
-	const urlCheck = route.includes('/alcohol')
+	const route = usePathname();
+	const urlCheck = route.includes('/alcohol');
 	const [isHover, setIsHover] = useState<boolean>(false);
 	const onHover = () => {
 		setIsHover(true);
@@ -42,9 +42,7 @@ const Product = (data: ProductCardProps) => {
 			const itemIndex = prevCart.findIndex((item: any) => item.id === data.id);
 			if (itemIndex !== -1) {
 				// If the item is already in the cart, create a new array with the updated item
-				toast.success(
-					`One more ${productData.productName} has been added to cart`
-				);
+				toast.success(`One more ${productData.productName} has been added to cart`);
 				return [
 					...prevCart.slice(0, itemIndex),
 					{
@@ -63,7 +61,7 @@ const Product = (data: ProductCardProps) => {
 
 	return (
 		<div className={styles.card} data-theme={theme}>
-			<Link href={`/productDetails/${formatURL(data.productName)}`}>
+			<Link href={`/products/${formatURL(data.slug)}`}>
 				<div className={styles.clip} data-active={isHover} onMouseEnter={onHover} onMouseLeave={offHover}>
 					<svg viewBox='-10 0 350 250' fill='none' xmlns='http://www.w3.org/2000/svg'>
 						<use href='#original-svg' stroke={theme === 'dark' ? 'white' : 'black'} strokeWidth='6' className={styles.svg_stroke} />
@@ -79,10 +77,7 @@ const Product = (data: ProductCardProps) => {
 					</svg>
 					<div className={styles.icon_container}>
 						<div className={styles.icon}>
-							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol}
-								alt=''
-								fill
-							/>
+							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol} alt='' fill />
 						</div>
 					</div>
 				</div>
@@ -91,7 +86,7 @@ const Product = (data: ProductCardProps) => {
 				<h3>{data && urlCheck === false ? data.productName : data.productNameAlcohol}</h3>
 				<p>NGN{formatNum(data.productPrice)}</p>
 			</div>
-			<Button className={styles.button} buttonType="primary" onClick={addToCart}>
+			<Button className={styles.button} buttonType='primary' onClick={addToCart}>
 				<h4 data-theme={theme}>Add to cart</h4>
 			</Button>
 		</div>

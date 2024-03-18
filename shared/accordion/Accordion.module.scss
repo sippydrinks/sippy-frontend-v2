@@ -1,13 +1,13 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .accordionContainer {
-	border: 0.4rem solid #E3E3E3;
+	border: 0.4rem solid #e3e3e3;
 	border-radius: 2.4rem;
 	min-width: 31rem;
 	min-height: 6.4rem;
 	padding: 1.6rem;
 	margin-top: 1.6rem;
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		border-color: $col-grey-700;
 		.accordionHeaderContainer {
 			.accordionHeader {
@@ -48,14 +48,14 @@
 			flex-shrink: 0;
 			cursor: pointer;
 			position: relative;
-			&[data-type = "chevron"] {
+			&[data-type='chevron'] {
 				transform: rotate(90deg);
-				&[data-active = "true"] {
+				&[data-active='true'] {
 					transform: rotate(270deg);
 					position: relative;
 				}
 			}
-			&[data-active = "true"] {
+			&[data-active='true'] {
 				transform: rotate(45deg);
 				position: relative;
 			}
@@ -66,13 +66,13 @@
 		overflow: hidden;
 		transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 	}
-	&[data-active="true"] {
+	&[data-active='true'] {
 		.reviewBody {
 			max-height: 99rem;
 			transition: max-height 1s ease-in;
 		}
 	}
-	&[data-type="small"] {
+	&[data-type='small'] {
 		border: 0.2rem solid $light-text-main;
 		.accordionHeaderContainer {
 			.accordionHeader {

@@ -1,17 +1,12 @@
 'use client';
-import React, { useEffect, useRef } from "react";
-import { Carousel } from "..";
-import { DrinkTypeProps } from "@/interface";
-import { useGlobalContext } from "@/contexts/AppContext";
-import Image from "next/image";
-import styles from "./Footer.module.scss";
+import React, { useEffect, useRef } from 'react';
+import { Carousel } from '..';
+import { DrinkTypeProps } from '@/interface';
+import { useGlobalContext } from '@/contexts/AppContext';
+import Image from 'next/image';
+import styles from './Footer.module.scss';
 
-const footerNavItems = [
-	"/svgs/fb.svg",
-	"/svgs/Youtube.svg",
-	"/svgs/Instagram.svg",
-	"/svgs/Twitter.svg",
-];
+const footerNavItems = ['/svgs/fb.svg', '/svgs/Youtube.svg', '/svgs/Instagram.svg', '/svgs/Twitter.svg'];
 const Footer = ({ type }: DrinkTypeProps) => {
 	const { setCategoryHeight } = useGlobalContext();
 	const footerRef = useRef<HTMLDivElement>(null);
@@ -39,7 +34,7 @@ const Footer = ({ type }: DrinkTypeProps) => {
 							{footerNavItems.map((item, index) => {
 								return (
 									<div className={styles.icon} key={index}>
-										<Image alt="icon" src={item} fill />
+										<Image alt='icon' src={item} fill />
 									</div>
 								);
 							})}
@@ -48,16 +43,7 @@ const Footer = ({ type }: DrinkTypeProps) => {
 				</div>
 			</div>
 			<div className={styles.carousel_container}>
-				<Carousel
-					icon1={
-						type === "soft" ? "/svgs/StarOrange.svg" : "/svgs/whiteStar.svg"
-					}
-					icon2={
-						type === "soft" ? "/svgs/StarOrange.svg" : "/svgs/whiteStar.svg"
-					}
-					title="sippy life"
-					type="big"
-				/>
+				<Carousel icon1={type === 'soft' ? '/svgs/StarOrange.svg' : '/svgs/whiteStar.svg'} icon2={type === 'soft' ? '/svgs/StarOrange.svg' : '/svgs/whiteStar.svg'} title='sippy life' type='big' />
 			</div>
 		</footer>
 	);

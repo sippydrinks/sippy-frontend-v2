@@ -1,5 +1,4 @@
-@import "@/styles/imports";
-
+@import '@/styles/imports';
 
 .wrapper {
 	.deals {
@@ -16,7 +15,7 @@
 			color: $col-black;
 			text-align: center;
 			margin-bottom: 2.4rem;
-			&[data-type = "dark"] {
+			&[data-type='dark'] {
 				color: $col-white;
 			}
 		}
@@ -26,8 +25,8 @@
 			font-family: $font;
 			text-align: center;
 			width: 80rem;
-			margin:  0 auto;
-			&[data-type = "dark"] {
+			margin: 0 auto;
+			&[data-type='dark'] {
 				color: $col-white;
 			}
 		}
@@ -113,7 +112,7 @@
 				}
 			}
 		}
-		&[data-type="alcohol"] {
+		&[data-type='alcohol'] {
 			background-color: $col-grey-lightest;
 			.slider {
 				.slide {
@@ -131,7 +130,7 @@
 		}
 	}
 
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		.deals {
 			width: 10rem;
 			height: 10rem;
@@ -139,7 +138,7 @@
 		}
 		.text {
 			.textHeader {
-				margin-bottom: 0.8rem
+				margin-bottom: 0.8rem;
 			}
 			.textSubtext {
 				font-size: 1.6rem;
@@ -149,10 +148,10 @@
 		}
 		.container {
 			width: calc(100% - 4rem);
-            height: 32.6rem;
+			height: 32.6rem;
 			margin: 0 auto 6rem;
-            overflow: hidden;
-            padding: 3.2rem 1.6rem;
+			overflow: hidden;
+			padding: 3.2rem 1.6rem;
 			.slider {
 				overflow-x: scroll;
 				left: 1.6rem;

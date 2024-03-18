@@ -22,7 +22,7 @@
 
 .transparent {
 	@extend %btn-transparent;
-	&[data-theme="dark"] {
+	&[data-theme='dark'] {
 		background-color: $col-grey-darker;
 		box-shadow: 0.4rem 0.4rem $col-white;
 		transition: $all-transition;

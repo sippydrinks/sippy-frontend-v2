@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 %h3 {
 	font-family: $font-900;
@@ -24,12 +24,13 @@
 				align-items: center;
 				gap: 13rem;
 
-				.company, .support {
+				.company,
+				.support {
 					display: flex;
 					flex-direction: column;
 					gap: 2.4rem;
-					@include screenMax("mobile") {
-						gap: 1.2rem
+					@include screenMax('mobile') {
+						gap: 1.2rem;
 					}
 					h3 {
 						@extend %h3;
@@ -48,7 +49,7 @@
 				flex-direction: column;
 				gap: 2.4rem;
 				h3 {
-					@extend %h3
+					@extend %h3;
 				}
 				.icons {
 					display: flex;
@@ -68,14 +69,14 @@
 	.carousel_container {
 		margin: 0;
 	}
-	
-	@include screenMax("tablet") {
+
+	@include screenMax('tablet') {
 		padding: 0;
 		.footer_body {
 			padding: 5rem 3.5rem 5.3rem;
 		}
 	}
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		padding: 0;
 		.footer_body {
 			flex-direction: column-reverse;
@@ -87,7 +88,8 @@
 				align-items: unset;
 				gap: 4rem;
 				.company_support {
-					.company, .support {
+					.company,
+					.support {
 						gap: 1.2rem;
 						h3 {
 							font-size: 1.8rem;
@@ -111,5 +113,3 @@
 		}
 	}
 }
-
-

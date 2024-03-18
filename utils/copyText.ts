@@ -7,7 +7,7 @@ const copyText = (text: string) => {
 		document.body.appendChild(ele);
 		ele.select();
 		const done = document.execCommand("copy");
-		document.body.removeChild(ele);
+		document.body?.removeChild(ele);
 	}
 };
 

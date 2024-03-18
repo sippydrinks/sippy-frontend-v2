@@ -1,40 +1,40 @@
 @import '@/styles/imports';
 
 .card {
-    width: 100%;
-    @extend %flex-align;
-    gap: 1.6rem;
-    .cardImage {
-        width: 4rem;
-        height: 4rem;
-        position: relative;
-    }
-    .cardBody {
-        width: 100%;
-        @extend %flex-align;
-        justify-content: space-between;
-        .cardBodyText {
-            text-align: left;
-            h3 {
-                color: $light-text-main;
-                @extend %text-14;
-                font-family: $font-700;
-            }
-            p {
-                color: $col-grey-500;
-                @extend %text-12;
-                font-family: $font;
-                margin: 0;
-                text-align: left;
-            }
-        }
-        .copy {
-            h3 {
-                cursor: pointer;
-                font-family: $font-900;
-                @extend %text-16;
-                color: $col-coral-500;
-            }
-        }
-    }
+	width: 100%;
+	@extend %flex-align;
+	gap: 1.6rem;
+	.cardImage {
+		width: 4rem;
+		height: 4rem;
+		position: relative;
+	}
+	.cardBody {
+		width: 100%;
+		@extend %flex-align;
+		justify-content: space-between;
+		.cardBodyText {
+			text-align: left;
+			h3 {
+				color: $light-text-main;
+				@extend %text-14;
+				font-family: $font-700;
+			}
+			p {
+				color: $col-grey-500;
+				@extend %text-12;
+				font-family: $font;
+				margin: 0;
+				text-align: left;
+			}
+		}
+		.copy {
+			h3 {
+				cursor: pointer;
+				font-family: $font-900;
+				@extend %text-16;
+				color: $col-coral-500;
+			}
+		}
+	}
 }

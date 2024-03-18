@@ -1,32 +1,47 @@
-"use client";
-import { useRouter, usePathname } from "next/navigation";
-import React, { useState, useEffect, useContext, createContext, useMemo } from "react";
+'use client';
+import { useRouter, usePathname } from 'next/navigation';
+import React, { useState, useEffect, useContext, createContext, useMemo } from 'react';
+import useFetchAll from '@/hooks/useFetchAll';
+
+function GlobalHooks() {
+	useFetchAll();
+	return null;
+}
 
 const AppContext = createContext<any>(null);
 
 export interface ContextProps {
-	theme: string;
-	drinkType: string;
-	setTheme: React.Dispatch<React.SetStateAction<string>>;
+	theme: 'light' | 'dark';
+	drinkType: 'soft' | 'alcohol';
+	categoryHeight: number;
+	productListing: [];
+	cart: [];
+	savedItems: [];
+	cartDetails: {};
+	setCart: React.Dispatch<React.SetStateAction<[]>>;
+	setProductListing: React.Dispatch<React.SetStateAction<[]>>;
+	setSavedItems: React.Dispatch<React.SetStateAction<[]>>;
+	setCategoryHeight: React.Dispatch<React.SetStateAction<number>>;
+	setTheme: React.Dispatch<React.SetStateAction<'light' | 'dark'>>;
 }
 
 const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const router = useRouter();
 	const path = usePathname();
-	const [categoryHeight, setCategoryHeight] = useState<number>(0)
+	const [categoryHeight, setCategoryHeight] = useState<number>(0);
 	const [cart, setCart] = useState<any[]>([]);
-	const [drinkType, setDrinkType] = useState<"soft" | "alcohol">("soft");
-	const [theme, setTheme] = useState<"light" | "dark">("light");
-	const urlCheck = path.includes('/alcohol')
+	const [drinkType, setDrinkType] = useState<'soft' | 'alcohol'>('soft');
+	const [theme, setTheme] = useState<'light' | 'dark'>('light');
+	const urlCheck = path.includes('/alcohol');
+	const [productListing, setProductListing] = useState<any[]>([]);
 
 	useEffect(() => {
 		if (urlCheck) {
-			setDrinkType("alcohol");
+			setDrinkType('alcohol');
 		} else {
-			setDrinkType("soft");
+			setDrinkType('soft');
 		}
-		const bodyNode = document.body.style
-		bodyNode.backgroundColor = urlCheck === false ? '#540068' : '#E77644'
+		const bodyNode = document.body.style;
+		bodyNode.backgroundColor = urlCheck === false ? '#540068' : '#E77644';
 	}, [urlCheck]);
 
 	const cartDetails = useMemo<{ cartAmount: number; cartQuantity: number }>(() => {
@@ -35,10 +50,7 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 		}, 0);
 
 		const cartAmount = cart.reduce((previousValue: any, currentValue: any) => {
-			return (
-				previousValue +
-				currentValue.productPrice * currentValue.cartProductQuantity
-			);
+			return previousValue + currentValue.productPrice * currentValue.cartProductQuantity;
 		}, 0);
 		return {
 			cartAmount: cartAmount || 0,
@@ -54,11 +66,13 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 				setTheme,
 				cart,
 				setCart,
-				categoryHeight, 
+				categoryHeight,
 				setCategoryHeight,
-				cartDetails
-			}}
-		>
+				cartDetails,
+				productListing,
+				setProductListing,
+			}}>
+			<GlobalHooks />
 			{children}
 		</AppContext.Provider>
 	);

@@ -1,55 +1,55 @@
 @import '@/styles/imports';
 
 .modal_body {
-    h3 {
-        text-align: center;
-        @extend %title-32;
-        color: $light-text-main;
-        font-family: $font-900;
-    }
-    p {
-        text-align: center;
-        margin: 0.8rem 0 2.4rem;
-        @extend %text-14;
-        color: $col-grey-500;
-    }
-    .input_field {
-        height: 12rem;
-    }
-    .btns {
-        width: 100%;
-        @extend %flex-align;
-        gap: 2.4rem;
-        margin-top: 2.4rem;
-        h3 {
-            color: $light-text-main;
-            font-family: $font-900;
-            @extend %text-16;
-        }
-        .delete_btn {
-            background: $col-grey-light-stroke;
-            opacity: 0.2;
-            cursor: not-allowed;
-        }
-        .delete_btnActive {
-            background: $col-primary-default;
-            h3 {
-                color: $col-white;
-            }
-        }
-    }
-    @include screenMax("mobile") {
-        .btns {
-            h3 {
-                font-size: 1.4rem;
-                height: 2rem;
-            }
-        }
-    }
+	h3 {
+		text-align: center;
+		@extend %title-32;
+		color: $light-text-main;
+		font-family: $font-900;
+	}
+	p {
+		text-align: center;
+		margin: 0.8rem 0 2.4rem;
+		@extend %text-14;
+		color: $col-grey-500;
+	}
+	.input_field {
+		height: 12rem;
+	}
+	.btns {
+		width: 100%;
+		@extend %flex-align;
+		gap: 2.4rem;
+		margin-top: 2.4rem;
+		h3 {
+			color: $light-text-main;
+			font-family: $font-900;
+			@extend %text-16;
+		}
+		.delete_btn {
+			background: $col-grey-light-stroke;
+			opacity: 0.2;
+			cursor: not-allowed;
+		}
+		.delete_btnActive {
+			background: $col-primary-default;
+			h3 {
+				color: $col-white;
+			}
+		}
+	}
+	@include screenMax('mobile') {
+		.btns {
+			h3 {
+				font-size: 1.4rem;
+				height: 2rem;
+			}
+		}
+	}
 }
 .input_field {
-    height: 12rem;
+	height: 12rem;
 }
 .modal_Body_Class {
-    width: 64rem;
+	width: 64rem;
 }
