@@ -7,6 +7,7 @@ import { InputField, Radio } from '../../shared';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Checkout.module.scss';
+import DeliveryDetailsForm from './DeliveryDetails/DeliveryDetailsForm';
 
 const Checkout = () => {
 	const { theme, cartDetails } = useGlobalContext();
@@ -82,13 +83,7 @@ const Checkout = () => {
 								<p>This is a gift</p>
 							</div>
 						</div>
-						<div className={styles.nameAndNumber}>
-							<InputField placeholder='My email' />
-							<InputField placeholder='My phone number' />
-						</div>
-						<InputField placeholder='My full name' />
-						<InputField placeholder='My address' />
-						<InputField inputClass={styles.delivery_note} placeholder='Delivery note (optional)' />
+						<DeliveryDetailsForm />
 					</div>
 					<div className={styles.shipping_details}>
 						<h3>Shipping method</h3>

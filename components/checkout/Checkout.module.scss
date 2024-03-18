@@ -6,11 +6,6 @@
 	gap: 2.4rem;
 	margin-bottom: 8rem;
 
-	.input_fields {
-		height: 2.4rem;
-		width: 2.4rem;
-	}
-
 	.radio_field {
 		height: 2.4rem;
 		width: 2.4rem;
@@ -97,10 +92,6 @@
 				.delivery_note {
 					height: 8rem;
 				}
-				.nameAndNumber {
-					@extend %flex-align;
-					gap: 1.6rem;
-				}
 			}
 			.shipping_details {
 				h3 {
@@ -142,9 +133,10 @@
 					.fiat_payment,
 					.crypto_payment {
 						@extend %flex-align;
-						gap: 1.6rem;
+						gap: 1rem;
 						height: 6.7rem;
-						padding: 2rem 1.6rem;
+						padding: 2rem 1.5rem;
+						padding-left: 0;
 						border-bottom: 0.1rem solid #e6e6e6;
 						h3 {
 							@extend %text-18;
@@ -181,7 +173,7 @@
 	.divider {
 		width: 0.2rem;
 		height: 100rem;
-		background: $col-grey-500;
+		background: $col-grey-lightest;
 	}
 	@include screenMax('mobile') {
 		flex-direction: column;
