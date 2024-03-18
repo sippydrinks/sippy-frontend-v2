@@ -1,19 +1,41 @@
 import React from "react";
 import { DrinkTypeCardProps } from "@/interface";
 import { Button } from "@/shared";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useGlobalContext } from "@/contexts/AppContext";
+import { formatURL } from "@/utils";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "./DrinkTypeCard.module.scss";
 
 const DrinkTypeCard = ({id, bg, icon, text, cardType = 'home' }: DrinkTypeCardProps) => {
     const { theme } = useGlobalContext()
     const route = usePathname()
+    const router = useRouter()
+    const isAlcoholRoute = route.includes('/alcohol')
+    
   return (
-    <div key={id} className={styles.card} data-type={cardType} style={{background: `${bg}`}}>
+    <div key={id} className={styles.card} data-type={cardType} style={{background: `${bg}`}}
+        onClick={() => cardType === 'categories' && isAlcoholRoute ? 
+            router.push(`/categories/alcohol/${formatURL(text)}`) 
+        : 
+            router.push(`/categories/${formatURL(text)}`)
+        }
+        // onClick={() => cardType === 'categories' ? router.push(`/productCategory/${formatURL(text)}`) : null}
+    >
         <div className={styles.btn_container}>
             <h3>{text}</h3>
-            <Button buttonType='transparent' className={styles.btn}>
+            <Button
+                onClick={() => 
+                    cardType === 'home' && route === '/alcohol' ?
+                    router.push(`/categories/alcohol/${formatURL(text)}`) 
+                : 
+                    router.push(`/categories/${formatURL(text)}`)
+                }
+                // onClick={() => router.push(`/productCategory/${formatURL(text)}`)}
+                buttonType='transparent'
+                className={styles.btn}
+            >
                 <p data-theme={theme}>
                     View all
                 </p>

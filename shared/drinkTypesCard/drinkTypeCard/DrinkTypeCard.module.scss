@@ -24,7 +24,6 @@
         }
         button {
             align-self: flex-start;
-			display: none;
             p {
                 font-family: $font-900;
                 @extend %text-16;
@@ -115,6 +114,7 @@
 		flex-direction: row-reverse;
 		align-content: unset;
 		padding: 2.4rem 4rem;
+		cursor: pointer;
 		.btn_container {
 			justify-content: center;
 			h3 {

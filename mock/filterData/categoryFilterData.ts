@@ -3,31 +3,31 @@ export default [
     {
         id: 1,
         isChecked: false,
-        brand: 'Juice1 type'
+        productName: 'juices'
     },
     {
         id: 2,
         isChecked: false,
-        brand: 'Juice2 type'
+        productName: 'soda'
     },
     {
         id: 3,
         isChecked: false,
-        brand: 'Juice3 type'
+        productName: 'water'
     },
     {
         id: 4,
         isChecked: false,
-        brand: 'Juice4 type'
+        productName: 'yorghurt'
     },
     {
         id: 5,
         isChecked: false,
-        brand: 'Juice5 type'
+        productName: 'smoove'
     },
     {
         id: 6,
         isChecked: false,
-        brand: 'Juice6 type'
+        productName: 'cocktail'
     },
 ]

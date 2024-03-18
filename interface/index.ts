@@ -85,7 +85,7 @@ export interface DrinkTypeCardProps {
     id?: number;
 	bg: string;
 	icon: string;
-	text?: string;
+	text: string;
     cardType?: 'home' | 'categories'
 }
 

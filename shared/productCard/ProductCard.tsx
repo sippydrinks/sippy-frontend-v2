@@ -63,7 +63,7 @@ const Product = (data: ProductCardProps) => {
 
 	return (
 		<div className={styles.card} data-theme={theme}>
-			<Link href={`/productDetails/${formatURL(data.productName)}`}>
+			<Link href={`/${formatURL(data.productName)}`}>
 				<div className={styles.clip} data-active={isHover} onMouseEnter={onHover} onMouseLeave={offHover}>
 					<svg viewBox='-10 0 350 250' fill='none' xmlns='http://www.w3.org/2000/svg'>
 						<use href='#original-svg' stroke={theme === 'dark' ? 'white' : 'black'} strokeWidth='6' className={styles.svg_stroke} />

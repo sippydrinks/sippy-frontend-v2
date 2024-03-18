@@ -31,6 +31,8 @@ import ItemDetailsCard from './ItemDetailsCard/ItemDetailsCard';
 import Accordion from './accordion/Accordion';
 import RelatedProducts from './RelatedProducts/RelatedProducts';
 import ActionPanel from './ActionPanel/ActionPanel';
+import Pagination from './Paginator/Pagination';
+import CheckBox from './checkbox/Checkbox';
 
 
 
@@ -68,4 +70,6 @@ export {
 	Accordion,
 	RelatedProducts,
 	ActionPanel,
+	Pagination,
+	CheckBox,
 };

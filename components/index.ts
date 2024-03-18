@@ -3,7 +3,6 @@ import Categories from './Categories/Categories';
 import { Login, SignUp, RegistrationNotification, NewPassword, VerifyToken } from './authenticationPages';
 
 
-
 export { 
     Login,
     SignUp,
