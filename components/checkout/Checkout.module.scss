@@ -89,9 +89,6 @@
 						}
 					}
 				}
-				.delivery_note {
-					height: 8rem;
-				}
 			}
 			.shipping_details {
 				h3 {
@@ -115,6 +112,11 @@
 							color: $col-grey-500;
 							font-family: $font;
 							@extend %text-18;
+
+							&[data-active='true'] {
+								color: $col-grey-900;
+								font-weight: 700;
+							}
 						}
 					}
 				}
@@ -142,6 +144,10 @@
 							@extend %text-18;
 							color: $col-grey-500;
 							font-family: $font;
+							&[data-active='true'] {
+								color: $col-grey-900;
+								font-weight: 700;
+							}
 						}
 					}
 					.crypto_payment {
@@ -154,6 +160,10 @@
 								@extend %text-18;
 								color: $col-grey-500;
 								font-family: $font;
+								&[data-active='true'] {
+									color: $col-grey-900;
+									font-weight: 700;
+								}
 							}
 							.icon_container {
 								@extend %flex-align;
