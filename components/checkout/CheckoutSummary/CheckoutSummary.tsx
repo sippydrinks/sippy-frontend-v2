@@ -26,7 +26,7 @@ const CheckoutSummary = () => {
 	}, [amountInCart, deliveryFee, VAT, discount]);
 
 	const handleApplyCoupon = () => {
-		setDiscount(20000);
+		setDiscount(200);
 		setInputValue('');
 	};
 

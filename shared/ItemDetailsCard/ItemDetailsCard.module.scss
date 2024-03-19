@@ -2,6 +2,7 @@
 
 .card_container,
 .card_container_disabled {
+	width: 100%;
 	@extend %flex-align;
 	justify-content: space-between;
 	position: relative;
@@ -138,12 +139,12 @@
 		}
 	}
 	@include screenMax('mobile') {
-		flex-direction: column;
+		// flex-direction: column;
 		.counter_container {
-			width: 100%;
-			gap: 0;
-			justify-content: space-between;
-			flex-direction: row-reverse;
+			width: auto;
+			gap: 1rem;
+			/* 		justify-content: space-between;
+			flex-direction: row-reverse; */
 			.delete_icon_container {
 				width: 4.2rem;
 				height: 4.2rem;
@@ -162,18 +163,18 @@
 			}
 		}
 		.product_details {
-			gap: 0;
-			justify-content: space-between;
+			gap: 1rem;
+			// justify-content: space-between;
 			width: 100%;
-			margin-bottom: 1.6rem;
+			margin-bottom: 0.5rem;
 			.productImage_container {
-				width: 15rem;
-				height: 12.1rem;
+				width: 7rem;
+				height: 7.5rem;
 				.productImage {
-					width: 7.4rem;
-					height: 7.2rem;
-					top: 2.5rem;
-					left: 4.75rem;
+					width: 5.5rem;
+					height: 5rem;
+					top: 1.2rem;
+					left: 1.2rem;
 				}
 			}
 			.product_text {

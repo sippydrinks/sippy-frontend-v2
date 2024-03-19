@@ -10,7 +10,7 @@ import styles from './ViewcartModal.module.scss';
 const ViewcartModal = ({ isOpen, onClose }: ModalProps) => {
 	const { theme, cart } = useGlobalContext();
 	return (
-		<ModalElement isOpen={isOpen} onClose={onClose} modalImage='/svgs/modal-Image2.svg' className={styles.modal_image} bodyClass={styles.body_class}>
+		<ModalElement isOpen={isOpen} onClose={onClose} bodyClass={styles.body_class}>
 			<div className={styles.modal_children}>
 				<div className={styles.modal_header}>
 					<h3>My Cart</h3>
@@ -19,8 +19,8 @@ const ViewcartModal = ({ isOpen, onClose }: ModalProps) => {
 					</div>
 				</div>
 				<div className={styles.cards}>
-					{cartData.length > 0 ? (
-						cartData.map((item: CartDetailsCardProps, index: number) => <ItemDetailsCard key={index} {...item} cardType='cart' />)
+					{cart.length > 0 ? (
+						cart.map((item: CartDetailsCardProps, index: number) => <ItemDetailsCard key={index} {...item} cardType='cart' />)
 					) : (
 						<div className={styles.emptyCart}>
 							<h1>There are currently no items in cart</h1>

@@ -35,12 +35,13 @@ const DeliveryDetailsForm = ({ isGift, savedAddresses }: DeliveryDetailsFormProp
 	const [selectedAddress, setSelectedAddress] = useState<any>({});
 	const [showContactForm, setShowContactForm] = useState<boolean>(false);
 	const [newAddresses, setNewAddresses] = useState<any[]>([]);
-	console.log(watchAllFields);
 
+	// useEffect to set newAddresses to savedAddresses
 	useEffect(() => {
 		setNewAddresses(savedAddresses);
 	}, [savedAddresses]);
 
+	// handle contact form, add new address as the first item in the newAddresses array and close the form
 	const handleContactAddressForm = (data: any) => {
 		console.log(data);
 		setNewAddresses([{ ...data, id: newAddresses.length }, ...newAddresses]);
@@ -64,7 +65,6 @@ const DeliveryDetailsForm = ({ isGift, savedAddresses }: DeliveryDetailsFormProp
 			setIsBtnDisabled(true);
 		}
 	}, [watchAllFields, isGift]);
-	console.log(newAddresses);
 
 	return (
 		<form onSubmit={handleSubmit(handleContactAddressForm)}>
@@ -131,7 +131,8 @@ const DeliveryDetailsForm = ({ isGift, savedAddresses }: DeliveryDetailsFormProp
 			<div className={`${styles.sender_container} ${!isGift && styles.hide_sender}`}>
 				<h3>My details</h3>
 				<div className={` ${styles.nameAndNumber}`}>
-					<InputField className={styles.input} placeholder='My email' register={register('senders_email')} />
+					<InputField type='email' className={styles.input} placeholder='My email' register={register('senders_email')} />
+
 					<InputField
 						className={styles.input}
 						customPrefix={

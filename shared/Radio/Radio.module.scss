@@ -21,7 +21,9 @@
 		position: relative;
 
 		&[data-disabled='yes'] {
-			background-color: #f1f1f1;
+			opacity: 0.2;
+			background-color: #dddada;
+			cursor: not-allowed;
 		}
 	}
 
