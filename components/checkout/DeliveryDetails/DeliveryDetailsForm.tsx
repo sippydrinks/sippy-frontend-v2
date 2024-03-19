@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { set } from 'nprogress';
+import TextAreaField from '@/shared/TextArea/TextArea';
 
 interface DeliveryDetailsFormProps {
 	isGift: boolean;
@@ -67,7 +68,7 @@ const DeliveryDetailsForm = ({ isGift, savedAddresses }: DeliveryDetailsFormProp
 	}, [watchAllFields, isGift]);
 
 	return (
-		<form onSubmit={handleSubmit(handleContactAddressForm)}>
+		<form onSubmit={handleSubmit(handleContactAddressForm)} className={styles.delivery_form}>
 			{!showContactForm && savedAddresses.length > 0 ? (
 				<div className={styles.saved_addresses}>
 					{selectedAddress?.id ? (
@@ -127,7 +128,7 @@ const DeliveryDetailsForm = ({ isGift, savedAddresses }: DeliveryDetailsFormProp
 					<InputField className={styles.input} placeholder='My address' register={register('address')} />
 				</>
 			)}
-			<InputField className={styles.input} inputClass={styles.delivery_note} placeholder='Delivery note (optional)' />
+			<TextAreaField rows={3} className={styles.input} inputClass={styles.delivery_note} placeholder='Delivery note (optional)' />
 			<div className={`${styles.sender_container} ${!isGift && styles.hide_sender}`}>
 				<h3>My details</h3>
 				<div className={` ${styles.nameAndNumber}`}>

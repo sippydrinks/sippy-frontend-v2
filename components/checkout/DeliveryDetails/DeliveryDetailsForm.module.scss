@@ -1,92 +1,136 @@
 @import '@/styles/imports';
 
-.saved_addresses {
-	display: flex;
-	flex-direction: column;
-	border: 1px solid $col-grey-300;
-	border-radius: 10px;
-	padding: 1.5rem;
-	gap: 1.6rem;
-	.address {
+.delivery_form {
+	.nameAndNumber {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
-		@extend %text-18;
-		color: $col-grey-500;
-		font-family: $font;
-		&[data-active='true'] {
-			color: $col-grey-900;
-			font-weight: 700;
-		}
-
-		.address_details {
-			display: flex;
-			gap: 1rem;
-			align-items: center;
-
-			.dots {
-				width: 0.5rem;
-				height: 0.5rem;
-				border-radius: 50%;
-				background-color: $col-grey-500;
-			}
-
-			li {
-				@extend %text-20;
-				color: $col-grey-500;
-				font-family: $font;
-			}
-		}
-	}
-	.add_new_address {
-		padding: 1rem 2rem;
-		display: flex;
-		align-items: center;
-		gap: 1.5rem;
-		@extend %text-18;
-		color: $col-primary-default;
-		font-weight: 700;
-		cursor: pointer;
-
-		&[data-visible='false'] {
-			display: none;
-		}
-	}
-
-	.single_address {
-		display: flex;
 		gap: 1.6rem;
-		justify-content: space-between;
-		align-items: flex-start;
-		h3 {
-			@extend %text-20;
-			font-family: $font-700;
-			color: $light-text-main;
-		}
+	}
+	.saved_addresses {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid $col-grey-300;
+		border-radius: 10px;
+		padding: 1.5rem;
+		gap: 1.6rem;
+		.address {
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+			@extend %text-18;
+			color: $col-grey-500;
+			font-family: $font;
+			&[data-active='true'] {
+				color: $col-grey-900;
+				font-weight: 700;
+			}
 
-		.address_details {
-			.email_phone_container {
+			.address_details {
 				display: flex;
 				gap: 1rem;
 				align-items: center;
+
 				.dots {
 					width: 0.5rem;
 					height: 0.5rem;
 					border-radius: 50%;
 					background-color: $col-grey-500;
 				}
+
+				li {
+					@extend %text-20;
+					color: $col-grey-500;
+					font-family: $font;
+				}
+			}
+		}
+		.add_new_address {
+			padding: 1rem 2rem;
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+			@extend %text-18;
+			color: $col-primary-default;
+			font-weight: 700;
+			cursor: pointer;
+
+			&[data-visible='false'] {
+				display: none;
+			}
+		}
+
+		.single_address {
+			display: flex;
+			gap: 1.6rem;
+			justify-content: space-between;
+			align-items: flex-start;
+			h3 {
+				@extend %text-20;
+				font-family: $font-700;
+				color: $light-text-main;
+			}
+
+			.address_details {
+				.email_phone_container {
+					display: flex;
+					gap: 1rem;
+					align-items: center;
+					.dots {
+						width: 0.5rem;
+						height: 0.5rem;
+						border-radius: 50%;
+						background-color: $col-grey-500;
+					}
+				}
+			}
+		}
+	}
+	@include screenMax('mobile') {
+		.nameAndNumber {
+			display: flex;
+			flex-direction: column;
+			gap: 0rem;
+		}
+		.saved_addresses {
+			padding: 1.5rem 1rem;
+			.address {
+				gap: 1rem;
+				align-items: flex-start;
+				.address_details {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 1rem;
+
+					.dots {
+						display: none;
+					}
+				}
 			}
 		}
 	}
 }
 
-.nameAndNumber {
-	@extend %flex-align;
-	gap: 1.6rem;
-}
-
 .delivery_note {
 	height: 8rem;
+	all: unset;
+	flex-grow: 1;
+	height: 100%;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+	font-family: $font;
+	color: $col-grey-500;
+	width: 100%;
+	&::placeholder {
+		font-size: 1.4rem;
+		line-height: 2.5rem;
+		// color: $col-text-secondary;
+	}
+	&[data-theme='dark'] {
+		color: $col-white;
+		&::placeholder {
+			color: $col-white;
+		}
+	}
 }
 
 .sender_container {

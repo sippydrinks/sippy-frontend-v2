@@ -102,7 +102,7 @@
 					.shipping_options {
 						// margin-top: 1.6rem;
 						width: 100%;
-						height: 6.7rem;
+						height: 100%;
 						padding: 2rem 1.6rem;
 						padding-left: 0rem;
 						@extend %flex-align;
@@ -221,16 +221,16 @@
 					line-height: 2rem;
 				}
 			}
-			.checkout_details_content {
-				.shipping_details {
-					.shipping_options {
-						flex-direction: column;
-						height: 11.2rem;
-						.select_date {
-							align-self: flex-start;
-						}
+			// .checkout_details_content {
+			.shipping_details {
+				.shipping_options {
+					flex-direction: column;
+					height: 100%;
+					.select_date {
+						align-self: flex-start;
 					}
 				}
+				// }
 			}
 		}
 	}
