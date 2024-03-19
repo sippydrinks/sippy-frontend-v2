@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { CheckoutLoginModal } from '../../shared/modals';
 import { useGlobalContext } from '@/contexts/AppContext';
 import CheckoutSummary from './CheckoutSummary/CheckoutSummary';
-import { InputField, Radio } from '../../shared';
+import { InputField, Radio, Select } from '../../shared';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Checkout.module.scss';
@@ -80,6 +80,45 @@ const Checkout = () => {
 			name: 'Sarah Doe',
 		},
 	];
+
+	const timeOptions = [
+		{
+			id: 1,
+			label: '09:00am',
+		},
+		{
+			id: 2,
+			label: '10:00am',
+		},
+		{
+			id: 3,
+			label: '11:00am',
+		},
+		{
+			id: 4,
+			label: '12:00pm',
+		},
+		{
+			id: 4,
+			label: '01:00pm',
+		},
+		{
+			id: 5,
+			label: '02:00pm',
+		},
+		{
+			id: 6,
+			label: '03:00pm',
+		},
+		{
+			id: 7,
+			label: '04:00pm',
+		},
+		{
+			id: 8,
+			label: '05:00pm',
+		},
+	];
 	return (
 		<div data-theme={theme} className={styles.checkout_container}>
 			<div className={styles.checkout_details}>
@@ -117,13 +156,23 @@ const Checkout = () => {
 					</div>
 					<div className={styles.shipping_details}>
 						<h3>Shipping method</h3>
-						<div className={styles.shipping_options}>
-							{shippingOptions.map((option, index) => (
-								<div key={index} className={styles.select_date}>
-									<Radio onChange={() => setSelectedShippingOption(option.id)} checked={selectedShippingOption === option.id} />
-									<p data-active={selectedShippingOption === option.id}>{option.name}</p>
+						<div className={styles.shipping_options_container}>
+							<div className={styles.shipping_options}>
+								{shippingOptions.map((option, index) => (
+									<div key={index} className={styles.select_date}>
+										<Radio onChange={() => setSelectedShippingOption(option.id)} checked={selectedShippingOption === option.id} />
+										<p data-active={selectedShippingOption === option.id}>{option.name}</p>
+									</div>
+								))}
+							</div>
+							<div data-visible={selectedShippingOption === '1'} className={`${styles.shipping_date_fields_container} `}>
+								<div className={styles.fields}>
+									<InputField type='date' label='Date' />
 								</div>
-							))}
+								<div className={styles.fields}>
+									<Select options={timeOptions} label='Time' />
+								</div>
+							</div>
 						</div>
 					</div>
 					<div className={styles.payment_details}>

@@ -96,27 +96,45 @@
 					font-family: $font-700;
 					color: $light-text-main;
 				}
-				.shipping_options {
-					margin-top: 1.6rem;
-					width: 100%;
-					height: 6.7rem;
-					border-radius: 1.6rem;
+				.shipping_options_container {
 					border: 0.1rem solid #e6e6e6;
-					padding: 2rem 1.6rem;
-					@extend %flex-align;
-					gap: 2.4rem;
-					.select_date {
+					.shipping_options {
+						// margin-top: 1.6rem;
+						width: 100%;
+						height: 6.7rem;
+						border-radius: 1.6rem;
+						padding: 2rem 1.6rem;
 						@extend %flex-align;
-						gap: 1.6rem;
-						p {
-							color: $col-grey-500;
-							font-family: $font;
-							@extend %text-18;
+						gap: 2.4rem;
+						.select_date {
+							@extend %flex-align;
+							gap: 1.6rem;
+							p {
+								color: $col-grey-500;
+								font-family: $font;
+								@extend %text-18;
 
-							&[data-active='true'] {
-								color: $col-grey-900;
-								font-weight: 700;
+								&[data-active='true'] {
+									color: $col-grey-900;
+									font-weight: 700;
+								}
 							}
+						}
+					}
+					.shipping_date_fields_container {
+						display: flex;
+						align-items: center;
+						gap: 1.6rem;
+						width: 100%;
+						justify-content: space-between;
+						padding: 0rem 3rem;
+						padding-bottom: 1.6rem;
+						.fields {
+							width: 100%;
+						}
+
+						&[data-visible='false'] {
+							display: none;
 						}
 					}
 				}

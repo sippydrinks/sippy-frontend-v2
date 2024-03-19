@@ -48,6 +48,7 @@ const DeliveryDetailsForm = ({ isGift, savedAddresses }: DeliveryDetailsFormProp
 		reset();
 	};
 
+	// useEffect to watch all fields in other to activate the submit button
 	useEffect(() => {
 		if (watchAllFields.address && watchAllFields.name && watchAllFields.phone_number && watchAllFields.email) {
 			if (isGift) {
