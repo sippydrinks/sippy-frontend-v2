@@ -42,7 +42,7 @@ const AlcoholicDrinksCard = () => {
                 }))
             }
         </div>
-        <Button buttonType='primary' onClick={() => router.push('/categories/alcohol')} className={styles.btn}>
+        <Button buttonType='primary' onClick={() => router.push('/alcohol/categories')} className={styles.btn}>
             <h3>See more Categories</h3>
         </Button>
     </div>

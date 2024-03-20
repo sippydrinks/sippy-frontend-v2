@@ -16,23 +16,15 @@ const DrinkTypeCard = ({id, bg, icon, text, cardType = 'home' }: DrinkTypeCardPr
     
   return (
     <div key={id} className={styles.card} data-type={cardType} style={{background: `${bg}`}}
-        onClick={() => cardType === 'categories' && isAlcoholRoute ? 
-            router.push(`/categories/alcohol/${formatURL(text)}`) 
+        onClick={() => (cardType === 'categories' || isAlcoholRoute) || isAlcoholRoute ? 
+            router.push(`/alcohol/categories/${formatURL(text)}`) 
         : 
             router.push(`/categories/${formatURL(text)}`)
         }
-        // onClick={() => cardType === 'categories' ? router.push(`/productCategory/${formatURL(text)}`) : null}
     >
         <div className={styles.btn_container}>
             <h3>{text}</h3>
             <Button
-                onClick={() => 
-                    cardType === 'home' && route === '/alcohol' ?
-                    router.push(`/categories/alcohol/${formatURL(text)}`) 
-                : 
-                    router.push(`/categories/${formatURL(text)}`)
-                }
-                // onClick={() => router.push(`/productCategory/${formatURL(text)}`)}
                 buttonType='transparent'
                 className={styles.btn}
             >

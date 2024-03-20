@@ -9,13 +9,8 @@ const ButtonNav = () => {
 	const router = useRouter();
 	const route = usePathname()
 
-	// function to check if the button is active
-	// const checkActive = (url: string) => {
-	// 	let isActive = url === route.includes('/alcohol');
-	// 	return isActive;
-	// };
 	const checkActive = route.includes('/alcohol')
-
+	const categoriesRoute = route === ('/categories')
 	const urlArr: string[] = route.split('/')
     const handleNonAlcohol = () => {
       const softUrlArr = urlArr.slice(0, -1)
@@ -24,7 +19,7 @@ const ButtonNav = () => {
 
     const handleAlcohol = () => {
       const alcoholUrlArr = [...urlArr, route === '/' ? 'alcohol' : '/alcohol']
-      router.push(alcoholUrlArr.join(''))
+      categoriesRoute ? router.push('/alcohol/categories') : router.push(alcoholUrlArr.join(''))
     }
     const checkRoute = route.includes('/alcohol')
 
