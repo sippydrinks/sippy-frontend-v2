@@ -1,11 +1,11 @@
 'use client';
-import React from 'react'
-import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard'
-import AlcoholicDrinkData from '@/mock/AlcoholicDrinkData'
+import React from 'react';
+import DrinkTypeCard from '../drinkTypeCard/DrinkTypeCard';
+import AlcoholicDrinkData from '@/mock/AlcoholicDrinkData';
 import { Button } from '@/shared';
-import { ContextProps, useGlobalContext } from '@/contexts/AppContext'
-import { usePathname, useRouter } from 'next/navigation'
-import styles from './Alcohol.module.scss'
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
+import { usePathname, useRouter } from 'next/navigation';
+import styles from './Alcohol.module.scss';
 
 const AlcoholicDrinksCard = () => {
     const { theme }: ContextProps = useGlobalContext()
@@ -49,4 +49,4 @@ const AlcoholicDrinksCard = () => {
   )
 }
 
-export default AlcoholicDrinksCard
+export default AlcoholicDrinksCard;

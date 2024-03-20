@@ -34,12 +34,12 @@ const DrinkTypeCard = ({id, bg, icon, text, cardType = 'home' }: DrinkTypeCardPr
             </Button>
         </div>
 
-        <div data-route={route} className={styles.image}>
-            <div className={styles.imageCont}>
-                <Image alt="drink" src={icon} fill />
-            </div>
-        </div>
-	</div>
+			<div data-route={route} className={styles.image}>
+				<div className={styles.imageCont}>
+					<Image alt='drink' src={icon} fill />
+				</div>
+			</div>
+		</div>
 	);
 };
 

@@ -1,0 +1,8 @@
+@import '@/styles/imports';
+
+.target_container {
+	height: 0px;
+	@include screenMax('mobile') {
+		height: 230px;
+	}
+}

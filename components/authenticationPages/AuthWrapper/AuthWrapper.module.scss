@@ -1,0 +1,24 @@
+@import '@/styles/imports';
+
+.auth_layout {
+	height: 100%;
+	display: block;
+	min-height: 100vh;
+	width: 100%;
+
+	&[data-type='with-icons'] {
+		@extend %background-with-icon;
+	}
+
+	&[data-type='without-icons'] {
+		padding: 4rem 6.4rem;
+		padding-bottom: 10rem;
+		background-color: $col-background-shade;
+	}
+
+	@include screenMax('mobile') {
+		&[data-type='without-icons'] {
+			padding: 4rem 3rem;
+		}
+	}
+}

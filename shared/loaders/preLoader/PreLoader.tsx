@@ -1,11 +1,11 @@
 'use client';
-import React, { useState, useEffect } from "react";
-import { useGlobalContext } from "@/contexts/AppContext";
-import Image from "next/image";
-import styles from "./PreLoader.module.scss";
+import React, { useState, useEffect } from 'react';
+import { useGlobalContext } from '@/contexts/AppContext';
+import Image from 'next/image';
+import styles from './PreLoader.module.scss';
 
 const PreLoader = () => {
-	const { theme } = useGlobalContext()
+	const { theme } = useGlobalContext();
 	const [loading, setLoading] = useState<boolean>(false);
 	useEffect(() => {
 		const load = setTimeout(() => setLoading(false), 2000);
@@ -15,25 +15,16 @@ const PreLoader = () => {
 	}, []);
 	return (
 		<>
-			{
-				loading ? 
-					<div className={styles.preloader}>
-						<div className={styles.loader}></div>
-						<div className={styles.icon_container}>
-							<div className={styles.icon}>
-								<Image
-									src={`/svgs/logo-${theme}.svg`}
-									priority={true}
-									alt="Sippy Life"
-									fill
-									quality={100}
-								/>
-							</div>
+			{loading ? (
+				<div className={styles.preloader}>
+					<div className={styles.loader}></div>
+					<div className={styles.icon_container}>
+						<div className={styles.icon}>
+							<Image src={`/svgs/logo-${theme}.svg`} priority={true} alt='Sippy Life' fill quality={100} />
 						</div>
 					</div>
-				:
-					null
-			}
+				</div>
+			) : null}
 		</>
 	);
 };

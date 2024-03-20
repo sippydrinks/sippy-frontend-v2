@@ -8,8 +8,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.scss';
 
-const Header = ({isNavButton = false}: HeaderProps) => {
-	const route = usePathname()
+const Header = ({ isNavButton = false }: HeaderProps) => {
+	const route = usePathname();
 	const { theme, cartDetails, drinkType } = useGlobalContext();
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [collapsed, setCollapsed] = useState<boolean>(true);
@@ -35,10 +35,10 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 				setIsOpen(false);
 			}
 		};
-		document.addEventListener("click", handleClickOutside);
+		document.addEventListener('click', handleClickOutside);
 
 		return () => {
-			document.removeEventListener("click", handleClickOutside);
+			document.removeEventListener('click', handleClickOutside);
 		};
 	}, [refNode]);
 
@@ -46,11 +46,8 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 		<header className={`${styles.header}`} data-type={theme} data-value={drinkType}>
 			<div className={styles.small_row}>
 				<Hamburger collapsed={collapsed} setCollapsed={setCollapsed} />
-				<Link href="/">
-					<div
-						className={styles.header_logoContainer}
-						onClick={() => setCollapsed(true)}
-					>
+				<Link href='/'>
+					<div className={styles.header_logoContainer} onClick={() => setCollapsed(true)}>
 						<Logo />
 					</div>
 				</Link>
@@ -58,35 +55,30 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 					<ThemeToggle />
 				</div>
 			</div>
-			<div
-				className={
-					styles[!collapsed ? "header_wrapper" : "header_wrapper__collapsed"]
-				}
-				data-active={!collapsed}
-			>
+			<div className={styles[!collapsed ? 'header_wrapper' : 'header_wrapper__collapsed']} data-active={!collapsed}>
 				<div className={styles.mob_view}>
 					<ThemeToggle />
 				</div>
-				{!isNavButton && 
+				{!isNavButton && (
 					<div className={styles.buttons}>
 						<ButtonNav />
 					</div>
-				}
+				)}
 			</div>
 			<div ref={dropdownRef} data-route={route === '/checkout'} className={`${styles.small_row} ${styles.nav_buttons}`}>
 				<div className={styles.button_container}>
 					<div className={styles.icon}>
-						<Image src={`/svgs/search-${theme}.svg`} alt="icon" fill />
+						<Image src={`/svgs/search-${theme}.svg`} alt='icon' fill />
 					</div>
 				</div>
 				<div className={`${styles.button_container} ${styles.desk_view}`}>
 					<div className={styles.icon}>
-						<Image src={`/svgs/bell-${theme}.svg`} alt="icon" fill />
+						<Image src={`/svgs/bell-${theme}.svg`} alt='icon' fill />
 					</div>
 				</div>
 				<div onClick={toggleDropdown} className={styles.button_container}>
 					<div className={styles.icon}>
-						<Image alt="icon" fill src={`/svgs/User-${theme}.svg`} />
+						<Image alt='icon' fill src={`/svgs/User-${theme}.svg`} />
 					</div>
 					{isOpen && (
 						<div className={styles.dropdownMenu}>
@@ -95,16 +87,13 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 					)}
 				</div>
 				<div className={styles.mob_view}>
-					<Link href="/cart">
+					<Link href='/cart'>
 						<div data-type={theme} className={styles.button_container}>
 							<div className={styles.icon}>
-								<Image alt="cart" fill
-									src={`/svgs/cart-${theme}.svg`} />
+								<Image alt='cart' fill src={`/svgs/cart-${theme}.svg`} />
 							</div>
 							<div data-route={route.includes('/alcohol')} className={styles.item}>
-								<p data-type={theme}
-									className={styles.cart_container_text}
-								>
+								<p data-type={theme} className={styles.cart_container_text}>
 									{cartDetails.cartQuantity}
 								</p>
 							</div>
@@ -112,15 +101,12 @@ const Header = ({isNavButton = false}: HeaderProps) => {
 					</Link>
 				</div>
 				<div className={styles.desk_view}>
-					<Link href="/cart">
+					<Link href='/cart'>
 						<div data-type={theme} className={styles.cart_button}>
 							<div className={styles.cart_icon}>
-								<Image alt="cart" fill
-									src={`/svgs/cart-${theme}.svg`} />
+								<Image alt='cart' fill src={`/svgs/cart-${theme}.svg`} />
 							</div>
-							<p data-type={theme}
-								className={styles.cart_container_text}
-							>
+							<p data-type={theme} className={styles.cart_container_text}>
 								₦{cartDetails.cartAmount} ({cartDetails.cartQuantity})
 							</p>
 						</div>
@@ -139,15 +125,11 @@ function Hamburger({ collapsed, setCollapsed }: any) {
 	};
 	return (
 		<div className={styles.controls}>
-			<button
-				aria-hidden="true"
-				onClick={handleToggleClick}
-				aria-pressed={!collapsed}
-			>
-				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-					<rect width="18" height="1.5" fill="red" ry="0.75" x="3" y="6.25" />
-					<rect width="18" height="1.5" fill="red" ry="0.75" x="3" y="11.25" />
-					<rect width="18" height="1.5" fill="red" ry="0.75" x="3" y="16.25" />
+			<button aria-hidden='true' onClick={handleToggleClick} aria-pressed={!collapsed}>
+				<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='none'>
+					<rect width='18' height='1.5' fill='red' ry='0.75' x='3' y='6.25' />
+					<rect width='18' height='1.5' fill='red' ry='0.75' x='3' y='11.25' />
+					<rect width='18' height='1.5' fill='red' ry='0.75' x='3' y='16.25' />
 				</svg>
 			</button>
 		</div>

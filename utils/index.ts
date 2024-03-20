@@ -21,26 +21,4 @@ import truncateHash from './truncateHash';
 import { hearAboutOptions } from './selectField';
 import { formatURL } from './formatUrl';
 
-export { toggleScroll, formatNumber, stringShortner, 
-	errorMessage, 
-	getUnixTimeStamp, 
-	getLanguageFromUrl, 
-	formatNum, 
-	formatLargeNum, 
-	animateDisplay, 
-	convertMsToHM, 
-	timeSince, 
-	showDollar, 
-	generateSymbol, 
-	removeUnderScore, 
-	copyText, 
-	convertEpochToFormattedDate, 
-	shortenTitle, 
-	scrollTo, 
-	formatMatches, 
-	formatCompetitons, 
-	getPoolStage, 
-	truncateHash, 
-	hearAboutOptions,
-	formatURL,
-};
+export { toggleScroll, formatNumber, stringShortner, errorMessage, getUnixTimeStamp, getLanguageFromUrl, formatNum, formatLargeNum, animateDisplay, convertMsToHM, timeSince, showDollar, generateSymbol, removeUnderScore, copyText, convertEpochToFormattedDate, shortenTitle, scrollTo, formatMatches, formatCompetitons, getPoolStage, truncateHash, hearAboutOptions, formatURL };

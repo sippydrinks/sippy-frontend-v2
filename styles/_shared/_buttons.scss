@@ -7,6 +7,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 	font-family: $font-900;
 	background-color: transparent;
 	box-shadow: 0.4rem 0.4rem $col-grey-darker;
@@ -21,9 +22,9 @@
 	&:enabled:active {
 		transition: $all-transition;
 		transform: translate(0.4rem, 0.4rem);
-		box-shadow: none;
+		box-shadow: 0.1rem 0.1rem $col-grey-darker;
 	}
-	@include screenMax("mobile") {
+	@include screenMax('mobile') {
 		padding: 0;
 	}
 }

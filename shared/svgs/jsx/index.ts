@@ -4,4 +4,5 @@ import FailedEmoji from './FailedEmoji';
 import FailedSvg from './FailedSvg';
 import NewPasswordFailed from './NewPasswordFailed';
 import NewPasswordSuccess from './NewPasswordSuccess';
-export { SuccessEmoji, SuccessSvg, FailedEmoji, FailedSvg ,NewPasswordFailed,NewPasswordSuccess};
+import DiscountSvg from './Discount';
+export { SuccessEmoji, SuccessSvg, FailedEmoji, FailedSvg, NewPasswordFailed, NewPasswordSuccess, DiscountSvg };

@@ -58,8 +58,8 @@ const ProductCategory = ({productName}: productCategoryProps) => {
 	const checkboxValue = event?.target.value
 	const isChecked = event?.target.checked
 
-	const filteredItems = currentPosts.filter((item: ProductCardProps) => 
-		(item.productName === checkboxValue && isChecked === true) || (item.productNameAlcohol === checkboxValue && isChecked === true));
+	const filteredItems = currentPosts.filter((item: any) => 
+		(item.productName || item.productNameAlcohol === checkboxValue && isChecked === true));
 	const filterArray = filteredItems.length > 0 ? filteredItems : currentPosts
 		setFilteredArray(filterArray);
   }
@@ -74,7 +74,7 @@ const ProductCategory = ({productName}: productCategoryProps) => {
 	const checkboxValue = event?.target.value
 	const isChecked = event?.target.checked
 
-	const filteredItems = currentPosts.filter((item: ProductCardProps) => 
+	const filteredItems = currentPosts.filter((item: any) => 
 		item.productName === checkboxValue && isChecked === true);
 		const filterArray = filteredItems.length > 0 ? filteredItems : currentPosts
 		setFilteredArray(filterArray);

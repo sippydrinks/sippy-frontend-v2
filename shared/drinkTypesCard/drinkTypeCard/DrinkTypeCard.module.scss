@@ -1,4 +1,4 @@
-@import "@/styles/imports";
+@import '@/styles/imports';
 
 .card {
 	width: 100%;
@@ -40,7 +40,7 @@
 			@extend %text-16;
 			font-family: $font-900;
 			color: $col-primary;
-			&[data-theme="dark"] {
+			&[data-theme='dark'] {
 				color: $col-white;
 			}
 		}
@@ -71,7 +71,7 @@
 				height: 45.5rem;
 			}
 		}
-		[data-route="/alcohol"] {
+		[data-route='/alcohol'] {
 			transform: rotate(20deg);
 			.imageCont {
 				width: 35rem;
@@ -104,12 +104,12 @@
 				height: 45.6rem;
 			}
 		}
-		[data-route="/alcohol"] {
+		[data-route='/alcohol'] {
 			transform: rotate(20deg);
 		}
 	}
 
-	&[data-type="categories"] {
+	&[data-type='categories'] {
 		height: 16rem;
 		flex-direction: row-reverse;
 		align-content: unset;
@@ -280,14 +280,13 @@
 				}
 			}
 		}
-
 	}
-	
-	@include screenMax("mobile") {
+
+	@include screenMax('mobile') {
 		height: 25.1rem;
 		padding: 1.6rem;
 		margin-top: 1.6rem;
-		&[data-type="categories"] {
+		&[data-type='categories'] {
 			padding: 1.6rem;
 			height: 14rem;
 			.btn_container {
@@ -303,23 +302,24 @@
 					.imageCont {
 						width: 10rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: -1.5rem;
 						left: 1rem;
 						.imageCont {
 							width: 9.5rem;
+						}
 					}
 				}
-				}
 			}
-			&:nth-child(2), &:nth-child(6) {
+			&:nth-child(2),
+			&:nth-child(6) {
 				.image {
 					top: -4rem;
 					.imageCont {
 						width: 16.5rem;
 						height: 16.5rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: -2rem;
 						left: 1rem;
 						.imageCont {
@@ -334,7 +334,7 @@
 					.imageCont {
 						width: 13rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: -1.5rem;
 						left: 1rem;
 						.imageCont {
@@ -350,7 +350,7 @@
 						width: 12rem;
 						height: 18.5rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: 0.5rem;
 						left: 0;
 						.imageCont {
@@ -365,7 +365,7 @@
 					.imageCont {
 						width: 10rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: -3rem;
 						.imageCont {
 							width: 9rem;
@@ -384,7 +384,7 @@
 					.imageCont {
 						width: 13rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: -3.5rem;
 						left: 1rem;
 						.imageCont {
@@ -399,7 +399,7 @@
 						width: 13rem;
 						height: 18.5rem;
 					}
-					&[data-route="/categories/alcohol"] {
+					&[data-route='/alcohol/categories'] {
 						top: -3rem;
 						left: 0;
 						.imageCont {

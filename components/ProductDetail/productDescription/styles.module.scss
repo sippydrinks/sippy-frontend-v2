@@ -1,0 +1,74 @@
+@import '@/styles/imports';
+
+.details_container {
+	border-top: 0.1rem solid $col-grey-700;
+	width: 100%;
+	padding: 4rem 4rem 0;
+	margin-bottom: 11rem;
+	position: relative;
+	@include screenMax('mobile') {
+		padding: 4rem 2rem 0;
+		margin-bottom: 4rem;
+	}
+
+	.productBio {
+		margin: 0 auto;
+		.productNameBg {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 5rem;
+			h1 {
+				@extend %title-268;
+				font-family: $font-900;
+				color: $light-text-main;
+				text-transform: capitalize;
+				&[data-type='dark'] {
+					color: $col-white;
+				}
+			}
+			@include screenMax('mobile') {
+				text-align: left;
+				margin-bottom: 3rem;
+			}
+		}
+		.productBio_subtext {
+			@extend %flex-align;
+			gap: 0.8rem;
+			p {
+				@extend %text-18;
+				font-family: $font;
+				color: $col-grey-500;
+			}
+			.span_text {
+				color: $light-text-main;
+				font-family: $font-900;
+			}
+			.chevron_icon {
+				position: relative;
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+			&[data-type='dark'] {
+				p {
+					color: $col-white;
+				}
+			}
+		}
+	}
+
+	.productDesc_container {
+		// gap: 6.5rem;
+		// justify-content: space-between;
+		// @include grid(1fr 47rem 1fr, 6.4rem);
+		@include flex(space-between);
+
+		@include noScrollBar;
+		position: relative;
+
+		@include screenMax('mobile') {
+			flex-direction: column;
+			gap: 2rem;
+			padding: 0;
+		}
+	}
+}
