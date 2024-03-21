@@ -1,10 +1,9 @@
 @import '@/styles/imports';
 
 .modal_children {
-	padding-left: 1.4rem;
-	margin-right: 2.4rem;
 	width: 100%;
-	// overflow: auto;
+	height: 70vh;
+	box-sizing: border-box;
 	.modal_header {
 		@extend %flex-align;
 		justify-content: space-between;

@@ -6,8 +6,26 @@
 	gap: 1.6rem;
 
 	.loading {
-		// border-color: transparent;
-		animation: borderAnimation 2s linear infinite; /* Adjust animation duration as needed */
+		animation: changeBorders 2s linear infinite;
+		border-width: 2px;
+	}
+
+	@keyframes changeBorders {
+		0% {
+			border-left-color: $col-primary-default;
+		}
+		25% {
+			border-bottom-color: $col-primary-default;
+		}
+		50% {
+			border-right-color: $col-primary-default;
+		}
+		75% {
+			border-top-color: $col-primary-default;
+		}
+		100% {
+			border-left-color: $col-primary-default;
+		}
 	}
 
 	@keyframes borderAnimation {
@@ -20,24 +38,6 @@
 		25% {
 			border-top-color: transparent;
 			border-right-color: #007bff;
-			border-bottom-color: transparent;
-			border-left-color: transparent;
-		}
-		50% {
-			border-top-color: transparent;
-			border-right-color: transparent;
-			border-bottom-color: #007bff;
-			border-left-color: transparent;
-		}
-		75% {
-			border-top-color: transparent;
-			border-right-color: transparent;
-			border-bottom-color: transparent;
-			border-left-color: #007bff;
-		}
-		100% {
-			border-top-color: #007bff;
-			border-right-color: transparent;
 			border-bottom-color: transparent;
 			border-left-color: transparent;
 		}
