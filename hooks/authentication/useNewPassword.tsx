@@ -2,14 +2,12 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useRouter } from 'next/navigation';
 
 type Props = {
 	setIsNewPassword: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const useNewPassword = ({ setIsNewPassword }: Props) => {
-	const router = useRouter();
 
+const useNewPassword = ({ setIsNewPassword }: Props) => {
 	const schema = yup.object({
 		password: yup.string().required('Password is required'),
 		confirm_password: yup

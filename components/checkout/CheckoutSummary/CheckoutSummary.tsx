@@ -7,11 +7,14 @@ import styles from './CheckoutSummary.module.scss';
 
 const CheckoutSummary = () => {
 	const { themeColor, cartDetails } = useGlobalContext();
-	const [inputValue, setInputValue] = useState<string>('');
+	const [couponValue, setCouponValue] = useState<string>('');
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [discount, setDiscount] = useState<number>(0);
 	const [totalCost, setTotalCost] = useState<number>(0);
 	const [applyBtnText, setApplyBtnText] = useState<string>('Apply');
+	const [couponError, setCouponError] = useState<boolean>(false);
+	const [couponSuccess, setCouponSuccess] = useState<boolean>(false);
+
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -29,7 +32,9 @@ const CheckoutSummary = () => {
 	const handleApplyCoupon = () => {
 		setDiscount(200);
 		setApplyBtnText('Applied');
-		setInputValue('');
+		setCouponValue('');
+		setCouponError(false);
+		setCouponSuccess(true);
 	};
 
 	return (
@@ -37,16 +42,13 @@ const CheckoutSummary = () => {
 			<h5 className={styles.summary_header}>Summary</h5>
 			<div className={styles.summary_details}>
 				<div className={styles.input_container}>
-					<InputField value={inputValue} onChange={(e) => setInputValue(e.target.value)} label='Discount code' placeholder='Enter discount code' />
-					{inputValue === '' ? (
-						<Button disabled buttonType='transparent' className={styles.applyDiscount_btn}>
-							<h4>{applyBtnText}</h4>
-						</Button>
-					) : (
-						<Button onClick={handleApplyCoupon} buttonType='transparent' className={styles.applyDiscount_btnActive}>
-							<h4>{applyBtnText}</h4>
-						</Button>
-					)}
+					<div className={styles.input_error_container}>
+						<InputField inputClass={`${couponError && styles.error_class} ${couponSuccess && styles.coupon_success_class}`} value={couponValue} onChange={(e) => setCouponValue(e.target.value)} label='Discount code' placeholder='Enter discount code' />
+						{couponError && <p className={styles.coupon_error_text}>This coupon is invalid</p>}
+					</div>
+					<Button onClick={handleApplyCoupon} disabled={!couponValue} buttonType='transparent' className={!couponValue ? styles.applyDiscount_btn : styles.applyDiscount_btnActive}>
+						<h4>{applyBtnText}</h4>
+					</Button>
 				</div>
 				<div className={styles.summary_body}>
 					<p>Total Items ({cartDetails.cartQuantity})</p>

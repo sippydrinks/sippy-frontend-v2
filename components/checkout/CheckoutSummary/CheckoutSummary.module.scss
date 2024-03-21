@@ -22,13 +22,13 @@
 			display: none;
 		}
 		.input_container {
-			@extend %flex-align;
+			display: flex;
+			align-items: flex-end;
 			gap: 1.6rem;
 			.applyDiscount_btn,
 			.applyDiscount_btnActive {
 				height: 5.6rem;
 				width: 10.1rem;
-				align-self: flex-end;
 				background: $col-grey-light-stroke;
 				cursor: not-allowed;
 				h4 {
@@ -78,6 +78,26 @@
 			h3 {
 				color: $col-success-500;
 			}
+		}
+
+		.input_error_container {
+			width: 100%;
+			position: relative;
+		}
+
+		.coupon_success_class {
+			border: 1px solid $col-purple-500;
+			box-shadow: 0px 0px 0px 4px #5400681a;
+		}
+
+		.error_class {
+			border: 1px solid $col-error-500;
+		}
+		.coupon_error_text {
+			position: absolute;
+			bottom: -2.5rem;
+			width: 100%;
+			color: $col-error-500;
 		}
 	}
 	.summary_btn,

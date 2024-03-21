@@ -1,4 +1,4 @@
-import { Button, InputField, Radio } from '@/shared';
+import { Button, InputField } from '@/shared';
 import React, { useEffect, useState } from 'react';
 import styles from './DeliveryDetailsForm.module.scss';
 import { useForm } from 'react-hook-form';
@@ -18,6 +18,7 @@ interface DeliveryDetailsFormProps {
 	showSignupModal: boolean;
 	showLoginModal: boolean;
 }
+
 const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, showLoginModal, showSignupModal }: DeliveryDetailsFormProps) => {
 	const schema = yup.object({
 		email: yup.string().email('Invalid email').required('Email is required'),
@@ -53,15 +54,15 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 	const [newAddresses, setNewAddresses] = useState<any[]>([]);
 	const { isAuthenticated, addresses, lastAddress } = useAuth();
 	const [loading, setLoading] = useState(false);
-	console.log(isAuthenticated);
 
+	// watch email field to check if the user has an account with the email provided
 	const email = watch('email');
 
 	// useEffect to set newAddresses to savedAddresses
 	useEffect(() => {
 		setSelectedAddress(lastAddress);
 		setNewAddresses(addresses);
-	}, [addresses]);
+	}, [addresses, lastAddress]);
 
 	// handle contact form, add new address as the first item in the newAddresses array and close the form
 	const handleContactAddressForm = (data: any) => {
@@ -70,8 +71,6 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 		setShowContactForm(false);
 		reset();
 	};
-
-	console.log(selectedAddress);
 
 	// useEffect to watch all fields in other to activate the submit button
 	useEffect(() => {
@@ -90,6 +89,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 		}
 	}, [watchAllFields, isGift]);
 
+	// function to check if the user has an account with the email provided
 	const checkUser = async (email: string) => {
 		setLoading(true);
 		try {
@@ -118,6 +118,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 		}
 	}, [email, isAuthenticated]);
 
+	// function to handle the change button
 	const handleChangeButton = () => {
 		if (addresses.length > 0) {
 			setSelectedAddress(null);

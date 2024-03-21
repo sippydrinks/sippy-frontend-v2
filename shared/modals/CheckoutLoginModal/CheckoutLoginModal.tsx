@@ -16,7 +16,7 @@ const CheckoutLoginModal = ({ isOpen, onClose }: ModalProps) => {
 					<Button onClick={() => router.push('/login')} buttonType='primary' className={styles.cancel_btn}>
 						<h3>Login</h3>
 					</Button>
-					<Button buttonType='primary' className={styles.leavecart_btn}>
+					<Button buttonType='primary' className={styles.leavecart_btn} onClick={onClose}>
 						<h3>Continue as guest</h3>
 					</Button>
 				</div>

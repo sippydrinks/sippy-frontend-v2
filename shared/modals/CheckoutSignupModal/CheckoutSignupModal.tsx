@@ -16,7 +16,7 @@ const CheckoutSignupModal = ({ isOpen, onClose }: ModalProps) => {
 							<h3>Create account</h3>
 						</Link>
 					</Button>
-					<Button buttonType='primary' className={styles.leavecart_btn}>
+					<Button buttonType='primary' className={styles.leavecart_btn} onClick={onClose}>
 						<h3>Continue as guest</h3>
 					</Button>
 				</div>

@@ -10,10 +10,11 @@ import styles from './Checkout.module.scss';
 import DeliveryDetailsForm from './DeliveryDetails/DeliveryDetailsForm';
 import CheckBox from '@/shared/checkbox/Checkbox';
 import { useAuth } from '@/contexts/AuthContext';
+import { paymentOptions, shippingOptions, timeOptions } from '@/utils/checkout';
 
 const Checkout = () => {
 	const { theme, cartDetails } = useGlobalContext();
-	const { isAuthenticated, addresses } = useAuth();
+	const { isAuthenticated } = useAuth();
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [showLoginModal, setShowLoginModal] = useState(isOpen);
 	const [showSignupModal, setShowSignupModal] = useState(false);
@@ -21,76 +22,6 @@ const Checkout = () => {
 	const [selectedShippingOption, setSelectedShippingOption] = useState<string>('');
 	const [isGift, setIsGift] = useState<boolean>(false);
 
-	const paymentOptions = [
-		{
-			name: 'Pay with card, bank transfer or USSD',
-			type: 'fiat_payment',
-			id: '1',
-			disabled: false,
-		},
-		{
-			name: 'Pay on delivery',
-			type: 'fiat_payment',
-			id: '2',
-			disabled: false,
-		},
-		{
-			name: 'Pay with crypto',
-			type: 'crypto_payment',
-			id: '3',
-			disabled: true,
-		},
-	];
-
-	const shippingOptions = [
-		{
-			name: 'Select date and time',
-			id: '1',
-		},
-		{
-			name: 'Immediately',
-			id: '2',
-		},
-	];
-
-	const timeOptions = [
-		{
-			id: 1,
-			label: '09:00am',
-		},
-		{
-			id: 2,
-			label: '10:00am',
-		},
-		{
-			id: 3,
-			label: '11:00am',
-		},
-		{
-			id: 4,
-			label: '12:00pm',
-		},
-		{
-			id: 4,
-			label: '01:00pm',
-		},
-		{
-			id: 5,
-			label: '02:00pm',
-		},
-		{
-			id: 6,
-			label: '03:00pm',
-		},
-		{
-			id: 7,
-			label: '04:00pm',
-		},
-		{
-			id: 8,
-			label: '05:00pm',
-		},
-	];
 	return (
 		<div data-theme={theme} className={styles.checkout_container}>
 			<div className={styles.checkout_details}>

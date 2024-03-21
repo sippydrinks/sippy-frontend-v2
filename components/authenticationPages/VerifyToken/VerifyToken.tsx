@@ -8,8 +8,9 @@ import OtpTimer from './OtpTimer';
 
 const VerifyToken = () => {
 	const [otpTime, setOtpTime] = useState<number>(1);
-	const [isTimerRunning, setIsTimerRunning] = useState<boolean>(true);
+	const [isTimerRunning, setIsTimerRunning] = useState<boolean>(true)
 	const { subTitle, otpError, handleInputChange, handleKeyDown, handlePaste, inputRefs, tokens, submitToken } = useRecoverPassword({});
+
 	console.log(otpError);
 	return (
 		<div>

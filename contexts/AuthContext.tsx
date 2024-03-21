@@ -5,8 +5,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 // Define the shape of the context
 interface AuthContextProps {
 	isAuthenticated: boolean;
-	login: () => void;
-	logout: () => void;
 	addresses: any[];
 	lastAddress: any;
 }
@@ -14,8 +12,6 @@ interface AuthContextProps {
 // Create the context
 const AuthContext = createContext<AuthContextProps>({
 	isAuthenticated: true,
-	login: () => {},
-	logout: () => {},
 	addresses: [],
 	lastAddress: {},
 });
@@ -57,21 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 		// setIsAuthenticated(!!token);
 	}, []);
 
-	const login = () => {
-		// You can implement your login logic here
-		// For example, set a token in localStorage
-		localStorage.setItem('token', 'your-token');
-		setIsAuthenticated(true);
-	};
-
-	const logout = () => {
-		// You can implement your logout logic here
-		// For example, remove the token from localStorage
-		localStorage.removeItem('token');
-		setIsAuthenticated(false);
-	};
-
-	return <AuthContext.Provider value={{ isAuthenticated: false, login, logout, addresses: [], lastAddress: null }}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={{ isAuthenticated: false, addresses: [], lastAddress: null }}>{children}</AuthContext.Provider>;
 };
 
 // Create a custom hook to use the auth context
