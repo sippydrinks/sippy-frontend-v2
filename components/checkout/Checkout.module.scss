@@ -42,6 +42,10 @@
 			@extend %flex-align;
 			padding: 1.6rem;
 			margin-bottom: 2.4rem;
+
+			&[data-auth='true'] {
+				display: none;
+			}
 			p {
 				@extend %text-16;
 				color: $col-grey-500;
@@ -99,6 +103,7 @@
 				.shipping_options_container {
 					border: 0.1rem solid #e6e6e6;
 					border-radius: 1.6rem;
+					margin-top: 1.6rem;
 					.shipping_options {
 						// margin-top: 1.6rem;
 						width: 100%;

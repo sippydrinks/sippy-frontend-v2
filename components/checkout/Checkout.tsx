@@ -9,21 +9,17 @@ import Image from 'next/image';
 import styles from './Checkout.module.scss';
 import DeliveryDetailsForm from './DeliveryDetails/DeliveryDetailsForm';
 import CheckBox from '@/shared/checkbox/Checkbox';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Checkout = () => {
 	const { theme, cartDetails } = useGlobalContext();
-	const [Open, setOpen] = useState<boolean>(false);
+	const { isAuthenticated, addresses } = useAuth();
+	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [showLoginModal, setShowLoginModal] = useState(isOpen);
+	const [showSignupModal, setShowSignupModal] = useState(false);
 	const [selectedOption, setSelectedOption] = useState<string>('');
 	const [selectedShippingOption, setSelectedShippingOption] = useState<string>('');
 	const [isGift, setIsGift] = useState<boolean>(false);
-	const [selectedAddressId, setSelectedAddressId] = useState<number>(0);
-	const [showContactForm, setShowContactForm] = useState<boolean>(false);
-	const open = () => {
-		setOpen(true);
-	};
-	const close = () => {
-		setOpen(false);
-	};
 
 	const paymentOptions = [
 		{
@@ -54,30 +50,6 @@ const Checkout = () => {
 		{
 			name: 'Immediately',
 			id: '2',
-		},
-	];
-
-	const savedAddresses = [
-		{
-			id: 1,
-			address: 'No 1, Oladipo Diya Street, Gudu, Abuja',
-			phone_number: '+2348012345678',
-			email: 'test@gmail.com',
-			name: 'John Doe',
-		},
-		{
-			id: 2,
-			address: 'No 2, Oladipo Diya Street, Gudu, Abuja',
-			phone_number: '+2348012345678',
-			email: 'test2@gmail.com',
-			name: 'Jane Doe',
-		},
-		{
-			id: 3,
-			address: 'No 3, Oladipo Diya Street, Gudu, Abuja',
-			phone_number: '+2348012345678',
-			email: 'test3@gmail.com',
-			name: 'Sarah Doe',
 		},
 	];
 
@@ -132,14 +104,13 @@ const Checkout = () => {
 					<p>Shipping</p>
 				</div>
 
-				<div className={styles.login_body}>
+				<div data-auth={isAuthenticated} className={styles.login_body}>
 					<p>
 						If you have an account,
-						<span onClick={open}> Login </span>
+						<span onClick={() => setShowLoginModal(true)}> Login </span>
 						for a better experience
 					</p>
 				</div>
-				<CheckoutLoginModal modalImage='' isOpen={Open} onClose={close} />
 
 				<div className={styles.checkout_details_content}>
 					<div className={styles.delivery_details}>
@@ -151,7 +122,7 @@ const Checkout = () => {
 							</div>
 						</div>
 						<div>
-							<DeliveryDetailsForm isGift={isGift} savedAddresses={savedAddresses} />
+							<DeliveryDetailsForm isGift={isGift} showLoginModal={showLoginModal} showSignupModal={showSignupModal} setShowLoginModal={setShowLoginModal} setShowSignupModal={setShowSignupModal} />
 						</div>
 					</div>
 					<div className={styles.shipping_details}>

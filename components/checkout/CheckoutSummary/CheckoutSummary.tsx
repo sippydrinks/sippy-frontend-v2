@@ -11,6 +11,7 @@ const CheckoutSummary = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [discount, setDiscount] = useState<number>(0);
 	const [totalCost, setTotalCost] = useState<number>(0);
+	const [applyBtnText, setApplyBtnText] = useState<string>('Apply');
 	const openModal = () => {
 		setIsOpen(true);
 	};
@@ -27,6 +28,7 @@ const CheckoutSummary = () => {
 
 	const handleApplyCoupon = () => {
 		setDiscount(200);
+		setApplyBtnText('Applied');
 		setInputValue('');
 	};
 
@@ -38,11 +40,11 @@ const CheckoutSummary = () => {
 					<InputField value={inputValue} onChange={(e) => setInputValue(e.target.value)} label='Discount code' placeholder='Enter discount code' />
 					{inputValue === '' ? (
 						<Button disabled buttonType='transparent' className={styles.applyDiscount_btn}>
-							<h4>Apply</h4>
+							<h4>{applyBtnText}</h4>
 						</Button>
 					) : (
 						<Button onClick={handleApplyCoupon} buttonType='transparent' className={styles.applyDiscount_btnActive}>
-							<h4>Apply</h4>
+							<h4>{applyBtnText}</h4>
 						</Button>
 					)}
 				</div>
@@ -58,7 +60,7 @@ const CheckoutSummary = () => {
 				</div>
 				<div className={`${styles.summary_body} ${!discount && styles.hide_details} ${styles.discount}`}>
 					<p>Discount</p>
-					<h3>₦{discount}</h3>
+					<h3>-₦{discount}</h3>
 				</div>
 				<div className={styles.summary_body}>
 					<p>VAT</p>

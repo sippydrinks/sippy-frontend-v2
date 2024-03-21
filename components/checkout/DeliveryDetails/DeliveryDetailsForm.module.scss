@@ -5,13 +5,49 @@
 		display: flex;
 		align-items: center;
 		gap: 1.6rem;
+
+		.loading {
+			border-color: transparent;
+			animation: borderAnimation 2s linear infinite; /* Adjust animation duration as needed */
+		}
+
+		@keyframes borderAnimation {
+			0% {
+				border-top-color: #007bff;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+			}
+			25% {
+				border-top-color: transparent;
+				border-right-color: #007bff;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+			}
+			50% {
+				border-top-color: transparent;
+				border-right-color: transparent;
+				border-bottom-color: #007bff;
+				border-left-color: transparent;
+			}
+			75% {
+				border-top-color: transparent;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+				border-left-color: #007bff;
+			}
+			100% {
+				border-top-color: #007bff;
+				border-right-color: transparent;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+			}
+		}
 	}
 	.saved_addresses {
 		display: flex;
 		flex-direction: column;
-		border: 1px solid $col-grey-300;
-		border-radius: 10px;
-		padding: 1.5rem;
+		// padding: 1.5rem 0;
 		gap: 1.6rem;
 		.address {
 			display: flex;
@@ -46,17 +82,15 @@
 		}
 		.add_new_address {
 			padding: 1rem 2rem;
-			display: flex;
+
 			align-items: center;
 			gap: 1.5rem;
 			@extend %text-18;
 			color: $col-primary-default;
 			font-weight: 700;
 			cursor: pointer;
-
-			&[data-visible='false'] {
-				display: none;
-			}
+			display: flex;
+			// display: none;
 		}
 
 		.single_address {

@@ -1,0 +1,84 @@
+@import '@/styles/imports';
+
+.nameAndNumber {
+	display: flex;
+	align-items: center;
+	gap: 1.6rem;
+
+	.loading {
+		// border-color: transparent;
+		animation: borderAnimation 2s linear infinite; /* Adjust animation duration as needed */
+	}
+
+	@keyframes borderAnimation {
+		0% {
+			border-top-color: #007bff;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+		}
+		25% {
+			border-top-color: transparent;
+			border-right-color: #007bff;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+		}
+		50% {
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-bottom-color: #007bff;
+			border-left-color: transparent;
+		}
+		75% {
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-left-color: #007bff;
+		}
+		100% {
+			border-top-color: #007bff;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+		}
+	}
+}
+
+.prefix_container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+	height: 1.7rem;
+	color: $col-grey-500;
+
+	.prefix_divider {
+		width: 1px;
+		height: 2rem;
+		background-color: $col-grey-300;
+		display: flex;
+	}
+}
+@include screenMax('mobile') {
+	.nameAndNumber {
+		display: flex;
+		flex-direction: column;
+		gap: 0rem;
+	}
+	.saved_addresses {
+		padding: 1.5rem 1rem;
+		.address {
+			gap: 1rem;
+			align-items: flex-start;
+			.address_details {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 1rem;
+
+				.dots {
+					display: none;
+				}
+			}
+		}
+	}
+}
