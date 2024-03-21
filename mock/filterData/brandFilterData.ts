@@ -3,26 +3,37 @@ export default [
     {
         id: 1,
         isChecked: false,
-        size: 25
+        brand: 'Coke zero',
+        brandName: 'Juice1 type',
     },
     {
         id: 2,
         isChecked: false,
-        size: 30
+        brand: 'Yoghurt',
+        brandName: 'Juice2 type',
     },
     {
         id: 3,
         isChecked: false,
-        size: 35
+        brand: 'Amarula',
+        brandName: 'Juice3 type',
     },
     {
         id: 4,
         isChecked: false,
-        size: 50
+        brand: 'Tequila',
+        brandName: 'Juice4 type',
     },
     {
         id: 5,
         isChecked: false,
-        size: 100
+        brand: 'Chivita',
+        brandName: 'Juice5 type',
+    },
+    {
+        id: 6,
+        isChecked: false,
+        brand: 'Jameson',
+        brandName: 'Juice6 type',
     },
 ]

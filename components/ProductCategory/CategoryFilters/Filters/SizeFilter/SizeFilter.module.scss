@@ -1,0 +1,42 @@
+@import '@/styles/imports';
+
+.sizeFilter_container {
+    .filterName {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.6rem;
+        position: relative;
+        form {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            input[type = 'checkbox'] {
+                width: 2.4rem;
+                height: 2.4rem;
+                border: 0.2rem solid $col-grey-700;
+                cursor: pointer;
+                accent-color: $col-primary-default;
+                border-radius: 0.8rem;
+                appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                &:checked {
+                    appearance: auto;
+                    background-color: $col-primary-default;
+                }
+            }
+            h3 {
+                font-family: $font-700;
+                color: $light-text-main;
+                @extend %text-14;
+            }
+        }
+        &[data-theme = "dark"] {
+            h3 {
+                color: $col-white;
+            }
+        }
+    }
+}

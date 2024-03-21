@@ -1,13 +1,98 @@
 @import "@/styles/imports";
 
 .hero_container {
-    margin: 0 auto 8rem;
+    margin: 0 auto;
     @include grid(repeat(4, 1fr), 4rem);
     padding:  0 4rem;
+}
 
-    @include screenMax("mobile") {
+.btns {
+    @extend %flex-center;
+    gap: 2.4rem;
+    transition: $all-transition;
+    margin: 0 auto 6rem;
+    .left_chevron, .right_chevron {
+        width: 5.1rem;
+        height: 5.1rem;
+        position: relative;
+        border: 0.2rem solid $light-text-main;
+        @extend %flex-center;
+        border-radius: 50%;
+        cursor: pointer;
+        &[data-theme = "dark"] {
+            border-color: #F4F4F4;
+            color: $light-text-main;
+        }
+        svg {
+            width: 3.2rem;
+            height: 3.2rem;
+            position: relative;
+        }
+    }
+    .left_chevron {
+        &[data-page = "1"] {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background-color: transparent;
+        }
+        &[data-pagenumber = "true"] {
+            background-color: $col-primary-default;
+            svg {
+                path {
+                    fill: $col-white;
+                }
+            }
+            &[data-route = "true"] {
+                background-color: $col-orange-300;
+            }
+        }
+    }
+    .right_chevron {
+        transform: rotate(180deg);
+        &[data-lastpage = "true"] {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background-color: transparent;
+            svg {
+                path {
+                    fill: $col-grey-darker;
+                }
+            }
+            &[data-theme = "dark"] {
+                svg {
+                    fill: $col-white;
+                }
+            }
+        }
+        &[data-notlastpage = "true"] {
+            background-color: $col-primary-default;
+            &[data-route = "true"] {
+                background-color: $col-orange-300;
+            }
+        }
+        svg {
+            path {
+                fill: $col-white;
+            }
+        }
+    }
+}
+
+@include screenMax("mobile") {
+    .hero_container {
         padding: 0 1.6rem;
         @include grid(repeat(2, 1fr), 4rem);
-        margin: 4rem 0;
+        margin: 4rem 0 0;
+    }
+    .btns {
+        margin: 0 0 4rem;
+        .left_chevron, .right_chevron {
+            width: 3rem;
+            height: 3rem;
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
     }
 }

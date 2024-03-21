@@ -1,5 +1,6 @@
 import React from 'react'
 import { usePagination } from '@/hooks'
+import { usePathname } from 'next/navigation'
 import styles from './Pagination.module.scss'
 
 const Pagination = ({pageSize, totalCount, theme, setCurrentPage, currentPage}: any) => {
@@ -17,6 +18,8 @@ const Pagination = ({pageSize, totalCount, theme, setCurrentPage, currentPage}: 
     for (let i = 1; i <= loopLimit; i++) {
         pageNumbers.push(i)
     }
+    const route = usePathname()
+    const isAlcoholRoute = route.includes('/alcohol')
   return (
     <div className={styles.pageBtns_wrapper}>
         {
@@ -26,7 +29,8 @@ const Pagination = ({pageSize, totalCount, theme, setCurrentPage, currentPage}: 
                     onClick={() => setCurrentPage(page)}
                     data-theme={theme}
                     data-active={page === currentPage}
-                    className={styles.pageBtn} 
+                    data-route={isAlcoholRoute}
+                    className={styles.pageBtn}
                 >
                     <h3> {page} </h3>
                 </div>

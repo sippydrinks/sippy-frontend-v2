@@ -1,0 +1,32 @@
+@import '@/styles/imports';
+
+.select_container {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    cursor: pointer;
+    select {
+        background: transparent;
+        background-color: $col-background-shade;
+        border: 0;
+        outline: none;
+        option {
+            @extend %text-14;
+            font-family: $font;
+            color: $light-text-main;
+        }
+        &:nth-child(1) {
+            font-family: $font-700;
+            color: $light-text-main;
+            @extend %text-16;
+        }
+    }
+    &[data-theme = "dark"] {
+        select {
+            option {
+                color: $col-white;
+            }
+        }
+    }
+}

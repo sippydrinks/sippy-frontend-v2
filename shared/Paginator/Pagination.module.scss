@@ -36,6 +36,9 @@
                 color: $col-white;
                 font-family: $font-900;
             }
+            &[data-route = "true"] {
+                background: $col-orange-300;
+            }
         }
         @include screenMax("mobile") {
             width: 3rem;

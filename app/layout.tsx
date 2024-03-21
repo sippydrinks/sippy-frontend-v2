@@ -50,21 +50,10 @@ export default function RootLayout({
 			<body className={myFont.className}>
 				<AppProvider>
 					<AuthProvider>
-					<Toaster
-						position='top-right'
-						// autoClose={2000}
-						// hideProgressBar={false}
-						// newestOnTop={false}
-						// closeOnClick
-						// rtl={false}
-						// pauseOnFocusLoss
-						// draggable
-						// pauseOnHover
-						// theme="dark"
-					/>
-					<PreLoader />
-					<React.Fragment>{children}</React.Fragment>
-						</AuthProvider>
+						<Toaster position='top-right' />
+						<PreLoader />
+						<React.Fragment>{children}</React.Fragment>
+					</AuthProvider>
 				</AppProvider>
 			</body>
 		</html>

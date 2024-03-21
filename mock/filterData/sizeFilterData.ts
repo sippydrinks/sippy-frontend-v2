@@ -8,7 +8,7 @@ export default [
     {
         id: 2,
         isChecked: false,
-        size: 30
+        size: 350
     },
     {
         id: 3,
@@ -23,6 +23,6 @@ export default [
     {
         id: 5,
         isChecked: false,
-        size: 100
+        size: 700
     },
 ]

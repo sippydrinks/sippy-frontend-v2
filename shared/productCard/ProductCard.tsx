@@ -10,10 +10,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ProductCard.module.scss';
 
-const Product = (data: ProductCardProps) => {
-	const { theme, drinkType, setCart }: any = useGlobalContext();
-	const route = usePathname();
-	const urlCheck = route.includes('/alcohol');
+const Product = (data: ProductCardProps, slug: string) => {
+	const { theme, drinkType, setCart } = useGlobalContext();
+	const route = usePathname()
+	const isAlcoholCheck = route.includes('/alcohol')
 	const [isHover, setIsHover] = useState<boolean>(false);
 	const onHover = () => {
 		setIsHover(true);
@@ -53,7 +53,7 @@ const Product = (data: ProductCardProps) => {
 				];
 			} else {
 				// If the item is not in the cart, create a new array with the added item
-				toast.success(`${productData.productName} was added to cart`);
+				toast.success(`${isAlcoholCheck ? productData.productNameAlcohol : productData.productName} was added to cart`);
 				return [...prevCart, productData];
 			}
 		});
@@ -77,13 +77,16 @@ const Product = (data: ProductCardProps) => {
 					</svg>
 					<div className={styles.icon_container}>
 						<div className={styles.icon}>
-							<Image src={urlCheck === false ? data.productImage : data.productImageAlcohol} alt='' fill />
+							<Image src={isAlcoholCheck === false ? data.productImage : data.productImageAlcohol}
+								alt=''
+								fill
+							/>
 						</div>
 					</div>
 				</div>
 			</Link>
 			<div className={styles.text}>
-				<h3>{data && urlCheck === false ? data.productName : data.productNameAlcohol}</h3>
+				<h3>{isAlcoholCheck === false ? data.productName : data.productNameAlcohol}</h3>
 				<p>NGN{formatNum(data.productPrice)}</p>
 			</div>
 			<Button className={styles.button} buttonType='primary' onClick={addToCart}>

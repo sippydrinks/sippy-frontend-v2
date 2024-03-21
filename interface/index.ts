@@ -85,7 +85,7 @@ export interface DrinkTypeCardProps {
 	id?: number;
 	bg: string;
 	icon: string;
-	text?: string;
+	text: string;
 	cardType?: 'home' | 'categories';
 }
 
@@ -98,8 +98,8 @@ export interface CounterProps {
 
 export interface ProductCardProps {
 	id?: number;
-	productName: string;
-	productNameAlcohol: string;
+	productName?: string;
+	productNameAlcohol?: string;
 	productImage: string;
 	productImageAlcohol: string;
 	productPrice: number;

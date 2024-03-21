@@ -7,7 +7,6 @@ import { isEmpty } from 'lodash';
 
 const useFetchAll = () => {
 	const { setProductListing, setCart, drinkType }: any = useGlobalContext();
-	console.log('useFetchAll');
 	const { data: drinkList } = useSWR<any>(`/api/productListings?drinkType=${drinkType}`, Fetcher);
 
 	useEffect(() => {

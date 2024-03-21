@@ -1,0 +1,237 @@
+@import "@/styles/imports";
+
+%flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.filters {
+	@extend %flex-column;
+	width: 31rem;
+	gap: 2.4rem;
+	.breadcrumbs {
+		.category_text, .product_name {
+			@extend %text-18;
+			font-family: $font;
+		}
+		.category_text {
+			color: $col-grey-500;
+			cursor: pointer;
+		}
+		.product_name {
+			text-transform: capitalize;
+			font-family: $font-700;
+			color: $col-grey-900;
+		}
+	}
+	.action_panel_container {
+		display: none;
+	}
+	.filter_Accordion {
+		@extend %flex-column;
+		gap: 1.6rem;
+	}
+	.filter_Btn {
+		@extend %flex-column;
+		gap: 1.6rem;
+
+		.applyFilter,
+		.clearFilter {
+			width: 31rem;
+			h3 {
+				color: $col-white;
+				@extend %text-16;
+				font-family: $font-900;
+			}
+		}
+		.clearFilter h3 {
+			color: $light-text-main;
+			&[data-theme="dark"] {
+				color: $col-white;
+			}
+		}
+	}
+	@include screenMax("mobile") {
+		.filter_Accordion {
+			display: none;
+		}
+		.action_panel_container {
+			display: block;
+			&[data-active = "true"] {
+				display: none;
+			}
+			.action_panel {
+				.action_panel_header {
+					display: flex;
+					align-items: center;
+					gap: 4rem;
+					&[data-active = "dark"] {
+						display: none;
+					}
+					&[data-open = "true"] {
+						display: none;
+					}
+					.filter_container {
+						display: flex;
+						align-items: center;
+						gap: 0.8rem;
+						border-left: 0.1rem solid $col-grey-700;
+						padding-left: 9rem;
+						cursor: pointer;
+						h3 {
+							font-family: $font-700;
+							color: $light-text-main;
+							font-size: 1.6rem;
+							line-height: 2.4rem;
+						}
+						.filter_icon {
+							width: 2rem;
+							height: 2rem;
+							position: relative;
+							cursor: pointer;
+						}
+						&[data-theme = "dark"] {
+							h3 {
+								color: $col-white;
+							}
+							border-left-color: $col-white;
+						}
+					}
+				}
+			}
+			.filter_body {
+				transition: all 0.3s ease-out;
+				.filter_content {
+					.filter_header {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						margin-bottom: 2.4rem;
+						h3 {
+							font-family: $font-900;
+							color: $light-text-main;
+							font-size: 1.8rem;
+							line-height: 2.4rem;
+						}
+						.filter_icon {
+							width: 2rem;
+							height: 2rem;
+							position: relative;
+							rotate: 45deg;
+							cursor: pointer;
+						}
+					}
+					.brandFilter_container {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						padding-bottom: 1.6rem;
+						border-bottom: 0.1rem solid $col-grey-light-stroke;
+						margin-bottom: 1.6rem;
+						cursor: pointer;
+						h3 {
+							font-family: $font-700;
+							color: $light-text-main;
+							font-size: 1.4rem;
+							line-height: 2.4rem;
+						}
+						.icon {
+							width: 2.4rem;
+							height: 2.4rem;
+							position: relative;
+						}
+					}
+					.priceFilter_container {
+						h3 {
+							font-family: $font-700;
+							color: $light-text-main;
+							font-size: 1.4rem;
+							line-height: 2.4rem;
+							margin-bottom: 1.8rem;
+						}
+					}
+				}
+			}
+			.size_filter_body,
+			.brand_filter_body {
+				transition: all 0.3s ease-out;
+				width: calc(100% - 1.6rem);
+				z-index: 4;
+				padding: 1.6rem;
+				border-radius: 1.6rem;
+				right: -110dvw;
+				background: $col-background-shade;
+				position: fixed;
+				top: 1rem;
+				height: calc(100dvh - 1rem);
+				&[data-active="true"] {
+					transition: all 0.3s ease-out;
+					right: 0.8rem;
+				}
+				.filter_header {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-bottom: 2.4rem;
+					.arrow_container {
+						display: flex;
+						align-items: center;
+						gap: 0.8rem;
+						h3 {
+							font-family: $font-900;
+							color: $light-text-main;
+							font-size: 1.8rem;
+							line-height: 2.4rem;
+						}
+						.back_arrow {
+							width: 2.4rem;
+							height: 2.4rem;
+							position: relative;
+							cursor: pointer;
+						}
+					}
+					.filter_icon {
+						width: 2rem;
+						height: 2rem;
+						position: relative;
+						rotate: 45deg;
+						cursor: pointer;
+					}
+				}
+			}
+			[data-theme = "dark"] {
+				.action_panel {
+					.action_panel_header {
+						.filter_container {
+							h3 {
+								color: $col-white;
+							}
+						}
+					}
+				}
+				.filter_body {
+					background: $col-black;
+					.filter_content {
+						.filter_header,
+						.brandFilter_container,
+						.priceFilter_container {
+							h3 {
+								color: $col-white;
+							}
+						}
+					}
+				}
+				.size_filter_body, .brand_filter_body {
+					background: $col-black;
+					.filter_header {
+						.arrow_container {
+							h3 {
+								color: $col-white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
