@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import styles from './Slider.module.scss';
 import { Button } from '..';
-import Image from 'next/image';
 import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
+import Image from 'next/image';
+import styles from './Slider.module.scss';
 
 interface Props {
 	slides: any[];

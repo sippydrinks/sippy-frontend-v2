@@ -1,0 +1,113 @@
+@import '@/styles/imports';
+
+.container {
+	width: 100%;
+	position: relative;
+	padding-block: 2rem;
+	min-height: 7rem;
+	padding-right: 1rem;
+    margin-left: 0.35rem;
+	.slider {
+		position: relative;
+		width: 100%;
+	}
+ 
+	.slider__track, .slider__range, .slider__left_value, .slider__right_value {
+		position: absolute;
+	}
+ 
+	.slider__track, .slider__range {
+		border-radius: 3px;
+		height: 0.4rem;
+	}
+
+	.slider__track {
+		background-color: #ced4da;
+		width: 100%;
+		z-index: 1;
+		top: 1.5rem;
+		left: 0.5rem;
+	}
+	.slider__range {
+		background: $col-primary-default;
+		z-index: 2;
+		top: 1.5rem;
+		left: 0.5rem;
+	}
+ 
+	/* Removing the default appearance */
+	.thumb,
+	.thumb::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.thumb {
+		pointer-events: none;
+		position: absolute;
+		height: 0;
+		top: 3rem;
+		width: 100%;
+		outline: none;
+	}
+	.thumb__left {
+		z-index: 3;
+		left: -0.5rem;
+	}
+	.thumb__right {
+		z-index: 4;
+		right: 0;
+	}
+ 
+	/* For Chrome browsers */
+	.thumb::-webkit-slider-thumb {
+		background: $col-primary-default;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		height: 2.4rem;
+		width: 2.4rem;
+		margin-top: 0.4rem;
+		pointer-events: all;
+		position: relative;
+	}
+	.thumb::-moz-range-thumb {
+		background: $col-primary-default;
+		border: none;
+		border-radius: 50%;
+		cursor: pointer;
+		height: 2.4rem;
+		width: 2.4rem;
+		margin-top: 0.4rem;
+		pointer-events: all;
+		position: relative;
+	}
+}
+ 
+.flex_container {
+	@include grid(repeat(3, 1fr), 2rem);
+    align-items: center;
+	width: 100%;
+    .spacer {
+        width: 2.4rem;
+        height: 0.2rem;
+        background: $col-grey-800;
+		margin: 0 auto;
+    }
+	.input_container {
+		width: 100%;
+		.text {
+			margin-bottom: 0.4rem;
+			p {
+				text-transform: capitalize;
+			}
+		}
+        .sliderValue {
+            width: 9.7rem;
+            height: 4rem;
+            border: 0.1rem solid $col-grey-light-stroke;
+            padding: 0.8rem 1.6rem;
+            border-radius: 1rem;
+        }
+	}
+}

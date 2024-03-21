@@ -1,14 +1,14 @@
 'use client';
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { DrinkTypeProps } from '@/interface/home';
-import { ProductCard } from '../../../shared';
-import { ProductData } from '@/mock';
-import { useGlobalContext } from '@/contexts/AppContext';
-import { Button } from '../../../shared';
-import styles from './Catalog.module.scss';
-import { usePathname } from 'next/navigation';
-import { ProductCardProps } from '@/interface';
+import React, { useState } from "react";
+import { DrinkTypeProps } from "@/interface/home";
+import { ProductCard } from "../../../shared";
+import { ProductData } from "@/mock";
+import { useGlobalContext } from "@/contexts/AppContext";
+import { Button } from "../../../shared";
+import { usePathname } from "next/navigation";
+import { ProductCardProps } from "@/interface";
+import Image from "next/image";
+import styles from "./Catalog.module.scss";
 
 const Catalog = ({ type }: DrinkTypeProps) => {
 	const { theme, drinkType, productListing } = useGlobalContext();
@@ -40,7 +40,7 @@ const Catalog = ({ type }: DrinkTypeProps) => {
 				</div>
 			</div>
 			<div className={styles.hero_container}>
-				{ProductData.slice(0, numberOfProducts).map((product: ProductCardProps, index: number) => (
+				{ProductData.slice(0, numberOfProducts).map((product: any, index: number) => (
 					<ProductCard key={index} {...product} />
 				))}
 			</div>

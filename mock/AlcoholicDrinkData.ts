@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line
 export default [
     {
@@ -27,7 +26,7 @@ export default [
         bglight: '#E0F1CC',
         bgdark: '#20ED10',
         icon: '/svgs/beers.svg',
-        text: 'Beers & ciders',
+        text: 'Beers and ciders',
     },
     {
         id: 5,
@@ -55,7 +54,6 @@ export default [
         bglight: '#E0F1CC',
         bgdark: '#20ED10',
         icon: '/svgs/beers.svg',
-        text: 'Beers & ciders',
+        text: 'Beers and ciders',
     },
-    
 ]

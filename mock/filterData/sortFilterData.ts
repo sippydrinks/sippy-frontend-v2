@@ -3,26 +3,16 @@ export default [
     {
         id: 1,
         isChecked: false,
-        size: 25
+        sort: 'Popularity'
     },
     {
         id: 2,
         isChecked: false,
-        size: 30
+        sort: 'Highest in Price'
     },
     {
         id: 3,
         isChecked: false,
-        size: 35
-    },
-    {
-        id: 4,
-        isChecked: false,
-        size: 50
-    },
-    {
-        id: 5,
-        isChecked: false,
-        size: 100
+        sort: 'Lowest in Price'
     },
 ]
