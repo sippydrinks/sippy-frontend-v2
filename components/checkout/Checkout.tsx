@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CheckoutLoginModal } from '../../shared/modals';
 import { useGlobalContext } from '@/contexts/AppContext';
 import CheckoutSummary from './CheckoutSummary/CheckoutSummary';
@@ -12,15 +12,53 @@ import CheckBox from '@/shared/checkbox/Checkbox';
 import { useAuth } from '@/contexts/AuthContext';
 import { paymentOptions, shippingOptions, timeOptions } from '@/utils/checkout';
 
+export interface DateOption {
+	date: string;
+	time: string;
+}
+export interface ShippingOption {
+	id: string;
+	label: string;
+	value: string | DateOption | undefined;
+}
+
 const Checkout = () => {
 	const { theme, cartDetails } = useGlobalContext();
 	const { isAuthenticated } = useAuth();
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [showLoginModal, setShowLoginModal] = useState(isOpen);
 	const [showSignupModal, setShowSignupModal] = useState(false);
-	const [selectedOption, setSelectedOption] = useState<string>('');
-	const [selectedShippingOption, setSelectedShippingOption] = useState<string>('');
+	const [selectedOption, setSelectedOption] = useState<string>('1');
+	const [shippingOptionId, setShippingOptionId] = useState<string>('');
+	const [shippingOption, setShippingOption] = useState<ShippingOption | undefined>(undefined);
 	const [isGift, setIsGift] = useState<boolean>(false);
+	const [activateProceedBtn, setActivateProceedBtn] = useState<boolean>(false);
+	const [shippingDate, setShippingDate] = useState<string>('');
+	const [shippingTime, setShippingTime] = useState<string>('');
+
+	const getShippingOption = (id: string) => {
+		const option = shippingOptions.find((option) => option.id === id);
+		if (id === '1') {
+			if (shippingDate && shippingTime) {
+				setShippingOption({ value: { date: shippingDate, time: shippingTime }, id: '1', label: 'Scheduled delivery' });
+			}
+		} else {
+			setShippingOption(option);
+		}
+	};
+
+	useEffect(() => {
+		console.log(shippingDate, shippingTime);
+		if (shippingOptionId) {
+			getShippingOption(shippingOptionId);
+		}
+	}, [shippingOptionId, shippingDate, shippingTime]);
+
+	// a function to get the shipping time
+	const onOptionChange = (option: string) => {
+		console.log(option);
+		setShippingTime(option);
+	};
 
 	return (
 		<div data-theme={theme} className={styles.checkout_container}>
@@ -53,7 +91,7 @@ const Checkout = () => {
 							</div>
 						</div>
 						<div>
-							<DeliveryDetailsForm isGift={isGift} showLoginModal={showLoginModal} showSignupModal={showSignupModal} setShowLoginModal={setShowLoginModal} setShowSignupModal={setShowSignupModal} />
+							<DeliveryDetailsForm isGift={isGift} showLoginModal={showLoginModal} showSignupModal={showSignupModal} setShowLoginModal={setShowLoginModal} setShowSignupModal={setShowSignupModal} setActivateProceedBtn={setActivateProceedBtn} shippingOption={shippingOption} />
 						</div>
 					</div>
 					<div className={styles.shipping_details}>
@@ -62,17 +100,17 @@ const Checkout = () => {
 							<div className={styles.shipping_options}>
 								{shippingOptions.map((option, index) => (
 									<div key={index} className={styles.select_date}>
-										<Radio onChange={() => setSelectedShippingOption(option.id)} checked={selectedShippingOption === option.id} />
-										<p data-active={selectedShippingOption === option.id}>{option.name}</p>
+										<Radio onChange={() => setShippingOptionId(option.id)} checked={shippingOptionId === option.id} />
+										<p data-active={shippingOptionId === option.id}>{option?.label}</p>
 									</div>
 								))}
 							</div>
-							<div data-visible={selectedShippingOption === '1'} className={`${styles.shipping_date_fields_container} `}>
+							<div data-visible={shippingOptionId === '1'} className={`${styles.shipping_date_fields_container} `}>
 								<div className={styles.fields}>
-									<InputField type='date' label='Date' />
+									<InputField type='date' label='Date' value={shippingDate} onChange={(e) => setShippingDate(e.target.value)} />
 								</div>
 								<div className={styles.fields}>
-									<Select options={timeOptions} label='Time' />
+									<Select options={timeOptions} label='Time' onOptionChange={onOptionChange} />
 								</div>
 							</div>
 						</div>
@@ -85,7 +123,7 @@ const Checkout = () => {
 									<Radio onChange={() => setSelectedOption(option.id)} className={styles.radio_field} checked={selectedOption === option.id} disabled={option.disabled} />
 									{option.id !== '3' && <h3 data-active={selectedOption === option.id}>{option.name}</h3>}
 									{option.id === '3' && (
-										<div className={styles.icons}>
+										<div className={`${styles.icons} ${styles.fade_opacity}`}>
 											<h3 data-active={selectedOption === option.id}>Pay with crypto</h3>
 											<div className={styles.icon_container}>
 												{['/svgs/btc.svg', '/svgs/eth.svg', '/svgs/usdt.svg'].map((iconPath, index) => (
@@ -103,7 +141,7 @@ const Checkout = () => {
 				</div>
 			</div>
 			<div className={styles.divider}></div>
-			<CheckoutSummary />
+			<CheckoutSummary activateProceedBtn={activateProceedBtn} />
 		</div>
 	);
 };

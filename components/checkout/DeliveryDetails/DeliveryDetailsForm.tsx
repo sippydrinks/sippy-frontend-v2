@@ -10,6 +10,7 @@ import { CheckoutLoginModal, CheckoutSignupModal } from '@/shared/modals';
 import AllAddresses from './AllAddresses/AllAddresses';
 import SelectedAddress from './SelectedAddress/SelectedAddress';
 import FormFields from './FormFields/FormFields';
+import { ShippingOption } from '../Checkout';
 
 interface DeliveryDetailsFormProps {
 	isGift: boolean;
@@ -17,9 +18,11 @@ interface DeliveryDetailsFormProps {
 	setShowLoginModal: React.Dispatch<React.SetStateAction<boolean>>;
 	showSignupModal: boolean;
 	showLoginModal: boolean;
+	setActivateProceedBtn: React.Dispatch<React.SetStateAction<boolean>>;
+	shippingOption: ShippingOption | undefined;
 }
 
-const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, showLoginModal, showSignupModal }: DeliveryDetailsFormProps) => {
+const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, showLoginModal, showSignupModal, setActivateProceedBtn, shippingOption }: DeliveryDetailsFormProps) => {
 	const schema = yup.object({
 		email: yup.string().email('Invalid email').required('Email is required'),
 		phone_number: yup.string().required('Phone number is required'),
@@ -45,6 +48,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 		formState: { errors },
 		reset,
 	} = useForm({
+		mode: 'onBlur',
 		resolver: yupResolver(schema),
 	});
 	const [isBtnDisabled, setIsBtnDisabled] = useState<boolean>(true);
@@ -72,22 +76,26 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 		reset();
 	};
 
-	// useEffect to watch all fields in other to activate the submit button
+	// useEffect to watch all fields in other to activate the proceed button
 	useEffect(() => {
-		if (watchAllFields.address && watchAllFields.name && watchAllFields.phone_number && watchAllFields.email) {
+		console.log(errors);
+		if (watchAllFields.address && watchAllFields.name && watchAllFields.phone_number && watchAllFields.email && !!shippingOption) {
 			if (isGift) {
 				if (watchAllFields.senders_email && watchAllFields.senders_phone_number) {
 					setIsBtnDisabled(false);
+					setActivateProceedBtn(true);
 				} else {
 					setIsBtnDisabled(true);
+					setActivateProceedBtn(false);
 				}
 			} else {
 				setIsBtnDisabled(false);
+				setActivateProceedBtn(true);
 			}
 		} else {
 			setIsBtnDisabled(true);
 		}
-	}, [watchAllFields, isGift]);
+	}, [watchAllFields, isGift, shippingOption]);
 
 	// function to check if the user has an account with the email provided
 	const checkUser = async (email: string) => {
@@ -112,11 +120,11 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 	};
 
 	// useEffect to check if the user has an account with the email provided
-	useEffect(() => {
-		if (email && !isAuthenticated) {
-			checkUser(email);
-		}
-	}, [email, isAuthenticated]);
+	// useEffect(() => {
+	// 	if (email && !isAuthenticated) {
+	// 		checkUser(email);
+	// 	}
+	// }, [email, isAuthenticated]);
 
 	// function to handle the change button
 	const handleChangeButton = () => {
@@ -180,7 +188,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 						/>
 					</div>
 				</div>
-				<Button type='submit' disabled={isBtnDisabled} buttonType='transparent' className={`${styles.applyDiscount_btn} ${!isBtnDisabled && styles.applyDiscount_btnActive}`}>
+				<Button type='submit' disabled={isBtnDisabled} buttonType='transparent' className={`${styles.applyDiscount_btn} ${!isBtnDisabled && styles.applyDiscount_btnActive} ${!isAuthenticated && styles.hide}`}>
 					<h4>Save Details</h4>
 				</Button>
 			</form>

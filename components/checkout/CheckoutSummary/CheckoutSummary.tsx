@@ -5,7 +5,11 @@ import { ViewcartModal } from '@/shared/modals';
 import { formatNum } from '@/utils';
 import styles from './CheckoutSummary.module.scss';
 
-const CheckoutSummary = () => {
+interface Props{
+	activateProceedBtn:boolean
+}
+
+const CheckoutSummary = ({activateProceedBtn}:Props) => {
 	const { themeColor, cartDetails } = useGlobalContext();
 	const [couponValue, setCouponValue] = useState<string>('');
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -78,15 +82,9 @@ const CheckoutSummary = () => {
 					<h5 className={styles.total}>₦{cartDetails.cartAmount === 0 ? 0.0 : formatNum(totalCost)}</h5>
 				</div>
 			</div>
-			{cartDetails.cartAmount === 0 ? (
-				<Button disabled buttonType='primary' className={styles.summary_btn}>
+				<Button buttonType='primary' className={`${activateProceedBtn? styles.summary_btn_active:styles.summary_btn}`}>
 					<h3>Proceed</h3>
 				</Button>
-			) : (
-				<Button buttonType='primary' className={styles.summary_btn_active}>
-					<h3>Proceed</h3>
-				</Button>
-			)}
 			<ViewcartModal isOpen={isOpen} onClose={closeModal} />
 		</div>
 	);

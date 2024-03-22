@@ -176,6 +176,9 @@
 					}
 					.crypto_payment {
 						border: 0;
+						.fade_opacity {
+							opacity: 0.3;
+						}
 						.icons {
 							justify-content: space-between;
 							@extend %flex-align;

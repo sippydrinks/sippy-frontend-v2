@@ -20,7 +20,7 @@ const ModalElement = (props: ModalProps) => {
 		<div>
 			{props.isOpen && (
 				<div className={`${styles.overlay} ${props.className}`} onClick={handleClose}>
-					<div data-overflow={!!props.modalImage} data-theme={theme} data-modalImage={!!props.modalImage} className={`${styles.modalbody} ${props.bodyClass}`} onClick={(e) => e.stopPropagation()}>
+					<div data-overflow={!!props.modalImage} data-theme={theme} data-modalimage={!!props.modalImage} className={`${styles.modalbody} ${props.bodyClass}`} onClick={(e) => e.stopPropagation()}>
 						{props.children}
 						{props.modalImage && (
 							<div className={`${styles.modalImage_container} ${props.className}`}>
