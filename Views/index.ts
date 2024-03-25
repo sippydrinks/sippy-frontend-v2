@@ -8,6 +8,8 @@ import CartView from './CartView/CartView';
 import ProductDetailsView from './ProductDetailsView/ProductDetailsView';
 import CategoriesView from './CategoriesView/CategoriesView';
 import ProductCategoryView from './ProductCategoryView/ProductCategoryView';
+import AccountView from './AccountView/AccountView';
+import AddressView from './AddressView/AddressView';
 
 
 export { 
@@ -20,5 +22,7 @@ export {
     VerifyTokenView,
     CategoriesView,
     ProductCategoryView,
-    ProductDetailsView
+    ProductDetailsView,
+    AccountView,
+    AddressView,
 };

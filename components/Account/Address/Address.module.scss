@@ -1,0 +1,145 @@
+@import '@/styles/imports';
+
+.address_container {
+    .address_header {
+        @extend %flex-align;
+        justify-content: space-between;
+        margin-bottom: 1.6rem;
+        h1 {
+            color: $light-text-main;
+            font-family: $font-900;
+            @extend %title-24;
+        }
+        span {
+            font-family: $font;
+            color: $light-text-main;
+            @extend %text-24;
+        }
+        .editBtn {
+            @extend %flex-align;
+            gap: 0.8rem;
+            h3 {
+                color: $col-grey-500;
+                font-family: $font;
+                @extend %text-16
+            }
+            .edit_icon {
+                width: 2.4rem;
+                height: 2.4rem;
+                position: relative;
+            }
+        }
+    }
+    .address_input {
+        width: 100;
+        border: 0.2rem solid #E3E3E3;
+        border-radius: 1.6rem;
+        margin-bottom: 4rem;
+        .address_body, .address_bodyB {
+            height: 7.5rem;
+            border-bottom: 0.2rem solid #E3E3E3;
+            padding: 2.4rem;
+            @extend %flex-align;
+            justify-content: space-between;
+            h3, h4 {
+                @extend %text-18;
+                font-family: $font-700;
+                color: $col-grey-500;
+            }
+            h4 {
+                color: $light-text-main;
+            }
+        }
+        .address_bodyB {
+            border: 0;
+        }
+    }
+    input {
+        &::placeholder {
+            font-family: $font-700;
+            color: $col-grey-500;
+        }
+    }
+    .edit_btn {
+        background: $col-primary-default;
+        width: 17.7rem;
+        margin: 2.4rem 0 5.6rem;
+        h4 {
+            @extend %text-16;
+            font-family: $font-900;
+            color: $col-white;
+        }
+    }
+    .icon_class {
+        width: 7.2rem;
+        height: 7.2rem;
+        position: relative;
+    }
+    .prefix_class {
+        color: $light-text-main;
+        font-family: $font-900;
+        @extend %title-24;
+        padding-right: 0.8rem;
+        border-right: 0.1rem solid $col-grey-700;
+    }
+    .input_class {
+        background: $col-grey-500;
+        border: 0;
+        height: 12rem;
+        margin-bottom: 1rem;
+    }
+    .birthday_inputField {
+        margin-top: -0.6rem;
+    }
+    .password_inputField {
+        margin-bottom: 1rem;
+    }
+    .change_btn {
+        background: $col-primary-default;
+        width: 21.3rem;
+        margin-top: 2.4rem;
+        h4 {
+            @extend %text-16;
+            font-family: $font-900;
+            color: $col-white;
+        }
+    }
+
+    &[data-theme = "dark"] {
+        .address_header {
+            h1 {
+                color: $col-white;
+            }
+            .editBtn {
+                h3 {
+                    color: $col-white;
+                }
+            }
+        }
+        .address_input {
+            .address_body, .address_bodyB {
+                h3, h4 {
+                    color: $col-white;
+                }
+            }
+        }
+    }
+
+    @include screenMax('mobile') {
+        .address_input {
+            .address_body, .address_bodyB {
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+            }
+        }
+        .change_btn {
+            width: 100%;
+            height: 4rem;
+            h4 {
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+            }
+        }
+    }
+}

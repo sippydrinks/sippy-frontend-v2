@@ -1,0 +1,289 @@
+@import "@/styles/imports";
+
+.account_body {
+	.accountInfo_body {
+		margin: 4rem 0 0;
+		padding: 0 4rem;
+		display: flex;
+		gap: 4rem;
+		position: relative;
+		.tabs {
+			padding: 1.6rem 1.6rem 2.4rem;
+			height: 50.4rem;
+			width: 30.1rem;
+			border: 0.4rem solid $col-grey-700;
+			flex-direction: column;
+			display: flex;
+			gap: 2.4rem;
+			border-radius: 1.6rem;
+			.profile_data, .orders_data {
+				display: flex;
+				flex-direction: column;
+				gap: 3.2rem;
+				p {
+					font-family: $font-700;
+					@extend %text-14;
+					color: $col-grey-light-stroke;
+					margin-bottom: -2.4rem;
+				}
+				.tab_item {
+					@extend %flex-align;
+					gap: 1.6rem;
+					cursor: pointer;
+					.tab_icon {
+						position: relative;
+						width: 2.4rem;
+						height: 2.4rem;
+					}
+					h3 {
+						font-family: $font-700;
+						@extend %text-16;
+						color: $col-grey-500;
+					}
+					.active_tab {
+						color: $light-text-main;
+						font-family: $font-900;
+						@extend %text-16;
+					}
+					h4 {
+						color: $col-error-500;
+					}
+				}
+			}
+			.tab_item {
+				@extend %flex-align;
+				gap: 1.6rem;
+				.tab_icon {
+					position: relative;
+					width: 2.4rem;
+					height: 2.4rem;
+				}
+				h4 {
+					font-family: $font-700;
+					@extend %text-16;
+					color: $col-error-500;
+				}
+				.icon {
+					width: 2.9rem;
+					height: 2.3rem;
+					position: relative;
+					margin-left: auto;
+				}
+			}
+		}
+		.tab_body {
+			width: calc(100% - 34rem);
+			min-height: 100vh;
+		}
+		.action_panel_container {
+			display: none;
+		}
+		@include screenMax("mobile") {
+			flex-direction: column;
+			margin: 0 0 8rem;
+			.tabs {
+				display: none;
+			}
+			.tab_body {
+				width: 100%;
+			}
+			.action_panel_container {
+				display: block;
+				&[data-active="true"] {
+					display: none;
+				}
+				.action_panel {
+					.action_panel_header {
+						display: flex;
+						align-items: center;
+						gap: 6rem;
+						.filter_container {
+							display: flex;
+							align-items: center;
+							gap: 0.8rem;
+							height: 5.6rem;
+							justify-content: center;
+							width: 100%;
+                            cursor: pointer;
+							h3 {
+								font-family: $font-700;
+								color: $light-text-main;
+								font-size: 1.6rem;
+								line-height: 2.4rem;
+							}
+							.filter_icon {
+								width: 2rem;
+								height: 2rem;
+								position: relative;
+							}
+						}
+					}
+				}
+				.filter_body {
+					height: 0;
+					transition: all 0.3s ease-out;
+					background: $col-background-shade;
+					z-index: 3;
+					padding: 1.6rem;
+					width: calc(100vw - 1.6rem);
+					position: fixed;
+					left: 0.8rem;
+					top: 100dvh;
+					border-radius: 1.6rem;
+					&[data-active="true"] {
+						height: calc(100dvh - 1rem);
+						top: 1rem;
+						transition: all 0.4s ease-out;
+					}
+					.filter_content {
+						.filter_header {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							.back_arrow {
+								width: 2.4rem;
+								height: 2.4rem;
+								position: relative;
+                                cursor: pointer;
+							}
+							h3 {
+								font-family: $font-900;
+								color: $light-text-main;
+								font-size: 1.8rem;
+								line-height: 2.4rem;
+							}
+							.filter_icon {
+								width: 2rem;
+								height: 2rem;
+								position: relative;
+								rotate: 45deg;
+                                cursor: pointer;
+							}
+						}
+						.tab {
+							padding: 1.6rem 1.6rem 2.4rem;
+							height: 50.4rem;
+							width: 100%;
+							border: 0;
+							flex-direction: column;
+							display: flex;
+							gap: 2.4rem;
+							border-radius: 1.6rem;
+							.profile_data,
+							.orders_data {
+								display: flex;
+								flex-direction: column;
+								gap: 1.6rem;
+								p {
+									font-family: $font-700;
+									font-size: 1.4rem;
+									line-height: 2.4rem;
+									color: $col-grey-light-stroke;
+									margin-bottom: 0.8rem;
+								}
+								.tab_item {
+									display: flex;
+									align-items: center;
+									gap: 1.6rem;
+									cursor: pointer;
+									.tab_icon {
+										position: relative;
+										width: 2.4rem;
+										height: 2.4rem;
+									}
+									h3 {
+										font-family: $font-700;
+										font-size: 1.6rem;
+										line-height: 2.4rem;
+										color: $col-grey-500;
+									}
+									.active_tab {
+										color: $light-text-main;
+										font-family: $font-900;
+										font-size: 1.6rem;
+										line-height: 2.4rem;
+									}
+									h4 {
+										color: $col-error-500;
+									}
+								}
+							}
+							.tab_item {
+								display: flex;
+								align-items: center;
+								gap: 1.6rem;
+								.tab_icon {
+									position: relative;
+									width: 2.4rem;
+									height: 2.4rem;
+								}
+								h4 {
+									font-family: $font-700;
+									font-size: 1.6rem;
+									line-height: 2.4rem;
+									color: $col-error-500;
+								}
+								.icon {
+									width: 2.9rem;
+									height: 2.3rem;
+									position: relative;
+									margin-left: auto;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&[data-theme="dark"] {
+		.accountInfo_body {
+			.tab {
+				.profile_data,
+				.orders_data {
+					p {
+						color: $col-white;
+					}
+					.tab_item {
+						h3 {
+							color: $col-white;
+						}
+					}
+				}
+			}
+			.action_panel_container {
+				.action_panel {
+					.action_panel_header {
+						.filter_container {
+							h3 {
+								color: $col-white;
+							}
+						}
+					}
+				}
+				.filter_body {
+					background: $col-black;
+					.filter_content {
+						.filter_header {
+							h3 {
+								color: $col-white;
+							}
+						}
+						.tab {
+							.profile_data, .orders_data {
+								p {
+									color: $col-white;
+								}
+								.tab_item {
+									h3 {
+										color: $col-white;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

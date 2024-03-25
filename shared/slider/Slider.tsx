@@ -13,6 +13,15 @@ const Slider = ({ slides }: Props) => {
 	const { theme, drinkType }: ContextProps = useGlobalContext();
 	const [index, setIndex] = useState<number>(2);
 	const lastIndex: number = slides.length as number;
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const goToPrevSlide = () => {
+		setCurrentIndex(prevIndex => 
+			(prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
+	};
+	const goToNextSlide = () => {
+		setCurrentIndex(prevIndex => 
+			(prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+	};
 
 	useEffect(() => {
 		if (index > lastIndex) {
@@ -57,24 +66,18 @@ const Slider = ({ slides }: Props) => {
 						if (slide.id === index + 1) {
 							position = 'slide__nextSlide';
 						}
-						// if (
-						// 	slide.id === index - 1 ||
-						// 	(index === 0 && slide.id === lastIndex)
-						// ) {
-						// 	position = "slide__lastSlide";
-						// }
 						return <div className={`${styles.slide} ${styles[position]}`} key={index}></div>;
 					})}
 				</div>
 				<div className={styles.grid}>
 					<div className={styles.end}>
 						<div className={styles.slider_button_container}>
-							<div onClick={() => prevPerson()} data-type={theme} className={styles.slider_button}>
+							<div onClick={() => goToPrevSlide()} data-type={theme} className={styles.slider_button}>
 								<div className={styles.icon}>
 									<Image src={`/svgs/chevron-${theme}.svg`} fill alt='' />
 								</div>
 							</div>
-							<div data-type={theme} onClick={() => nextPerson()} className={styles.slider_button}>
+							<div data-type={theme} onClick={() => goToNextSlide()} className={styles.slider_button}>
 								<div className={styles.icon}>
 									<Image src={`/svgs/chevron-${theme}.svg`} fill alt='' />
 								</div>

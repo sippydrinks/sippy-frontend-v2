@@ -11,10 +11,15 @@ const ButtonNav = () => {
 
 	const checkActive = route.includes('/alcohol')
 	const categoriesRoute = route === ('/categories')
+	const categoriesAlcoholRoute = route === ('/alcohol/categories')
 	const urlArr: string[] = route.split('/')
     const handleNonAlcohol = () => {
       const softUrlArr = urlArr.slice(0, -1)
-      route === '/alcohol' ? router.push('/') : router.push(softUrlArr.join('/'))
+      route === '/alcohol' ? 
+	  	router.push('/') 
+		: 
+		(`${categoriesAlcoholRoute ? 
+			router.push('/categories') : router.push(softUrlArr.join('/'))}`)
     }
 
     const handleAlcohol = () => {

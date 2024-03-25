@@ -1,0 +1,246 @@
+@import '@/styles/imports';
+
+.basicInfo_container {
+    h1 {
+        color: $light-text-main;
+        font-family: $font-900;
+        @extend %title-24;
+    }
+    .basic_info {
+        width: 100%;
+        height: 12rem;
+        padding: 1.6rem;
+        border-radius: 0.8rem;
+        background: #E9E9E966;
+        margin: 1.6rem 0;
+        @extend %flex-align;
+        gap: 1rem;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+        .image_container {
+            width: 7.2rem;
+            height: 7.2rem;
+            background: $col-white;
+            border-radius: 50%;
+            @extend %flex-center;
+            position: relative;
+            .profile_image {
+                width: 4rem;
+                height: 4rem;
+                position: relative;
+            }
+            .camera_container {
+                width: 3.2rem;
+                height: 3.2rem;
+                background: $col-coral-500;
+                border-radius: 50%;
+                @extend %flex-center;
+                cursor: pointer;
+                position: absolute;
+                top: 4rem;
+                right: -0.1rem;
+                .camera_icon {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    position: relative;
+                }
+            }
+        }
+        .nameAndEmail {
+            @extend %flex-align;
+            gap: 1.6rem;
+            .border {
+                height: 3.6rem;
+                width: 0.1rem;
+                background: $col-grey-700;
+            }
+            h3 {
+                @extend %text-24;
+                font-family: $font-900;
+                color: $light-text-main;
+            }
+            p {
+                @extend %text-18;
+                font-family: $font;
+                color: $col-grey-500;
+            }
+        }
+    }
+    .address_input {
+        width: 100;
+        border: 0.2rem solid #E3E3E3;
+        border-radius: 1.6rem;
+        margin-bottom: 4rem;
+        .address_body, .address_bodyB {
+            height: 7.5rem;
+            border-bottom: 0.2rem solid #E3E3E3;
+            padding: 2.4rem;
+            @extend %flex-align;
+            justify-content: space-between;
+            h3 {
+                @extend %text-18;
+                font-family: $font-700;
+                color: $col-grey-500;
+            }
+            .edit_option {
+                @extend %flex-align;
+                gap: 4rem;
+                .edit_icon {
+                    position: relative;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+                h4 {
+                    @extend %text-18;
+                    font-family: $font-700;
+                    color: $light-text-main;
+                }
+            }
+        }
+        .address_bodyB {
+            border-bottom: 0;
+        }
+    }
+    .save_btn, .change_btn {
+        background: $col-primary-default;
+        width: 18.6rem;
+        margin-top: 2.4rem;
+        h4 {
+            @extend %text-16;
+            font-family: $font-900;
+            color: $col-white;
+        }
+    }
+    .icon_class {
+        width: 7.2rem;
+        height: 7.2rem;
+        position: relative;
+    }
+    .prefix_class {
+        color: $light-text-main;
+        font-family: $font-900;
+        @extend %title-24;
+        padding-right: 0.8rem;
+        border-right: 0.1rem solid $col-grey-700;
+    }
+    .input_class {
+        background: $col-grey-500;
+        border: 0;
+        height: 12rem;
+        margin-bottom: 1rem;
+    }
+    .save_btn {
+        margin-bottom: 6.4rem;
+    }
+    .change_btn {
+        width: 22rem;
+    }
+    .birthday_inputField {
+        margin-top: -0.6rem;
+    }
+    .password_inputFields {
+        margin-top: 1.6rem;
+        .password_inputField {
+            margin-bottom: 1rem;
+        }
+    }
+    &[data-theme = "dark"] {
+        h1 {
+            color: $col-white;
+        }
+        .basic_info {
+            .nameAndEmail {
+                h3, p {
+                    color: $col-white;
+                }
+            }
+        }
+        .address_input {
+            .address_bodyB, .address_body {
+                h3 {
+                    color: $col-white;
+                }
+                .edit_option {
+                    h4 {
+                        color: $col-white;
+                    }
+                }
+            }
+        }
+        .input_class {
+            background: transparent;
+            border: 0.1rem solid $col-grey-500;
+        }
+        .prefix_class {
+            border-right: 0.1rem solid $col-white;
+        }
+    }
+    @include screenMax("mobile") {
+        margin-top: 2.4rem;
+        h1 {
+            font-size: 1.8rem;
+            line-height: 2.7rem;
+        }
+        .basic_info {
+            flex-direction: column;
+            height: 10.4rem;
+            padding: 1.2rem;
+            .image_container {
+                width: 4.4rem;
+                height: 4.4rem;
+                .profile_image {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+                .camera_container {
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    top: 2.8rem;
+                    right: 0.1rem;
+                    .camera_icon {
+                        width: 0.8rem;
+                        height: 0.8rem;
+                    }
+                }
+            }
+            .nameAndEmail {
+                gap: 0.8rem;
+                h3 {
+                    font-size: 1.4rem;
+                    line-height: 2.4rem;
+                }
+                .border {
+                    height: 2.4rem;
+                }
+                p {
+                    font-size: 1.2rem;
+                    line-height: 2rem;
+                }
+            }
+        }
+        .address_input {
+            .address_body, .address_bodyB {
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                padding: 1.6rem;
+                .edit_option {
+                    gap: 0;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+            }
+        }
+        .save_btn, .change_btn {
+            width: 100%;
+            height: 4rem;
+            h4 {
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+            }
+        }
+        .save_btn {
+            margin-bottom: 3.2rem;
+        }
+    }
+}

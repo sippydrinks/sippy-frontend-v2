@@ -136,7 +136,6 @@
 	@include screenMax('mobile') {
 		padding: 2.4rem 1.6rem;
 		justify-content: space-between;
-
 		.button_container {
 			width: 3.2rem;
 			height: 3.2rem;
@@ -190,6 +189,16 @@
 		.mob_view {
 			display: block;
 		}
+		.toggle_container {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			p {
+				span {
+					text-transform: capitalize;
+				}
+			}
+		}
 		.desk_view {
 			display: none;
 		}
@@ -202,26 +211,30 @@
 		.header_wrapper__collapsed {
 			order: 3;
 			width: calc(100% - 1.6rem);
-			height: 100%;
+			height: calc(100% - 0.99rem);
 			position: fixed;
-			top: 9rem;
+			bottom: 0;
 			right: 0.8rem;
-			background-color: $light-background-sd-body;
+			background: rgba(0, 0, 0, 0.75);
 			z-index: 4;
-			padding: 4rem 7%;
 			margin-left: 0;
 			transition: $all-transition;
-			@include flex(flex-start, flex-start, column);
-		}
-		.buttons {
-			display: none;
-			&[data-buttons='true'] {
-				display: block;
-				// width: 100%;
+			transition-duration: 400ms;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			border-top-left-radius: 1.6rem;
+			border-top-right-radius: 1.6rem;
+			.header_wrapper_body {
+				background-color: $light-background-sd-body;
+				padding: 4rem 7%;
+				border-bottom-left-radius: 1.6rem;
+				border-bottom-right-radius: 1.6rem;
+				width: 100%;
 			}
 		}
 		.header_wrapper__collapsed {
-			right: 100dvw;
+			bottom: -100dvh;
 		}
 	}
 
@@ -246,9 +259,16 @@
 		}
 		.header_wrapper,
 		.header_wrapper__collapsed {
-			@include screenMax('mobile') {
-				background-color: $col-grey-darker;
-				transition: $all-transition;
+			.header_wrapper_body {
+				@include screenMax('mobile') {
+					background-color: $col-grey-darker;
+					transition: $all-transition;
+				}
+				.toggle_container {
+					p {
+						color: $col-white;
+					}
+				}
 			}
 		}
 		.controls {
