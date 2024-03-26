@@ -10,6 +10,7 @@ import DeliveryDetailsForm from './DeliveryDetails/DeliveryDetailsForm';
 import CheckBox from '@/shared/checkbox/Checkbox';
 import { useAuth } from '@/contexts/AuthContext';
 import { paymentOptions, shippingOptions, timeOptions } from '@/utils/checkout';
+import { useCheckout } from '@/hooks';
 
 export enum ShippingOptionsEnum {
 	Immediate = 'Immediate',
@@ -28,49 +29,7 @@ export interface ScheduledShippingDetails {
 }
 
 const Checkout = () => {
-	const { theme, cartDetails } = useGlobalContext();
-	const { isAuthenticated } = useAuth();
-	const [showModal, setShowModal] = useState({ showLoginModal: false, showSignupModal: false });
-	const [selectedPaymentOption, setSelectedPaymentOption] = useState<string>('1'); // change to active address
-	const [shippingOption, setShippingOption] = useState<ShippingOption | undefined>(undefined);
-	const [isGift, setIsGift] = useState<boolean>(false);
-	const [activateProceedBtn, setActivateProceedBtn] = useState<boolean>(false);
-	const [scheduledShippingDetails, setScheduledShippingDetails] = useState<ScheduledShippingDetails | undefined>(undefined);
-
-	const getShippingOption = (type: string) => {
-		const option = shippingOptions.find((option) => option.type === type);
-		if (type === 'Scheduled') {
-			setShippingOption({ date: '', time: '', type: ShippingOptionsEnum.Scheduled, label: 'Select date and time' });
-			if (scheduledShippingDetails?.date && scheduledShippingDetails?.time) {
-				setShippingOption({ date: scheduledShippingDetails.date, time: scheduledShippingDetails.time, type: ShippingOptionsEnum.Scheduled, label: 'Select date and time' });
-			}
-		} else {
-			setShippingOption({
-				date: option?.date,
-				time: option?.time,
-				type: ShippingOptionsEnum.Immediate,
-				label: 'Immediately',
-			});
-		}
-	};
-
-	// a function to get the shipping time
-	const onOptionChange = (option: string) => {
-		setScheduledShippingDetails((prev) => ({ ...prev, time: option }));
-	};
-
-	// handle proceed btn
-	const handleProceed = () => {};
-
-	// Function to toggle the login modal
-	const toggleLoginModal = (state: boolean) => {
-		setShowModal((prevState) => ({ ...prevState, showLoginModal: state }));
-	};
-
-	// Function to toggle the signup modal
-	const toggleSignupModal = (state: boolean) => {
-		setShowModal((prevState) => ({ ...prevState, showSignupModal: state }));
-	};
+	const { theme, cartDetails, isAuthenticated, showModal, selectedPaymentOption, shippingOption, isGift, activateProceedBtn, scheduledShippingDetails, getShippingOption, onOptionChange, handleProceed, toggleLoginModal, toggleSignupModal, setActivateProceedBtn, setIsGift, setScheduledShippingDetails, setSelectedPaymentOption, setShippingOption } = useCheckout();
 
 	return (
 		<div data-theme={theme} className={styles.checkout_container}>

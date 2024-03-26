@@ -75,11 +75,12 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 
 	// useEffect to watch all fields in other to activate the proceed button
 	useEffect(() => {
+		console.log(shippingOption);
 		const isAddressValid = !!watchAllFields.address;
 		const isNameValid = !!watchAllFields.name;
 		const isPhoneNumberValid = !!watchAllFields.phone_number;
 		const isEmailValid = !!watchAllFields.email;
-		const isShippingOptionSelected = !!shippingOption;
+		const isShippingOptionSelected = !!shippingOption ? (shippingOption?.type === 'Scheduled' ? !!shippingOption?.date && !!shippingOption?.time : true) : false;
 		const isSendersEmailValid = !!watchAllFields.senders_email;
 		const isSendersPhoneNumberValid = !!watchAllFields.senders_phone_number;
 
