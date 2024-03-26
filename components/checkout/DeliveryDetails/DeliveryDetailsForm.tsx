@@ -14,8 +14,8 @@ import { ShippingOption } from '../Checkout';
 
 interface DeliveryDetailsFormProps {
 	isGift: boolean;
-	setShowSignupModal: React.Dispatch<React.SetStateAction<boolean>>;
-	setShowLoginModal: React.Dispatch<React.SetStateAction<boolean>>;
+	setShowSignupModal: (state: boolean) => void;
+	setShowLoginModal: (state: boolean) => void;
 	showSignupModal: boolean;
 	showLoginModal: boolean;
 	setActivateProceedBtn: React.Dispatch<React.SetStateAction<boolean>>;
@@ -59,9 +59,6 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 	const { isAuthenticated, addresses, lastAddress } = useAuth();
 	const [loading, setLoading] = useState(false);
 
-	// watch email field to check if the user has an account with the email provided
-	const email = watch('email');
-
 	// useEffect to set newAddresses to savedAddresses
 	useEffect(() => {
 		setSelectedAddress(lastAddress);
@@ -78,61 +75,30 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 
 	// useEffect to watch all fields in other to activate the proceed button
 	useEffect(() => {
-		console.log(errors);
-		if (watchAllFields.address && watchAllFields.name && watchAllFields.phone_number && watchAllFields.email && !!shippingOption) {
-			if (isGift) {
-				if (watchAllFields.senders_email && watchAllFields.senders_phone_number) {
-					setIsBtnDisabled(false);
-					setActivateProceedBtn(true);
-				} else {
-					setIsBtnDisabled(true);
-					setActivateProceedBtn(false);
-				}
-			} else {
-				setIsBtnDisabled(false);
-				setActivateProceedBtn(true);
-			}
-		} else {
-			setIsBtnDisabled(true);
-		}
+		const isAddressValid = !!watchAllFields.address;
+		const isNameValid = !!watchAllFields.name;
+		const isPhoneNumberValid = !!watchAllFields.phone_number;
+		const isEmailValid = !!watchAllFields.email;
+		const isShippingOptionSelected = !!shippingOption;
+		const isSendersEmailValid = !!watchAllFields.senders_email;
+		const isSendersPhoneNumberValid = !!watchAllFields.senders_phone_number;
+
+		// check if all fields are valid
+		const isAllFieldsValid = isAddressValid && isNameValid && isPhoneNumberValid && isEmailValid && isShippingOptionSelected;
+
+		// check if gift fields are valid
+		const isGiftFieldsValid = isGift && isSendersEmailValid && isSendersPhoneNumberValid;
+
+		// set the save details button to disabled if all fields are not valid
+		setIsBtnDisabled(!isAllFieldsValid || (isGift && !isGiftFieldsValid));
+
+		// set the proceed button to active if all fields are valid
+		setActivateProceedBtn(isAllFieldsValid && (!isGift || isGiftFieldsValid));
 	}, [watchAllFields, isGift, shippingOption]);
-
-	// function to check if the user has an account with the email provided
-	const checkUser = async (email: string) => {
-		setLoading(true);
-		try {
-			const resp = await fetch(`/api/checkEmail?email=${email}`);
-			if (!resp.ok) {
-				setShowSignupModal(true);
-			}
-			if (resp.ok) {
-				setShowLoginModal(true);
-			}
-			const data = await resp.json();
-			console.log(data);
-		} catch (error) {
-			console.log(error);
-		} finally {
-			setTimeout(() => {
-				setLoading(false);
-			}, 2000);
-		}
-	};
-
-	// useEffect to check if the user has an account with the email provided
-	// useEffect(() => {
-	// 	if (email && !isAuthenticated) {
-	// 		checkUser(email);
-	// 	}
-	// }, [email, isAuthenticated]);
 
 	// function to handle the change button
 	const handleChangeButton = () => {
-		if (addresses.length > 0) {
-			setSelectedAddress(null);
-		} else {
-			setSelectedAddress(null);
-		}
+		setSelectedAddress(null);
 	};
 
 	return (

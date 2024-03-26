@@ -21,14 +21,16 @@ export const paymentOptions = [
 
 export const shippingOptions = [
 	{
-		value: 'select_date_and_time',
 		label: 'Select date and time',
-		id: '1',
+		type: 'Scheduled',
+		date: '',
+		time: '',
 	},
 	{
-		value: 'immediately',
+		type: 'Immediate',
 		label: 'Immediately',
-		id: '2',
+		date: '',
+		time: '',
 	},
 ];
 

@@ -1,6 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { CheckoutLoginModal } from '../../shared/modals';
+import React, { useState } from 'react';
 import { useGlobalContext } from '@/contexts/AppContext';
 import CheckoutSummary from './CheckoutSummary/CheckoutSummary';
 import { InputField, Radio, Select } from '../../shared';
@@ -12,52 +11,65 @@ import CheckBox from '@/shared/checkbox/Checkbox';
 import { useAuth } from '@/contexts/AuthContext';
 import { paymentOptions, shippingOptions, timeOptions } from '@/utils/checkout';
 
-export interface DateOption {
-	date: string;
-	time: string;
+export enum ShippingOptionsEnum {
+	Immediate = 'Immediate',
+	Scheduled = 'Scheduled',
 }
 export interface ShippingOption {
-	id: string;
 	label: string;
-	value: string | DateOption | undefined;
+	type?: ShippingOptionsEnum;
+	date?: string;
+	time?: string;
+}
+
+export interface ScheduledShippingDetails {
+	date?: string;
+	time?: string;
 }
 
 const Checkout = () => {
 	const { theme, cartDetails } = useGlobalContext();
 	const { isAuthenticated } = useAuth();
-	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [showLoginModal, setShowLoginModal] = useState(isOpen);
-	const [showSignupModal, setShowSignupModal] = useState(false);
-	const [selectedOption, setSelectedOption] = useState<string>('1');
-	const [shippingOptionId, setShippingOptionId] = useState<string>('');
+	const [showModal, setShowModal] = useState({ showLoginModal: false, showSignupModal: false });
+	const [selectedPaymentOption, setSelectedPaymentOption] = useState<string>('1'); // change to active address
 	const [shippingOption, setShippingOption] = useState<ShippingOption | undefined>(undefined);
 	const [isGift, setIsGift] = useState<boolean>(false);
 	const [activateProceedBtn, setActivateProceedBtn] = useState<boolean>(false);
-	const [shippingDate, setShippingDate] = useState<string>('');
-	const [shippingTime, setShippingTime] = useState<string>('');
+	const [scheduledShippingDetails, setScheduledShippingDetails] = useState<ScheduledShippingDetails | undefined>(undefined);
 
-	const getShippingOption = (id: string) => {
-		const option = shippingOptions.find((option) => option.id === id);
-		if (id === '1') {
-			if (shippingDate && shippingTime) {
-				setShippingOption({ value: { date: shippingDate, time: shippingTime }, id: '1', label: 'Scheduled delivery' });
+	const getShippingOption = (type: string) => {
+		const option = shippingOptions.find((option) => option.type === type);
+		if (type === 'Scheduled') {
+			setShippingOption({ date: '', time: '', type: ShippingOptionsEnum.Scheduled, label: 'Select date and time' });
+			if (scheduledShippingDetails?.date && scheduledShippingDetails?.time) {
+				setShippingOption({ date: scheduledShippingDetails.date, time: scheduledShippingDetails.time, type: ShippingOptionsEnum.Scheduled, label: 'Select date and time' });
 			}
 		} else {
-			setShippingOption(option);
+			setShippingOption({
+				date: option?.date,
+				time: option?.time,
+				type: ShippingOptionsEnum.Immediate,
+				label: 'Immediately',
+			});
 		}
 	};
 
-	useEffect(() => {
-		console.log(shippingDate, shippingTime);
-		if (shippingOptionId) {
-			getShippingOption(shippingOptionId);
-		}
-	}, [shippingOptionId, shippingDate, shippingTime]);
-
 	// a function to get the shipping time
 	const onOptionChange = (option: string) => {
-		console.log(option);
-		setShippingTime(option);
+		setScheduledShippingDetails((prev) => ({ ...prev, time: option }));
+	};
+
+	// handle proceed btn
+	const handleProceed = () => {};
+
+	// Function to toggle the login modal
+	const toggleLoginModal = (state: boolean) => {
+		setShowModal((prevState) => ({ ...prevState, showLoginModal: state }));
+	};
+
+	// Function to toggle the signup modal
+	const toggleSignupModal = (state: boolean) => {
+		setShowModal((prevState) => ({ ...prevState, showSignupModal: state }));
 	};
 
 	return (
@@ -76,7 +88,7 @@ const Checkout = () => {
 				<div data-auth={isAuthenticated} className={styles.login_body}>
 					<p>
 						If you have an account,
-						<span onClick={() => setShowLoginModal(true)}> Login </span>
+						<span onClick={() => toggleLoginModal(true)}> Login </span>
 						for a better experience
 					</p>
 				</div>
@@ -91,7 +103,7 @@ const Checkout = () => {
 							</div>
 						</div>
 						<div>
-							<DeliveryDetailsForm isGift={isGift} showLoginModal={showLoginModal} showSignupModal={showSignupModal} setShowLoginModal={setShowLoginModal} setShowSignupModal={setShowSignupModal} setActivateProceedBtn={setActivateProceedBtn} shippingOption={shippingOption} />
+							<DeliveryDetailsForm isGift={isGift} showLoginModal={showModal.showLoginModal} showSignupModal={showModal.showSignupModal} setShowLoginModal={toggleLoginModal} setShowSignupModal={toggleSignupModal} setActivateProceedBtn={setActivateProceedBtn} shippingOption={shippingOption} />
 						</div>
 					</div>
 					<div className={styles.shipping_details}>
@@ -100,14 +112,20 @@ const Checkout = () => {
 							<div className={styles.shipping_options}>
 								{shippingOptions.map((option, index) => (
 									<div key={index} className={styles.select_date}>
-										<Radio onChange={() => setShippingOptionId(option.id)} checked={shippingOptionId === option.id} />
-										<p data-active={shippingOptionId === option.id}>{option?.label}</p>
+										<Radio
+											onChange={() => {
+												setShippingOption(undefined);
+												getShippingOption(option.type);
+											}}
+											checked={shippingOption?.type === option.type}
+										/>
+										<p data-active={shippingOption?.type === option.type}>{option?.label}</p>
 									</div>
 								))}
 							</div>
-							<div data-visible={shippingOptionId === '1'} className={`${styles.shipping_date_fields_container} `}>
+							<div data-visible={shippingOption?.type === ShippingOptionsEnum.Scheduled} className={`${styles.shipping_date_fields_container} `}>
 								<div className={styles.fields}>
-									<InputField type='date' label='Date' value={shippingDate} onChange={(e) => setShippingDate(e.target.value)} />
+									<InputField type='date' label='Date' value={scheduledShippingDetails?.date} onChange={(e) => setScheduledShippingDetails((prev) => ({ ...prev, date: e.target.value }))} />
 								</div>
 								<div className={styles.fields}>
 									<Select options={timeOptions} label='Time' onOptionChange={onOptionChange} />
@@ -120,11 +138,11 @@ const Checkout = () => {
 						<div className={styles.payment_options}>
 							{paymentOptions.map((option, index) => (
 								<div key={index} className={styles[option.type]}>
-									<Radio onChange={() => setSelectedOption(option.id)} className={styles.radio_field} checked={selectedOption === option.id} disabled={option.disabled} />
-									{option.id !== '3' && <h3 data-active={selectedOption === option.id}>{option.name}</h3>}
+									<Radio onChange={() => setSelectedPaymentOption(option.id)} className={styles.radio_field} checked={selectedPaymentOption === option.id} disabled={option.disabled} />
+									{option.id !== '3' && <h3 data-active={selectedPaymentOption === option.id}>{option.name}</h3>}
 									{option.id === '3' && (
 										<div className={`${styles.icons} ${styles.fade_opacity}`}>
-											<h3 data-active={selectedOption === option.id}>Pay with crypto</h3>
+											<h3 data-active={selectedPaymentOption === option.id}>Pay with crypto</h3>
 											<div className={styles.icon_container}>
 												{['/svgs/btc.svg', '/svgs/eth.svg', '/svgs/usdt.svg'].map((iconPath, index) => (
 													<div key={index} className={styles.icon}>
