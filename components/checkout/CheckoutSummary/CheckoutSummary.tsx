@@ -5,19 +5,22 @@ import { ViewcartModal } from '@/shared/modals';
 import { formatNum } from '@/utils';
 import styles from './CheckoutSummary.module.scss';
 
-interface Props{
-	activateProceedBtn:boolean
+interface Props {
+	activateProceedBtn: boolean;
 }
 
-const CheckoutSummary = ({activateProceedBtn}:Props) => {
+const CheckoutSummary = ({ activateProceedBtn }: Props) => {
 	const { themeColor, cartDetails } = useGlobalContext();
 	const [couponValue, setCouponValue] = useState<string>('');
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [discount, setDiscount] = useState<number>(0);
 	const [totalCost, setTotalCost] = useState<number>(0);
 	const [applyBtnText, setApplyBtnText] = useState<string>('Apply');
-	const [couponError, setCouponError] = useState<boolean>(false);
-	const [couponSuccess, setCouponSuccess] = useState<boolean>(false);
+	const [isCouponApplied, setIsCouponApplied] = useState<boolean>(false);
+	const [couponResponse, setCouponResponse] = useState({
+		error: false,
+		success: false,
+	});
 
 	const openModal = () => {
 		setIsOpen(true);
@@ -33,12 +36,24 @@ const CheckoutSummary = ({activateProceedBtn}:Props) => {
 		setTotalCost(amountInCart + deliveryFee + VAT - discount);
 	}, [amountInCart, deliveryFee, VAT, discount]);
 
+	// a function to handle the application of the coupon
 	const handleApplyCoupon = () => {
+		isCouponApplied ? removeCoupon() : applyCoupon();
+	};
+
+	// a function to apply the coupon
+	const applyCoupon = () => {
+		setIsCouponApplied(true);
 		setDiscount(200);
-		setApplyBtnText('Applied');
-		setCouponValue('');
-		setCouponError(false);
-		setCouponSuccess(true);
+		setApplyBtnText('Remove Discount');
+		setCouponResponse({ ...couponResponse, error: false, success: true });
+	};
+
+	// a function to remove the coupon
+	const removeCoupon = () => {
+		setIsCouponApplied(false);
+		setDiscount(0);
+		setApplyBtnText('Apply');
 	};
 
 	return (
@@ -47,10 +62,10 @@ const CheckoutSummary = ({activateProceedBtn}:Props) => {
 			<div className={styles.summary_details}>
 				<div className={styles.input_container}>
 					<div className={styles.input_error_container}>
-						<InputField inputClass={`${couponError && styles.error_class} ${couponSuccess && styles.coupon_success_class}`} value={couponValue} onChange={(e) => setCouponValue(e.target.value)} label='Discount code' placeholder='Enter discount code' />
-						{couponError && <p className={styles.coupon_error_text}>This coupon is invalid</p>}
+						<InputField inputClass={`${couponResponse.error && styles.error_class} ${isCouponApplied && styles.coupon_success_class}`} value={couponValue} onChange={(e) => setCouponValue(e.target.value)} label='Discount code' placeholder='Enter discount code' />
+						{couponResponse.error && <p className={styles.coupon_error_text}>This coupon is invalid</p>}
 					</div>
-					<Button onClick={handleApplyCoupon} disabled={!couponValue} buttonType='transparent' className={!couponValue ? styles.applyDiscount_btn : styles.applyDiscount_btnActive}>
+					<Button onClick={handleApplyCoupon} disabled={!couponValue} buttonType='transparent' className={`${!couponValue ? styles.applyDiscount_btn : styles.applyDiscount_btnActive} ${isCouponApplied && styles.applied_btn}`}>
 						<h4>{applyBtnText}</h4>
 					</Button>
 				</div>
@@ -82,9 +97,9 @@ const CheckoutSummary = ({activateProceedBtn}:Props) => {
 					<h5 className={styles.total}>₦{cartDetails.cartAmount === 0 ? 0.0 : formatNum(totalCost)}</h5>
 				</div>
 			</div>
-				<Button buttonType='primary' className={`${activateProceedBtn? styles.summary_btn_active:styles.summary_btn}`}>
-					<h3>Proceed</h3>
-				</Button>
+			<Button buttonType='primary' disabled={!activateProceedBtn} className={`${activateProceedBtn ? styles.summary_btn_active : styles.summary_btn}`}>
+				<h3>Proceed</h3>
+			</Button>
 			<ViewcartModal isOpen={isOpen} onClose={closeModal} />
 		</div>
 	);

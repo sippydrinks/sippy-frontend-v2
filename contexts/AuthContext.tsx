@@ -46,13 +46,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 	const lastAddress = addresses[0];
 
-	useEffect(() => {
-		// You can implement logic to check if the user is authenticated here
-		// For example, check if there's a token in localStorage
-		const token = localStorage.getItem('token');
-		// setIsAuthenticated(!!token);
-	}, []);
-
 	return <AuthContext.Provider value={{ isAuthenticated: true, addresses, lastAddress: null }}>{children}</AuthContext.Provider>;
 };
 

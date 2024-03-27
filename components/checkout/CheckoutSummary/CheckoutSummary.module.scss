@@ -29,7 +29,7 @@
 			.applyDiscount_btnActive {
 				height: 5.6rem;
 				width: 10.1rem;
-				background: $col-grey-light-stroke;
+				background: $col-grey-200;
 				cursor: not-allowed;
 				h4 {
 					@extend %text-14;
@@ -41,6 +41,14 @@
 				opacity: 1;
 				cursor: pointer;
 				pointer-events: unset;
+			}
+
+			.applied_btn {
+				background: $col-purple-50;
+				width: 25.1rem;
+				h4 {
+					color: $col-purple-500;
+				}
 			}
 		}
 		.line {
@@ -103,7 +111,7 @@
 	.summary_btn,
 	.summary_btn_active {
 		width: 100%;
-		background: $col-grey-light-stroke;
+		background: $col-grey-200;
 		cursor: not-allowed;
 		h3 {
 			color: $light-text-main;

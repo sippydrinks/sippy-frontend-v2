@@ -100,7 +100,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 	const handleChangeButton = () => {
 		setSelectedAddress(null);
 	};
-	console.log(isGift);
+
 	return (
 		<div>
 			<CheckoutLoginModal modalImage='' isOpen={showLoginModal} onClose={closeLoginModal} />
