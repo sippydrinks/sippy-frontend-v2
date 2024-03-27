@@ -29,7 +29,7 @@ export interface ScheduledShippingDetails {
 }
 
 const Checkout = () => {
-	const { theme, cartDetails, isAuthenticated, showModal, selectedPaymentOption, shippingOption, isGift, activateProceedBtn, scheduledShippingDetails, getShippingOption, onOptionChange, handleProceed, toggleLoginModal, toggleSignupModal, setActivateProceedBtn, setIsGift, setScheduledShippingDetails, setSelectedPaymentOption, setShippingOption } = useCheckout();
+	const { theme, isAuthenticated, showModal, selectedPaymentOption, shippingOption, isGift, activateProceedBtn, scheduledShippingDetails, getShippingOption, onOptionChange, handleProceed, toggleLoginModal, toggleSignupModal, setActivateProceedBtn, setIsGift, setScheduledShippingDetails, setSelectedPaymentOption, setShippingOption } = useCheckout();
 
 	return (
 		<div data-theme={theme} className={styles.checkout_container}>
