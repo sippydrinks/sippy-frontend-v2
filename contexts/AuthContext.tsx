@@ -53,7 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 		// setIsAuthenticated(!!token);
 	}, []);
 
-	return <AuthContext.Provider value={{ isAuthenticated: false, addresses: [], lastAddress: null }}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={{ isAuthenticated: true, addresses, lastAddress: null }}>{children}</AuthContext.Provider>;
 };
 
 // Create a custom hook to use the auth context

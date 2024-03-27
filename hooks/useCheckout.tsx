@@ -29,7 +29,7 @@ const useCheckout = () => {
 	const [isGift, setIsGift] = useState<boolean>(false);
 	const [activateProceedBtn, setActivateProceedBtn] = useState<boolean>(false);
 	const [scheduledShippingDetails, setScheduledShippingDetails] = useState<ScheduledShippingDetails | undefined>(undefined);
-
+	const [formTitle, setFormTitle] = useState<string>('Delivery details');
 	const getShippingOption = (type: string) => {
 		console.log(scheduledShippingDetails);
 		const option = shippingOptions.find((option) => option.type === type);
@@ -90,6 +90,8 @@ const useCheckout = () => {
 		setScheduledShippingDetails,
 		setSelectedPaymentOption,
 		setShippingOption,
+		formTitle,
+		setFormTitle,
 	};
 };
 

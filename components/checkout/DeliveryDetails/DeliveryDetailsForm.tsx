@@ -100,7 +100,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 	const handleChangeButton = () => {
 		setSelectedAddress(null);
 	};
-
+	console.log(isGift);
 	return (
 		<div>
 			<CheckoutLoginModal modalImage='' isOpen={showLoginModal} onClose={closeLoginModal} />
@@ -121,19 +121,19 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 												<AllAddresses newAddresses={newAddresses} selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} setShowContactForm={setShowContactForm} />
 											</div>
 										) : (
-											<FormFields register={register} loading={loading} />
+											<FormFields register={register} loading={loading} isGift={isGift} />
 										)}
 									</>
 								)}
 							</>
 						) : (
 							<>
-								<FormFields register={register} loading={loading} />
+								<FormFields register={register} loading={loading} isGift={isGift} />
 							</>
 						)}
 					</div>
 				) : (
-					<>{!!selectedAddress ? <SelectedAddress selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} handleChangeButton={handleChangeButton} /> : <FormFields register={register} loading={loading} />}</>
+					<>{!!selectedAddress ? <SelectedAddress selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} handleChangeButton={handleChangeButton} /> : <FormFields register={register} loading={loading} isGift={isGift} />}</>
 				)}
 				<TextAreaField rows={3} className={styles.input} inputClass={styles.delivery_note} placeholder='Delivery note (optional)' />
 				<div className={`${styles.sender_container} ${!isGift && styles.hide_sender}`}>
@@ -154,9 +154,16 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 						/>
 					</div>
 				</div>
-				<Button type='submit' disabled={isBtnDisabled} buttonType='transparent' className={`${styles.applyDiscount_btn} ${!isBtnDisabled && styles.applyDiscount_btnActive} ${!isAuthenticated && styles.hide}`}>
-					<h4>Save Details</h4>
-				</Button>
+				<div className={styles.save_default_btn_container}>
+					<Button type='submit' disabled={isBtnDisabled} buttonType='transparent' className={`${styles.applyDiscount_btn} ${!isBtnDisabled && styles.applyDiscount_btnActive} ${(!isAuthenticated || !showContactForm) && styles.hide}`}>
+						<h4>Save Details</h4>
+					</Button>
+					{addresses.length > 0 && showContactForm && (
+						<Button onClick={() => setShowContactForm(false)} type='submit' buttonType='transparent' className={`${styles.use_default_btn} $ ${!isAuthenticated && styles.hide}`}>
+							<h4>use default address</h4>
+						</Button>
+					)}
+				</div>
 			</form>
 		</div>
 	);

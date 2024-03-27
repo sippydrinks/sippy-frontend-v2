@@ -29,7 +29,7 @@ export interface ScheduledShippingDetails {
 }
 
 const Checkout = () => {
-	const { theme, isAuthenticated, showModal, selectedPaymentOption, shippingOption, isGift, activateProceedBtn, scheduledShippingDetails, getShippingOption, onOptionChange, handleProceed, toggleLoginModal, toggleSignupModal, setActivateProceedBtn, setIsGift, setScheduledShippingDetails, setSelectedPaymentOption, setShippingOption } = useCheckout();
+	const { theme, isAuthenticated, showModal, selectedPaymentOption, shippingOption, isGift, activateProceedBtn, scheduledShippingDetails, getShippingOption, onOptionChange, handleProceed, toggleLoginModal, toggleSignupModal, setActivateProceedBtn, setIsGift, setScheduledShippingDetails, setSelectedPaymentOption, setShippingOption, formTitle, setFormTitle } = useCheckout();
 
 	return (
 		<div data-theme={theme} className={styles.checkout_container}>
@@ -55,9 +55,16 @@ const Checkout = () => {
 				<div className={styles.checkout_details_content}>
 					<div className={styles.delivery_details}>
 						<div className={styles.delivery_header}>
-							<h3>Delivery details</h3>
+							<h3>{formTitle}</h3>
 							<div className={styles.checkbox_container}>
-								<CheckBox className={styles.radio_field} checked={isGift} onChange={(e) => setIsGift((prev) => !prev)} />
+								<CheckBox
+									className={styles.radio_field}
+									checked={isGift}
+									onChange={(e) => {
+										setFormTitle(() => (isGift ? 'Delivery details' : 'Receiver’s delivery details'));
+										setIsGift((prev) => !prev);
+									}}
+								/>
 								<p>This is a gift</p>
 							</div>
 						</div>
