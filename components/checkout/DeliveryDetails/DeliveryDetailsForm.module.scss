@@ -1,0 +1,206 @@
+@import '@/styles/imports';
+
+.delivery_form {
+	.nameAndNumber {
+		display: flex;
+		align-items: center;
+		gap: 1.6rem;
+	}
+
+	.saved_addresses {
+		display: flex;
+		flex-direction: column;
+		// padding: 1.5rem 0;
+		gap: 1.6rem;
+		.address {
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+			@extend %text-18;
+			color: $col-grey-500;
+			font-family: $font;
+			&[data-active='true'] {
+				color: $col-grey-900;
+				font-weight: 700;
+			}
+
+			.address_details {
+				display: flex;
+				gap: 1rem;
+				align-items: center;
+
+				.dots {
+					width: 0.5rem;
+					height: 0.5rem;
+					border-radius: 50%;
+					background-color: $col-grey-500;
+				}
+
+				li {
+					@extend %text-20;
+					color: $col-grey-500;
+					font-family: $font;
+				}
+			}
+		}
+		.add_new_address {
+			padding: 1rem 2rem;
+
+			align-items: center;
+			gap: 1.5rem;
+			@extend %text-18;
+			color: $col-primary-default;
+			font-weight: 700;
+			cursor: pointer;
+			display: flex;
+			// display: none;
+		}
+
+		.single_address {
+			display: flex;
+			gap: 1.6rem;
+			justify-content: space-between;
+			align-items: flex-start;
+			h3 {
+				@extend %text-20;
+				font-family: $font-700;
+				color: $light-text-main;
+			}
+
+			.address_details {
+				.email_phone_container {
+					display: flex;
+					gap: 1rem;
+					align-items: center;
+					.dots {
+						width: 0.5rem;
+						height: 0.5rem;
+						border-radius: 50%;
+						background-color: $col-grey-500;
+					}
+				}
+			}
+		}
+	}
+
+	.save_default_btn_container {
+		display: flex;
+		align-items: flex-end;
+		gap: 1.6rem;
+		margin-top: 1rem;
+		.applyDiscount_btn,
+		.applyDiscount_btnActive {
+			height: 5.6rem;
+			width: 12.8rem;
+			margin-top: 2rem;
+			align-self: flex-end;
+			background: $col-grey-200;
+			cursor: not-allowed;
+			h4 {
+				@extend %text-14;
+				font-family: $font-900;
+				color: $light-text-main;
+			}
+		}
+		.applyDiscount_btnActive {
+			opacity: 1;
+			cursor: pointer;
+			pointer-events: unset;
+			background-color: $col-primary-default;
+			h4 {
+				color: $col-white;
+			}
+		}
+
+		.use_default_btn {
+			@extend %text-16;
+			font-family: $font-700;
+			color: $col-black;
+			background-color: $col-white;
+			cursor: pointer;
+			height: 5.6rem;
+			width: 18.5rem;
+			text-transform: capitalize;
+		}
+	}
+
+	@include screenMax('mobile') {
+		.nameAndNumber {
+			display: flex;
+			flex-direction: column;
+			gap: 0rem;
+		}
+		.saved_addresses {
+			padding: 1.5rem 1rem;
+			.address {
+				gap: 1rem;
+				align-items: flex-start;
+				.address_details {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 1rem;
+
+					.dots {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.delivery_note {
+	height: 8rem;
+	all: unset;
+	flex-grow: 1;
+	height: 100%;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+	font-family: $font;
+	color: $col-grey-500;
+	width: 100%;
+	&::placeholder {
+		font-size: 1.4rem;
+		line-height: 2.5rem;
+		// color: $col-text-secondary;
+	}
+	&[data-theme='dark'] {
+		color: $col-white;
+		&::placeholder {
+			color: $col-white;
+		}
+	}
+}
+
+.sender_container {
+	margin-top: 2rem;
+	h3 {
+		@extend %text-24;
+		font-family: $font-700;
+		color: $light-text-main;
+	}
+}
+
+.input {
+	margin-top: 1rem;
+}
+.prefix_container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+	height: 1.7rem;
+	color: $col-grey-500;
+
+	.prefix_divider {
+		width: 1px;
+		height: 2rem;
+		background-color: $col-grey-300;
+		display: flex;
+	}
+}
+
+.hide_sender,
+.hide {
+	display: none;
+}

@@ -1,0 +1,46 @@
+@import '@/styles/imports';
+
+.single_address {
+	display: flex;
+	gap: 1.6rem;
+	justify-content: space-between;
+	border: 1px solid $col-grey-200;
+	border-radius: 10px;
+	align-items: flex-start;
+	padding: 1.5rem;
+
+	h3 {
+		@extend %text-20;
+		font-family: $font-700;
+		color: $light-text-main;
+	}
+
+	.address_details {
+		.email_phone_container {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			.dots {
+				width: 0.5rem;
+				height: 0.5rem;
+				border-radius: 50%;
+				background-color: $col-grey-500;
+			}
+		}
+	}
+
+	.add_new_address {
+		padding: 1rem 2rem;
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		@extend %text-18;
+		color: $col-primary-default;
+		font-weight: 700;
+		cursor: pointer;
+
+		&[data-visible='false'] {
+			display: none;
+		}
+	}
+}

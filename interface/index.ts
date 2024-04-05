@@ -125,6 +125,7 @@ export interface CheckboxProps {
 	onChange?: (e: any) => void;
 	disabled?: boolean;
 	value?: string | number;
+	defaultChecked?: boolean;
 }
 
 export interface HeaderProps {

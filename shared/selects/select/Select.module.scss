@@ -55,6 +55,8 @@
 		//   }
 		.select_smallRow {
 			width: 100%;
+			// @include flex(space-between, center);
+
 			// @include screenMax("tablet") {
 			// 	justify-content: center;
 			// }

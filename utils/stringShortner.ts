@@ -1,8 +1,4 @@
-export const stringShortner = (
-	text?: string,
-	length: number = 18,
-	defaultText: string = "Input a string!"
-) => {
+export const stringShortner = (text?: string, length: number = 18, defaultText: string = 'Input a string!') => {
 	if (text !== undefined) {
 		const first: string = text.substring(0, 6);
 		const end: string = text.substring(text.length, text.length - length);

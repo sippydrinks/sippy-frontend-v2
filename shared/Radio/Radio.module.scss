@@ -1,0 +1,45 @@
+@import '@/styles//imports';
+
+/* components/CustomRadioButton.module.scss */
+.radio_container {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	cursor: pointer;
+
+	input {
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	.circle {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		border: 2px solid $col-grey-header;
+		display: inline-block;
+		position: relative;
+
+		&[data-disabled='yes'] {
+			opacity: 0.5;
+			background-color: #dddada;
+			cursor: default;
+		}
+	}
+
+	input:checked ~ .circle {
+		background-color: $col-primary-default;
+	}
+
+	input:checked ~ .circle::after {
+		content: '';
+		width: 10px;
+		height: 10px;
+		background-color: white;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

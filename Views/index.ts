@@ -8,17 +8,5 @@ import CartView from './CartView/CartView';
 import ProductDetailsView from './ProductDetailsView/ProductDetailsView';
 import CategoriesView from './CategoriesView/CategoriesView';
 import ProductCategoryView from './ProductCategoryView/ProductCategoryView';
-
-
-export { 
-    LoginView,
-    SignUpView,
-    CartView,
-    HomeView,
-    RecoverPasswordView,
-    NewPasswordView,
-    VerifyTokenView,
-    CategoriesView,
-    ProductCategoryView,
-    ProductDetailsView
-};
+import CheckoutView from './CheckoutView/CheckoutView';
+export { LoginView, SignUpView, CartView, HomeView, RecoverPasswordView, NewPasswordView, VerifyTokenView, CategoriesView, ProductCategoryView, ProductDetailsView, CheckoutView };

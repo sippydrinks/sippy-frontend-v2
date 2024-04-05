@@ -1,6 +1,7 @@
 @import '@/styles/imports';
 
 .modal_body {
+	max-width: 600px;
 	h3 {
 		text-align: center;
 		@extend %title-32;
@@ -15,6 +16,7 @@
 	}
 	.btns {
 		width: 100%;
+		box-sizing: border-box;
 		@extend %flex-align;
 		gap: 2.4rem;
 		margin-top: 2.4rem;
@@ -24,10 +26,16 @@
 			@extend %text-16;
 		}
 		.leavecart_btn {
+			width: 100%;
+			padding: 1rem;
 			background: $col-primary-default;
 			h3 {
 				color: $col-white;
 			}
+		}
+
+		.cancel_btn {
+			width: 100%;
 		}
 	}
 }

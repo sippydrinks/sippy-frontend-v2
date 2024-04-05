@@ -36,9 +36,10 @@ const ItemDetailsCard = (data: CartDetailsCardProps) => {
 		toast.success(`${data.productName} has been successfully removed from cart`);
 	};
 
+	// a function to handle the increment of the cart item
 	const handleItemIncrement = () => {
 		setCart((prevCart: any[]) => {
-			if (itemIndex !== -1) {
+			if (itemIndex !== -1 && prevCart[itemIndex].cartProductQuantity < prevCart[itemIndex].productQuantity) {
 				// If the item is already in the cart, create a new array with the updated item
 				return [
 					...prevCart.slice(0, itemIndex),
@@ -49,8 +50,12 @@ const ItemDetailsCard = (data: CartDetailsCardProps) => {
 					...prevCart.slice(itemIndex + 1),
 				];
 			}
+			toast.error(`You can't add more ${prevCart[itemIndex].productName}`);
+			return prevCart;
 		});
 	};
+
+	// a function to handle the decrement of the cart item
 	const handleItemDecrement = () => {
 		setCart((prevCart: any[]) => {
 			if (itemIndex !== -1 && prevCart[itemIndex].cartProductQuantity > 1) {
@@ -70,7 +75,7 @@ const ItemDetailsCard = (data: CartDetailsCardProps) => {
 	};
 
 	return (
-		<section data-quantity={data.productQuantity} data-theme={theme} data-type={data.cardType} className={`${styles.card_container} ${data.className}`}>
+		<div data-quantity={data.productQuantity} data-theme={theme} data-type={data.cardType} className={`${styles.card_container} ${data.className}`}>
 			<div className={styles.product_details}>
 				<div className={styles.productImage_container} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} data-hover={isHover}>
 					<svg xmlns='http://www.w3.org/2000/svg' width='125' height='101' viewBox='0 0 125 101' fill='none'>
@@ -127,7 +132,7 @@ const ItemDetailsCard = (data: CartDetailsCardProps) => {
 					</div>
 				</div>
 			)}
-		</section>
+		</div>
 	);
 };
 

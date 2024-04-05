@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './NewPassword.module.scss';
 import { Button, InputField, Logo } from '@/shared';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
-import useNewPassword from '@/hooks/authentication/useNewPassword';
+import { useNewPassword } from '@/hooks';
 
 type Props = {
 	setIsNewPassword: React.Dispatch<React.SetStateAction<boolean>>;

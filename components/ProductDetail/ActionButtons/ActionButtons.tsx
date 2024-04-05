@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { Counter, Button } from '@/shared';
 import { useGlobalContext } from '@/contexts/AppContext';
