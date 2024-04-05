@@ -1,4 +1,4 @@
-export const getPoolStage = (bet) => {
+export const getPoolStage = (bet: any) => {
 	let poolStage: 'open' | 'vesting' | 'closed' = "open"
 	const betEnds = new Date(bet?.poolData?.duration).getTime()
 	const poolEnds = new Date(bet?.poolData?.stakeDuration).getTime()

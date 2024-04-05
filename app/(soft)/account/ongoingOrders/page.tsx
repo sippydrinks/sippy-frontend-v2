@@ -1,7 +1,7 @@
-import { AccountView } from "@/Views"
+import { OngoingOrdersView } from "@/Views"
 
 export default function OngoingOrders() {
     return (
-        <h1>Completed Orders</h1>
+        <OngoingOrdersView />
     )
 }

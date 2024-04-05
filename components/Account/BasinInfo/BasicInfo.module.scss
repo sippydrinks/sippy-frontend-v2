@@ -1,6 +1,6 @@
 @import '@/styles/imports';
 
-.basicInfo_container {
+.basic_info_container {
     h1 {
         color: $light-text-main;
         font-family: $font-900;
@@ -46,7 +46,7 @@
                 }
             }
         }
-        .nameAndEmail {
+        .name_and_email {
             @extend %flex-align;
             gap: 1.6rem;
             .border {
@@ -71,7 +71,7 @@
         border: 0.2rem solid #E3E3E3;
         border-radius: 1.6rem;
         margin-bottom: 4rem;
-        .address_body, .address_bodyB {
+        .address_body, .address_body_secondary {
             height: 7.5rem;
             border-bottom: 0.2rem solid #E3E3E3;
             padding: 2.4rem;
@@ -85,19 +85,55 @@
             .edit_option {
                 @extend %flex-align;
                 gap: 4rem;
-                .edit_icon {
-                    position: relative;
-                    width: 2.4rem;
-                    height: 2.4rem;
-                }
                 h4 {
                     @extend %text-18;
                     font-family: $font-700;
                     color: $light-text-main;
                 }
+                .edit_icon {
+                    position: relative;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    cursor: pointer;
+                }
+                .disabled_input_text {
+                    @extend %text-18;
+                    font-family: $font-700;
+                    border: 0;
+                    color: $light-text-main;
+                    width: 100%;
+                }
+                .disabled_input {
+                    border: 0;
+                    height: 5.6rem;
+                    margin-bottom: 1.5rem;
+                    margin-right: -5rem;
+                    width: 100%;
+                }
+                .edit_number {
+                    width: 27rem;
+                    height: 5.6rem;
+                    margin-bottom: 0.1rem;
+                    border-radius: 1.6rem;
+                    &:active {
+                        border: 0.1rem solid $col-primary-default;
+                    }
+                }
+                .edit_number_input {
+                    @extend %text-18;
+                    font-family: $font-700;
+                    color: $light-text-main;
+                    margin: 0;
+                    height: 5.6rem;
+                    width: 100%;
+                }
+                input[type = 'date'] {
+                    cursor: pointer;
+                    width: 3.5rem;
+                }
             }
         }
-        .address_bodyB {
+        .address_body_secondary {
             border-bottom: 0;
         }
     }
@@ -135,13 +171,20 @@
     .change_btn {
         width: 22rem;
     }
-    .birthday_inputField {
-        margin-top: -0.6rem;
-    }
-    .password_inputFields {
+    .password_input_fields {
         margin-top: 1.6rem;
-        .password_inputField {
+        .password_input_field {
             margin-bottom: 1rem;
+        }
+        .correct_password {
+            @extend %text-16;
+            font-family: $font;
+            color: $col-success-500;
+        }
+        .incorrect_password {
+            @extend %text-16;
+            font-family: $font;
+            color: $col-error-400
         }
     }
     &[data-theme = "dark"] {
@@ -149,14 +192,14 @@
             color: $col-white;
         }
         .basic_info {
-            .nameAndEmail {
+            .name_and_email {
                 h3, p {
                     color: $col-white;
                 }
             }
         }
         .address_input {
-            .address_bodyB, .address_body {
+            .address_body_secondary, .address_body {
                 h3 {
                     color: $col-white;
                 }
@@ -203,7 +246,7 @@
                     }
                 }
             }
-            .nameAndEmail {
+            .name_and_email {
                 gap: 0.8rem;
                 h3 {
                     font-size: 1.4rem;
@@ -219,15 +262,31 @@
             }
         }
         .address_input {
-            .address_body, .address_bodyB {
+            .address_body, .address_body_secondary {
                 align-items: flex-start;
                 justify-content: center;
                 flex-direction: column;
                 padding: 1.6rem;
+                height: 8.8rem;
                 .edit_option {
                     gap: 0;
                     justify-content: space-between;
                     width: 100%;
+                    input[type = 'date'] {
+                        width: 2.5rem;
+                    }
+                    .edit_number_input {
+                        padding: 1rem;
+                        height: auto;
+                    }
+                    .disabled_input {
+                        height: auto;
+                        padding: 0.8rem 0.8rem 0.8rem 0;
+                        margin-bottom: 0;
+                    }
+                    .disabled_input_text {
+                        padding: 0;
+                    }
                 }
             }
         }

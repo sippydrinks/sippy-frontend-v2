@@ -1,5 +1,7 @@
-
+import { CancelledOrdersView } from "@/Views";
 
 export default function CancelledOrders() {
-    <h1>CancelledOrders Page</h1>
+    return (
+        <CancelledOrdersView />
+    )
 }

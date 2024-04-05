@@ -42,6 +42,9 @@
 			border: 0.2rem solid $light-text-main;
 			@extend %flex-center;
 			cursor: pointer;
+			&[data-type = 'account'] {
+				width: 5.6rem;
+			}
 			.delete_icon {
 				width: 2.4rem;
 				height: 2.4rem;
@@ -55,6 +58,12 @@
 				color: $col-white;
 				font-family: $font-900;
 				@extend %text-16;
+			}
+		}
+		&[data-type = 'account'] {
+			width: auto;
+			.delete_icon_container {
+				width: 5.6rem;
 			}
 		}
 	}
@@ -160,6 +169,10 @@
 					line-height: 1.6rem;
 				}
 			}
+			&[data-type = 'account'] {
+				width: 100%;
+			}
+			
 		}
 		.product_details {
 			gap: 0;

@@ -4,8 +4,14 @@ import ProductCategory from './ProductCategory/ProductCategory';
 import { Login, SignUp, RegistrationNotification, NewPassword, VerifyToken } from './authenticationPages';
 import ProductDetail from './ProductDetail/ProductDetail';
 import BasicInfo from './Account/BasinInfo/BasicInfo';
-import Account from './Account/Account';
-import Address from './Account/Address/Address';
+import { Account, Tabs, Address, Favourites, OrderDetailsCard, OrderStatusIndicator, 
+    OrdersCard, 
+    OngoingOrders, 
+    CancelledOrders, 
+    CompletedOrders,
+    TrackOrder,
+} from './Account';
+
 
 export { 
     Login,
@@ -20,4 +26,13 @@ export {
     BasicInfo,
     Account,
     Address,
+    Tabs,
+    Favourites,
+    CancelledOrders,
+    CompletedOrders,
+    OngoingOrders,
+    OrderStatusIndicator,
+    OrdersCard,
+    OrderDetailsCard,
+    TrackOrder
 };

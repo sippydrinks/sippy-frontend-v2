@@ -10,6 +10,11 @@ import CategoriesView from './CategoriesView/CategoriesView';
 import ProductCategoryView from './ProductCategoryView/ProductCategoryView';
 import AccountView from './AccountView/AccountView';
 import AddressView from './AddressView/AddressView';
+import FavouritesView from './FavouritesView/FavouritesView';
+import CancelledOrdersView from './CancelledOrdersView/CancelledOrdersView';
+import CompletedOrdersView from './CompletedOrdersView/CompletedOrdersView';
+import OngoingOrdersView from './OngoingOrdersView/OngoingOrdersView';
+import TrackOrderView from './TrackOrderView/TrackOrderView';
 
 
 export { 
@@ -25,4 +30,9 @@ export {
     ProductDetailsView,
     AccountView,
     AddressView,
+    FavouritesView,
+    OngoingOrdersView,
+    CompletedOrdersView,
+    CancelledOrdersView,
+    TrackOrderView,
 };

@@ -9,7 +9,7 @@ import { AuthType } from '@/interface/authentication';
 
 const RecoverPassword = () => {
 	const [type, toggleTab] = React.useState<AuthType>(AuthType.EMAIL);
-	const { register, handleSubmit, errors, submitForm } = useRecoverPassword({ type });
+	const { register, handleSubmit, errors, submitForm }: any = useRecoverPassword({ type });
 
 	return (
 		<div className={styles.recover_password_page}>

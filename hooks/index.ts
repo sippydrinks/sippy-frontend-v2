@@ -6,6 +6,6 @@ import { usePagination } from './usePagination';
 export { 
     useValidateLogin, 
     useValidateSignup, 
-    useRecoverPassword, 
+    useRecoverPassword,  
     usePagination,
 };

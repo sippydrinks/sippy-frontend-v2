@@ -12,6 +12,7 @@ const Header = ({ isNavButton = false }: HeaderProps) => {
 	const route = usePathname();
 	const router = useRouter()
 	const { theme, cartDetails, drinkType } = useGlobalContext();
+	const isCategoriesRoute = (route.includes('/alcohol') || route === '/' || route === '/categories')
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [collapsed, setCollapsed] = useState<boolean>(true);
 
@@ -58,7 +59,7 @@ const Header = ({ isNavButton = false }: HeaderProps) => {
 			</div>
 			<div onClick={() => setCollapsed(true)} className={styles[!collapsed ? 'header_wrapper' : 'header_wrapper__collapsed']} data-active={!collapsed}>
 				<div className={styles.header_wrapper_body}>
-					{!isNavButton && (
+					{(isNavButton && isCategoriesRoute) && (
 						<div className={styles.buttons}>
 							<ButtonNav />
 						</div>

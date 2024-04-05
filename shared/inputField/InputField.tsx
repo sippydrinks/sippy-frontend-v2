@@ -11,13 +11,15 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	isPassword?: boolean;
 	className?: string;
 	inputClass?: string;
-	customPrefix?: React.JSX.Element;
+	// customPrefix?: React.JSX.Element;
+	customPrefix?: any;
 	suffix?: React.JSX.Element;
 	inputRef?: any;
 	register?: any;
+	value?: any
 }
 
-const InputField = ({ name, type = 'text', label, className, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
+const InputField = ({ name, type = 'text', label, className, value, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
 		if (inputType === 'password') {
@@ -27,19 +29,19 @@ const InputField = ({ name, type = 'text', label, className, inputClass, customP
 			setInputType('password');
 		}
 	};
-	const { themeColor } = useGlobalContext();
+	const { theme } = useGlobalContext();
 	return (
-		<div data-theme={themeColor} className={`${styles.input} ${className}`}>
+		<div data-theme={theme} className={`${styles.input} ${className}`}>
 			{!!label && (
 				<label className={styles.input_label} htmlFor={name}>
 					{label}
 				</label>
 			)}
 
-			<div data-theme={themeColor} className={`${styles.input_wrapper} ${inputClass} `}>
+			<div data-theme={theme} className={`${styles.input_wrapper} ${inputClass}`}>
 				{customPrefix && <>{customPrefix}</>}
 
-				<input className={styles.input_field} type={inputType} ref={inputRef} {...register} {...options} data-theme={themeColor} />
+				<input value={value} className={`${inputClass} ${styles.input_field}`} type={inputType} ref={inputRef} {...register} {...options} data-theme={theme} />
 
 				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>

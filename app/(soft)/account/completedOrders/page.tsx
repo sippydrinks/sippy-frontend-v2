@@ -1,7 +1,7 @@
-import { AccountView } from "@/Views"
+import { CompletedOrdersView } from "@/Views"
 
 export default function CompletedOrders() {
     return (
-        <h1>Completed Orders</h1>
+        <CompletedOrdersView />
     )
 }

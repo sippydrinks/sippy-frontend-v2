@@ -1,0 +1,145 @@
+@import '@/styles/imports';
+
+.orderCard_container {
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+    border: 0.14rem solid $col-grey-light-stroke;
+    @extend %flex-align;
+    justify-content: space-between;
+    .order_details {
+        width: 39rem;
+        .image_container {
+            position: relative;
+            @extend %flex-align;
+            .image_wrapper {
+                width: 12.9rem;
+                height: 10.4rem;
+                position: relative;
+                .image {
+                    width: 4.8rem;
+                    height: 5.6rem;
+                    position: absolute;
+                    top: 2.9rem;
+                    left: 2rem;
+                    flex-shrink: 0;
+                    h3 {
+                        @extend %title-24;
+                        font-family: $font-900;
+                        color: $light-text-main;
+                    }
+                }
+            }
+        }
+        .dateAndId {
+            @extend %flex-align;
+            justify-content: space-between;
+            margin: 1.6rem 0;
+            &[data-theme = "dark"] {
+                h3 {
+                    color: $col-white;
+                }
+            }
+            h3 {
+                color: $col-grey-light-stroke;
+                @extend %text-14;
+                font-family: $font-700;
+                text-transform: uppercase;
+            }
+            .product_review {
+                @extend %flex-align;
+                .reviewIcon {
+                    position: relative;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+            }
+        }
+        .orderStatus_text {
+            @extend %flex-align;
+            justify-content: space-between;
+            h3, p {
+                @extend %text-18;
+                color: $light-text-main;
+                font-family: $font-700;
+            }
+            h3 {
+                &[data-status = "Cancelled"] {
+                    color: $col-grey-light-stroke;
+                }
+                &[data-status = "Delivered to you"] {
+                    color: $col-success-500;
+                }
+                &[data-status = "Processing Order"] {
+                    color: $col-error-500;
+                }
+                &[data-status = "Order confirmed"] {
+                    color: $col-coral-500;
+                }
+                &[data-status = "Out for delivery"] {
+                    color: $col-primary-default;
+                }
+
+            }
+        }
+    }
+    .status {
+        width: auto;
+        .order_btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            .orderCard_btn {
+                width: 17.2rem;
+                background: $col-primary-default;
+                h3 {
+                    color: $col-white;
+                    font-family: $font-900;
+                    @extend %text-16;
+                }
+                &[data-status = "Processing Order"] {
+                    display: none;
+                }
+            }
+            &[data-active = "true"] {
+                .orderCard_btn {
+                    display: none;
+                }
+            }
+            &[data-theme = "dark"] {
+                .view_btn {
+                    h3 {
+                        color: $col-white;
+                    }
+                }
+            }
+            .view_btn {
+                width: 17.2rem;
+                h3 {
+                    font-family: $font-900;
+                    @extend %text-16;
+                }
+            }
+        }
+    }
+    @include screenMax("mobile") {
+        flex-direction: column;
+        .order_details {
+            width: 100%;
+        }
+        .status {
+            width: 100%;
+            .order_btns {
+                flex-direction: row;
+                margin-top: 1.6rem;
+                justify-content: space-between;
+                .orderCard_btn, .view_btn {
+                    height: 4rem;
+                    width: 100%;
+                }
+                .views_btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

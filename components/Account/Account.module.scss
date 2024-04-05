@@ -7,70 +7,70 @@
 		display: flex;
 		gap: 4rem;
 		position: relative;
-		.tabs {
-			padding: 1.6rem 1.6rem 2.4rem;
-			height: 50.4rem;
-			width: 30.1rem;
-			border: 0.4rem solid $col-grey-700;
-			flex-direction: column;
-			display: flex;
-			gap: 2.4rem;
-			border-radius: 1.6rem;
-			.profile_data, .orders_data {
-				display: flex;
-				flex-direction: column;
-				gap: 3.2rem;
-				p {
-					font-family: $font-700;
-					@extend %text-14;
-					color: $col-grey-light-stroke;
-					margin-bottom: -2.4rem;
-				}
-				.tab_item {
-					@extend %flex-align;
-					gap: 1.6rem;
-					cursor: pointer;
-					.tab_icon {
-						position: relative;
-						width: 2.4rem;
-						height: 2.4rem;
-					}
-					h3 {
-						font-family: $font-700;
-						@extend %text-16;
-						color: $col-grey-500;
-					}
-					.active_tab {
-						color: $light-text-main;
-						font-family: $font-900;
-						@extend %text-16;
-					}
-					h4 {
-						color: $col-error-500;
-					}
-				}
-			}
-			.tab_item {
-				@extend %flex-align;
-				gap: 1.6rem;
-				.tab_icon {
-					position: relative;
-					width: 2.4rem;
-					height: 2.4rem;
-				}
-				h4 {
-					font-family: $font-700;
-					@extend %text-16;
-					color: $col-error-500;
-				}
-				.icon {
-					width: 2.9rem;
-					height: 2.3rem;
-					position: relative;
-					margin-left: auto;
-				}
-			}
-		}
+		// .tabs {
+		// 	padding: 1.6rem 1.6rem 2.4rem;
+		// 	height: 50.4rem;
+		// 	width: 30.1rem;
+		// 	border: 0.4rem solid $col-grey-700;
+		// 	flex-direction: column;
+		// 	display: flex;
+		// 	gap: 2.4rem;
+		// 	border-radius: 1.6rem;
+		// 	.profile_data, .orders_data {
+		// 		display: flex;
+		// 		flex-direction: column;
+		// 		gap: 3.2rem;
+		// 		p {
+		// 			font-family: $font-700;
+		// 			@extend %text-14;
+		// 			color: $col-grey-light-stroke;
+		// 			margin-bottom: -2.4rem;
+		// 		}
+		// 		.tab_item {
+		// 			@extend %flex-align;
+		// 			gap: 1.6rem;
+		// 			cursor: pointer;
+		// 			.tab_icon {
+		// 				position: relative;
+		// 				width: 2.4rem;
+		// 				height: 2.4rem;
+		// 			}
+		// 			h3 {
+		// 				font-family: $font-700;
+		// 				@extend %text-16;
+		// 				color: $col-grey-500;
+		// 			}
+		// 			.active_tab {
+		// 				color: $light-text-main;
+		// 				font-family: $font-900;
+		// 				@extend %text-16;
+		// 			}
+		// 			h4 {
+		// 				color: $col-error-500;
+		// 			}
+		// 		}
+		// 	}
+		// 	.tab_item {
+		// 		@extend %flex-align;
+		// 		gap: 1.6rem;
+		// 		.tab_icon {
+		// 			position: relative;
+		// 			width: 2.4rem;
+		// 			height: 2.4rem;
+		// 		}
+		// 		h4 {
+		// 			font-family: $font-700;
+		// 			@extend %text-16;
+		// 			color: $col-error-500;
+		// 		}
+		// 		.icon {
+		// 			width: 2.9rem;
+		// 			height: 2.3rem;
+		// 			position: relative;
+		// 			margin-left: auto;
+		// 		}
+		// 	}
+		// }
 		.tab_body {
 			width: calc(100% - 34rem);
 			min-height: 100vh;
@@ -78,10 +78,62 @@
 		.action_panel_container {
 			display: none;
 		}
-		@include screenMax("mobile") {
+	}
+	&[data-theme="dark"] {
+		.accountInfo_body {
+			.tab {
+				.profile_data,
+				.orders_data {
+					p {
+						color: $col-white;
+					}
+					.tab_item {
+						h3 {
+							color: $col-white;
+						}
+					}
+				}
+			}
+			.action_panel_container {
+				.action_panel {
+					.action_panel_header {
+						.filter_container {
+							h3 {
+								color: $col-white;
+							}
+						}
+					}
+				}
+				.filter_body {
+					background: $col-black;
+					.filter_content {
+						.filter_header {
+							h3 {
+								color: $col-white;
+							}
+						}
+						.tab {
+							.profile_data, .orders_data {
+								p {
+									color: $col-white;
+								}
+								.tab_item {
+									h3 {
+										color: $col-white;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@include screenMax("mobile") {
+		.accountInfo_body {
 			flex-direction: column;
-			margin: 0 0 8rem;
-			.tabs {
+			margin: 2.4rem 0 8rem;
+			.tab_web {
 				display: none;
 			}
 			.tab_body {
@@ -104,7 +156,7 @@
 							height: 5.6rem;
 							justify-content: center;
 							width: 100%;
-                            cursor: pointer;
+							cursor: pointer;
 							h3 {
 								font-family: $font-700;
 								color: $light-text-main;
@@ -144,7 +196,7 @@
 								width: 2.4rem;
 								height: 2.4rem;
 								position: relative;
-                                cursor: pointer;
+								cursor: pointer;
 							}
 							h3 {
 								font-family: $font-900;
@@ -157,7 +209,7 @@
 								height: 2rem;
 								position: relative;
 								rotate: 45deg;
-                                cursor: pointer;
+								cursor: pointer;
 							}
 						}
 						.tab {
@@ -228,56 +280,6 @@
 									height: 2.3rem;
 									position: relative;
 									margin-left: auto;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	&[data-theme="dark"] {
-		.accountInfo_body {
-			.tab {
-				.profile_data,
-				.orders_data {
-					p {
-						color: $col-white;
-					}
-					.tab_item {
-						h3 {
-							color: $col-white;
-						}
-					}
-				}
-			}
-			.action_panel_container {
-				.action_panel {
-					.action_panel_header {
-						.filter_container {
-							h3 {
-								color: $col-white;
-							}
-						}
-					}
-				}
-				.filter_body {
-					background: $col-black;
-					.filter_content {
-						.filter_header {
-							h3 {
-								color: $col-white;
-							}
-						}
-						.tab {
-							.profile_data, .orders_data {
-								p {
-									color: $col-white;
-								}
-								.tab_item {
-									h3 {
-										color: $col-white;
-									}
 								}
 							}
 						}

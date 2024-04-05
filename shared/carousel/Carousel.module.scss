@@ -4,9 +4,6 @@
 	border-top: 0.2rem solid $col-black;
 	border-bottom: 0.2rem solid $col-black;
 	padding: 3.2rem 0;
-	// width: calc(100% + 8rem);
-	// margin-left: -4rem;
-	// margin-right: -4rem;
 	width: 100%;
 	overflow-x: hidden;
 	.row {
@@ -56,6 +53,11 @@
 			}
 		}
 	}
+	&[data-title = 'true'] {
+		.row {
+			animation: tinyscroll 15s linear infinite;
+		}
+	}
 	@include screenMax('mobile') {
 		width: 100%;
 		padding: 1.6rem 0;
@@ -92,5 +94,14 @@
 	}
 	100% {
 		transform: translateX(-200%);
+	}
+}
+
+@keyframes tinyscroll {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-150%);
 	}
 }

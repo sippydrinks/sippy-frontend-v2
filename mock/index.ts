@@ -11,6 +11,7 @@ import cancelledOrderData from "./cancelledOrdersData"
 import completedOrdersData from "./completedOrdersData"
 import favouritesOrderData from "./favouritesOrderData"
 import couponCodes from "./couponCodes"
+import addressesData from "./addressesData"
 import { sizeFilterData, priceFilterData, sortFilterData, brandFilterData } from "./filterData"
 
 export { 
@@ -31,4 +32,5 @@ export {
     priceFilterData,
     sortFilterData,
     brandFilterData,
+    addressesData,
 }

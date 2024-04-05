@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { Counter, Button } from '@/shared';
 import { useGlobalContext } from '@/contexts/AppContext';
@@ -54,7 +55,7 @@ const ActionButtons = ({ price }: { price: number }) => {
 		calculateBottomPosition();
 		window.addEventListener('scroll', calculateBottomPosition);
 		return () => window.removeEventListener('scroll', calculateBottomPosition);
-	}, [isFixed]);
+	}, [isFixed, targetRef]);
 
 	return (
 		<div ref={bottomRef} className={styles.container} style={{ bottom: isFixed ? bottomPosition + 'px' : 0 }}>

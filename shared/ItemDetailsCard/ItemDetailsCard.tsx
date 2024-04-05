@@ -24,7 +24,6 @@ const ItemDetailsCard = (data: CartDetailsCardProps) => {
 
 		return drinkType === 'soft' ? softColors[theme] : alcoholColors[theme];
 	};
-
 	const localCart = cart;
 	const itemIndex = localCart.findIndex((item: any) => item.id === data?.id);
 
@@ -104,7 +103,7 @@ const ItemDetailsCard = (data: CartDetailsCardProps) => {
 				</div>
 			</div>
 
-			<div className={`${styles.counter_container} ${data.actionBtnClass}`}>
+			<div data-type={data.cardType} className={`${styles.counter_container} ${data.actionBtnClass}`}>
 				{data.cardType === 'cart' ? (
 					<Counter classname={styles.counterClass} counterValue={data.cartProductQuantity && data.cartProductQuantity} onDecrement={handleItemDecrement} onIncrement={handleItemIncrement} />
 				) : (

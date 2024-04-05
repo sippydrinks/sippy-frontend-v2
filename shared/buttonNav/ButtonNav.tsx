@@ -10,21 +10,14 @@ const ButtonNav = () => {
 	const route = usePathname();
 
 	const checkActive = route.includes('/alcohol')
-	const categoriesRoute = route === ('/categories')
-	const categoriesAlcoholRoute = route === ('/alcohol/categories')
-	const urlArr: string[] = route.split('/')
     const handleNonAlcohol = () => {
-      const softUrlArr = urlArr.slice(0, -1)
-      route === '/alcohol' ? 
-	  	router.push('/') 
-		: 
-		(`${categoriesAlcoholRoute ? 
-			router.push('/categories') : router.push(softUrlArr.join('/'))}`)
+		const newPath = route.replace('/alcohol', '')
+		router.push(route === '/alcohol' ? '/' : newPath)
     }
 
     const handleAlcohol = () => {
-      const alcoholUrlArr = [...urlArr, route === '/' ? 'alcohol' : '/alcohol']
-      categoriesRoute ? router.push('/alcohol/categories') : router.push(alcoholUrlArr.join(''))
+		const newPath = `/alcohol${route}`
+		router.push(route === '/' ? '/alcohol' : newPath)
     }
     const checkRoute = route.includes('/alcohol')
 
