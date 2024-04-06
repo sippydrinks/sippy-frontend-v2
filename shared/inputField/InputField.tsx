@@ -38,17 +38,10 @@ const InputField = ({ name, type = 'text', label, className, value, inputClass, 
 				</label>
 			)}
 
-<<<<<<< HEAD
 			<div data-theme={theme} className={`${styles.input_wrapper} ${inputClass}`}>
 				{customPrefix && <>{customPrefix}</>}
 
 				<input value={value} className={`${inputClass} ${styles.input_field}`} type={inputType} ref={inputRef} {...register} {...options} data-theme={theme} />
-=======
-			<div data-theme={theme} className={`${styles.input_wrapper} ${inputClass} `}>
-				{customPrefix && <>{customPrefix}</>}
-
-				<input className={styles.input_field} type={inputType} ref={inputRef} {...register} {...options} data-theme={theme} />
->>>>>>> 06d4c7053d21dbbe1eb799ff72a6dac41d60fae0
 
 				{isPassword && (
 					<div className={styles.icon} onClick={handleShowPassword}>
