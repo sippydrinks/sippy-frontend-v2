@@ -22,7 +22,6 @@ const Address = () => {
           <AddressField 
             key={index}
             index={addressData.id}
-            // addAddress={addAddress}
             addressData={addressData}
             addressesList={addressesData}
             items={address}
@@ -31,9 +30,11 @@ const Address = () => {
         )
       }
 
-      {checkAddressArray && <Button onClick={handleAddAddress} buttonType='primary' className={styles.change_btn}>
-        <h4>Add new address</h4>
-      </Button>}
+      {checkAddressArray && 
+        <Button onClick={handleAddAddress} buttonType='primary' className={styles.change_btn}>
+          <h4>Add new address</h4>
+        </Button>
+      }
     </div>
   )
 }

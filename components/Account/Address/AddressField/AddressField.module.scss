@@ -17,7 +17,7 @@
             padding: 0.4rem;
             color: $col-orange-300;
             font-family: $font-900;
-            margin-left: 1rem;
+            margin: 0.3rem 0 0 1rem;
             @extend %flex-center, %text-12;
             cursor: pointer;
         }
@@ -65,6 +65,7 @@
         }
         h4 {
             color: $light-text-main;
+            text-transform: capitalize;
         }
         .edit_address_input {
             width: 44.4rem;
@@ -76,10 +77,26 @@
             @extend %text-18;
             font-family: $font-700;
             color: $light-text-main;
+            text-transform: capitalize;
         }
     }
     .address_body_secondary {
         border: 0;
+    }
+    .disabled_address_container {
+        max-width: 68rem;
+        height: 5.6rem;
+        border: 0;
+        margin-bottom: 1.5rem;
+    }
+    .disabled_address_input {
+        @extend %text-18;
+        font-family: $font-700;
+        color: $light-text-main;
+        border: 0;
+        text-transform: capitalize;
+        padding-right: 0;
+        text-align: end;
     }
 }
 .save_changes_btn {

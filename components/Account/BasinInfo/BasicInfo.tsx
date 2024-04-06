@@ -95,7 +95,7 @@ const BasicInfo = () => {
                     className={styles.edit_number}
                     inputClass={styles.edit_number_input}
                   />
-                </> 
+                </>
               : 
                 <>
                   <InputField disabled inputClass={styles.disabled_input_text}

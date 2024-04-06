@@ -1,12 +1,14 @@
 'use client';
-import { RecoverPassword } from '@/components/authenticationPages';
-import React, { useState } from 'react';
+import React from 'react';
+import dynamic from 'next/dynamic';
 
 const RecoverPasswordView = () => {
+	const RecoverPassword = dynamic(() => import('@/components/authenticationPages/VerifyToken/VerifyToken'),
+	{
+		ssr: false
+	})
 	return (
-		<>
-			<RecoverPassword />
-		</>
+		<RecoverPassword />
 	);
 };
 

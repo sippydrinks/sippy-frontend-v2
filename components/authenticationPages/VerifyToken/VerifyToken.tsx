@@ -16,12 +16,12 @@ const VerifyToken = () => {
 			<div className={styles.otp_page_container}>
 				<RecoverPasswordWrapper subTitle={subTitle} 
 					title='Enter OTP' 
-					description='Enter the OTP we have sent to your email address.' 
+					description='Enter the OTP we have sent to your email address.'
 				/>
 				<form onSubmit={submitToken} className={styles.otp_form}>
 					<div className={styles.input_fields}>
 						<div className={styles.otp_container}>
-							{tokens.map((ref: any, index: number) => (
+							{tokens?.map((ref: any, index: number) => (
 								<InputField key={index} value={tokens[index]} type='text' inputRef={(ref: any) => (inputRefs.current[index] = ref)} maxLength={1} onChange={(e) => handleInputChange(index, e)} className={styles.otp_field} inputClass={otpError && styles.input_error} onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(index, e)} max={9} onPaste={handlePaste} />
 							))}
 						</div>

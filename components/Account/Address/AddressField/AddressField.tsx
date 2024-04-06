@@ -74,28 +74,34 @@ const AddressField = ({ index, addressData, addressesList, items, setItems}: Add
             <div className={styles.address_body}>
             <h3>Street</h3>
                 {editAddress ?
-                    <InputField className={styles.edit_address_input} 
-                        inputClass={styles.edit_address} 
-                        register={register('address')} 
-                        placeholder='Enter Address' 
+                    <InputField className={styles.edit_address_input}
+                        inputClass={styles.edit_address}
+                        register={register('address')}
+                        placeholder='Enter Address'
                     />
                 : 
-                    <h4>
-                        {address ? address : `${addressData.street}`}
-                    </h4>
+                    // <h4>{address ? address : `${addressData.street}`}</h4>
+                    <InputField disabled value={address ? address : `${addressData.street}`} 
+                        className={styles.disabled_address_container}
+                        inputClass={styles.disabled_address_input}
+                    />
                 }
             </div>
 
             <div className={styles.address_body}>
                 <h3>State</h3>
                 {editAddress ?
-                    <InputField inputClass={styles.edit_address} 
-                        className={styles.edit_address_input} 
-                        register={register('state')} 
+                    <InputField inputClass={styles.edit_address}
+                        className={styles.edit_address_input}
+                        register={register('state')}
                         placeholder='Enter State' 
                     />
                 : 
-                    <h4>{state ? state : `${addressData.state}`}</h4>
+                    // <h4>{state ? state : `${addressData.state}`}</h4>
+                    <InputField disabled value={state ? state : `${addressData.state}`} 
+                        className={styles.disabled_address_container}
+                        inputClass={styles.disabled_address_input}
+                    />
                 }
             </div>
 
@@ -107,7 +113,12 @@ const AddressField = ({ index, addressData, addressesList, items, setItems}: Add
                         register={register('city')}
                     />
                 : 
-                    <h4>{city ? city : `${addressData.city}`}</h4>
+                    // <h4>{city ? city : `${addressData.city}`}</h4>
+                    <InputField disabled value={city ? city : `${addressData.city}`} 
+                        className={styles.disabled_address_container}
+                        inputClass={styles.disabled_address_input}
+                    />
+
                 }
             </div>
         </div>
