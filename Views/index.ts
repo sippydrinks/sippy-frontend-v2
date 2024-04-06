@@ -15,6 +15,7 @@ import CancelledOrdersView from './CancelledOrdersView/CancelledOrdersView';
 import CompletedOrdersView from './CompletedOrdersView/CompletedOrdersView';
 import OngoingOrdersView from './OngoingOrdersView/OngoingOrdersView';
 import TrackOrderView from './TrackOrderView/TrackOrderView';
+import CheckoutView from './CheckoutView/CheckoutView';
 
 
 export { 
@@ -35,4 +36,6 @@ export {
     CompletedOrdersView,
     CancelledOrdersView,
     TrackOrderView,
+    CheckoutView,
 };
+

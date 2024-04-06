@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google';
 import Localfont from 'next/font/local';
 import { Toaster } from 'react-hot-toast';
 import '@/styles/index.scss';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -48,11 +49,11 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={myFont.className}>
 				<AppProvider>
-					<Toaster
-						position='top-right'
-					/>
-					<PreLoader />
-					<React.Fragment>{children}</React.Fragment>
+					<AuthProvider>
+						<Toaster position='top-right' />
+						<PreLoader />
+						<React.Fragment>{children}</React.Fragment>
+					</AuthProvider>
 				</AppProvider>
 			</body>
 		</html>

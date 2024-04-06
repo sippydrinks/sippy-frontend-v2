@@ -1,0 +1,74 @@
+@import '@/styles/imports';
+
+.textarea {
+	width: 100%;
+	row-gap: 0rem;
+	@include flex(flex-start, flex-start, column);
+
+	.error_border {
+		border: 0.1rem solid $col-error-500;
+	}
+
+	.input_label {
+		@extend %text-14;
+		color: $col-primary;
+	}
+
+	.textarea_wrapper {
+		position: relative;
+		width: 100%;
+		padding: 1.6rem;
+		column-gap: 1rem;
+		box-sizing: border-box;
+		background-color: transparent;
+		border: 0.1rem solid $col-grey-200;
+		border-radius: 1.5rem;
+		transition: all 0.1s ease-in;
+		margin-top: 0.6rem;
+		@include flex(flex-start, center, row nowrap);
+		&:focus-within {
+			transition: all 0.3s linear;
+		}
+		&[data-theme='dark'] {
+			border-color: $col-grey-light-stroke;
+		}
+		&[data-theme='dark'] {
+			border-color: $col-grey-light-stroke;
+		}
+	}
+}
+
+.input_field {
+	all: unset;
+	flex-grow: 1;
+	height: 100%;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+	font-family: $font;
+	color: $col-grey-500;
+	width: 100%;
+	&::placeholder {
+		font-size: 1.4rem;
+		line-height: 2.5rem;
+		// color: $col-text-secondary;
+	}
+	&[data-theme='dark'] {
+		color: $col-white;
+		&::placeholder {
+			color: $col-white;
+		}
+	}
+}
+.text {
+	p {
+		@extend %text-12;
+		color: $col-grey-texts;
+		width: max-content;
+		height: 1.5rem;
+	}
+	&[data-theme='dark'] {
+		p {
+			color: $col-white;
+		}
+	}
+}

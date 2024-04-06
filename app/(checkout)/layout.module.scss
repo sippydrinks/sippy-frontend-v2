@@ -1,0 +1,35 @@
+@import '@/styles/imports';
+
+.layout {
+	background-color: $col-primary-default;
+	width: 100%;
+	position: relative;
+	padding: 2.4rem;
+}
+
+.layout_background {
+	background-color: $col-background-shade;
+	background-repeat: repeat;
+	background-image: url('/svgs/background.png');
+	border-radius: 1.6rem;
+	padding-bottom: 12rem;
+	transition: $all-transition;
+	&[data-theme='dark'] {
+		background-color: $col-black;
+	}
+}
+
+.layout_content {
+	width: 100%;
+	position: relative;
+	transition: $all-transition;
+}
+
+@include screenMax('mobile') {
+	.layout {
+		padding: 1rem 0.8rem;
+		.layout_background {
+			padding-bottom: 8rem;
+		}
+	}
+}

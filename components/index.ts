@@ -11,6 +11,7 @@ import { Account, Tabs, Address, Favourites, OrderDetailsCard, OrderStatusIndica
     CompletedOrders,
     TrackOrder,
 } from './Account';
+import Checkout from './checkout/Checkout';
 
 
 export { 
@@ -34,5 +35,6 @@ export {
     OrderStatusIndicator,
     OrdersCard,
     OrderDetailsCard,
-    TrackOrder
+    TrackOrder,
+    Checkout,
 };
