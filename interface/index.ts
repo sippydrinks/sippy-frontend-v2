@@ -26,7 +26,6 @@ export interface ActionPanelProps {
 	children?: React.ReactNode;
 	className?: string;
 	isOpen?: any;
-	isClose?: any;
 }
 
 export interface AuthBannerProps {

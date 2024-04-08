@@ -37,3 +37,17 @@ export interface FilterComponentProps {
 export interface productCategoryProps {
 	productName: string
 }
+export interface AddressDataProps {
+    state?: string
+    city?: string
+    address?: string
+    id: number
+}
+
+export interface AddressesFieldProps {
+    index: number
+    addressData?: any
+    addressesList?: any
+    items?: any
+    setItems?: any
+}

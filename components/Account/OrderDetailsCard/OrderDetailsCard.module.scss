@@ -1,0 +1,40 @@
+@import '@/styles/imports';
+
+.card {
+    width: 62rem;
+    height: 12rem;
+    @extend %flex-align;
+    gap: 2.4rem;
+    .card_image {
+        width: 12.2rem;
+        height: 12rem;
+        position: relative;
+    }
+    h3 {
+        color: $light-text-main;
+        @extend %text-24;
+        font-family: $font-700;
+    }
+    h2, p {
+        @extend %text-18;
+        font-family: $font-700;
+        color: $col-grey-light-stroke;
+    }
+    h2 {
+        margin-bottom: 0.4rem;
+    }
+    @include screenMax("mobile") {
+        .card_image {
+            width: 10rem;
+            height: 9.8rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+        }
+        h2, p {
+            font-size: 1.4rem;
+            line-height: 2.4rem;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useCallback, useState } from "react";
 import InputField from "../inputField/InputField";
 import styles from "./SearchBox.module.scss";
@@ -24,7 +24,7 @@ const SearchBox = ({
 	return (
 		<div className={`${styles.searchBox} ${className}`} onClick={onClick}>
 			<InputField
-				icon="/svgs/icon-search.svg"
+				// icon="/svgs/icon-search.svg"
 				onChange={e => onOptionChange!(e.target.value)}
 				placeholder={placeholder}
 				className={styles.input}

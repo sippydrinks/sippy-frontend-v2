@@ -1,0 +1,152 @@
+@import '@/styles/imports';
+
+.tabs {
+    padding: 1.6rem 1.6rem 2.4rem;
+    height: 50.4rem;
+    width: 30.1rem;
+    border: 0.4rem solid $col-grey-700;
+    flex-direction: column;
+    display: flex;
+    gap: 2.4rem;
+    border-radius: 1.6rem;
+    .profile_data, .orders_data {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        p {
+            font-family: $font-700;
+            @extend %text-14;
+            color: $col-grey-light-stroke;
+            margin-bottom: -2.4rem;
+        }
+        .tab_item {
+            @extend %flex-align;
+            gap: 1.6rem;
+            cursor: pointer;
+            .tab_icon {
+                position: relative;
+                width: 2.4rem;
+                height: 2.4rem;
+            }
+            h3 {
+                font-family: $font-700;
+                @extend %text-16;
+                color: $col-grey-500;
+            }
+            .active_tab {
+                color: $light-text-main;
+                font-family: $font-900;
+                @extend %text-16;
+            }
+            h4 {
+                color: $col-error-500;
+            }
+        }
+    }
+    .tab_item {
+        @extend %flex-align;
+        gap: 1.6rem;
+        .tab_icon {
+            position: relative;
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+        h4 {
+            font-family: $font-700;
+            @extend %text-16;
+            color: $col-error-500;
+        }
+        .icon {
+            width: 2.9rem;
+            height: 2.3rem;
+            position: relative;
+            margin-left: auto;
+        }
+    }
+
+    &[data-theme = "dark"] {
+        border-color: $col-white;
+        .profile_data, .orders_data {
+            p {
+                color: $col-white;
+            }
+            .tab_item {
+                h3, .active_tab {
+                    color: $col-white;
+                }
+            }
+        }
+    }
+
+    @include screenMax("mobile") {
+        padding: 1.6rem 1.6rem 2.4rem;
+        height: 50.4rem;
+        width: 100%;
+        border: 0;
+        flex-direction: column;
+        display: flex;
+        gap: 2.4rem;
+        border-radius: 1.6rem;
+        .profile_data,
+        .orders_data {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            p {
+                font-family: $font-700;
+                font-size: 1.4rem;
+                line-height: 2.4rem;
+                color: $col-grey-light-stroke;
+                margin-bottom: 0.8rem;
+            }
+            .tab_item {
+                display: flex;
+                align-items: center;
+                gap: 1.6rem;
+                cursor: pointer;
+                .tab_icon {
+                    position: relative;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                }
+                h3 {
+                    font-family: $font-700;
+                    font-size: 1.6rem;
+                    line-height: 2.4rem;
+                    color: $col-grey-500;
+                }
+                .active_tab {
+                    color: $light-text-main;
+                    font-family: $font-900;
+                    font-size: 1.6rem;
+                    line-height: 2.4rem;
+                }
+                h4 {
+                    color: $col-error-500;
+                }
+            }
+        }
+        .tab_item {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            .tab_icon {
+                position: relative;
+                width: 2.4rem;
+                height: 2.4rem;
+            }
+            h4 {
+                font-family: $font-700;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                color: $col-error-500;
+            }
+            .icon {
+                width: 2.9rem;
+                height: 2.3rem;
+                position: relative;
+                margin-left: auto;
+            }
+        }
+    }
+}

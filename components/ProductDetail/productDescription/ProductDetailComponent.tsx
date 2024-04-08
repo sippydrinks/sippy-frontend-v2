@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { ProductListing, ProductQtySummary, ProductSpecification } from './index';
 import { useGlobalContext } from '@/contexts/AppContext';

@@ -1,12 +1,7 @@
 import { VerifyTokenView } from '@/Views';
-import React from 'react';
 
-const VerifyToken = () => {
+export default function VerifyToken() {
 	return (
-		<div>
-			<VerifyTokenView />
-		</div>
+		<VerifyTokenView />
 	);
 };
-
-export default VerifyToken;

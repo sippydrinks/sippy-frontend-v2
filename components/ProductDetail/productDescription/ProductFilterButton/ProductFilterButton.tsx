@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react'
 import { ProductFilterProps } from '@/interface/productDetails'
 import styles from './ProductFilterButton.module.scss'

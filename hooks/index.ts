@@ -5,4 +5,11 @@ import useRecoverPassword from './authentication/useRecoverPassword';
 import { usePagination } from './usePagination';
 import useCheckout from './useCheckout';
 
-export { useValidateLogin, useValidateSignup, useRecoverPassword, usePagination, useNewPassword, useCheckout };
+export { 
+    useValidateLogin, 
+    useValidateSignup, 
+    useRecoverPassword,  
+    usePagination,
+    useNewPassword,
+    useCheckout,
+};

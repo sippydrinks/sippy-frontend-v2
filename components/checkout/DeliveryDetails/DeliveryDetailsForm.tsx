@@ -94,7 +94,7 @@ const DeliveryDetailsForm = ({ isGift, setShowLoginModal, setShowSignupModal, sh
 
 		// set the proceed button to active if all fields are valid
 		setActivateProceedBtn(isAllFieldsValid && (!isGift || isGiftFieldsValid));
-	}, [watchAllFields, isGift, shippingOption]);
+	}, [watchAllFields, isGift, shippingOption, setActivateProceedBtn]);
 
 	// function to handle the change button
 	const handleChangeButton = () => {

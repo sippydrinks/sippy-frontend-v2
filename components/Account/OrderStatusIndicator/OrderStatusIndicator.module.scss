@@ -1,0 +1,43 @@
+@import '@/styles/imports';
+
+.container {
+    @extend %flex-align;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+    .block_1, .block_2, .block_3, .block_4 {
+        width: 9.5rem;
+        height: 0.4rem;
+        border-radius: 0.8rem;
+        background: $col-grey-light-stroke;
+    }
+    @include screenMax("mobile") {
+        .block_1, .block_2, .block_3, .block_4 {
+            width: 8.275rem;
+        }
+    }
+    &[data-status = "Cancelled"] {
+        .block_1, .block_2, .block_3, .block_4 {
+            background: $col-grey-light-stroke;
+        }
+    }
+    &[data-status = "Delivered to you"] {
+        .block_1, .block_2, .block_3, .block_4 {
+            background: $col-success-500;
+        }
+    }
+    &[data-status = "Processing Order"] {
+        .block_1 {
+            background: $col-error-500;
+        }
+    }
+    &[data-status = "Order confirmed"] {
+        .block_1, .block_2 {
+            background: $col-coral-500;
+        }
+    }
+    &[data-status = "Out for delivery"] {
+        .block_1, .block_2, .block_3 {
+            background: $col-primary-default;
+        }
+    }
+}

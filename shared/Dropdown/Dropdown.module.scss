@@ -18,6 +18,7 @@
         color: $light-text-main;
         @extend %text-18;
         font-family: $font-500;
+        cursor: pointer;
     }
     @include screenMax("mobile") {
         // width: 43rem;

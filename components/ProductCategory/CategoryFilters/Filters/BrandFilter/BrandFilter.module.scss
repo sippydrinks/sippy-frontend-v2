@@ -13,20 +13,20 @@
         }
         input[type = 'checkbox'] {
             width: 2.4rem;
-                height: 2.4rem;
-                border: 0.2rem solid $col-grey-700;
-                cursor: pointer;
-                accent-color: $col-primary-default;
+            height: 2.4rem;
+            border: 0.2rem solid $col-grey-700;
+            cursor: pointer;
+            accent-color: $col-primary-default;
+            border-radius: 0.8rem;
+            // appearance: none;
+            // -webkit-appearance: none;
+            outline: none;
+            clip-path: circle(46% at 50% 50%);
+            &:checked {
+                appearance: auto;
                 border-radius: 0.8rem;
-                // appearance: none;
-                // -webkit-appearance: none;
-                outline: none;
-                clip-path: circle(46% at 50% 50%);
-                &:checked {
-                    appearance: auto;
-                    border-radius: 0.8rem;
-                    background-color: $col-primary-default;
-                }
+                background-color: $col-primary-default;
+            }
         }
         h3 {
             font-family: $font-700;

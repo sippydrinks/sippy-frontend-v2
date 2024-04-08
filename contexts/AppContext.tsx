@@ -1,6 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect, useContext, createContext, useMemo } from 'react';
+import { addressesData } from '@/mock';
 import useFetchAll from '@/hooks/useFetchAll';
 
 function GlobalHooks() {
@@ -29,6 +30,7 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const path = usePathname();
 	const [categoryHeight, setCategoryHeight] = useState<number>(0);
 	const [cart, setCart] = useState<any[]>([]);
+	const [address, setAddress] = useState<any>(addressesData);
 	const [drinkType, setDrinkType] = useState<'soft' | 'alcohol'>('soft');
 	const [theme, setTheme] = useState<'light' | 'dark'>('light');
 	const urlCheck = path.includes('/alcohol');
@@ -71,6 +73,8 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 				cartDetails,
 				productListing,
 				setProductListing,
+				address,
+				setAddress,
 			}}>
 			<GlobalHooks />
 			{children}

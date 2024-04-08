@@ -1,0 +1,278 @@
+@import '@/styles/imports';
+
+.trackOrder_container {
+    width: 100%;
+    .trackOrder_body  {
+        margin: 2.4rem 0 13.2rem;
+        padding: 0 4rem;
+        .breadcrumb {
+            @extend %flex-align;
+            gap: 0.8rem;
+            margin-bottom: 4rem;
+            .arrow {
+                width: 1.6rem;
+                height: 1.6rem;
+                position: relative;
+            }
+            p {
+                @extend %text-18;
+                color: $light-text-main;
+                font-family: $font-700;
+            }
+            a {
+                p {
+                    font-family: $font;
+                }
+            }
+        }
+        .delivery_details {
+            @extend %flex-align;
+            justify-content: space-between;
+            margin-bottom: 8.3rem;
+            .delivery_id {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                h3 {
+                    color: $light-text-main;
+                    @extend %text-18;
+                    font-family: $font;
+                    span {
+                        font-family: $font-900;
+                    }
+                }
+            }
+            .cancel_btn {
+                width: 22rem;
+                h3 {
+                    font-family: $font-900;
+                    @extend %text-18;
+                }
+            }
+            .delivery_time {
+                flex-direction: column;
+                display: flex;
+                gap: 0.8rem;
+                h3 {
+                    font-family: $font-700;
+                    color: $col-grey-500;
+                    @extend %text-18;
+                }
+                .time {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 0.8rem;
+                    h1, h3 {
+                        @extend %title-56;
+                        color: $light-text-main;
+                        font-family: $font-900;
+                    }
+                    p {
+                        font-family: $font-700;
+                        color: $col-grey-500;
+                        @extend %text-18;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        .progress_info {
+            margin: 0 auto 8rem;
+            width: 96.6rem;
+            .progress_bar {
+                margin-bottom: 1.6rem;
+                position: relative;
+                width: 100%;
+                height: 3.3rem;
+                @extend %flex-align;
+                .checkmark {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    position: relative;
+                }
+                .line1, .line2 {
+                    width: 28.1rem;
+                    height: 0.2rem;
+                    background: $col-success-500;
+                }
+                .line2 {
+                    background: $col-grey-light-stroke;
+                }
+                .circle {
+                    @extend %flex-center;
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    border: 0.24rem solid $col-grey-light-stroke;
+                    border-radius: 50%;
+                    background: $col-background-shade;
+                }
+            }
+            .progress_texts {
+                @extend %flex-align;
+                gap: 13.5rem;
+                .progress_text {
+                    h3 {
+                        color: $light-text-main;
+                        font-family: $font-700;
+                        @extend %text-18;
+                        margin-bottom: 0.8rem;
+                    }
+                    .text {
+                        height: 3.2rem;
+                        @extend %flex-center;
+                        padding: 0.4rem 1.6rem;
+                        background: $col-success-50;
+                        p {
+                            @extend %text-14;
+                            font-family: $font;
+                            color: $light-text-main;
+                        }
+                    }
+                }
+            }
+        }
+        .order_details {
+            width: 100%;
+            border-radius: 1.6rem;
+            border: 0.14rem solid #E3E3E3;
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            margin-bottom: 2.4rem;
+            h1 {
+                @extend %text-24;
+                color: $light-text-main;
+                font-family: $font-700;
+            }
+            .details_cards {
+                @extend %flex-align;
+                gap: 2.4rem;
+                flex-wrap: wrap;
+            }
+        }
+        .address_details {
+            width: 100%;
+            border-radius: 1.6rem;
+            border: 0.14rem solid #E3E3E3;
+            padding: 1.6rem;
+            @extend %flex-align;
+            justify-content: space-between;
+            .address {
+                width: 66.1rem;
+                p {
+                    font-family: $font-700;
+                    @extend %text-18;
+                    color: $col-grey-light-stroke;
+                }
+                h3 {
+                    font-family: $font-700;
+                    @extend %text-18;
+                    color: $light-text-main;
+                }
+            }
+            .details {
+                width: 34rem;
+                @extend %flex-align;
+                justify-content: space-between;
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.8rem;
+                    p {
+                        font-family: $font-700;
+                        @extend %text-18;
+                        color: $col-grey-light-stroke;
+                    }
+                    h3 {
+                        font-family: $font-700;
+                        @extend %text-18;
+                        color: $light-text-main;
+                    }
+                }
+            }
+        }
+        .cancel_btn_sm {
+            width: 100%;
+            display: none;
+        }
+    }
+    @include screenMax("mobile") {
+        .trackOrder_body {
+            margin: 1.6rem 0 10rem;
+            .breadcrumb {
+                margin-bottom: 1.6rem;
+            }
+            .delivery_details {
+                flex-direction: column;
+                gap: 2.4rem;
+                margin-bottom: 2.4rem;
+                .delivery_id {
+                    align-self: flex-start;
+                }
+                .cancel_btn {
+                    display: none;
+                }
+            }
+            .progress_info {
+                width: auto;
+                display: flex;
+                gap: 1.2rem;
+                margin-bottom: 2.4rem;
+                .progress_bar {
+                    flex-direction: column;
+                    height: auto;
+                    align-items: flex-start;
+                    width: auto;
+                    .checkmark, .circle {
+                        width: 2.4rem;
+                        height: 2.4rem;
+                    }
+                    .line1, .line2 {
+                        width: 0.2rem;
+                        height: 6.4rem;
+                        margin-left: 1rem;
+                    }
+                }
+                .progress_texts {
+                    flex-direction: column;
+                    gap: 2rem;
+                    .progress_text {
+                        .text {
+                            p {
+                                font-size: 1rem;
+                                line-height: 1.6rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .order_details {
+                gap: 1.6rem;
+                h1 {
+                    font-size: 1.8rem;
+                    line-height: 2.7rem;
+                }
+                .details_cards {
+                    gap: 1.6rem;
+                }
+            }
+            .address_details {
+                flex-direction: column;
+                gap: 1.6rem;
+                .address {
+                    width: auto;
+                }
+                .details {
+                    width: 100%;
+                }
+            }
+            .cancel_btn_sm {
+                margin-top: 2.4rem;
+                height: 4rem;
+                cursor: not-allowed;
+                display: block;
+            }
+        }
+    }
+}

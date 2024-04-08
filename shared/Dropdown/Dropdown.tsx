@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Dropdown.module.scss';
-import { useGlobalContext } from '@/contexts/AppContext';
+import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
 
 const Dropdown = () => {
-	const { theme } = useGlobalContext();
+	const { theme }: ContextProps = useGlobalContext();
 	return (
 		<div data-theme={theme} className={styles.dropdowncontainer}>
 			<Link href='/account'>

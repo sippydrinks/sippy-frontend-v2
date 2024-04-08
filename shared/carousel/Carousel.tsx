@@ -8,8 +8,8 @@ import styles from './Carousel.module.scss';
 const Carousel = ({ title, icon1, icon2, bgColor, isBorder = false, type = 'small' }: CarouselProps) => {
 	const { theme }: ContextProps = useGlobalContext();
 	return (
-		<div className={styles.container} data-type={type} data-isborder={isBorder} 
-			data-theme={theme} style={{background: `${bgColor}`}}
+		<div className={styles.container} data-title={title.length < 10} data-type={type} 
+			data-isborder={isBorder} data-theme={theme} style={{background: `${bgColor}`}}
 		>
 			<div className={`${styles.row}`}>
 				<div className={styles.icon}>

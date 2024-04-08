@@ -1,0 +1,41 @@
+@import '@/styles/imports';
+
+.address_container {
+    input {
+        &::placeholder {
+            font-family: $font-700;
+            color: $col-grey-500;
+        }
+    }
+    .edit_btn {
+        background: $col-primary-default;
+        width: 17.7rem;
+        margin: 2.4rem 0 5.6rem;
+        h4 {
+            @extend %text-16;
+            font-family: $font-900;
+            color: $col-white;
+        }
+    }
+    .change_btn {
+        background: $col-primary-default;
+        width: 21.3rem;
+        margin-top: 2.4rem;
+        h4 {
+            @extend %text-16;
+            font-family: $font-900;
+            color: $col-white;
+        }
+    }
+
+    @include screenMax('mobile') {
+        .change_btn {
+            width: 100%;
+            height: 4rem;
+            h4 {
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+            }
+        }
+    }
+}

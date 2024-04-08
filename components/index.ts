@@ -3,5 +3,38 @@ import Categories from './Categories/Categories';
 import ProductCategory from './ProductCategory/ProductCategory';
 import { Login, SignUp, RegistrationNotification, NewPassword, VerifyToken } from './authenticationPages';
 import ProductDetail from './ProductDetail/ProductDetail';
+import BasicInfo from './Account/BasinInfo/BasicInfo';
+import { Account, Tabs, Address, Favourites, OrderDetailsCard, OrderStatusIndicator, 
+    OrdersCard, 
+    OngoingOrders, 
+    CancelledOrders, 
+    CompletedOrders,
+    TrackOrder,
+} from './Account';
 import Checkout from './checkout/Checkout';
-export { ProductDetail, Login, SignUp, RegistrationNotification, NewPassword, VerifyToken, CartDetails, Categories, Checkout, ProductCategory };
+
+
+export { 
+    Login,
+    SignUp,
+    RegistrationNotification,
+    NewPassword,
+    VerifyToken,
+    CartDetails,
+    Categories,
+    ProductCategory,
+    ProductDetail,
+    BasicInfo,
+    Account,
+    Address,
+    Tabs,
+    Favourites,
+    CancelledOrders,
+    CompletedOrders,
+    OngoingOrders,
+    OrderStatusIndicator,
+    OrdersCard,
+    OrderDetailsCard,
+    TrackOrder,
+    Checkout,
+};

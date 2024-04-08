@@ -1,6 +1,7 @@
+'use client';
 import React, { useState } from 'react';
 import { Button, Counter } from '../../../../shared';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { ProductFilterButton } from '..';
 import { useGlobalContext } from '@/contexts/AppContext';
 import styles from './ProductQtySummary.module.scss';

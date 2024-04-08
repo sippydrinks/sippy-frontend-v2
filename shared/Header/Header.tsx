@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Dropdown, Logo, ThemeToggle, ButtonNav } from '@/shared';
 import { HeaderProps } from '@/interface';
 import { useGlobalContext } from '@/contexts/AppContext';
@@ -10,7 +10,9 @@ import styles from './Header.module.scss';
 
 const Header = ({ isNavButton = false }: HeaderProps) => {
 	const route = usePathname();
+	const router = useRouter()
 	const { theme, cartDetails, drinkType } = useGlobalContext();
+	const isCategoriesRoute = (route.includes('/alcohol') || route === '/' || route === '/categories')
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [collapsed, setCollapsed] = useState<boolean>(true);
 
@@ -19,13 +21,13 @@ const Header = ({ isNavButton = false }: HeaderProps) => {
 	const refNode = dropdownRef.current;
 	useEffect(() => {
 		if (!collapsed) {
-			document.body.classList.add('no-scroll');
+			document.body.style.overflow = 'hidden';
 		} else {
-			document.body.classList.remove('no-scroll');
+			document.body.style.overflow = 'auto';
 		}
 
 		return () => {
-			document.body.classList.remove('no-scroll');
+			document.body.style.overflow = 'auto';
 		};
 	}, [collapsed]);
 
@@ -55,15 +57,17 @@ const Header = ({ isNavButton = false }: HeaderProps) => {
 					<ThemeToggle />
 				</div>
 			</div>
-			<div className={styles[!collapsed ? 'header_wrapper' : 'header_wrapper__collapsed']} data-active={!collapsed}>
-				<div className={styles.mob_view}>
-					<ThemeToggle />
-				</div>
-				{!isNavButton && (
-					<div className={styles.buttons}>
-						<ButtonNav />
+			<div onClick={() => setCollapsed(true)} className={styles[!collapsed ? 'header_wrapper' : 'header_wrapper__collapsed']} data-active={!collapsed}>
+				<div className={styles.header_wrapper_body}>
+					{(isNavButton && isCategoriesRoute) && (
+						<div className={styles.buttons}>
+							<ButtonNav />
+						</div>
+					)}
+					<div className={`${styles.mob_view} ${styles.toggle_container}`}>
+						<ThemeToggle /> <p><span>{theme}</span> mode</p>
 					</div>
-				)}
+				</div>
 			</div>
 			<div ref={dropdownRef} data-route={route === '/checkout'} className={`${styles.small_row} ${styles.nav_buttons}`}>
 				<div className={styles.button_container}>
@@ -71,20 +75,15 @@ const Header = ({ isNavButton = false }: HeaderProps) => {
 						<Image src={`/svgs/search-${theme}.svg`} alt='icon' fill />
 					</div>
 				</div>
-				<div className={`${styles.button_container} ${styles.desk_view}`}>
-					<div className={styles.icon}>
-						<Image src={`/svgs/bell-${theme}.svg`} alt='icon' fill />
-					</div>
-				</div>
-				<div onClick={toggleDropdown} className={styles.button_container}>
+				<div onClick={() => router.push('/account')} className={styles.button_container}>
 					<div className={styles.icon}>
 						<Image alt='icon' fill src={`/svgs/User-${theme}.svg`} />
 					</div>
-					{isOpen && (
+					{/* {isOpen && (
 						<div className={styles.dropdownMenu}>
 							<Dropdown />
 						</div>
-					)}
+					)} */}
 				</div>
 				<div className={styles.mob_view}>
 					<Link href='/cart'>

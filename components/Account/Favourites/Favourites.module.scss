@@ -1,0 +1,28 @@
+@import '@/styles/imports';
+
+.cardDetails_container {
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid $col-grey-light-stroke;
+    border-radius: 1.6rem;
+    section {
+        padding: 2.4rem;
+        border-bottom: 0.2rem solid $col-grey-light-stroke;
+        justify-content: space-between;
+        &:nth-last-child(1) {
+            border-bottom: 0;
+        }
+    }
+    .emptyCart {
+        @extend %flex-center;
+        height: 100%;
+        h1 {
+            @extend %text-24;
+            font-family: $font-900;
+        }
+    }
+
+    @include screenMax('mobile') {
+        
+    }
+}
