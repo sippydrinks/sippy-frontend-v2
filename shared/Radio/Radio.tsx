@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "@/contexts/AppContext";
 import { CheckboxProps } from "@/interface";
-import styles from "./Radio.module.scssadio.module.scss";
+import styles from "./Radio.module.scss";
 
 const Radio = ({
 	label,
