@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { DrinkTypeProps } from "@/interface/home";
 import { ProductCard } from "../../../shared";
-import { ProductData } from "@/mock";
 import { useGlobalContext } from "@/contexts/AppContext";
 import { Button } from "../../../shared";
 import { usePathname } from "next/navigation";
 import { ProductCardProps } from "@/interface";
+import { ProductData } from "@/mock";
 import Image from "next/image";
 import styles from "./Catalog.module.scss";
 

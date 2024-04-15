@@ -14,7 +14,7 @@ import {
 	createMigrate,
 } from "redux-persist";
 import { updateStoreVersion } from "./global";
-import userSlice from "./slices/userSlice";
+import { addressSlice, userSlice } from "./slices";
 
 const PERSISTED_KEYS: string[] = ["user"];
 
@@ -37,6 +37,7 @@ const persistedReducer = persistReducer(
 	persistConfig,
 	combineReducers({
 		user: userSlice,
+		address: addressSlice,
 	})
 );
 

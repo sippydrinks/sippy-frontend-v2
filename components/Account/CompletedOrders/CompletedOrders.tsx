@@ -6,7 +6,7 @@ import styles from './CompletedOrders.module.scss'
 const CompletedOrders = () => {
   return (
     <div className={styles.completed_orders}>
-      {completedOrdersData.map((item, index) =>
+      {completedOrdersData.map((item: any, index: number) =>
         <OrdersCard
           key={index}
           orderStatus='Delivered to you'
