@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, InputField, ItemDetailsCard } from "@/shared";
 import { useGlobalContext } from "@/contexts/AppContext";
-import { ShoppingModal, DeleteDrinkModal } from "@/shared/modals";
+import { ShoppingModal } from "@/shared/modals";
 import { ChartLoader } from "@/shared/loaders";
 import { toast } from "react-hot-toast";
 import { CartDetailsCardProps } from "@/interface";
@@ -60,7 +60,7 @@ const CartDetails = () => {
 							<ChartLoader />
 						) : (
 						<>
-							{cartData.length > 0 ? 
+							{cartData.length > 0 ?
 								cartData.slice(0, 4).map((item: CartDetailsCardProps, index: number) => (
 									<ItemDetailsCard cardType="cart" key={index} {...item} />
 								))

@@ -14,7 +14,7 @@ import {
 	createMigrate,
 } from "redux-persist";
 import { updateStoreVersion } from "./global";
-import userSlice from "./slices/userSlice";
+import { userSlice } from "./slices";
 
 const PERSISTED_KEYS: string[] = ["user"];
 

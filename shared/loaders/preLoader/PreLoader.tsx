@@ -6,7 +6,7 @@ import styles from './PreLoader.module.scss';
 
 const PreLoader = () => {
 	const { theme } = useGlobalContext();
-	const [loading, setLoading] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true);
 	useEffect(() => {
 		const load = setTimeout(() => setLoading(false), 2000);
 		return () => {

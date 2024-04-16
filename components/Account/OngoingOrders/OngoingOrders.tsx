@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import OrdersCard from '../OrdersCard/OrdersCard'
 import { ongoingOrdersData } from '@/mock'
@@ -6,7 +7,7 @@ import styles from './OngoingOrders.module.scss'
 const OngoingOrders = () => {
   return (
     <div className={styles.ongoing_orders}>
-      {ongoingOrdersData.map((item, index) =>
+      {ongoingOrdersData.map((item: any, index: number) =>
         <OrdersCard
           key={index}
           orderStatus={item.orderStatus}

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { ContextProps, useGlobalContext } from '@/contexts/AppContext'
 import { Button, InputField } from '@/shared'
 import { useForm } from 'react-hook-form'
-import { AddressesFieldProps } from '@/interface/components';
+import { AddressDataProps, AddressesFieldProps } from '@/interface/components';
 import Image from 'next/image'
 import styles from './AddressField.module.scss'
 
@@ -14,7 +14,7 @@ const AddressField = ({ index, addressData, addressesList, items, setItems}: Add
     const address = watch('address')
     const state = watch('state')
     const city = watch('city')
-    const addressIndex = items.findIndex((item: any) => item.id === addressData.id);
+    const addressIndex = items.findIndex((item: AddressDataProps) => item.id === addressData.id);
 
     const handleSaveChanges = () => {
         setEditAddress(false)
@@ -22,14 +22,14 @@ const AddressField = ({ index, addressData, addressesList, items, setItems}: Add
     const handleDelete = () => {
 		if (addressIndex !== -1) {
 			const updatedList = addressesList.filter(
-				(address: any) => address.id !== addressesList[addressIndex].id
+				(address: AddressDataProps) => address.id !== addressesList[addressIndex].id
 			);
 			setItems(updatedList);
             console.log(updatedList, addressIndex);
 		}
 	};
     const makeDefaultAddress = (id: number) => {
-        const index = items.findIndex((address: any) => address.id === id);
+        const index = items.findIndex((address: AddressDataProps) => address.id === id);
 
         if (index !== -1 && index !== 0) {
           // Swap addresses
@@ -41,7 +41,8 @@ const AddressField = ({ index, addressData, addressesList, items, setItems}: Add
           items[index].id = id;
           setItems([...items]);
         }
-      };
+    };
+    
 
   return (
     <>

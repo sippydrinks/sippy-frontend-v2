@@ -53,7 +53,11 @@ const Product = (data: ProductCardProps, slug: string) => {
 				];
 			} else {
 				// If the item is not in the cart, create a new array with the added item
-				toast.success(`${isAlcoholCheck ? productData.productNameAlcohol : productData.productName} was added to cart`);
+				{isAlcoholCheck ? 
+					toast.success(`${productData.productNameAlcohol} was added to cart`) 
+				: 
+					toast.success(`${productData.productName} was added to cart`)
+				};
 				return [...prevCart, productData];
 			}
 		});
