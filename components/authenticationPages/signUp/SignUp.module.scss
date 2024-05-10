@@ -3,8 +3,27 @@
 .signIn_body {
 	width: 100%;
 	.signIn_text {
-		text-align: right;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
 		margin-bottom: 2.4rem;
+		.back_to_home {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			cursor: pointer;
+			.icon {
+				width: 2.4rem;
+				height: 2.4rem;
+				position: relative;
+			}
+			h3 {
+				font-family: $font-900;
+				color: $col-primary-default;
+				@extend %text-16;
+			}
+		}
 		p {
 			font-family: $font;
 			color: $col-grey-500;

@@ -1,18 +1,27 @@
 'use client';
 import React from 'react';
-import styles from './RecoverPassword.module.scss';
 import { Button, InputField, Logo } from '@/shared';
 import { useRecoverPassword } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import RecoverPasswordWrapper from '../RecoverPasswordWrapper/RecoverPasswordWrapper';
 import { AuthType } from '@/interface/authentication';
+import styles from './RecoverPassword.module.scss';
 
 const RecoverPassword = () => {
+	const router = useRouter()
 	const [type, toggleTab] = React.useState<AuthType>(AuthType.EMAIL);
 	const { register, handleSubmit, errors, submitForm }: any = useRecoverPassword({ type });
 
 	return (
 		<div className={styles.recover_password_page}>
+			<div onClick={() => router.back()} className={styles.back_to_home}>
+				<div className={styles.icon}>
+					<Image alt='arrow' src='/svgs/arrow_left.svg' fill />
+				</div>
+				<h3>Back</h3>
+			</div>
 			<div className={styles.form_container}>
 				<div className={styles.logo}>
 					<Logo />

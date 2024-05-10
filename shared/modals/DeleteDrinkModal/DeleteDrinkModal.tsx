@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react'
 import { ModalElement, InputField, Button } from '@/shared'
 import { ModalProps } from '@/interface'

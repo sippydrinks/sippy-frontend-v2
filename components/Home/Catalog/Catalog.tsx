@@ -12,7 +12,7 @@ import styles from "./Catalog.module.scss";
 
 const Catalog = ({ type }: DrinkTypeProps) => {
 	const { theme, drinkType, productListing } = useGlobalContext();
-	const [numberOfProducts, setNumberOfProducts] = useState<number>(12);
+	const [numberOfProducts, setNumberOfProducts] = useState<number>(16);
 	const checkArray = ProductData.length > numberOfProducts;
 	const route = usePathname();
 
@@ -45,13 +45,13 @@ const Catalog = ({ type }: DrinkTypeProps) => {
 				))}
 			</div>
 
-			{checkArray && (
+			{/* {checkArray && (
 				<div data-active={checkArray} data-route={route.includes('/alcohol')} className={styles.btn_wrapper}>
 					<Button onClick={handleViewMore} buttonType='primary' data-type={type} className={styles.view_more}>
 						<h3>View more drinks</h3>
 					</Button>
 				</div>
-			)}
+			)} */}
 		</div>
 	);
 };

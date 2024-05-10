@@ -1,16 +1,15 @@
-import type { Metadata } from 'next';
-import '@/styles/index.scss';
+'use client';
+import { usePathname } from 'next/navigation';
 import styles from './layout.module.scss';
 
-export const metadata: Metadata = {
-	title: 'Sippy Life',
-	description: 'Sippy Life',
-};
-
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
+	const pathname = usePathname()
+	const isRecoverPassword = pathname === '/recoverPassword'
 	return (
 		<div className={styles.auth_container}>
-			<div className={styles.auth_layout}>{children}</div>
+			<div data-path={isRecoverPassword} className={styles.auth_layout}>
+				{children}
+			</div>
 		</div>
 	);
 }

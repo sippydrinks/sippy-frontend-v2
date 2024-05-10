@@ -70,10 +70,12 @@
                     color: $col-success-500;
                 }
                 &[data-status = "Processing Order"] {
-                    color: $col-error-500;
+                    // color: $col-error-500;
+                    color: $col-primary-default;
                 }
                 &[data-status = "Order confirmed"] {
-                    color: $col-coral-500;
+                    color: $col-primary-default;
+                    // color: $col-coral-500;
                 }
                 &[data-status = "Out for delivery"] {
                     color: $col-primary-default;
@@ -84,6 +86,7 @@
     }
     .status {
         width: auto;
+        align-self: end;
         .order_btns {
             display: flex;
             flex-direction: column;

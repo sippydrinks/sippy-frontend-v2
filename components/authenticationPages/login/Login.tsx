@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { AuthComponent, Button, InputField } from '@/shared';
-import styles from './Login.module.scss';
+import Image from 'next/image';
 import { useValidateLogin } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 import { AuthType } from '@/interface/authentication';
+import styles from './Login.module.scss';
 
 const Login = () => {
 	const [type, setType] = useState<AuthType>(AuthType.EMAIL);
@@ -13,6 +14,14 @@ const Login = () => {
 	return (
 		<div className={styles.signIn_body}>
 			<div className={styles.signIn_text}>
+				<Link href='/'>
+					<div className={styles.back_to_home}>
+						<div className={styles.icon}>
+							<Image alt='arrow' src='/svgs/arrow_left.svg' fill />
+						</div>
+						<h3>Back to Homepage</h3>
+					</div>
+				</Link>
 				<p>
 					New to sippy? <Link href='/createAccount'>Create account</Link>
 				</p>

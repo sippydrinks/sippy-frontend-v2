@@ -1,5 +1,5 @@
 'use client';
-import { Footer, Header } from '@/shared';
+import { Header } from '@/shared';
 import styles from './layout.module.scss';
 import { ContextProps, useGlobalContext } from '@/contexts/AppContext';
 

@@ -25,3 +25,14 @@ export interface AccountProps {
     children?: React.ReactNode
     tabActive: number
 }
+
+export interface OngoingOrdersProps {
+    orderStatus?: string
+    orderNumber?: number
+    date?: string
+    totalPrice?: number
+    productImg1: string
+    productImg2: string
+    productImg3: string
+    productImg4: string
+}

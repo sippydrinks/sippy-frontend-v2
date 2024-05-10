@@ -105,9 +105,21 @@ const Header = ({ isNavButton = false }: HeaderProps) => {
 							<div className={styles.cart_icon}>
 								<Image alt='cart' fill src={`/svgs/cart-${theme}.svg`} />
 							</div>
-							<p data-type={theme} className={styles.cart_container_text}>
-								₦{cartDetails.cartAmount} ({cartDetails.cartQuantity})
-							</p>
+							{
+								(cartDetails.cartAmount || cartDetails.cartQuantity) ? 
+								(
+									<p data-type={theme} className={styles.cart_container_text}>
+										₦{cartDetails.cartAmount} ({cartDetails.cartQuantity})
+									</p>
+								) 
+								: 
+								(
+									<p data-type={theme} className={styles.cart_container_text}>
+										0 items
+									</p>
+								)
+							}
+							
 						</div>
 					</Link>
 				</div>

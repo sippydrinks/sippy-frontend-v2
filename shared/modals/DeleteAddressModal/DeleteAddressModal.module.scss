@@ -1,0 +1,66 @@
+@import '@/styles/imports';
+
+.modal_body_class {
+    width: 64.3rem;
+    .modal_body {
+        h3 {
+            text-align: center;
+            @extend %title-32;
+            color: $light-text-main;
+            font-family: $font-900;
+        }
+        p {
+            text-align: center;
+            margin: 0.8rem 0 2.4rem;
+            @extend %text-14;
+            color: $col-grey-500;
+        }
+        .btns {
+            width: 100%;
+            @extend %flex-align;
+            gap: 2.4rem;
+            margin-top: 2.4rem;
+            .back_btn {
+                width: 24.5rem;
+                background: $col-background-shade;
+                h3 {
+                    color: $col-primary-default;
+                }
+                
+            }
+            .delete_btn {
+                width: 24.5rem;
+                background: $col-primary-default;
+                h3 {
+                    color: $col-white;
+                }
+            }
+        }
+    }
+    @include screenMax("mobile") {
+        width: 100%;
+        margin: 0 1rem;
+        height: 28.8rem;
+        .modal_body {
+            h3 {
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+            }
+            p {
+                font-size: 1.4rem;
+                line-height: 2.4rem;
+            }
+            .btns {
+                justify-content: center;
+                .back_btn, .delete_btn {
+                    width: 15.2rem;
+                    height: 4rem;
+                    h3 {
+                        font-size: 1.2rem;
+                        line-height: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+}

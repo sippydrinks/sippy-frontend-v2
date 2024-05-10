@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, InputField, ItemDetailsCard } from "@/shared";
 import { useGlobalContext } from "@/contexts/AppContext";
-import { ShoppingModal } from "@/shared/modals";
+import { DeleteAddressModal, ShoppingModal } from "@/shared/modals";
 import { ChartLoader } from "@/shared/loaders";
 import { toast } from "react-hot-toast";
 import { CartDetailsCardProps } from "@/interface";
@@ -47,8 +47,8 @@ const CartDetails = () => {
 					<h3>Invite friends</h3>
 				</Button>
 			</div>
-			<ShoppingModal
-				modalImage="/svgs/modal-Image2.svg"
+			<DeleteAddressModal
+				modalImage="/svgs/modal-Image1.svg"
 				isOpen={isOpen}
 				onClose={closeModal}
 			/>

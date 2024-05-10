@@ -27,12 +27,14 @@
     }
     &[data-status = "Processing Order"] {
         .block_1 {
-            background: $col-error-500;
+            background: $col-primary-default;
+            // background: $col-error-500;
         }
     }
     &[data-status = "Order confirmed"] {
         .block_1, .block_2 {
-            background: $col-coral-500;
+            background: $col-primary-default;
+            // background: $col-coral-500;
         }
     }
     &[data-status = "Out for delivery"] {

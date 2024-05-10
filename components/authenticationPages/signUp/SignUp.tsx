@@ -1,12 +1,13 @@
 'use client';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { AuthComponent, Select } from '@/shared';
 import { Button, InputField } from '@/shared';
-import styles from './SignUp.module.scss';
 import { useValidateSignup } from '@/hooks';
 import AuthTabHeader from '../AuthTabHeader/AuthTabHeader';
 import { AuthType } from '@/interface/authentication';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './SignUp.module.scss';
 
 type Props = {
 	setIsRegistrationRequested: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,6 +20,14 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 	return (
 		<div className={styles.signIn_body}>
 			<div className={styles.signIn_text}>
+				<Link href='/'>
+					<div className={styles.back_to_home}>
+						<div className={styles.icon}>
+							<Image alt='arrow' src='/svgs/arrow_left.svg' fill />
+						</div>
+						<h3>Back to Homepage</h3>
+					</div>
+				</Link>
 				<p>
 					I am a sippite? <Link href='/login'>Sign in</Link>
 				</p>
@@ -67,11 +76,21 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 							</div>
 						)}
 						<div>
-							<InputField label='Password' type='password' isPassword placeholder='Enter password' register={register('password')} inputClass={errors?.password && styles.error_border} />
+							<InputField label='Password' type='password' 
+								isPassword 
+								placeholder='Enter password' 
+								register={register('password')} 
+								inputClass={errors?.password && styles.error_border} 
+							/>
 							<p className={styles.error_styles}>{errors?.password?.message}</p>
 						</div>
 						<div>
-							<Select options={hearAboutOptions} defaultOption='Select an option' className={errors?.get_to_know && styles.error_border} label='How did you hear about us?' onOptionChange={onOptionChange} />
+							<Select options={hearAboutOptions} 
+								defaultOption='Select an option' 
+								className={errors?.get_to_know && styles.error_border} 
+								label='How did you hear about us?' 
+								onOptionChange={onOptionChange} 
+							/>
 							<p className={styles.error_styles}>{errors?.get_to_know?.message}</p>
 						</div>
 					</div>
@@ -79,7 +98,7 @@ const SignUp = ({ setIsRegistrationRequested }: Props) => {
 			</form>
 			<div className={styles.signIn_text_mobile}>
 				<p>
-					I am a sippite? <Link href='/login'>Sign in</Link>
+					Sippite? <Link href='/login'>Login</Link>
 				</p>
 			</div>
 		</div>

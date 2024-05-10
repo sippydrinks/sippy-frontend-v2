@@ -10,7 +10,7 @@ import Bonanza from '@/shared/Bonanza/Bonanza';
 import ActionButtons from '../../ActionButtons/ActionButtons';
 
 const ProductQtySummary = ({ data, price, size, isSticky }: any) => {
-	const { themeColor, setCart, cart } = useGlobalContext();
+	const { theme, setCart, cart } = useGlobalContext();
 	const [counter, setCounter] = useState<number>(1);
 	const handleCountIncrease = () => {
 		setCounter((counter) => counter + 1);
@@ -20,12 +20,11 @@ const ProductQtySummary = ({ data, price, size, isSticky }: any) => {
 	};
 	const localCart = cart;
 	const itemIndex = localCart.findIndex((item: any) => item.id === data.id);
+	
 
 	return (
-		<div data-theme={themeColor} className={`${styles.productQtySummaryContainer} ${isSticky && styles.is_sticky}`}>
-			<div>
-				<h2 className={styles.productPrice}>₦{price}</h2>
-			</div>
+		<div data-theme={theme } className={`${styles.productQtySummaryContainer} ${isSticky && styles.is_sticky}`}>
+			<h2 className={styles.productPrice}>₦{price * counter}</h2>
 
 			<div className={styles.quantityBtn}>
 				<div>
@@ -39,7 +38,11 @@ const ProductQtySummary = ({ data, price, size, isSticky }: any) => {
 					))}
 				</div>
 			</div>
-			<ActionButtons price={price} />
+			<ActionButtons counter={counter} 
+				handleCountDecrease={handleCountDecrease} 
+				handleCountIncrease={handleCountIncrease} 
+				price={price} 
+			/>
 		</div>
 	);
 };

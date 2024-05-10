@@ -2,22 +2,16 @@
 import React from 'react'
 import OrdersCard from '../OrdersCard/OrdersCard'
 import { ongoingOrdersData } from '@/mock'
+import { OngoingOrdersProps } from '@/interface/account';
 import styles from './OngoingOrders.module.scss'
 
 const OngoingOrders = () => {
   return (
     <div className={styles.ongoing_orders}>
-      {ongoingOrdersData.map((item: any, index: number) =>
+      {ongoingOrdersData.map((item: OngoingOrdersProps, index: number) =>
         <OrdersCard
           key={index}
-          orderStatus={item.orderStatus}
-          productImg1={item.productImg1}
-          productImg2={item.productImg2}
-          productImg3={item.productImg3}
-          productImg4={item.productImg4}
-          orderNum={item.orderNumber}
-          totalPrice={item.totalPrice}
-          date={item.date}
+          {...item}
         />
       )}
     </div>

@@ -1,10 +1,10 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import styles from './Select.module.scss';
 import SmallLoader from '@/shared/loaders/smallLoader/SmallLoader';
 import { shortenTitle } from '@/utils';
 import SelectUpIcon from '@/shared/svgs/jsx/SelectUpIcon';
 import SelectDownIcon from '@/shared/svgs/jsx/SelectDownIcon';
+import styles from './Select.module.scss';
 
 // import { SelectOption } from "@/types";
 
@@ -78,17 +78,17 @@ const Select = ({ options, onOptionChange, defaultOptionIndex = -1, className, c
 
 				{isOpen && (
 					<div className={styles.select_body}>
-						<ul className={styles.select_listContainer}>
+						<div className={styles.select_listContainer}>
 							{options!.map((option: any, index) =>
 								index !== selectedOptionIndex ? (
-									<li onClick={onOptionClicked(index)} key={index} className={styles.select_listItem}>
+									<div onClick={onOptionClicked(index)} key={index} className={styles.select_listItem}>
 										<div className={styles.select_row}>
 											<p>{option.label}</p>
 										</div>
-									</li>
+									</div>
 								) : null
 							)}
-						</ul>
+						</div>
 					</div>
 				)}
 			</div>

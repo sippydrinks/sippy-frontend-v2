@@ -6,7 +6,6 @@ import { Accordion, ActionPanel } from "../../../../shared";
 import { usePathname, useRouter } from "next/navigation";
 import { FilterComponentProps } from "@/interface/components";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./FilterComponent.module.scss";
 
 const FilterComponent = ({ productName, handleCheckboxChange, checkedboxes, filterData, sizeFilterData, sizeCheckBoxes, handleSizeChange}: FilterComponentProps) => {
@@ -184,8 +183,8 @@ const FilterComponent = ({ productName, handleCheckboxChange, checkedboxes, filt
 								<Image alt="" fill src={`/svgs/plus-${theme}.svg`} />
 							</div>
 						</div>
-						<SizeFilter sizeFilterData={filterData} 
-							checkedboxes={checkedboxes}
+						<SizeFilter sizeFilterData={sizeFilterData} 
+							checkedboxes={sizeCheckBoxes}
 							handleCheckbox={handleSizeChange}
 						/>
 					</div>

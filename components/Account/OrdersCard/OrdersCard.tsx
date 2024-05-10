@@ -64,9 +64,9 @@ const OrdersCard = ({
         <div className={styles.status}>
             {orderStatus === 'Delivered to you' &&
                 <div data-theme={theme} data-active={isReview} className={styles.order_btns}>
-                    <Button buttonType='primary' className={styles.orderCard_btn}>
+                    {/* <Button buttonType='primary' className={styles.orderCard_btn}>
                         <h3>Add review</h3>
-                    </Button>
+                    </Button> */}
                     <Button buttonType='primary' className={styles.view_btn}>
                         <h3>Buy Again</h3>
                     </Button>
@@ -84,28 +84,28 @@ const OrdersCard = ({
             }
             {orderStatus === 'Order confirmed' &&
                 <div data-theme={theme} className={styles.order_btns}>
-                    <Button onClick={() => router.push('/account/trackOrder')} data-status={orderStatus} buttonType='primary' className={styles.orderCard_btn}>
+                    {/* <Button onClick={() => router.push('/account/trackOrder')} data-status={orderStatus} buttonType='primary' className={styles.orderCard_btn}>
                         <h3>Track order</h3>
-                    </Button>
+                    </Button> */}
                     <Button buttonType='primary' className={styles.view_btn}>
-                        <h3>View Drinks</h3>
+                        <h3>Track order</h3>
                     </Button>
                 </div> 
             }
             {orderStatus === 'Out for delivery' &&
                 <div data-theme={theme} className={styles.order_btns}>
-                    <Button onClick={() => router.push('/account/trackOrder')} data-status={orderStatus} buttonType='primary' className={styles.orderCard_btn}>
+                    {/* <Button onClick={() => router.push('/account/trackOrder')} data-status={orderStatus} buttonType='primary' className={styles.orderCard_btn}>
                         <h3>Track order</h3>
-                    </Button>
+                    </Button> */}
                     <Button buttonType='primary' className={styles.view_btn}>
-                        <h3>View Drinks</h3>
+                        <h3>Track order</h3>
                     </Button>
                 </div> 
             }
             {orderStatus === 'Processing Order' &&
                 <div data-theme={theme} className={styles.order_btns}>
                     <Button buttonType='primary' className={`${styles.view_btn} ${styles.views_btn}`}>
-                        <h3>View Drinks</h3>
+                        <h3>Track order</h3>
                     </Button>
                 </div> 
             }
