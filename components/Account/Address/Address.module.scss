@@ -1,12 +1,6 @@
 @import '@/styles/imports';
 
 .address_container {
-    input {
-        &::placeholder {
-            font-family: $font-700;
-            color: $col-grey-500;
-        }
-    }
     .edit_btn {
         background: $col-primary-default;
         width: 17.7rem;
