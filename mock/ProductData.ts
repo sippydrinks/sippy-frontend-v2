@@ -8,6 +8,7 @@ export default [
 		productPrice: 350,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
+		isPromo: true,
 		slug: 'coke-zero',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -19,6 +20,7 @@ export default [
 		productPrice: 700,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
+		isPromo: false,
 		slug: 'yoghurt',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -30,6 +32,7 @@ export default [
 		productPrice: 800,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 0,
+		isPromo: true,
 		slug: 'chivita',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -41,6 +44,7 @@ export default [
 		productPrice: 350,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
+		isPromo: false,
 		slug: 'cocacola',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -52,6 +56,7 @@ export default [
 		productPrice: 700,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
+		isPromo: true,
 		slug: 'fayrouz',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -63,6 +68,7 @@ export default [
 		productPrice: 800,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
+		isPromo: false,
 		slug: 'amstel-malt',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -74,6 +80,7 @@ export default [
 		productPrice: 350,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
+		isPromo: true,
 		slug: 'chi-exotic',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -85,6 +92,7 @@ export default [
 		productPrice: 700,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
+		isPromo: false,
 		slug: 'sprite',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -96,6 +104,7 @@ export default [
 		productPrice: 800,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
+		isPromo: true,
 		slug: 'fanta',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -107,6 +116,7 @@ export default [
 		productPrice: 350,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 104,
+		isPromo: false,
 		slug: 'hollandia',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -118,6 +128,7 @@ export default [
 		productPrice: 700,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 35,
+		isPromo: true,
 		slug: 'vitamilk',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -129,6 +140,7 @@ export default [
 		productPrice: 800,
 		productImage: '/svgs/coke.svg',
 		productQuantity: 10,
+		isPromo: false,
 		slug: 'smoothie',
 		productImageAlcohol: '/svgs/alcohol_icon.svg',
 	},
@@ -140,6 +152,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -150,6 +163,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -160,6 +174,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 0,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -170,6 +185,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -180,6 +196,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -190,6 +207,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 10,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -200,6 +218,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -210,6 +229,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -220,6 +240,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 10,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -230,6 +251,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -240,6 +262,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -250,6 +273,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 10,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -260,6 +284,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -270,6 +295,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -280,6 +306,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 0,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -290,6 +317,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -300,6 +328,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -310,6 +339,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 10,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -320,6 +350,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -330,6 +361,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -340,6 +372,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 10,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -350,6 +383,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 104,
+		isPromo: false,
 		slug: '',
 	},
 	{
@@ -360,6 +394,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 35,
+		isPromo: true,
 		slug: '',
 	},
 	{
@@ -370,6 +405,7 @@ export default [
 		productImage: '/svgs/coke.svg',
 		productImageAlcohol: '/svgs/alcohol_iconhol_icon.svg',
 		productQuantity: 10,
+		isPromo: false,
 		slug: '',
 	},
 ];

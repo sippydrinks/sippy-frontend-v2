@@ -3,9 +3,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ProductListing, ProductQtySummary, ProductSpecification } from './index';
 import { useGlobalContext } from '@/contexts/AppContext';
 import { useParams } from 'next/navigation';
+import { ProductData } from '@/mock';
 import Image from 'next/image';
 import styles from './styles.module.scss';
-import { ProductData } from '@/mock';
+import { Carousel } from '@/shared';
 
 const ProductDetailComponent = () => {
 	const { theme, productListing, drinkType, setDrinkType } = useGlobalContext();
@@ -48,8 +49,21 @@ const ProductDetailComponent = () => {
 		};
 	}, []);
 
+	console.log(product);
+
 	return (
 		<div className={styles.details_container}>
+			<div className={styles.carousel_container}>
+				{product?.isPromo && 
+					<Carousel isBorder 
+						bgColor={theme === 'light' ? '#EDFADE' : '#24380F'} 
+						title='BUY 5 GET 1 FREE'
+						icon1='/svgs/promo.svg'
+						icon2='/svgs/promo.svg'
+						type='x_small'
+					/>
+				}
+			</div>
 			<div className={styles.productBio}>
 				<div data-type={theme} className={styles.productBio_subtext}>
 					<p>Soda</p>

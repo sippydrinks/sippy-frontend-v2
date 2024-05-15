@@ -53,6 +53,22 @@
 			}
 		}
 	}
+	&[data-type='x_small'] {
+		padding: 1.6rem 0;
+		.row {
+			.text {
+				h1 {
+					font-family: $font-700;
+					font-size: 1.8rem;
+					line-height: 2.7rem;
+				}
+			}
+			.icon {
+				width: 3.2rem;
+				height: 3.2rem;
+			}
+		}
+	}
 	&[data-title = 'true'] {
 		.row {
 			animation: tinyscroll 15s linear infinite;

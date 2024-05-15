@@ -7,6 +7,7 @@ import Emailcard from './ShoppingModal/EmailCard/Emailcard';
 import SignUpSuccessModal from './SignUpSuccessModal/SignUpSuccessModal';
 import ViewcartModal from './ViewcartModal/ViewcartModal';
 import DeleteAddressModal from './DeleteAddressModal/DeleteAddressModal';
+import EditInfoModal from './EditInfoModal/EditInfoModal';
 import EditAddressModal from './EditAddressModal/EditAddressModal';
 
 export { CheckoutLoginModal, CheckoutSignupModal, DeleteDrinkModal, LeaveCartModal, 
@@ -14,6 +15,7 @@ export { CheckoutLoginModal, CheckoutSignupModal, DeleteDrinkModal, LeaveCartMod
     Emailcard, 
     SignUpSuccessModal, 
     ViewcartModal,
-    EditAddressModal,
+    EditInfoModal,
     DeleteAddressModal,
+    EditAddressModal,
 };

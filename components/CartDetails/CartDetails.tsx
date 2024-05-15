@@ -47,7 +47,7 @@ const CartDetails = () => {
 					<h3>Invite friends</h3>
 				</Button>
 			</div>
-			<DeleteAddressModal
+			<ShoppingModal
 				modalImage="/svgs/modal-Image1.svg"
 				isOpen={isOpen}
 				onClose={closeModal}

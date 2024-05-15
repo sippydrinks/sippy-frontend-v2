@@ -48,7 +48,7 @@ export interface CarouselProps {
 	icon1: string;
 	bgColor?: string;
 	icon2: string;
-	type?: 'small' | 'big';
+	type?: 'small' | 'big' | 'x_small';
 	isBorder?: boolean;
 }
 

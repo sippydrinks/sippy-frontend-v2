@@ -111,7 +111,7 @@
                     width: 100%;
                 }
                 .edit_number {
-                    width: 27rem;
+                    width: 100%;
                     height: 5.6rem;
                     margin-bottom: 0.1rem;
                     border-radius: 1.6rem;
@@ -127,17 +127,13 @@
                     height: 5.6rem;
                     width: 100%;
                 }
-                input[type = 'date'] {
-                    cursor: pointer;
-                    width: 3.5rem;
-                }
             }
         }
         .address_body_secondary {
             border-bottom: 0;
         }
     }
-    .save_btn, .change_btn {
+    .save_btn, .change_btn, .disabled_change_btn {
         background: $col-primary-default;
         width: 18.6rem;
         margin-top: 2.4rem;
@@ -146,6 +142,9 @@
             font-family: $font-900;
             color: $col-white;
         }
+    }
+    .save_btn {
+        width: 14.4rem;
     }
     .icon_class {
         width: 7.2rem;
@@ -168,8 +167,13 @@
     .save_btn {
         margin-bottom: 6.4rem;
     }
-    .change_btn {
+    .change_btn, .disabled_change_btn {
         width: 22rem;
+    }
+    .disabled_change_btn {
+        opacity: 0.4;
+        margin-top: 2.4rem;
+        cursor: not-allowed;
     }
     .password_input_fields {
         margin-top: 1.6rem;
@@ -185,6 +189,24 @@
             @extend %text-16;
             font-family: $font;
             color: $col-error-400
+        }
+    }
+    .date_input {
+        width: 2.5rem;
+        cursor: pointer;
+    }
+    input::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+    .edit_number_input {
+        @extend %text-18;
+        font-family: $font-700;
+        color: $light-text-main;
+        margin: 0;
+        height: 5.6rem;
+        width: 100%;
+        &::placeholder {
+            font-family: $font;
         }
     }
     &[data-theme = "dark"] {
@@ -218,6 +240,14 @@
             border-right: 0.1rem solid $col-white;
         }
     }
+
+    @include screenMax('tablet') {
+        .date_input {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
     @include screenMax("mobile") {
         margin-top: 2.4rem;
         h1 {
@@ -290,8 +320,8 @@
                 }
             }
         }
-        .save_btn, .change_btn {
-            width: 100%;
+        .save_btn, .change_btn, .disabled_change_btn {
+            width: 12.7rem;
             height: 4rem;
             h4 {
                 font-size: 1.2rem;
@@ -300,6 +330,10 @@
         }
         .save_btn {
             margin-bottom: 3.2rem;
+        }
+        .date_input {
+            width: 3.25rem;
+            height: 3.25rem;
         }
     }
 }

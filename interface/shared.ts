@@ -118,3 +118,42 @@ export interface CheckboxProps {
 	disabled?: boolean;
     value?: string | number
 }
+
+export interface DropdownProps {
+    text1?: string
+    text2?: string
+    text3?: string
+    icon1: string
+    icon2: string
+    icon3: string
+    index?: number
+    onClick: () => void
+    primaryAction: () => void
+    secondaryAction: () => void
+    type?: 'big' | 'small'
+}
+
+export interface DeleteAddressModalProps {
+    isOpen?: boolean
+    onClose: () => void
+    handleDelete: () => void
+}
+
+export interface EditAddressModalProps {
+    isOpen?: boolean
+    onClose: () => void
+    // handleSave: () => void
+    email?: React.JSX.Element
+    number?: React.JSX.Element
+    name?: React.JSX.Element
+    state?: React.JSX.Element
+    street?: React.JSX.Element
+    city?: React.JSX.Element
+}
+
+export interface EditInfoModalProps {
+    isOpen?: boolean
+    onClose: () => void
+    number?: React.JSX.Element
+    DOB?: React.JSX.Element
+}

@@ -7,7 +7,7 @@ export default [
     },
     {
         imgSrc: '/svgs/Youtube.svg',
-        link: 'https://www.x.com/sippy_life'
+        link: 'https://wa.me/2348161185271'
     },
     {
         imgSrc: '/svgs/Instagram.svg',

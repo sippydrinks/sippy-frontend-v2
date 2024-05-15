@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useGlobalContext, ContextProps } from '@/contexts/AppContext'
 import { Button, InputField } from '@/shared'
+import { EditInfoModal, EditAddressModal } from '@/shared/modals';
 import toast from 'react-hot-toast';
 import Image from 'next/image'
 import styles from './BasicInfo.module.scss'
@@ -11,7 +12,7 @@ const BasicInfo = () => {
   const currentPassword = 'DominicSavio'
   const { theme }: ContextProps = useGlobalContext()
   const { register, watch } = useForm()
-  const [isEditing, setIsEditing] = useState<any>({isNumber: false, isDate: false});
+  const [isEditing, setIsEditing] = useState<any>({isNumber: false, isDate: false, isOpen: false});
   const [message, setMessage] = useState<any>({errorMessage: '', successMessage: '', currentPasswordMessage: '', currentPasswordErrorMessage: ''})
   const [inputValues, setInputValues] = useState<any>({getDate: '', currentPassword: '',
     newPassword: '',
@@ -26,6 +27,12 @@ const BasicInfo = () => {
   const formatphoneNumber = phoneNumber?.startsWith(0) ? phoneNumber?.replace(0, '') : phoneNumber
   const passwordCheck = inputValues.newpassword?.toLowerCase() === inputValues.reEnternewpassword?.toLowerCase()
   
+  const openModal = () => {
+    setIsEditing({...isEditing, isOpen: true})
+	};
+	const closeModal = () => {
+    setIsEditing({...isEditing, isOpen: false})
+	};
   const handleSaveChanges = () => {
     setIsEditing({...isEditing, isNumber: false, isDate: false})
   }
@@ -62,6 +69,7 @@ const BasicInfo = () => {
       setMessage({...message, errorMessage: '', successMessage: ''})
     }
 	};
+  console.log(inputValues, inputValues.currentpassword?.length);
   
   return (
     <div data-theme={theme} className={styles.basic_info_container}>
@@ -89,36 +97,50 @@ const BasicInfo = () => {
           <div className={styles.address_body}>
             <h3>Phone number</h3>
             <div className={styles.edit_option}>
-              {isEditing.isNumber ?
-                <>
-                  <InputField register={register('phone_number')}
-                    className={styles.edit_number}
-                    inputClass={styles.edit_number_input}
-                  />
-                </>
-              : 
+              {!isEditing.isNumber &&
                 <>
                   <InputField disabled inputClass={styles.disabled_input_text}
                     className={styles.disabled_input}
-                    value={phoneNumber ? `+234 ${formatphoneNumber}` : `+234 345 345 345`} />
-                  <div onClick={() => setIsEditing({...isEditing, isNumber: true})} className={styles.edit_icon}>
+                    value={phoneNumber ? `+234 ${formatphoneNumber}` : `+234 345 345 345`} 
+                  />
+                  <div onClick={openModal} className={styles.edit_icon}>
                     <Image alt='' fill src={`/svgs/edit-${theme}.svg`} />
                   </div>
                 </>
               }
             </div>
           </div>
+          <EditInfoModal isOpen={isEditing.isOpen} onClose={closeModal}
+            number={
+              <InputField placeholder='Enter phone number' customPrefix='+234| ' 
+                className={styles.edit_number} inputClass={styles.edit_number_input} 
+                register={register('phone_number')} 
+              />
+            }
+            DOB={
+              <InputField suffixClass={styles.suffix_class} onChange={handleChange}
+                inputClass={styles.edit_number_input} 
+                value={inputValues.date ? inputValues.date : ''} 
+                className={styles.input_fields} placeholder='DD/MM/YYYY' 
+                suffix={
+                  <input className={styles.date_input} 
+                    {...register('date')} onChange={handleChange} 
+                    type='date' 
+                    name='date' 
+                    id='' 
+                  />
+                }  
+              />
+            }
+          />
+
           <div className={styles.address_body_secondary}>
             <h3>Birthday</h3>
             <div className={styles.edit_option}>
-              {isEditing.isDate ?
-                <input {...register('date')} type="date" name="date" id="" 
-                  onChange={handleChange}
-                />
-              : 
+              {!isEditing.isDate &&
                 <>
                   <h4>{inputValues.date ? inputValues.date : 'MM/DD/YYYY'}</h4>
-                  <div onClick={() => setIsEditing({...isEditing, isDate: true})} 
+                  <div onClick={openModal}
                     className={styles.edit_icon}
                   >
                     <Image alt='' fill src={`/svgs/edit-${theme}.svg`} />
@@ -127,45 +149,74 @@ const BasicInfo = () => {
               }
             </div>
           </div>
+          <EditInfoModal isOpen={isEditing.isOpen} onClose={closeModal}
+            number={
+              <InputField placeholder='Enter phone number' customPrefix='+234| ' 
+                className={styles.edit_number} inputClass={styles.edit_number_input} 
+                register={register('phone_number')} 
+              />
+            }
+            DOB={
+              <InputField suffixClass={styles.suffix_class} onChange={handleChange}
+                inputClass={styles.edit_number_input} 
+                value={inputValues.date ? inputValues.date : ''} 
+                className={styles.input_fields} placeholder='DD/MM/YYYY' 
+                suffix={
+                  <input className={styles.date_input} 
+                    {...register('date')} onChange={handleChange} 
+                    type='date' 
+                    name='date' 
+                    id='' 
+                  />
+                }  
+              />
+            }
+          />
         </div>
       </div>
-      {(isEditing.isNumber || isEditing.isDate) &&
-        <Button onClick={handleSaveChanges} buttonType='primary' className={styles.save_btn}>
-          <h4>Save changes</h4>
-        </Button>
-      }
+      <Button onClick={openModal} buttonType='primary' className={styles.save_btn}>
+        <h4>Edit Info</h4>
+      </Button>
 
       <h1>Change Password</h1>
-      <div className={styles.password_input_fields}>
-        <InputField name='currentpassword' placeholder='Type current password'
-          onChange={handleChange}
-          className={styles.password_input_field}
-          register={register('currentpassword')}
-        />
-        {(message.currentPasswordMessage && !message.currentPasswordErrorMessage) && 
-          <h3 className={styles.correct_password}>
-            {message.currentPasswordMessage}
-          </h3>
-        }
-        <InputField name='newpassword' placeholder='Type new password' onChange={handleChange}
-          className={styles.password_input_field}
-          register={register('newpassword')}
-          
-        />
-        <InputField name='reEnternewpassword' onChange={handleChange} 
-          placeholder='Retype new password'
-          register={register('reEnternewpassword')}
-        />
-        {message.errorMessage &&
-          <h3 className={styles.incorrect_password}>{message.errorMessage}</h3>
-        }
-        {passwordCheck && 
-          <h3 className={styles.correct_password}>{message.successMessage}</h3>
+      <div>
+        <div className={styles.password_input_fields}>
+          <InputField name='currentpassword' placeholder='Type current password'
+            onChange={handleChange}
+            className={styles.password_input_field}
+            register={register('currentpassword')}
+          />
+          {(message.currentPasswordMessage && !message.currentPasswordErrorMessage) && 
+            <h3 className={styles.correct_password}>
+              {message.currentPasswordMessage}
+            </h3>
+          }
+          <InputField name='newpassword' placeholder='Type new password' onChange={handleChange}
+            className={styles.password_input_field}
+            register={register('newpassword')}
+            
+          />
+          <InputField name='reEnternewpassword' onChange={handleChange} 
+            placeholder='Retype new password'
+            register={register('reEnternewpassword')}
+          />
+          {message.errorMessage &&
+            <h3 className={styles.incorrect_password}>{message.errorMessage}</h3>
+          }
+          {passwordCheck && 
+            <h3 className={styles.correct_password}>{message.successMessage}</h3>
+          }
+        </div>
+        {(inputValues?.currentpassword?.length === 0 || inputValues?.currentpassword?.length === undefined) ? 
+          <Button disabled buttonType='primary' className={styles.disabled_change_btn}>
+            <h4>Change password</h4>
+          </Button>
+        :
+          <Button onClick={handleChangePassword} buttonType='primary' className={styles.change_btn}>
+            <h4>Change password</h4>
+          </Button>
         }
       </div>
-      <Button onClick={handleChangePassword} buttonType='primary' className={styles.change_btn}>
-        <h4>Change password</h4>
-      </Button>
     </div>
   )
 }

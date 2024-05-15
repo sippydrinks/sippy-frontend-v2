@@ -3,7 +3,18 @@
 .modal_body_class {
     width: 64.3rem;
     .modal_body {
-        h3 {
+        display: flex;
+        flex-direction: column;
+        .close_btn {
+            width: 2.4rem;
+            height: 2.4rem;
+            position: relative;
+            rotate: 45deg;
+            align-self: end;
+            padding-right: 5rem;
+            margin-top: -1rem;
+        }
+        .header {
             text-align: center;
             @extend %title-32;
             color: $light-text-main;
@@ -20,6 +31,9 @@
             @extend %flex-align;
             gap: 2.4rem;
             margin-top: 2.4rem;
+            h3 {
+                @extend %text-16;
+            }
             .back_btn {
                 width: 24.5rem;
                 background: $col-background-shade;
@@ -42,7 +56,7 @@
         margin: 0 1rem;
         height: 28.8rem;
         .modal_body {
-            h3 {
+            .header {
                 font-size: 1.8rem;
                 line-height: 2.4rem;
             }
@@ -51,6 +65,10 @@
                 line-height: 2.4rem;
             }
             .btns {
+                h3 {
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                }
                 justify-content: center;
                 .back_btn, .delete_btn {
                     width: 15.2rem;

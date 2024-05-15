@@ -17,9 +17,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	inputRef?: any;
 	register?: any;
 	value?: any
+	suffixClass?: string
 }
 
-const InputField = ({ name, type = 'text', label, className, value, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
+const InputField = ({ name, type = 'text', label, className, value, suffixClass, inputClass, customPrefix, isPassword, suffix, register, inputRef, ...options }: Props) => {
 	const [inputType, setInputType] = useState<string>(type);
 	const handleShowPassword = () => {
 		if (inputType === 'password') {
@@ -49,7 +50,7 @@ const InputField = ({ name, type = 'text', label, className, value, inputClass, 
 					</div>
 				)}
 
-				{suffix && <div className={styles.suffix_container}>{suffix && <>{suffix}</>}</div>}
+				{suffix && <div className={`${styles.suffixClass} ${styles.suffix_container}`}>{suffix && <>{suffix}</>}</div>}
 			</div>
 		</div>
 	);
